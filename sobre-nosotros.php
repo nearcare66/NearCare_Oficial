@@ -20,9 +20,9 @@ session_start();
 
   <header class="navbar">
 
-    <div class="menu-icon">
-      ☰
-    </div>
+    <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+      &#9776;
+    </button>
 
     <div class="logo">
 
@@ -39,6 +39,23 @@ session_start();
     </nav>
 
   </header>
+
+  <div class="menu-overlay" data-close-menu></div>
+
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-menu-strip"></div>
+    <div class="side-menu-content">
+      <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
+      <a href="index.php">Inicio</a>
+      <a href="doctor-familiar.php">Familiar o doctor</a>
+      <a href="#">Familiar</a>
+      <a href="#">Doctor</a>
+      <hr>
+      <a href="sobre-nosotros.php" class="active">Sobre nosotros</a>
+      <a href="actualizaciones2.php">Actualizaciones</a>
+      <a href="#">Comentarios</a>
+    </div>
+  </aside>
 
   <div class="info-section">
 
@@ -135,5 +152,6 @@ session_start();
 
   </div>
 
+  <script src="menu.js"></script>
 </body>
 </html>
