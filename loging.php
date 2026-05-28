@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NearCare-Acceso</title>
 </head>
-    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="Css/styles2.css">
     
 <body>
 

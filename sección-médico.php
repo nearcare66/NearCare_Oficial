@@ -12,7 +12,7 @@ $doctorPath = "images/Copilot_20260526_215821.png";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $pageTitle; ?></title>
     <!-- Vinculación del archivo CSS externo -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="Css/styles.css">
 </head>
 <body>
 

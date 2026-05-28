@@ -12,7 +12,7 @@ session_start();
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styless.css">
+  <link rel="stylesheet" href="Css/styless.css">
 </head>
 <body>
 
@@ -41,7 +41,7 @@ session_start();
     <div class="side-menu-content">
       <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
       <a href="index.php" class="active">Inicio</a>
-      <a href="doctor-familiar.php">Familiar o doctor</a>
+      <a href="doctor-familiar.html">Familiar o doctor</a>
       <a href="#">Familiar</a>
       <a href="#">Doctor</a>
       <hr>
