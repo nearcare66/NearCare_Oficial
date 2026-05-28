@@ -159,7 +159,7 @@ if(isset($_POST['registrar'])){
 
   <div class="register-container">
 
-    <h1>Iniciar Sesion</h1>
+    <h1>Registrarse</h1>
 
     <form method="POST">
 
