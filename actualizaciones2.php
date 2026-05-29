@@ -13,13 +13,13 @@ session_start();
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styless.css">
+  <link rel="stylesheet" href="Css/styless.css">
 </head>
 <body>
 
   <header class="navbar">
 
-    <a href="index.php"class="back-arrow">←</a>s
+    <a href="index.php"class="back-arrow">←</a>
 
     <div class="logo">
       <img src="img/Designer (16).png" alt="logo">

@@ -1006,6 +1006,9 @@ body{
   font-size:42px;
   color:#0d3a7a;
   cursor:pointer;
+  background:transparent;
+  border:0;
+  line-height:1;
 }
 
 .back-arrow{
@@ -1167,4 +1170,85 @@ body{
     height:260px;
   }
 
+}
+
+/* SIDE MENU */
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.28);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:80;
+}
+
+.side-menu{
+  position:fixed;
+  top:0;
+  left:0;
+  width:290px;
+  max-width:82vw;
+  height:100vh;
+  background:#5d91c4;
+  transform:translateX(-100%);
+  transition:transform .3s ease;
+  z-index:90;
+  display:flex;
+  box-shadow:10px 0 25px rgba(0,0,0,.18);
+}
+
+.side-menu-strip{
+  width:34px;
+  flex:0 0 34px;
+  background:#263578;
+}
+
+.side-menu-content{
+  flex:1;
+  padding:22px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.side-menu-logo{
+  width:130px;
+  height:auto;
+  margin:0 auto 22px;
+}
+
+.side-menu a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  padding:8px 10px;
+  border-radius:18px;
+  transition:.2s;
+}
+
+.side-menu a:hover,
+.side-menu a.active{
+  background:#3f69c9;
+}
+
+.side-menu hr{
+  width:100%;
+  border:0;
+  border-top:1px solid rgba(255,255,255,.45);
+  margin:16px 0;
+}
+
+body.menu-open{
+  overflow:hidden;
+}
+
+body.menu-open .side-menu{
+  transform:translateX(0);
+}
+
+body.menu-open .menu-overlay{
+  opacity:1;
+  pointer-events:auto;
 }

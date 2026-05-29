@@ -32,7 +32,7 @@ if ($resultado->num_rows > 0) {
 
     $_SESSION['usuario'] = $nombre;
 
-    header("Location: ../homepage.php");
+    header("Location: ../index.php");
     exit();
 
 } else {
