@@ -4,17 +4,18 @@
   box-sizing:border-box;
 }
 body {
-  margin: 0;
-  padding: 0;
-}
+    margin: 0;
+    min-height: 100vh;
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+    background: linear-gradient(
+        180deg,
+        #bfe3e8 0%,
+        #cfeee3 50%,
+        #e6f6f2 100%
+    );
 
-  background: linear-gradient(135deg, #6fb1c9, #d9e2ec);
-  min-height: 100vh;
-
+    overflow: hidden;
+    position: relative;
 }
 
 main {
@@ -55,28 +56,10 @@ main {
 
 /* BOTÓN ATRÁS */
 .back-btn {
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-  border: 2px solid #0d3a7a;
-
-  font-size: 20px;
-  color: #0d3a7a;
-  text-decoration: none;
-
-  margin-right: 20px;
-
-  transition: 0.3s;
-}
-
-.back-btn:hover {
-  background: rgba(255,255,255,0.3);
-  transform: scale(1.1);
+  font-size: 30px;
+    color: #000;
+    text-decoration: none;
+    margin-top: -2px;
 }
 
 /* LOGO */
