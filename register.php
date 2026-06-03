@@ -158,7 +158,6 @@ if(isset($_POST['registrar'])){
   <div class="circle circle5"></div>
 
   <div class="register-container">
-
     <h1>Registrarse</h1>
 
     <form method="POST">

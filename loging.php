@@ -34,7 +34,7 @@
     </form>
 
     <div class="logo">
-        <img src="img/WhatsApp Image 2026-04-23 at 8.59.30 PM.png" alt="NearCare">
+        <img src="img/Designer (16).png" alt="NearCare">
     </div>
 
 </div>

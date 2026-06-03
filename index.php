@@ -47,7 +47,7 @@ session_start();
       <hr>
       <a href="sobre-nosotros.php">Sobre nosotros</a>
       <a href="actualizaciones2.php">Actualizaciones</a>
-      <a href="#">Comentarios</a>
+      <a href="Comentarios.php">Comentarios</a>
     </div>
   </aside>
 
