@@ -1251,4 +1251,5 @@ body.menu-open .side-menu{
 body.menu-open .menu-overlay{
   opacity:1;
   pointer-events:auto;
-}
+  
+} 

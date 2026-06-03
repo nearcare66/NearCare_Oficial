@@ -62,7 +62,7 @@ session_start();
 
       <p>
         Nosotros acercamos la distancia
-        con tecnologia e impacto humano
+        con tecnología e impacto humano
         para saber sobre el estado de tu familia.
       </p>
 
@@ -90,7 +90,7 @@ session_start();
 
       <div class="video-info">
         <h3>Mira como funciona NearCare</h3>
-        <p>Video de presentacion</p>
+        <p>Video de presentación</p>
         <span>1:35 min</span>
       </div>
 
@@ -112,7 +112,7 @@ session_start();
 
         <p>
           La distancia fisica es un obstaculo
-          para el cuidado y la atencion constante
+          para el cuidado y la atención constante
           de tus familiares.
         </p>
 
@@ -136,11 +136,11 @@ session_start();
 
         <img src="img/Designer (21).png">
 
-        <h3>Falta de informacion</h3>
+        <h3>Falta de información</h3>
 
         <p>
-          La falta de informacion clara puede
-          generar preocupacion e incertidumbre.
+          La falta de información clara puede
+          generar preocupación e incertidumbre.
         </p>
 
       </div>
@@ -153,12 +153,12 @@ session_start();
 
     <div class="about-text">
 
-      <h2>¿Que es NearCare?</h2>
+      <h2>¿Qué es NearCare?</h2>
 
       <p>
         NearCare es una plataforma digital
         de salud que conecta pacientes y profesionales,
-        facilitando citas, seguimiento y comunicacion.
+        facilitando citas, seguimiento y comunicación.
       </p>
 
     </div>
@@ -171,7 +171,7 @@ session_start();
 
   <div class="why">
 
-    <h2>¿Por que fue creado NearCare?</h2>
+    <h2>¿Por qué fue creado NearCare?</h2>
 
     <div class="why-cards">
 
@@ -183,7 +183,7 @@ session_start();
 
         <p>
           Existe dificultad para acceder
-          a atencion medica rapida y cercana.
+          a atención medica rápida y cercana.
         </p>
 
       </div>
@@ -192,11 +192,11 @@ session_start();
 
         <img src="img/Designer (23).png">
 
-        <h3>La solucion</h3>
+        <h3>La solución</h3>
 
         <p>
           NearCare conecta pacientes y profesionales
-          para mejorar la comunicacion y seguimiento.
+          para mejorar la comunicación y seguimiento.
         </p>
 
       </div>
