@@ -10,20 +10,24 @@ session_start();
 </head>
 <body>
     <main>
-    <header class="navbar">
+   
+<header class="navbar">
 
+  <div class="navbar-left">
     <a href="index.php" class="back-btn">←</a>
 
     <div class="logo">
-        <img src="img/Designer (16).png" alt="">
+      <img src="img/Designer (16).png" alt="">
     </div>
+  </div>
 
-    <div class="profile">
-        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
-        <span class="welcome">Bienvenido</span>
-    </div>
+  <div class="profile">
+    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+    <span class="welcome">Bienvenido</span>
+  </div>
 
-    </header>
+</header>
+
     </main>
 
     <div class="bg-bubbles">
