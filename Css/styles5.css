@@ -7,14 +7,9 @@
 
 /* BODY */
 body {
-<<<<<<< HEAD
     margin: 0;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-=======
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
->>>>>>> 6cb7126de4605c5807ed1c41c151a33b726839ed
 
   background: linear-gradient(
     180deg,

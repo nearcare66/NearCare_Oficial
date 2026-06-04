@@ -78,7 +78,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
     <!-- CARD IZQUIERDA -->
     <section class="card">
-      <h2>Familiar</h2>
+      <h2>Doctor</h2>
       <img src="img/doctor.png" alt="">
       <a href="loging.php">
          <button>Iniciar Sesión</button>
@@ -93,7 +93,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
     <!-- CARD DERECHA -->
     <section class="card">
-     <h2>Doctor</h2>
+     <h2>Familiar</h2>
      <img src="img/image.png" alt="">
       <a href="loging.php">
          <button>Iniciar Sesión</button>

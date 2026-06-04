@@ -14,20 +14,15 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 </head>
 <body>
     <main>
-<<<<<<< HEAD
+
     <header class="navbar">
     <?php if ($isLoggedIn): ?>
       <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
         &#9776;
       </button>
     <?php endif; ?>
-=======
-   
-<header class="navbar">
->>>>>>> 6cb7126de4605c5807ed1c41c151a33b726839ed
 
   <div class="navbar-left">
-    <a href="index.php" class="back-btn">←</a>
 
     <div class="logo">
       <img src="img/Designer (16).png" alt="">
@@ -39,14 +34,8 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <span class="welcome">Bienvenido</span>
   </div>
 
-</header>
-
-<<<<<<< HEAD
-    </header>
+  </header>
     <?php include "php/menu-lateral.php"; ?>
-=======
->>>>>>> 6cb7126de4605c5807ed1c41c151a33b726839ed
-    </main>
 
     <div class="bg-bubbles">
     <div class="b1"></div>
