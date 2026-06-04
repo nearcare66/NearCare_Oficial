@@ -58,17 +58,60 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
         </div>
 
         
-        <div class="comment-box">
-            <textarea placeholder="Escribe tu comentario..."></textarea>
-        </div>
+      <form id="formComentario">
 
+          <div class="comment-box">
+              <textarea name="comentario" placeholder="Escribe tu comentario..." required></textarea>
+          </div>
 
-        <button class="btn-enviar">Enviar</button>
+          <button type="submit" class="btn-enviar">Enviar</button>
+
+        </form>
+
+        <!-- NOTIFICACIÓN -->
+        <div id="notificacion" class="noti">✅ Comentario enviado</div>
 
     </div>
 
     <?php if ($isLoggedIn): ?>
       <script src="menu.js"></script>
     <?php endif; ?>
+    <script>
+      document.getElementById("formComentario").addEventListener("submit", function(e) {
+          e.preventDefault();
+
+          let formData = new FormData(this);
+
+          fetch("php/Comentarios-guardado.php", { // ✅ RUTA CORRECTA
+              method: "POST",
+              body: formData
+          })
+          .then(res => res.text())
+          .then(data => {
+
+              console.log("Respuesta:", data);
+
+              if (data.trim() === "ok") {
+
+                  let noti = document.getElementById("notificacion");
+
+                  noti.classList.add("show");
+
+                  setTimeout(() => {
+                      noti.classList.remove("show");
+                  }, 3000);
+
+                  document.querySelector("textarea").value = "";
+
+              } else {
+                  alert("Error del servidor:\n" + data);
+              }
+
+          })
+          .catch(error => {
+              alert("Error de conexión:\n" + error);
+          });
+      });
+    </script>
 </body>
 </html>
