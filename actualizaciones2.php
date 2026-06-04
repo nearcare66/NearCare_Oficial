@@ -1,5 +1,6 @@
 <?php
 session_start();
+$isLoggedIn = isset($_SESSION['usuario_id']);
 ?>
 
 <!DOCTYPE html>
@@ -14,10 +15,16 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="Css/styless.css">
+  <link rel="stylesheet" href="Css/session-menu.css">
 </head>
 <body>
 
   <header class="navbar">
+    <?php if ($isLoggedIn): ?>
+      <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+        &#9776;
+      </button>
+    <?php endif; ?>
 
     <a href="index.php"class="back-arrow">←</a>
 
@@ -35,6 +42,8 @@ session_start();
     </div>
 
   </header>
+
+  <?php include "php/menu-lateral.php"; ?>
 
   <div class="circle circle1"></div>
   <div class="circle circle2"></div>
@@ -132,5 +141,8 @@ session_start();
 
   </div>
 
+  <?php if ($isLoggedIn): ?>
+    <script src="menu.js"></script>
+  <?php endif; ?>
 </body>
 </html>

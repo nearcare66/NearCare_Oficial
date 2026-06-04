@@ -1,16 +1,25 @@
 <?php
 session_start();
+$isLoggedIn = isset($_SESSION['usuario_id']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>NearCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Css/styles5.css">
+  <link rel="stylesheet" href="Css/session-menu.css">
 </head>
 <body>
     <main>
     <header class="navbar">
+    <?php if ($isLoggedIn): ?>
+      <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+        &#9776;
+      </button>
+    <?php endif; ?>
 
     <a href="index.php" class="back-btn">←</a>
 
@@ -24,6 +33,7 @@ session_start();
     </div>
 
     </header>
+    <?php include "php/menu-lateral.php"; ?>
     </main>
 
     <div class="bg-bubbles">
@@ -56,5 +66,8 @@ session_start();
 
     </div>
 
+    <?php if ($isLoggedIn): ?>
+      <script src="menu.js"></script>
+    <?php endif; ?>
 </body>
 </html>

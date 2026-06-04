@@ -1,5 +1,6 @@
 <?php
 session_start();
+$isLoggedIn = isset($_SESSION['usuario_id']);
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +19,11 @@ session_start();
 
   <header class="navbar">
 
-    <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
-      &#9776;
-    </button>
+    <?php if ($isLoggedIn): ?>
+      <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+        &#9776;
+      </button>
+    <?php endif; ?>
 
     <div class="logo">
       <img src="img/Designer (16).png" alt="">
@@ -32,24 +35,30 @@ session_start();
       <a href="actualizaciones2.php">Actualizaciones</a>
     </nav>
 
+    <?php if ($isLoggedIn): ?>
+      <a class="logout-btn" href="php/logout.php">Cerrar sesi&oacute;n</a>
+    <?php endif; ?>
+
   </header>
 
-  <div class="menu-overlay" data-close-menu></div>
+  <?php if ($isLoggedIn): ?>
+    <div class="menu-overlay" data-close-menu></div>
 
-  <aside class="side-menu" id="sideMenu" aria-hidden="true">
-    <div class="side-menu-strip"></div>
-    <div class="side-menu-content">
-      <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
-      <a href="index.php" class="active">Inicio</a>
-      <a href="doctor-familiar.html">Familiar o doctor</a>
-      <a href="#">Familiar</a>
-      <a href="#">Doctor</a>
-      <hr>
-      <a href="sobre-nosotros.php">Sobre nosotros</a>
-      <a href="actualizaciones2.php">Actualizaciones</a>
-      <a href="Comentarios.php">Comentarios</a>
-    </div>
-  </aside>
+    <aside class="side-menu" id="sideMenu" aria-hidden="true">
+      <div class="side-menu-strip"></div>
+      <div class="side-menu-content">
+        <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
+        <a href="index.php" class="active">Inicio</a>
+        <a href="doctor-familiar.php">Familiar o doctor</a>
+        <a href="#">Familiar</a>
+        <a href="#">Doctor</a>
+        <hr>
+        <a href="sobre-nosotros.php">Sobre nosotros</a>
+        <a href="actualizaciones2.php">Actualizaciones</a>
+        <a href="Comentarios.php">Comentarios</a>
+      </div>
+    </aside>
+  <?php endif; ?>
 
   <div class="hero">
 
@@ -66,7 +75,7 @@ session_start();
         para saber sobre el estado de tu familia.
       </p>
 
-      <a href="doctor-familiar.html">
+      <a href="doctor-familiar.php">
         <button>¿Eres un familiar o un doctor?</button>
       </a>
 
@@ -205,6 +214,8 @@ session_start();
 
   </div>
 
-  <script src="menu.js"></script>
+  <?php if ($isLoggedIn): ?>
+    <script src="menu.js"></script>
+  <?php endif; ?>
 </body>
 </html>

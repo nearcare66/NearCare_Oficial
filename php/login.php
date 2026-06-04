@@ -1,43 +1,40 @@
 <?php
-
 session_start();
 
-$conexion = new mysqli("localhost", "root", "", "familiares");
+include("../conexion.php");
 
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
+$nombre = trim($_POST['nombre'] ?? '');
+$correo = trim($_POST['correo'] ?? '');
+$codigo = trim($_POST['codigo'] ?? '');
+
+if ($nombre === '' || $correo === '' || $codigo === '') {
+    echo "información incorrecta";
+    exit();
 }
 
-$nombre = $_POST['nombre'] ?? '';
-$codigo = $_POST['codigo'] ?? '';
-
-if (empty($nombre) || empty($codigo)) {
-    echo "Campos vacíos";
-    exit;
-}
-
-$stmt = $conexion->prepare("SELECT * FROM usuarios_nuevos WHERE nombre = ? AND codigo = ?");
+$stmt = $conexion->prepare("SELECT id, nombre, correo FROM usuarios_nuevos WHERE nombre = ? AND correo = ? AND codigo = ?");
 
 if (!$stmt) {
     die("Error en prepare: " . $conexion->error);
 }
 
-$stmt->bind_param("ss", $nombre, $codigo);
+$stmt->bind_param("sss", $nombre, $correo, $codigo);
 $stmt->execute();
 
 $resultado = $stmt->get_result();
 
 if ($resultado->num_rows > 0) {
+    $usuario = $resultado->fetch_assoc();
 
-
-    $_SESSION['usuario'] = $nombre;
+    $_SESSION['usuario_id'] = $usuario['id'];
+    $_SESSION['usuario'] = $usuario['nombre'];
+    $_SESSION['correo'] = $usuario['correo'];
 
     header("Location: ../index.php");
     exit();
-
-} else {
-    echo "ID o contraseña incorrectos";
 }
+
+echo "información incorrecta";
 
 $stmt->close();
 $conexion->close();

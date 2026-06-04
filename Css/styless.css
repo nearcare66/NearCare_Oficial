@@ -73,6 +73,24 @@ nav a:hover{
   background:#0e57d1;
   color:white;
 }
+
+.logout-btn{
+  text-decoration:none;
+  color:#ffffff;
+  background:#0d3a7a;
+  font-size:13px;
+  font-weight:600;
+  padding:8px 14px;
+  border-radius:8px;
+  margin-left:18px;
+  transition:.3s;
+  white-space:nowrap;
+}
+
+.logout-btn:hover{
+  background:#08275c;
+  transform:translateY(-1px);
+}
 .hero{
   display:flex;
   justify-content:space-between;

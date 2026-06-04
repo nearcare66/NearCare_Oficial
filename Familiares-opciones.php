@@ -1,15 +1,14 @@
-<<<<<<< HEAD
-=======
 <?php
 session_start();
+$isLoggedIn = isset($_SESSION['usuario_id']);
 ?>
->>>>>>> 54b4aa1dcd288ad5fe133c1ebee4be6351a1a10d
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>NearCare</title>
     <link rel="stylesheet" href="Css/styles4.css">
+    <link rel="stylesheet" href="Css/session-menu.css">
 </head>
 <body>
 
@@ -21,8 +20,12 @@ session_start();
 <div class="circle-corner"></div>
 
     <div class="left">
-        ☰
-        <span class="back">⟵</span>
+        <?php if ($isLoggedIn): ?>
+            <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+                &#9776;
+            </button>
+        <?php endif; ?>
+        <span class="back">âŸµ</span>
         <img src="img/Designer (16).png" class="logo" alt="NearCare">
     </div>
 
@@ -32,6 +35,8 @@ session_start();
     </div>
 </header>
 
+<?php include "php/menu-lateral.php"; ?>
+
 <div class="background-shapes">
     <div class="circle big"></div>
     <div class="circle small"></div>
@@ -39,10 +44,13 @@ session_start();
 </div>
 
 <div class="container">
-    <button>Ingrese el código del paciente</button>
-    <button>Generar código de acceso</button>
-    <button>Condición del paciente</button>
+    <button>Ingrese el cÃ³digo del paciente</button>
+    <button>Generar cÃ³digo de acceso</button>
+    <button>CondiciÃ³n del paciente</button>
 </div>
 
+<?php if ($isLoggedIn): ?>
+    <script src="menu.js"></script>
+<?php endif; ?>
 </body>
 </html>
