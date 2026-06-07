@@ -38,6 +38,7 @@ body{
     font-size: 36px;
     color: #17395e;
     cursor: pointer;
+    border-radius: 30px; /* CAMBIO */
 }
 
 /* FLECHA */
@@ -60,6 +61,7 @@ body{
     width: 190px;
     height: auto;
     display: block;
+    border-radius: 30px; /* CAMBIO */
 }
 
 /* ================= PERFIL ================= */
@@ -73,6 +75,7 @@ body{
 
 .profile img{
     width: 70px;
+    border-radius: 30px; /* CAMBIO */
 }
 
 .welcome-box{
@@ -136,8 +139,6 @@ body{
     margin-bottom: 28px;
 }
 
-
-
 .card:hover{
     transform: translateY(-10px);
     box-shadow: 0 25px 45px rgba(0,0,0,0.18);
@@ -148,6 +149,7 @@ body{
     height: auto;
     margin-bottom: 30px;
     transition: transform .4s ease;
+    border-radius: 30px; /* CAMBIO */
 }
 
 .card:hover img{
@@ -161,7 +163,7 @@ body{
     padding: 14px;
     margin: 10px 0;
     border: none;
-    border-radius: 40px;
+    border-radius: 30px; /* CAMBIO */
     background: linear-gradient(
         135deg,
         #3f88bf,
@@ -181,11 +183,6 @@ body{
     background: #ffffff;
     color: #3f88bf;
 }
-
-
-
-
-
 
 /* ================= LINEA CENTRAL ================= */
 
@@ -342,6 +339,7 @@ body{
   width:130px;
   height:auto;
   margin:0 auto 22px;
+  border-radius: 30px; /* CAMBIO */
 }
 
 .side-menu a{
@@ -349,7 +347,7 @@ body{
   text-decoration:none;
   font-weight:600;
   padding:8px 10px;
-  border-radius:18px;
+  border-radius:30px; /* CAMBIO */
   transition:.2s;
 }
 
@@ -376,5 +374,4 @@ body.menu-open .side-menu{
 body.menu-open .menu-overlay{
   opacity:1;
   pointer-events:auto;
-  
-} 
+}

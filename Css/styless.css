@@ -1271,3 +1271,33 @@ body.menu-open .menu-overlay{
   pointer-events:auto;
   
 } 
+/* ====== MODIFICACIÓN SOLICITADA ====== */
+
+/* TODOS LOS BOTONES */
+button{
+  border-radius:30px !important;
+}
+
+/* TODOS LOS BOTONES tipo link si usas */
+.selection-buttons button,
+.patient-buttons button,
+.hero-text button,
+.logout-btn{
+  border-radius:30px !important;
+}
+
+/* TODAS LAS IMÁGENES */
+img{
+  border-radius:30px !important;
+}
+
+/* Imágenes específicas (por si alguna no toma el global) */
+.hero-image img,
+.card img,
+.why-card img,
+.about-image img,
+.patient-image img,
+.profile img,
+.logo img{
+  border-radius:30px !important;
+}

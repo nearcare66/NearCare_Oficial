@@ -27,8 +27,10 @@ body {
     font-size: 22px;
 }
 
+/* IMAGEN */
 .logo {
     height: 45px;
+    border-radius: 30px; /* CAMBIO */
 }
 
 .right {
@@ -37,11 +39,12 @@ body {
     gap: 10px;
 }
 
+/* IMAGEN / AVATAR */
 .avatar {
     width: 40px;
     height: 40px;
     background: #8a6fd1;
-    border-radius: 50%;
+    border-radius: 30px; /* CAMBIO */
 }
 
 .bienvenido {
@@ -62,6 +65,7 @@ body {
     gap: 25px;
 }
 
+/* BOTONES */
 button {
     background: #4b92b5;
     color: white;
@@ -79,6 +83,11 @@ button {
 button:hover {
     transform: scale(1.05);
     opacity: 0.95;
+}
+
+/* TODAS LAS IMÁGENES */
+img {
+    border-radius: 30px; /* CAMBIO */
 }
 
 .circle-big {
@@ -120,4 +129,3 @@ button:hover {
     right: -80px;
     bottom: -80px;
 }
-

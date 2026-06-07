@@ -28,9 +28,10 @@
     letter-spacing: 0.5px;
 }
 
+/* BOTONES */
 .custom-btn{
     border: none;
-    border-radius: 14px;
+    border-radius: 30px; /* CAMBIO AQUÍ */
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -74,4 +75,9 @@
 
 .user-panel.logged .logout-btn{
     margin-top: 10px;
+}
+
+/* IMÁGENES */
+img{
+    border-radius: 30px; /* CAMBIO AQUÍ */
 }

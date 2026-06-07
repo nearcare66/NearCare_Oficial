@@ -44,6 +44,7 @@ body {
     margin-top: 5px;
 }
 
+/* BOTÓN */
 .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -51,6 +52,7 @@ body {
     width: 32px;
     height: 22px;
     cursor: pointer;
+    border-radius: 30px; /* CAMBIO */
 }
 
 .menu-toggle span {
@@ -68,10 +70,12 @@ body {
     filter: drop-shadow(1px 2px 3px rgba(12, 51, 80, 0.15));
 }
 
+/* IMAGEN */
 .logo-container img {
     height: 100%;
     width: auto;
     object-fit: contain;
+    border-radius: 30px; /* CAMBIO */
 }
 
 .nav-title {
@@ -154,10 +158,12 @@ body {
     z-index: 10;
 }
 
+/* IMAGEN */
 .doctor-img {
     height: 100%;
     display: block;
     object-fit: contain;
+    border-radius: 30px; /* CAMBIO */
 }
 
 .button-group {
@@ -170,11 +176,12 @@ body {
     top: -60px;
 }
 
+/* BOTONES */
 .btn {
     width: 100%;
     padding: 22px 24px;
     border: none;
-    border-radius: 50px;
+    border-radius: 30px; /* CAMBIO */
     font-size: 26px;
     font-family: 'Georgia', serif;
     color: white;
@@ -196,6 +203,11 @@ body {
 
 .btn-comments {
     background: linear-gradient(to bottom, #2ebd6a 0%, #1c8f4e 100%);
+}
+
+/* TODAS LAS IMÁGENES */
+img {
+    border-radius: 30px; /* CAMBIO */
 }
 
 @media (max-width: 900px) {
