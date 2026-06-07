@@ -158,12 +158,12 @@ body {
     z-index: 10;
 }
 
-/* IMAGEN */
+
 .doctor-img {
     height: 100%;
     display: block;
     object-fit: contain;
-    border-radius: 30px; /* CAMBIO */
+    border-radius: 30px; 
 }
 
 .button-group {
@@ -176,14 +176,14 @@ body {
     top: -60px;
 }
 
-/* BOTONES */
+
 .btn {
     width: 100%;
     padding: 22px 24px;
     border: none;
-    border-radius: 30px; /* CAMBIO */
+    border-radius: 30px; 
     font-size: 26px;
-    font-family: 'Georgia', serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
     cursor: pointer;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -205,9 +205,9 @@ body {
     background: linear-gradient(to bottom, #2ebd6a 0%, #1c8f4e 100%);
 }
 
-/* TODAS LAS IMÁGENES */
+
 img {
-    border-radius: 30px; /* CAMBIO */
+    border-radius: 30px; 
 }
 
 @media (max-width: 900px) {

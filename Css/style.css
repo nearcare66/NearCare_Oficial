@@ -5,12 +5,12 @@
 }
 
 body{
-  font-family:'Poppins',sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background:#eef9fb;
   color:#08275c;
 }
 
-/* ================= HEADER ================= */
+
 
 .navbar{
   width:100%;
@@ -22,7 +22,7 @@ body{
   padding:0 55px;
 }
 
-/* IZQUIERDA */
+
 
 .left-navbar{
     display: flex;
@@ -30,7 +30,6 @@ body{
     gap: 16px;
 }
 
-/* MENU */
 
 .menu-icon{
     background: none;
@@ -41,7 +40,7 @@ body{
     border-radius: 30px; /* CAMBIO */
 }
 
-/* FLECHA */
+
 
 .back-arrow{
     font-size: 34px;
@@ -50,7 +49,7 @@ body{
     margin-top: -2px;
 }
 
-/* LOGO */
+
 
 .logo{
     display: flex;
@@ -61,10 +60,10 @@ body{
     width: 190px;
     height: auto;
     display: block;
-    border-radius: 30px; /* CAMBIO */
+    border-radius: 30px; 
 }
 
-/* ================= PERFIL ================= */
+
 
 .profile{
     display: flex;
@@ -75,7 +74,7 @@ body{
 
 .profile img{
     width: 70px;
-    border-radius: 30px; /* CAMBIO */
+    border-radius: 30px; 
 }
 
 .welcome-box{
@@ -100,7 +99,7 @@ body{
     border-radius: 50%;
 }
 
-/* ================= MAIN ================= */
+
 
 .main-container{
     width: 100%;
@@ -113,7 +112,7 @@ body{
     padding: 40px 20p;
 }
 
-/* ================= TARJETAS ================= */
+
 
 .card{
     width: 380px;
@@ -149,14 +148,14 @@ body{
     height: auto;
     margin-bottom: 30px;
     transition: transform .4s ease;
-    border-radius: 30px; /* CAMBIO */
+    border-radius: 30px; 
 }
 
 .card:hover img{
     transform: scale(1.06);
 }
 
-/* ================= BOTONES ================= */
+
 
 .card button{
     width: 240px;
@@ -184,7 +183,7 @@ body{
     color: #3f88bf;
 }
 
-/* ================= LINEA CENTRAL ================= */
+
 
 .divider{
     width: 6px;
@@ -198,7 +197,7 @@ body{
     box-shadow: 0 0 15px rgba(53,88,141,.3);
 }
 
-/* ================= DECORACION ================= */
+
 
 .circle-left{
     position: absolute;
@@ -242,7 +241,7 @@ body{
     top: 20px;
 }
 
-/* ================= RESPONSIVE ================= */
+
 
 @media(max-width:900px){
 
@@ -294,7 +293,7 @@ body{
     }
 }
 
-/* SIDE MENU */
+
 
 .menu-overlay{
   position:fixed;
@@ -339,7 +338,7 @@ body{
   width:130px;
   height:auto;
   margin:0 auto 22px;
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px; 
 }
 
 .side-menu a{
@@ -347,7 +346,7 @@ body{
   text-decoration:none;
   font-weight:600;
   padding:8px 10px;
-  border-radius:30px; /* CAMBIO */
+  border-radius:30px; 
   transition:.2s;
 }
 

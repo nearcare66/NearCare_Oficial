@@ -1,0 +1,199 @@
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #b3d9ff, #e6f2ff);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  color: #0b2e4e;
+}
+
+
+.contenedor {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+
+.circulo {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #5b7bbd, #3a5fa0);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.c1 { width: 150px; height: 150px; top: 80px; right: 50px; }
+.c2 { width: 120px; height: 120px; top: 80px; left: 50px; }
+.c3 { width: 180px; height: 180px; bottom: 60px; right: 50px; }
+.c4 { width: 100px; height: 100px; bottom: 60px; left: 50px; }
+.c5 { width: 140px; height: 140px; top: 80px; left: 50%; transform: translateX(-50%); }
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #7ec0e6;
+  padding: 10px 30px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo { height: 45px; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bienvenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  color: #0b2e4e;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 20px;
+  border-radius: 30px;
+  width: 160px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bienvenido::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.titulo {
+  text-align: center;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: 600;
+  font-size: 22px;
+  padding: 12px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 600px;
+  margin: 30px auto 20px auto;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+}
+
+
+.formulario label {
+  font-weight: 600;
+  color: #0b2e4e;
+  background-color: #81c784; 
+  padding: 6px 10px;
+  border-radius: 10px;
+  width: 50%; 
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+}
+
+
+.formulario input {
+  width: 60%; 
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.formulario input::placeholder { color: #e0e0e0; }
+
+.formulario input:focus {
+  outline: none;
+  background-color: #357ab8;
+  box-shadow: 0 0 10px rgba(53, 122, 184, 0.6);
+}
+
+
+.formulario button {
+  background: linear-gradient(to right, #81c784, #66bb6a);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 25px;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.formulario button:hover {
+  background: linear-gradient(to right, #66bb6a, #4caf50);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ... tus estilos principales ... */
+
+/* ✅ Botón “Listo” */
+.formulario button:hover {
+  background: linear-gradient(to right, #66bb6a, #4caf50);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* 🎬 Animación de enfoque suave */
+@keyframes focusGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(53, 122, 184, 0);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(53, 122, 184, 0.4);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(53, 122, 184, 0.6);
+    transform: scale(1.01);
+  }
+}
+
+/* ✨ Aplicar animación al enfoque de los campos */
+.formulario input:focus {
+  outline: none;
+  background-color: #357ab8;
+  animation: focusGlow 0.4s ease forwards;
+}
+
+/* 💫 Efecto de transición general */
+.formulario input,
+.formulario button {
+  transition: all 0.3s ease;
+}
+

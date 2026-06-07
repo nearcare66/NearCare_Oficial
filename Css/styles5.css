@@ -1,15 +1,15 @@
-/* RESET */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY */
+
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     background: linear-gradient(
       180deg,
@@ -27,7 +27,6 @@ main {
   margin-top: 120px;
 }
 
-/* ================= HEADER ================= */
 
 .navbar {
   position: relative;
@@ -79,12 +78,12 @@ main {
   z-index: 1000;
 }
 
-/* BOTÓN ATRÁS */
+
 .back-btn {
   font-size: 32px;
   color: #0d3a7a;
   text-decoration: none;
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px;
   transition: 0.3s;
 }
 
@@ -92,40 +91,40 @@ main {
   transform: scale(1.2);
 }
 
-/* LOGO */
+
 .logo img {
   width: 170px;
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px; 
 }
 
-/* AGRUPAR FLECHA + LOGO */
+
 .navbar-left {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-/* Ajuste visual */
+
 .logo {
   display: flex;
   align-items: center;
 }
 
-/* PERFIL */
+
 .profile {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-/* IMAGEN PERFIL */
+
 .profile img {
   width: 50px;
   height: 50px;
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px; 
 }
 
-/* BIENVENIDO */
+
 .welcome {
   background: white;
   padding: 8px 20px;
@@ -136,7 +135,7 @@ main {
   box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
 }
 
-/* ================= CONTENIDO ================= */
+
 
 .container {
   text-align: center;
@@ -249,7 +248,7 @@ main {
   }
 }
 
-/* BOTÓN */
+
 .btn-enviar {
   margin-top: 15px;
 
@@ -259,7 +258,7 @@ main {
   border: none;
   padding: 14px 50px;
 
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px; 
   font-size: 17px;
 
   cursor: pointer;
@@ -273,7 +272,7 @@ main {
   transform: translateY(-3px) scale(1.05);
 }
 
-/* NOTIFICACIÓN */
+
 .noti {
   position: fixed;
   bottom: 30px;
@@ -307,7 +306,7 @@ main {
   letter-spacing: 0.5px;
 }
 
-/* TODAS LAS IMÁGENES */
+
 img {
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px; 
 }

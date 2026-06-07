@@ -9,7 +9,7 @@
   line-height: 1;
   display: grid;
   place-items: center;
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px; 
 }
 
 .menu-overlay {
@@ -49,24 +49,24 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family:  Arial, Helvetica, sans-serif;
 }
 
-/* IMAGEN */
+
 .side-menu-logo {
   width: 130px;
   height: auto;
   margin: 0 auto 22px;
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px;
 }
 
-/* BOTONES (links del menú) */
+
 .side-menu a {
   color: white;
   text-decoration: none;
   font-weight: 600;
   padding: 8px 10px;
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px;
   transition: 0.2s;
 }
 
@@ -95,7 +95,7 @@ body.menu-open .menu-overlay {
   pointer-events: auto;
 }
 
-/* IMÁGENES GENERALES */
+
 img {
-  border-radius: 30px; /* CAMBIO */
+  border-radius: 30px; 
 }

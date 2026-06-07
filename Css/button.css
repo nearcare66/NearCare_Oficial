@@ -28,10 +28,10 @@
     letter-spacing: 0.5px;
 }
 
-/* BOTONES */
+
 .custom-btn{
     border: none;
-    border-radius: 30px; /* CAMBIO AQUÍ */
+    border-radius: 30px; 
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -77,7 +77,6 @@
     margin-top: 10px;
 }
 
-/* IMÁGENES */
 img{
     border-radius: 30px; /* CAMBIO AQUÍ */
 }
