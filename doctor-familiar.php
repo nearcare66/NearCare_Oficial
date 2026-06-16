@@ -80,10 +80,10 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <section class="card">
       <h2>Doctor</h2>
       <img src="img/doctor.png" alt="">
-      <a href="loging.php">
+      <a href="doctor/login.html">
          <button>Iniciar Sesión</button>
       </a>
-     <a href="register.php">
+     <a href="doctor/register.html">
       <button>Registrarse</button>
      </a>
     </section>

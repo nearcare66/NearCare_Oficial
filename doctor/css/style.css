@@ -1,0 +1,303 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#cceef8;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    height:90px;
+    background:#7fc1da;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+}
+
+.left-navbar{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.menu-icon{
+    background:none;
+    border:none;
+    font-size:36px;
+    color:#17395e;
+    cursor:pointer;
+}
+
+.back-arrow{
+    width:52px;
+    height:52px;
+    border:4px solid #17395e;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:#17395e;
+    font-size:40px;
+    font-weight:bold;
+}
+
+.logo img{
+    width:140px;
+    border-radius:20px;
+}
+
+.role{
+    background:#dfe4ff;
+    padding:8px 55px;
+    border-radius:25px;
+    font-size:20px;
+    font-weight:bold;
+    font-family:Georgia, serif;
+}
+
+.welcome{
+    background:white;
+    padding:10px 18px;
+    border-radius:20px;
+    font-weight:bold;
+    font-family:Georgia, serif;
+}
+
+/* CONTENEDOR GENERAL */
+
+.main-container{
+    min-height:calc(100vh - 90px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+/* TARJETA */
+
+.form-container{
+    width:950px;
+    height:560px;
+
+    display:flex;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 40px rgba(0,0,0,.12);
+}
+
+/* LADO IMAGEN */
+
+.image-side{
+    width:50%;
+
+    background:linear-gradient(
+        180deg,
+        #89cde5,
+        #b7e5f4
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+.image-side img{
+    width:85%;
+    max-width:360px;
+
+    animation:float 3s ease-in-out infinite;
+}
+
+/* LADO FORMULARIO */
+
+.form-side{
+    width:50%;
+
+    background:rgba(255,255,255,.20);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:40px;
+}
+
+.form-side h2{
+    text-align:center;
+    color:#0d83c8;
+    font-size:32px;
+    margin-bottom:30px;
+    font-weight:800;
+}
+
+/* INPUTS */
+
+.form-side input{
+    width:100%;
+    height:48px;
+
+    border:none;
+    outline:none;
+
+    border-radius:25px;
+
+    margin-bottom:18px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    background:#eef7fc;
+}
+
+.form-side input::placeholder{
+    color:#73ace0;
+}
+
+/* TEXTO */
+
+.form-side p{
+    text-align:center;
+    margin:10px 0 20px;
+    font-size:14px;
+}
+
+.form-side a{
+    color:#0077cc;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* BOTÓN */
+
+.form-side button{
+    width:100%;
+    height:50px;
+
+    border:none;
+    border-radius:25px;
+
+    background:#1885c7;
+
+    color:white;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.form-side button:hover{
+    background:#0d6da7;
+}
+
+/* CÍRCULOS DECORATIVOS */
+
+.circle{
+    position:fixed;
+    border-radius:50%;
+    z-index:-1;
+
+    background:linear-gradient(
+        135deg,
+        #91b6d8,
+        #29418d
+    );
+}
+
+.circle1{
+    width:80px;
+    height:80px;
+    top:90px;
+    left:-35px;
+}
+
+.circle2{
+    width:55px;
+    height:55px;
+    top:85px;
+    left:130px;
+}
+
+.circle3{
+    width:70px;
+    height:70px;
+    bottom:100px;
+    left:180px;
+}
+
+.circle4{
+    width:95px;
+    height:95px;
+    top:190px;
+    right:30px;
+}
+
+.circle5{
+    width:220px;
+    height:220px;
+    bottom:-80px;
+    right:-80px;
+}
+
+/* ANIMACIÓN */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .form-container{
+        width:95%;
+        height:auto;
+        flex-direction:column;
+    }
+
+    .image-side{
+        width:100%;
+        height:250px;
+    }
+
+    .form-side{
+        width:100%;
+    }
+
+    .role{
+        display:none;
+    }
+}

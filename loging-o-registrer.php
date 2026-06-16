@@ -79,13 +79,13 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
    <div class="selection-buttons">
 
-  <a href="loging.php">
+  <a href="loging.html">
     <button>
       Iniciar Sesion
     </button>
   </a>
 
-   <a href="register.php">
+   <a href="register.html">
     <button>
       Registrarse
     </button>
