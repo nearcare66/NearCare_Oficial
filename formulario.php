@@ -11,12 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="Css/style7.css">
+    <link rel="stylesheet" href="Css/session-menu.css"> 
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-left">
-            <span class="menu-icon">&#9776;</span> 
+            <span class="menu-icon"></span> 
             <img src="img/Designer (16).png" alt="Logo NearCare" class="logo">
         </div>
 
@@ -37,13 +38,13 @@
         <form method="POST">
 
             <label>ID de paciente *</label>
-            <input type="text" name="id_paciente" placeholder="Ingrese el ID">
+            <input type="text" name="id_paciente" placeholder="">
 
             <label>Nombre completo del paciente *</label>
-            <input type="text" name="nombre" placeholder="Ingrese el nombre">
+            <input type="text" name="nombre" placeholder="">
 
             <label>Edad actual *</label>
-            <input type="text" name="edad" placeholder="Ingrese la edad">
+            <input type="text" name="edad" placeholder="">
 
             <label>Género *</label>
             <select name="genero">
@@ -53,16 +54,16 @@
             </select>
 
             <label>Condición del paciente *</label>
-            <input type="text" name="condicion" placeholder="Ingrese la condición">
+            <input type="text" name="condicion" placeholder="">
 
             <label>Médico responsable *</label>
-            <input type="text" name="medico" placeholder="Nombre del médico">
+            <input type="text" name="medico" placeholder="">
 
             <label>Hora de atención *</label>
-            <input type="time" name="hora">
+            <input type="time" name="">
 
             <label>Horario de visitas *</label>
-            <input type="text" name="visitas" placeholder="Ej: 1:00 PM - 4:00 PM">
+            <input type="text" name="visitas" placeholder="">
 
             <button type="submit">
                 Registrar Paciente
