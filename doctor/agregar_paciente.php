@@ -1,0 +1,114 @@
+<?php
+session_start();
+include("conexion.php");
+
+if(!isset($_SESSION['id_doctor'])){
+    header("Location: login.html");
+    exit();
+}
+
+$id_doctor = $_SESSION['id_doctor'];
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $nombre_completo = $_POST['nombre_completo'];
+    $nc = $_POST['nc'];
+    $edad = $_POST['edad'];
+    $genero = $_POST['genero'];
+    $fecha_ingreso = $_POST['fecha_ingreso'];
+    $motivo_ingreso = $_POST['motivo_ingreso'];
+    $condicion_paciente = $_POST['condicion_paciente'];
+    $diagnostico_medico = $_POST['diagnostico_medico'];
+
+    $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+    $foto = time() . "_" . rand(1000,9999) . "." . $extension;
+
+    move_uploaded_file(
+        $_FILES['foto']['tmp_name'],
+        "../img/" . $foto
+    );
+
+    $sql = "INSERT INTO pacientes 
+    (id_doctor, nombre_completo, nc, edad, genero, fecha_ingreso, motivo_ingreso, condicion_paciente, diagnostico_medico, foto)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param(
+        "ississssss",
+        $id_doctor,
+        $nombre_completo,
+        $nc,
+        $edad,
+        $genero,
+        $fecha_ingreso,
+        $motivo_ingreso,
+        $condicion_paciente,
+        $diagnostico_medico,
+        $foto
+    );
+
+    if($stmt->execute()){
+        header("Location: pacientes.php");
+        exit();
+    }else{
+        echo "Error al agregar paciente";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Paciente</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="left-navbar">
+        <a href="pacientes.php" class="back-arrow">‹</a>
+
+        <div class="logo">
+            <img src="../img/Designer (16).png" alt="NearCare">
+        </div>
+    </div>
+
+    <h1 class="titulo-pacientes">Agregar Paciente</h1>
+</nav>
+
+<div class="agregar-container">
+
+    <form action="agregar_paciente.php" method="POST" enctype="multipart/form-data" class="form-agregar">
+
+        <input type="text" name="nombre_completo" placeholder="Nombre completo" required>
+
+        <input type="text" name="nc" placeholder="Nc" required>
+
+        <input type="number" name="edad" placeholder="Edad" required>
+
+        <select name="genero" required>
+            <option value="">Género</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+        </select>
+
+        <input type="date" name="fecha_ingreso" required>
+
+        <input type="text" name="motivo_ingreso" placeholder="Motivo de ingreso" required>
+
+        <input type="text" name="condicion_paciente" placeholder="Condición del paciente" required>
+
+        <textarea name="diagnostico_medico" placeholder="Diagnóstico médico"></textarea>
+
+        <input type="file" name="foto" accept="image/*" required>
+
+        <button type="submit">Guardar paciente</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
