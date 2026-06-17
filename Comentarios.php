@@ -24,6 +24,8 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
   <div class="navbar-left">
 
+      <a href="javascript:history.back()" class="back-arrow">‹</a>
+
     <div class="logo">
       <img src="img/Designer (16).png" alt="">
     </div>

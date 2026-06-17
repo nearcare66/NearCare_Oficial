@@ -1,6 +1,9 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['usuario_id']);
+
+$isLoggedIn =
+    isset($_SESSION['id_doctor']) ||
+    isset($_SESSION['id_familiar']);
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +16,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css">
+  <link rel="stylesheet" href="Css/styless.css?v=2">
 </head>
 <body>
 
@@ -49,12 +52,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       <div class="side-menu-content">
         <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
         <a href="index.php" class="active">Inicio</a>
-        <a href="doctor-familiar.php">Familiar o doctor</a>
-        <a href="#">Familiar</a>
-        <a href="#">Doctor</a>
         <hr>
-        <a href="sobre-nosotros.php">Sobre nosotros</a>
-        <a href="actualizaciones2.php">Actualizaciones</a>
         <a href="Comentarios.php">Comentarios</a>
       </div>
     </aside>
@@ -75,9 +73,11 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
         para saber sobre el estado de tu familia.
       </p>
 
-      <a href="doctor-familiar.php">
-        <button>¿Eres un familiar o un doctor?</button>
-      </a>
+   <?php if(!$isLoggedIn): ?>
+  <a href="doctor-familiar.php" class="btn-green">
+    ¿Eres un familiar o un doctor?
+  </a>
+<?php endif; ?>
 
     </div>
 

@@ -310,3 +310,15 @@ main {
 img {
   border-radius: 30px; 
 }
+
+.back-arrow{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:#17395e;
+    font-size:40px;
+    font-weight:bold;
+}

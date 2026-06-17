@@ -120,23 +120,6 @@ nav a:hover{
   margin-bottom:35px;
 }
 
-.hero-text button{
-  background:#39c86f;
-  color:white;
-  border:none;
-  padding:18px 35px;
-  border-radius:14px;
-  font-size:20px;
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
-  box-shadow:0 10px 20px rgba(57,200,111,.3);
-}
-
-.hero-text button:hover{
-  transform:translateY(-5px);
-}
-
 .hero-image{
   width:45%;
   position:relative;
@@ -1300,4 +1283,23 @@ img{
 .profile img,
 .logo img{
   border-radius:30px !important;
+}
+
+.btn-green{
+  display:inline-block;
+  margin-top:35px;
+  padding:18px 38px;
+  background:#35c96f;
+  color:white;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:700;
+  border-radius:35px;
+  box-shadow:0 12px 25px rgba(53,201,111,.35);
+  transition:.3s;
+}
+
+.btn-green:hover{
+  background:#2eb762;
+  transform:translateY(-3px);
 }

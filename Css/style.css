@@ -1,69 +1,59 @@
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-  font-family: Arial, Helvetica, sans-serif;
-  background:#eef9fb;
-  color:#08275c;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#cceef8;
+    min-height:100vh;
+    overflow:hidden;
 }
 
-
+/* NAVBAR */
 
 .navbar{
-  width:100%;
-  height:90px;
-  background: #7fc1da;
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  padding:0 55px;
+    width:100%;
+    height:90px;
+    background:#7fc1da;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
 }
-
-
 
 .left-navbar{
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    display:flex;
+    align-items:center;
+    gap:16px;
 }
-
 
 .menu-icon{
-    background: none;
-    border: none;
-    font-size: 36px;
-    color: #17395e;
-    cursor: pointer;
-    border-radius: 30px; /* CAMBIO */
+    background:none;
+    border:none;
+    font-size:36px;
+    color:#17395e;
+    cursor:pointer;
 }
-
-
 
 .back-arrow{
-    font-size: 34px;
-    color: #000;
-    text-decoration: none;
-    margin-top: -2px;
-}
-
-
-
-.logo{
-    display: flex;
-    align-items: center;
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:#17395e;
+    font-size:40px;
+    font-weight:bold;
 }
 
 .logo img{
-    width: 190px;
-    height: auto;
-    display: block;
-    border-radius: 30px; 
+    width:140px;
+    border-radius:20px;
 }
-
-
 
 .profile{
     display: flex;
