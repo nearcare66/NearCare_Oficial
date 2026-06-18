@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include("../conexion.php");
 
 $nombre = trim($_POST['nombre'] ?? '');
@@ -19,7 +21,7 @@ if (!$stmt) {
 $stmt->bind_param("sss", $nombre, $correo, $codigo);
 
 if ($stmt->execute()) {
-    header("Location: ../index.php");
+    header("Location: ../loging.php");
     exit();
 }
 

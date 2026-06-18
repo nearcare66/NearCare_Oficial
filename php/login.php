@@ -29,8 +29,9 @@ if ($resultado->num_rows > 0) {
     $_SESSION['usuario_id'] = $usuario['id'];
     $_SESSION['usuario'] = $usuario['nombre'];
     $_SESSION['correo'] = $usuario['correo'];
+    $_SESSION['registro_nombre'] = $usuario['nombre'];
 
-    header("Location: ../index.php");
+    header("Location: ../registro2.php");
     exit();
 }
 
