@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="Css/style7.css">
     <link rel="stylesheet" href="Css/session-menu.css"> 
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
 
@@ -32,7 +33,7 @@
 
     <div class="contenedor">
 
-        <h1>Registrar Paciente</h1>
+        <h1>Registrar paciente</h1>
 
 
         <form method="POST">
@@ -66,7 +67,7 @@
             <input type="text" name="visitas" placeholder="">
 
             <button type="submit">
-                Registrar Paciente
+                Registrar paciente
             </button>
 
         </form>

@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION['id_doctor'])){
-    header("Location: login.html");
+    header("Location: login-form.php");
     exit();
 }
 ?>
