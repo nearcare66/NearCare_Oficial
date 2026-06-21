@@ -1,4 +1,35 @@
-<?php require_once __DIR__ . '/php/paciente-familiar-data.php'; ?>
+
+<?php 
+require_once __DIR__ . '/php/paciente-familiar-data.php'; 
+?>
+
+<?php
+if ($paciente) {
+
+    // ✅ ESTA ES LA SOLUCIÓN REAL
+    require_once "conexion.php";
+
+    $id_paciente = $paciente['id_paciente'];
+
+    // ✅ EVENTOS DEL MES
+    $queryEventos = "SELECT * FROM eventos 
+    WHERE id_paciente = $id_paciente 
+    AND MONTH(fecha) = 4 
+    AND YEAR(fecha) = 2026";
+
+    $resultEventos = mysqli_query($conn, $queryEventos);
+
+    $eventos = [];
+
+    while ($row = mysqli_fetch_assoc($resultEventos)) {
+        $dia = date('j', strtotime($row['fecha']));
+        $eventos[$dia][] = $row;
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +38,7 @@
   <title>Informacion del paciente</title>
   <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/paciente-familiar.css">
+  <link rel="stylesheet" href="css/calendario.css">
 </head>
 <body>
   <main class="page">
@@ -83,17 +115,77 @@
 
         <article class="calendar-card">
           <div class="section-label">Calendario</div>
-          <div class="calendar">
-            <h3>APRIL</h3>
-            <div class="calendar-grid">
-              <div class="day-name">SUN</div><div class="day-name">MON</div><div class="day-name">TUE</div><div class="day-name">WED</div><div class="day-name">THU</div><div class="day-name">FRI</div><div class="day-name">SAT</div>
-              <div></div><div></div><div>1</div><div></div><div>4</div><div></div><div>2</div>
-              <div>3</div><div class="event">Examen<br>de sangre</div><div>5</div><div>6</div><div>8</div><div>9</div><div>10</div>
-              <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
-              <div>18</div><div>19</div><div>20</div><div>21</div><div class="event orange">Extraccion<br>del apendice<br>apendicitis</div><div>23</div><div>24</div>
-              <div>25</div><div>26</div><div>27</div><div>28</div><div></div><div>30</div><div></div>
-              <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+
+          <div class="contenedor">
+
+            <!-- CALENDARIO -->
+            <div class="calendario">
+              <h3>ABRIL</h3>
+              <table>
+                <tr>
+                  <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th>
+                  <th>Jue</th><th>Vie</th><th>Sáb</th>
+                </tr>
+
+                <?php
+                $diasMes = 30;
+                $diaSemana = 2; // abril empieza martes
+
+                $contador = 1;
+
+                echo "<tr>";
+
+                for ($i = 0; $i < $diaSemana; $i++) {
+                  echo "<td></td>";
+                }
+
+                while ($contador <= $diasMes) {
+
+                  if (($diaSemana % 7) == 0) {
+                    echo "</tr><tr>";
+                  }
+
+                  echo "<td>";
+                  echo "<strong>$contador</strong>";
+
+                  if (isset($eventos[$contador])) {
+                    foreach ($eventos[$contador] as $evento) {
+                      echo "<div class='evento'>";
+                      echo $evento['titulo'];
+                      echo "</div>";
+                    }
+                  }
+
+                  echo "</td>";
+
+                  $contador++;
+                  $diaSemana++;
+                }
+
+                echo "</tr>";
+                ?>
+
+              </table>
             </div>
+
+            <!-- LISTA DE EVENTOS -->
+            <div class="lista-eventos">
+              <h4>Eventos</h4>
+
+              <?php
+              $queryLista = "SELECT * FROM eventos WHERE id_paciente = $id_paciente ORDER BY fecha ASC";
+              $resultLista = mysqli_query($conn, $queryLista);
+
+              while ($ev = mysqli_fetch_assoc($resultLista)) {
+                echo "<div class='item'>";
+                echo "<strong>" . date('d/m/Y', strtotime($ev['fecha'])) . "</strong><br>";
+                echo $ev['titulo'] . "<br>";
+                echo "<small>" . $ev['descripcion'] . "</small>";
+                echo "</div>";
+              }
+              ?>
+            </div>
+
           </div>
         </article>
 
