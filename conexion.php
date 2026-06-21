@@ -1,14 +1,9 @@
 <?php
+$conexion = new mysqli("localhost", "root", "", "familiares");
 
-$host = "localhost";
-$usuario = "root";
-$password = "";
-$database = "nearcare"; 
-
-$conn = mysqli_connect($host, $usuario, $password, $database);
-
-if (!$conn) {
-    die("Error de conexión: " . mysqli_connect_error());
+if ($conexion->connect_error) {
+    die("Error de conexion: " . $conexion->connect_error);
 }
 
+$conexion->set_charset("utf8mb4");
 ?>

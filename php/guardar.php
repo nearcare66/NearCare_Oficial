@@ -1,83 +1,32 @@
-/* PANEL GENERAL */
-.user-panel{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
+<?php
+session_start();
+
+include("../conexion.php");
+
+$nombre = trim($_POST['nombre'] ?? '');
+$correo = trim($_POST['correo'] ?? '');
+$codigo = trim($_POST['codigo'] ?? '');
+
+if ($nombre === '' || $correo === '' || $codigo === '') {
+    echo "Todos los campos son obligatorios";
+    exit();
 }
 
-.user-panel.logged{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+$stmt = $conexion->prepare("INSERT INTO usuarios_nuevos(nombre, correo, codigo) VALUES (?, ?, ?)");
+
+if (!$stmt) {
+    die("Error en prepare: " . $conexion->error);
 }
 
-/* CUADRO BIENVENIDA */
-.welcome-text{
-    background: linear-gradient(135deg, #5ac8fa, #3b82f6);
-    color: white;
-    padding: 20px 45px;
-    border-radius: 22px;
-    font-size: 22px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
-    text-align: center;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
+$stmt->bind_param("sss", $nombre, $correo, $codigo);
+
+if ($stmt->execute()) {
+    header("Location: ../loging.php");
+    exit();
 }
 
-/* BOTONES GENERALES */
-.custom-btn{
-    border: none;
-    border-radius: 14px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: Arial, Helvetica, sans-serif;
-}
+echo "Error al guardar: " . $stmt->error;
 
-/* BOTON REGISTRATE */
-.register-btn{
-    padding: 14px 30px;
-    font-size: 16px;
-    background: linear-gradient(135deg, #67e8f9, #22c1ee);
-}
-
-.register-btn:hover{
-    transform: translateY(-3px);
-    background: linear-gradient(135deg, #22c1ee, #06b6d4);
-}
-
-/* BOTON ACCESO */
-.login-btn{
-    padding: 14px 30px;
-    font-size: 16px;
-    background: linear-gradient(135deg, #93c5fd, #60a5fa);
-}
-
-.login-btn:hover{
-    transform: translateY(-3px);
-    background: linear-gradient(135deg, #60a5fa, #3b82f6);
-}
-
-/* BOTON CERRAR SESION */
-.logout-btn{
-    padding: 10px 20px;
-    font-size: 13px;
-    background: linear-gradient(135deg, #ff6b6b, #ef4444);
-    box-shadow: 0 5px 12px rgba(239, 68, 68, 0.25);
-}
-
-.logout-btn:hover{
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-}
-
-.user-panel.logged .logout-btn{
-    margin-top: 10px;
-}
+$stmt->close();
+$conexion->close();
+?>

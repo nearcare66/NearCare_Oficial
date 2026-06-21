@@ -3,7 +3,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Fondo */
 body {
     margin: 0;
     min-height: 100vh;
@@ -23,7 +22,6 @@ body {
     position: relative;
 }
 
-/* Contenedor principal */
 .container {
     width: 100%;
 
@@ -36,7 +34,6 @@ body {
     z-index: 2;
 }
 
-/* Formulario */
 form {
     width: 90%;
     max-width: 380px;
@@ -54,7 +51,6 @@ form {
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* Título */
 form::before {
     content: "NearCare Doctor ID";
 
@@ -66,7 +62,6 @@ form::before {
     margin-bottom: 30px;
 }
 
-/* Inputs */
 .input-field {
     width: 100%;
     height: 50px;
@@ -87,12 +82,11 @@ form::before {
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Placeholder */
 .input-field::placeholder {
     color: #777;
 }
 
-/* Botón */
+
 .submit-btn {
     width: 55%;
     height: 50px;
@@ -115,12 +109,10 @@ form::before {
     transition: 0.3s;
 }
 
-/* Hover */
 .submit-btn:hover {
     transform: scale(1.03);
 }
 
-/* Logo */
 .logo {
     margin-top: 30px;
 
@@ -129,12 +121,17 @@ form::before {
     align-items: center;
 }
 
+
 .logo img {
     width: 180px;
     height: auto;
+    border-radius: 30px; 
 }
 
-/* Círculos decorativos */
+img {
+    border-radius: 30px; 
+}
+
 body::before,
 body::after {
     content: "";
@@ -160,7 +157,6 @@ body::after {
     right: -90px;
 }
 
-/* Estilo general */
 .circle {
     position: absolute;
     border-radius: 50%;
@@ -174,7 +170,6 @@ body::after {
     z-index: 1;
 }
 
-/* Círculo 1 */
 .circle-one {
     width: 130px;
     height: 130px;
@@ -183,7 +178,6 @@ body::after {
     left: -40px;
 }
 
-/* Círculo 2 */
 .circle-two {
     width: 90px;
     height: 90px;
@@ -192,7 +186,6 @@ body::after {
     right: 60px;
 }
 
-/* Círculo 3 */
 .circle-three {
     width: 160px;
     height: 160px;
@@ -201,7 +194,6 @@ body::after {
     right: -50px;
 }
 
-/* Círculo 4 */
 .circle-four {
     width: 70px;
     height: 70px;
@@ -210,7 +202,6 @@ body::after {
     left: 80px;
 }
 
-/* Círculo 5 */
 .circle-five {
     width: 50px;
     height: 50px;
@@ -219,11 +210,93 @@ body::after {
     right: 250px;
 }
 
-/* Círculo 6 */
 .circle-six {
     width: 110px;
     height: 110px;
 
     bottom: 40px;
     left: 250px;
+}
+
+
+.user-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.user-panel.logged{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.welcome-text{
+    background: linear-gradient(135deg, #5ac8fa, #3b82f6);
+    color: white;
+    padding: 20px 45px;
+    border-radius: 22px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.custom-btn{
+    border: none;
+    border-radius: 30px; 
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.register-btn{
+    padding: 14px 30px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #67e8f9, #22c1ee);
+}
+
+.register-btn:hover{
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #22c1ee, #06b6d4);
+}
+
+
+.login-btn{
+    padding: 14px 30px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #93c5fd, #60a5fa);
+}
+
+.login-btn:hover{
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+
+.logout-btn{
+    padding: 10px 20px;
+    font-size: 13px;
+    background: linear-gradient(135deg, #ff6b6b, #ef4444);
+    box-shadow: 0 5px 12px rgba(239, 68, 68, 0.25);
+}
+
+.logout-btn:hover{
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.user-panel.logged .logout-btn{
+    margin-top: 10px;
 }

@@ -1,4 +1,6 @@
 <?php
+session_start();
+$isLoggedIn = isset($_SESSION['usuario_id']);
 // Configuración de rutas y textos dinámicos del proyecto PHP
 $pageTitle = "NearCare - Sección de Médico";
 $sectionTitle = "Sección de médico";
@@ -13,6 +15,7 @@ $doctorPath = "images/Copilot_20260526_215821.png";
     <title><?php echo $pageTitle; ?></title>
     <!-- Vinculación del archivo CSS externo -->
     <link rel="stylesheet" href="Css/styles.css">
+    <link rel="stylesheet" href="Css/session-menu.css">
 </head>
 <body>
 
@@ -20,11 +23,13 @@ $doctorPath = "images/Copilot_20260526_215821.png";
         
         <header class="navbar">
             <div class="nav-left">
-                <div class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <?php if ($isLoggedIn): ?>
+                    <button class="menu-toggle menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                <?php endif; ?>
                 <div class="logo-container">
                     <img src="<?php echo $logoPath; ?>" alt="Logo NearCare">
                 </div>
@@ -34,6 +39,8 @@ $doctorPath = "images/Copilot_20260526_215821.png";
             
             <div class="nav-spacer"></div>
         </header>
+
+        <?php include "php/menu-lateral.php"; ?>
 
         <main class="main-content">
             
@@ -57,5 +64,8 @@ $doctorPath = "images/Copilot_20260526_215821.png";
         </main>
     </div>
 
+    <?php if ($isLoggedIn): ?>
+        <script src="menu.js"></script>
+    <?php endif; ?>
 </body>
 </html>

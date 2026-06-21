@@ -1,17 +1,4 @@
-<?php
-session_start();
-$isLoggedIn = isset($_SESSION['usuario_id']);
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NearCare Registro</title>
-  <link rel="stylesheet" href="Css/session-menu.css">
-
-  <style>
-    * {
+* {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -53,7 +40,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       gap: 14px;
     }
 
-    .back-link {
+    .back-arrow {
       width: 47px;
       height: 47px;
       border: 3px solid #071e31;
@@ -71,6 +58,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       width: 112px;
       height: auto;
       display: block;
+      border-radius: 30px;
     }
 
     .family-pill {
@@ -152,11 +140,11 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       left: 4px;
     }
 
-    .register-card {
+    .welcome-card {
       width: min(330px, 86vw);
       min-height: 420px;
       background: linear-gradient(180deg, rgba(122, 191, 223, 0.72), rgba(208, 223, 241, 0.9));
-      border-radius: 30px;
+      border-radius: 17px;
       position: relative;
       z-index: 4;
       margin: 49px auto 0;
@@ -167,14 +155,23 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       box-shadow: 0 4px 18px rgba(56, 92, 120, 0.12);
     }
 
-    .register-card h1 {
+    .welcome-card h1 {
       color: #127bc0;
-      font-size: 28px;
-      margin-bottom: 42px;
+      font-size: 24px;
+      margin-bottom: 18px;
       font-weight: 800;
     }
 
-    .register-form {
+    .welcome-name {
+      color: #127bc0;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 44px;
+      text-align: center;
+      word-break: break-word;
+    }
+
+    .welcome-form {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -182,7 +179,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       gap: 24px;
     }
 
-    .register-form input {
+    .welcome-form input {
       width: 100%;
       max-width: 260px;
       height: 42px;
@@ -196,14 +193,14 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       padding: 0 18px;
     }
 
-    .register-form input::placeholder {
+    .welcome-form input::placeholder {
       color: #94c8e8;
     }
 
-    .action-submit {
+    .ready-button {
       width: 100%;
-      max-width: 260px;
-      height: 42px;
+      max-width: 180px;
+      height: 38px;
       border: 0;
       border-radius: 999px;
       background: #127bc0;
@@ -214,9 +211,29 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    .action-submit:hover {
+    .ready-button:hover {
       background: #0d66a0;
       transform: translateY(-2px);
+    }
+
+    .card-logo {
+      width: 112px;
+      height: auto;
+      display: block;
+      margin-top: 38px;
+      border-radius: 30px;
+    }
+
+    .sr-only {
+      width: 1px;
+      height: 1px;
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+      padding: 0;
+      margin: -1px;
     }
 
     .circle {
@@ -234,74 +251,73 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     }
 
     .circle-1 {
-      width: 96px;
-      height: 96px;
-      top: 86px;
+      width: 112px;
+      height: 112px;
+      top: 99px;
       left: -70px;
     }
 
     .circle-2 {
-      width: 92px;
-      height: 92px;
-      top: 130px;
-      left: -49px;
+      width: 94px;
+      height: 94px;
+      top: 118px;
+      left: -52px;
     }
 
     .circle-3 {
-      width: 48px;
-      height: 48px;
-      top: 86px;
-      left: 127px;
+      width: 46px;
+      height: 46px;
+      top: 82px;
+      left: 123px;
     }
 
     .circle-4 {
-      width: 72px;
-      height: 72px;
-      right: 82px;
-      top: 146px;
+      width: 68px;
+      height: 68px;
+      right: 76px;
+      top: 142px;
     }
 
     .circle-5 {
-      width: 92px;
-      height: 92px;
-      right: 31px;
-      top: 192px;
+      width: 91px;
+      height: 91px;
+      right: 25px;
+      top: 185px;
     }
 
     .circle-6 {
       width: 68px;
       height: 68px;
-      left: 185px;
-      bottom: 65px;
+      left: 180px;
+      bottom: 15px;
     }
 
     .circle-7 {
-      width: 100px;
-      height: 100px;
-      left: -50px;
-      bottom: -35px;
+      width: 95px;
+      height: 95px;
+      left: -47px;
+      bottom: -30px;
     }
 
     .circle-8 {
       width: 210px;
       height: 210px;
-      right: -72px;
-      bottom: -100px;
+      right: -116px;
+      bottom: -105px;
       background: linear-gradient(140deg, #4b75d6, #2e468c);
     }
 
     .circle-9 {
       width: 126px;
       height: 126px;
-      right: -62px;
-      bottom: 30px;
+      right: -95px;
+      bottom: 25px;
     }
 
-    @media (max-width: 780px) {
+    @media (max-width: 520px) {
       .page {
         width: 100vw;
         min-height: 100vh;
-        border: 0;
       }
 
       .navbar {
@@ -319,10 +335,6 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
         min-width: 100%;
       }
 
-      .brand {
-        width: 112px;
-      }
-
       .profile {
         margin-left: auto;
       }
@@ -332,63 +344,8 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
         font-size: 15px;
       }
 
-      .register-card {
+      .welcome-card {
         margin-top: 49px;
       }
     }
-  </style>
-</head>
-<body>
-  <main class="page">
-    <header class="navbar">
-      <div class="nav-left">
-        <?php if ($isLoggedIn): ?>
-          <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
-            &#9776;
-          </button>
-        <?php endif; ?>
-        <a href="doctor-familiar.php" class="back-link" aria-label="Regresar">&#8249;</a>
 
-        <img class="brand" src="img/Designer (16).png" alt="NearCare">
-      </div>
-
-      <div class="family-pill">Familiar</div>
-
-      <div class="profile">
-        <div class="user-icon" aria-hidden="true"></div>
-        <div class="welcome-box">
-          <span>Bienvenido</span>
-          <div class="toggle" aria-hidden="true"></div>
-        </div>
-      </div>
-    </header>
-
-    <?php include "php/menu-lateral.php"; ?>
-
-    <div class="circle circle-dark circle-1"></div>
-    <div class="circle circle-light circle-2"></div>
-    <div class="circle circle-light circle-3"></div>
-    <div class="circle circle-light circle-4"></div>
-    <div class="circle circle-dark circle-5"></div>
-    <div class="circle circle-light circle-6"></div>
-    <div class="circle circle-dark circle-7"></div>
-    <div class="circle circle-8"></div>
-    <div class="circle circle-light circle-9"></div>
-
-    <section class="register-card">
-      <h1>Registrate</h1>
-
-      <form class="register-form" action="php/guardar.php" method="POST">
-        <input type="text" name="nombre" placeholder="Nombre..." required>
-        <input type="email" name="correo" placeholder="Correo electronico" required>
-        <input type="password" name="codigo" placeholder="Codigo..." required>
-
-        <button class="action-submit" type="submit" name="registrar">Registrarse</button>
-      </form>
-    </section>
-  </main>
-  <?php if ($isLoggedIn): ?>
-    <script src="menu.js"></script>
-  <?php endif; ?>
-</body>
-</html>

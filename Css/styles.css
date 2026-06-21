@@ -3,7 +3,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Fondo */
 body {
     margin: 0;
     min-height: 100vh;
@@ -19,7 +18,6 @@ body {
     position: relative;
 }
 
-/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -34,11 +32,12 @@ body {
     );
 }
 
+/* BOTÓN */
 .back-btn {
     width: 40px;
     height: 40px;
 
-    border-radius: 50%;
+    border-radius: 30px; /* CAMBIO */
     border: 2px solid #000;
 
     background: transparent;
@@ -62,7 +61,6 @@ body {
     font-size: 15px;
 }
 
-/* Contenedor principal */
 .container {
     width: 100%;
 
@@ -78,7 +76,6 @@ body {
     z-index: 2;
 }
 
-/* Cuadro azul */
 .container::before {
     content: "";
 
@@ -101,9 +98,8 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.20);
 }
 
-/* Título */
 .container h2 {
-    color: white;
+    color: #2c6fb0;
 
     font-size: 42px;
     font-weight: bold;
@@ -111,7 +107,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* Formulario */
 form {
     width: 320px;
 
@@ -120,7 +115,6 @@ form {
     align-items: center;
 }
 
-/* Inputs */
 .input-field {
     width: 100%;
     height: 45px;
@@ -137,21 +131,24 @@ form {
     text-align: center;
     font-size: 15px;
 
-    background: #dfe5f2;
+    background: #ffffff;
+
+    color: #000;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Placeholder */
 .input-field::placeholder {
     color: #777;
 }
 
-/* Botón */
+
 .submit-btn {
     width: 100%;
     height: 45px;
 
     border: none;
-    border-radius: 25px;
+    border-radius: 30px; 
 
     background: #3cb878;
 
@@ -170,7 +167,6 @@ form {
     transform: scale(1.03);
 }
 
-/* Logo */
 .logo {
     margin-top: 50px;
 
@@ -179,80 +175,21 @@ form {
     align-items: center;
 }
 
+
 .logo img {
     width: 180px;
     height: auto;
+    border-radius: 30px; 
 }
 
-/* Círculos decorativos */
+
+img {
+    border-radius: 30px; 
+}
+
 .circle {
     position: absolute;
 
-    border-radius: 50%;
-
-    background: radial-gradient(
-        circle,
-        #3b5ba9,
-        #1c2c5b
-    );
-}
-
-.circle-left {
-    width: 120px;
-    height: 120px;
-
-    bottom: 80px;
-    left: -40px;
-}
-
-.circle-right {
-    width: 160px;
-    height: 160px;
-
-    top: 200px;
-    right: -60px;
-}
-/* Título */
-.container h2 {
-    color: #2c6fb0; /* azul */
-
-    font-size: 42px;
-    font-weight: bold;
-
-    margin-bottom: 40px;
-}
-
-/* Inputs */
-.input-field {
-    width: 100%;
-    height: 45px;
-
-    border: none;
-    border-radius: 25px;
-
-    margin-bottom: 18px;
-
-    padding: 0 20px;
-
-    outline: none;
-
-    text-align: center;
-    font-size: 15px;
-
-    background: #ffffff; /* blanco */
-
-    color: #000;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-/* Placeholder */
-.input-field::placeholder {
-    color: #777;
-}
-/* Círculos */
-.circle {
-    position: absolute;
     border-radius: 50%;
 
     background: radial-gradient(
@@ -264,7 +201,6 @@ form {
     z-index: 1;
 }
 
-/* Izquierda */
 .circle-left {
     width: 120px;
     height: 120px;
@@ -273,7 +209,6 @@ form {
     left: -40px;
 }
 
-/* Derecha */
 .circle-right {
     width: 160px;
     height: 160px;
@@ -282,7 +217,6 @@ form {
     right: -60px;
 }
 
-/* Arriba */
 .circle-top {
     width: 90px;
     height: 90px;
@@ -291,7 +225,6 @@ form {
     left: 200px;
 }
 
-/* Abajo */
 .circle-bottom {
     width: 140px;
     height: 140px;
@@ -300,7 +233,6 @@ form {
     right: 250px;
 }
 
-/* Centro */
 .circle-center {
     width: 70px;
     height: 70px;
@@ -309,7 +241,6 @@ form {
     left: 120px;
 }
 
-/* Pequeño */
 .circle-small {
     width: 50px;
     height: 50px;

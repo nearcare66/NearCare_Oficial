@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+$isLoggedIn =
+    isset($_SESSION['id_doctor']) ||
+    isset($_SESSION['id_familiar']);
 ?>
 
 <!DOCTYPE html>
@@ -12,15 +16,17 @@ session_start();
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css">
+  <link rel="stylesheet" href="Css/styless.css?v=2">
 </head>
 <body>
 
   <header class="navbar">
 
-    <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
-      &#9776;
-    </button>
+    <?php if ($isLoggedIn): ?>
+      <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+        &#9776;
+      </button>
+    <?php endif; ?>
 
     <div class="logo">
       <img src="img/Designer (16).png" alt="">
@@ -32,24 +38,25 @@ session_start();
       <a href="actualizaciones2.php">Actualizaciones</a>
     </nav>
 
+    <?php if ($isLoggedIn): ?>
+      <a class="logout-btn" href="php/logout.php">Cerrar sesi&oacute;n</a>
+    <?php endif; ?>
+
   </header>
 
-  <div class="menu-overlay" data-close-menu></div>
+  <?php if ($isLoggedIn): ?>
+    <div class="menu-overlay" data-close-menu></div>
 
-  <aside class="side-menu" id="sideMenu" aria-hidden="true">
-    <div class="side-menu-strip"></div>
-    <div class="side-menu-content">
-      <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
-      <a href="index.php" class="active">Inicio</a>
-      <a href="doctor-familiar.html">Familiar o doctor</a>
-      <a href="#">Familiar</a>
-      <a href="#">Doctor</a>
-      <hr>
-      <a href="sobre-nosotros.php">Sobre nosotros</a>
-      <a href="actualizaciones2.php">Actualizaciones</a>
-      <a href="#">Comentarios</a>
-    </div>
-  </aside>
+    <aside class="side-menu" id="sideMenu" aria-hidden="true">
+      <div class="side-menu-strip"></div>
+      <div class="side-menu-content">
+        <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
+        <a href="index.php" class="active">Inicio</a>
+        <hr>
+        <a href="Comentarios.php">Comentarios</a>
+      </div>
+    </aside>
+  <?php endif; ?>
 
   <div class="hero">
 
@@ -62,13 +69,15 @@ session_start();
 
       <p>
         Nosotros acercamos la distancia
-        con tecnologia e impacto humano
+        con tecnología e impacto humano
         para saber sobre el estado de tu familia.
       </p>
 
-      <a href="doctor-familiar.html">
-        <button>¿Eres un familiar o un doctor?</button>
-      </a>
+   <?php if(!$isLoggedIn): ?>
+  <a href="doctor-familiar.php" class="btn-green">
+    ¿Eres un familiar o un doctor?
+  </a>
+<?php endif; ?>
 
     </div>
 
@@ -90,7 +99,7 @@ session_start();
 
       <div class="video-info">
         <h3>Mira como funciona NearCare</h3>
-        <p>Video de presentacion</p>
+        <p>Video de presentación</p>
         <span>1:35 min</span>
       </div>
 
@@ -112,7 +121,7 @@ session_start();
 
         <p>
           La distancia fisica es un obstaculo
-          para el cuidado y la atencion constante
+          para el cuidado y la atención constante
           de tus familiares.
         </p>
 
@@ -136,11 +145,11 @@ session_start();
 
         <img src="img/Designer (21).png">
 
-        <h3>Falta de informacion</h3>
+        <h3>Falta de información</h3>
 
         <p>
-          La falta de informacion clara puede
-          generar preocupacion e incertidumbre.
+          La falta de información clara puede
+          generar preocupación e incertidumbre.
         </p>
 
       </div>
@@ -153,12 +162,12 @@ session_start();
 
     <div class="about-text">
 
-      <h2>¿Que es NearCare?</h2>
+      <h2>¿Qué es NearCare?</h2>
 
       <p>
         NearCare es una plataforma digital
         de salud que conecta pacientes y profesionales,
-        facilitando citas, seguimiento y comunicacion.
+        facilitando citas, seguimiento y comunicación.
       </p>
 
     </div>
@@ -171,7 +180,7 @@ session_start();
 
   <div class="why">
 
-    <h2>¿Por que fue creado NearCare?</h2>
+    <h2>¿Por qué fue creado NearCare?</h2>
 
     <div class="why-cards">
 
@@ -183,7 +192,7 @@ session_start();
 
         <p>
           Existe dificultad para acceder
-          a atencion medica rapida y cercana.
+          a atención medica rápida y cercana.
         </p>
 
       </div>
@@ -192,11 +201,11 @@ session_start();
 
         <img src="img/Designer (23).png">
 
-        <h3>La solucion</h3>
+        <h3>La solución</h3>
 
         <p>
           NearCare conecta pacientes y profesionales
-          para mejorar la comunicacion y seguimiento.
+          para mejorar la comunicación y seguimiento.
         </p>
 
       </div>
@@ -205,6 +214,8 @@ session_start();
 
   </div>
 
-  <script src="menu.js"></script>
+  <?php if ($isLoggedIn): ?>
+    <script src="menu.js"></script>
+  <?php endif; ?>
 </body>
 </html>
