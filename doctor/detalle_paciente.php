@@ -3,7 +3,7 @@ session_start();
 include("conexion.php");
 
 if(!isset($_SESSION['id_doctor'])){
-    header("Location: login.html");
+    header("Location: login-form.php");
     exit();
 }
 
@@ -15,6 +15,19 @@ if(!isset($_GET['id'])){
 }
 
 $id_paciente = $_GET['id'];
+
+$sqlNotificaciones = "CREATE TABLE IF NOT EXISTS actualizaciones_pacientes (
+    id_actualizacion INT AUTO_INCREMENT PRIMARY KEY,
+    id_paciente INT NOT NULL,
+    id_doctor INT NOT NULL,
+    paciente_nombre VARCHAR(150) NOT NULL,
+    doctor_nombre VARCHAR(100) NOT NULL,
+    condicion_anterior VARCHAR(100) DEFAULT NULL,
+    condicion_nueva VARCHAR(100) DEFAULT NULL,
+    mensaje TEXT NOT NULL,
+    creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+$conn->query($sqlNotificaciones);
 
 /* ELIMINAR */
 if(isset($_GET['eliminar'])){
@@ -29,6 +42,17 @@ if(isset($_GET['eliminar'])){
 
 /* EDITAR */
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $sqlAnterior = "SELECT p.*, d.nombre AS doctor_nombre
+                    FROM pacientes p
+                    INNER JOIN doctores d ON d.id_doctor = p.id_doctor
+                    WHERE p.id_paciente = ? AND p.id_doctor = ?
+                    LIMIT 1";
+    $stmtAnterior = $conn->prepare($sqlAnterior);
+    $stmtAnterior->bind_param("ii", $id_paciente, $id_doctor);
+    $stmtAnterior->execute();
+    $pacienteAnterior = $stmtAnterior->get_result()->fetch_assoc();
+    $stmtAnterior->close();
 
     $nombre_completo = $_POST['nombre_completo'];
     $nc = $_POST['nc'];
@@ -67,6 +91,57 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $stmt->execute();
 
+    if($pacienteAnterior){
+        $condicionAnterior = trim((string)$pacienteAnterior['condicion_paciente']);
+        $condicionNueva = trim((string)$condicion_paciente);
+        $doctorNombre = $pacienteAnterior['doctor_nombre'] ?: ($_SESSION['nombre'] ?? 'Doctor');
+        $pacienteNombre = $pacienteAnterior['nombre_completo'];
+
+        $camposEditables = [
+            'nombre_completo' => $nombre_completo,
+            'nc' => $nc,
+            'edad' => $edad,
+            'genero' => $genero,
+            'fecha_ingreso' => $fecha_ingreso,
+            'motivo_ingreso' => $motivo_ingreso,
+            'condicion_paciente' => $condicion_paciente,
+            'diagnostico_medico' => $diagnostico_medico
+        ];
+
+        $huboCambios = false;
+        foreach($camposEditables as $campo => $valorNuevo){
+            if(trim((string)$pacienteAnterior[$campo]) !== trim((string)$valorNuevo)){
+                $huboCambios = true;
+                break;
+            }
+        }
+
+        if($huboCambios){
+            if(strcasecmp($condicionAnterior, $condicionNueva) !== 0){
+                $mensaje = "Doctor " . $doctorNombre . " actualizo a " . $pacienteNombre . " de " . $condicionAnterior . " a " . $condicionNueva . ".";
+            }else{
+                $mensaje = "Doctor " . $doctorNombre . " actualizo la informacion de " . $pacienteNombre . ".";
+            }
+
+            $sqlInsertNotificacion = "INSERT INTO actualizaciones_pacientes
+                (id_paciente, id_doctor, paciente_nombre, doctor_nombre, condicion_anterior, condicion_nueva, mensaje)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $stmtNotificacion = $conn->prepare($sqlInsertNotificacion);
+            $stmtNotificacion->bind_param(
+                "iisssss",
+                $id_paciente,
+                $id_doctor,
+                $pacienteNombre,
+                $doctorNombre,
+                $condicionAnterior,
+                $condicionNueva,
+                $mensaje
+            );
+            $stmtNotificacion->execute();
+            $stmtNotificacion->close();
+        }
+    }
+
     header("Location: detalle_paciente.php?id=".$id_paciente);
     exit();
 }
@@ -92,6 +167,7 @@ $paciente = $resultado->fetch_assoc();
     <meta charset="UTF-8">
     <title>Detalle Paciente</title>
     <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=1">
 </head>
 <body>
 

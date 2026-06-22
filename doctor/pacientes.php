@@ -3,7 +3,7 @@ session_start();
 include("conexion.php");
 
 if(!isset($_SESSION['id_doctor'])){
-    header("Location: login.html");
+    header("Location: login-form.php");
     exit();
 }
 
@@ -40,6 +40,7 @@ $resultado = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Pacientes</title>
     <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=1">
 </head>
 <body>
 

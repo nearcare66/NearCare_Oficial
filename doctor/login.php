@@ -2,6 +2,11 @@
 session_start();
 include("conexion.php");
 
+if(isset($_SESSION['usuario_id'])){
+    header("Location: ../index.php");
+    exit();
+}
+
 $correo = $_POST['correo'];
 $password = $_POST['password'];
 

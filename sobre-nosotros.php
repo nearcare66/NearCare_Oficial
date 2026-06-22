@@ -16,6 +16,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
   <link rel="stylesheet" href="Css/styless.css">
 
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
 
