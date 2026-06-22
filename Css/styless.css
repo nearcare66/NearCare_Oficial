@@ -237,6 +237,10 @@ nav a:hover{
   filter: grayscale(1) brightness(0) !important;
 }
 
+.why-card img{
+  filter: grayscale(1) brightness(0) !important;
+}
+
 .card h3{
   font-size:30px;
   margin-bottom:15px;
