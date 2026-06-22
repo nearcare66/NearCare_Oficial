@@ -77,30 +77,9 @@
     .user-icon {
       width: 34px;
       height: 34px;
-      position: relative;
+      display: none;
     }
-
-    .user-icon::before {
-      content: "";
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #3f3f46;
-      position: absolute;
-      top: 0;
-      left: 7px;
-    }
-
-    .user-icon::after {
-      content: "";
-      width: 34px;
-      height: 17px;
-      background: #df1010;
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+  
 
     .welcome-box {
       height: 30px;
