@@ -1,0 +1,113 @@
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.btn,
+.button,
+.ready-button,
+.action-submit,
+.submit-btn,
+.custom-btn,
+.register-btn,
+.login-btn,
+.back-btn,
+.call-button,
+.logout-btn,
+.btn-enviar,
+.in-button,
+.btn-paciente,
+.btn-comentarios,
+.btn-guardar-cambios,
+.card button,
+.register-form button,
+.form-agregar button,
+.selection-buttons button,
+.patient-buttons button,
+nav a.active,
+nav a:hover,
+.side-menu a.active,
+.side-menu a:hover {
+  background: #1E6ADE !important;
+  background-color: #1E6ADE !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+.btn:hover,
+.button:hover,
+.ready-button:hover,
+.action-submit:hover,
+.submit-btn:hover,
+.custom-btn:hover,
+.register-btn:hover,
+.login-btn:hover,
+.back-btn:hover,
+.call-button:hover,
+.logout-btn:hover,
+.btn-enviar:hover,
+.in-button:hover,
+.btn-paciente:hover,
+.btn-comentarios:hover,
+.btn-guardar-cambios:hover,
+.card button:hover,
+.register-form button:hover,
+.form-agregar button:hover,
+.selection-buttons button:hover,
+.patient-buttons button:hover {
+  background: #1554b2 !important;
+  background-color: #1554b2 !important;
+}
+
+.btn-green,
+.btn-green:hover {
+  border-radius: 35px !important;
+}
+
+.btn-green {
+  background: #35c96f !important;
+  background-color: #35c96f !important;
+  color: #ffffff !important;
+}
+
+.btn-green:hover {
+  background: #2eb762 !important;
+  background-color: #2eb762 !important;
+}
+
+.menu-icon,
+.menu-toggle,
+.menu-icon:hover,
+.menu-toggle:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #071e31 !important;
+}
+
+.search-box button,
+.search-box button:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+.btn-ver,
+.btn-ver:hover,
+.btn-agregar,
+.btn-agregar:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 3px solid black !important;
+  border-radius: 50% !important;
+  color: black !important;
+  box-shadow: none !important;
+}

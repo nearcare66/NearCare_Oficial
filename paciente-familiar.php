@@ -37,14 +37,19 @@ if ($paciente) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Informacion del paciente</title>
   <link rel="stylesheet" href="Css/session-menu.css">
+<<<<<<< HEAD
   <link rel="stylesheet" href="Css/paciente-familiar.css">
   <link rel="stylesheet" href="css/calendario.css">
+=======
+  <link rel="stylesheet" href="Css/paciente-familiar.css?v=3">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+>>>>>>> d7124b730fa0f990656369829213aa0d689069b9
 </head>
 <body>
   <main class="page">
     <header class="navbar">
       <div class="nav-left">
-        <a href="registro2.php" class="back-link" aria-label="Regresar">&#8249;</a>
+        <a href="index.php" class="back-link" aria-label="Regresar al inicio">&#8249;</a>
         <img class="brand" src="img/Designer (16).png" alt="NearCare">
       </div>
 
@@ -62,12 +67,6 @@ if ($paciente) {
     <?php if ($isLoggedIn): ?>
       <?php include "php/menu-lateral.php"; ?>
     <?php endif; ?>
-
-    <div class="circle circle-dark circle-1"></div>
-    <div class="circle circle-light circle-2"></div>
-    <div class="circle circle-light circle-3"></div>
-    <div class="circle circle-dark circle-4"></div>
-    <div class="circle circle-light circle-5"></div>
 
     <section class="content">
       <?php if ($paciente): ?>
@@ -214,4 +213,3 @@ if ($paciente) {
   <?php endif; ?>
 </body>
 </html>
-

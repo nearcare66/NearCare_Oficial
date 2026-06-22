@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NearCare Registro Familiar</title>
   <link rel="stylesheet" href="Css/registro2.css">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
   <main class="page">

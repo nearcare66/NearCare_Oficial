@@ -337,6 +337,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       }
     }
   </style>
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
   <main class="page">

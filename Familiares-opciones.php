@@ -9,6 +9,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <title>NearCare</title>
     <link rel="stylesheet" href="Css/styles4.css">
     <link rel="stylesheet" href="Css/session-menu.css">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
 

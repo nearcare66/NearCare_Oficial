@@ -3,7 +3,7 @@ session_start();
 include("conexion.php");
 
 if(!isset($_SESSION['id_doctor'])){
-    header("Location: login.html");
+    header("Location: login-form.php");
     exit();
 }
 
@@ -63,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Agregar Paciente</title>
     <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=1">
 </head>
 <body>
 

@@ -2,8 +2,11 @@
 session_start();
 
 $isLoggedIn =
+    isset($_SESSION['usuario_id']) ||
     isset($_SESSION['id_doctor']) ||
     isset($_SESSION['id_familiar']);
+
+$hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['paciente_nc']) !== '';
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +20,7 @@ $isLoggedIn =
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="Css/styless.css?v=2">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
 
@@ -52,6 +56,7 @@ $isLoggedIn =
       <div class="side-menu-content">
         <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
         <a href="index.php" class="active">Inicio</a>
+        <a href="actualizaciones2.php">Actualizaciones</a>
         <hr>
         <a href="Comentarios.php">Comentarios</a>
       </div>
@@ -73,11 +78,19 @@ $isLoggedIn =
         para saber sobre el estado de tu familia.
       </p>
 
-   <?php if(!$isLoggedIn): ?>
+  <?php if (isset($_SESSION['usuario_id'])): ?>
+    <a href="<?php echo $hasPaciente ? 'paciente-familiar.php' : 'registro2.php'; ?>" class="btn-green">
+      Ver paciente
+    </a>
+  <?php elseif (isset($_SESSION['id_doctor'])): ?>
+    <a href="doctor/dashboard.php" class="btn-green">
+      Panel doctor
+    </a>
+  <?php else: ?>
   <a href="doctor-familiar.php" class="btn-green">
     ¿Eres un familiar o un doctor?
   </a>
-<?php endif; ?>
+  <?php endif; ?>
 
     </div>
 
