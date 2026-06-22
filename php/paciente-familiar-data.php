@@ -13,11 +13,15 @@ $conn->set_charset("utf8mb4");
 
 if ($nc === '') {
     $mensaje = 'Ingresa el codigo Nc del paciente.';
+
 } else {
+    // Especificamos "familiares.pacientes" para que SQL cambie de base de datos automáticamente
     $sql = "SELECT p.*, d.nombre AS doctor_nombre
-            FROM pacientes p
-            INNER JOIN doctores d ON d.id_doctor = p.id_doctor
+            FROM familiares.pacientes p
+            INNER JOIN nearcare.doctores d ON d.id_doctor = p.id_doctor
             WHERE p.nc = ?";
+
+// ... Tu código siguiente se queda igual ...
 
     if ($idDoctor > 0) {
         $sql .= " AND p.id_doctor = ?";
