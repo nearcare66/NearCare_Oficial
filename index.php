@@ -19,7 +19,7 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css?v=2">
+  <link rel="stylesheet" href="Css/styless.css?v=3">
   <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
@@ -128,7 +128,7 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
 
       <div class="card">
 
-        <img src="img/Designer (19).png">
+        <img src="img/Designer (19).png?v=2" alt="Icono de distancia">
 
         <h3>Distancia</h3>
 
@@ -142,7 +142,7 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
 
       <div class="card">
 
-        <img src="img/Designer (20).png">
+        <img src="img/Designer (20).png?v=2" alt="Icono de falta de tiempo">
 
         <h3>Falta de tiempo</h3>
 
@@ -156,7 +156,7 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
 
       <div class="card">
 
-        <img src="img/Designer (21).png">
+        <img src="img/Designer (21).png?v=2" alt="Icono de falta de informaci&oacute;n">
 
         <h3>Falta de información</h3>
 

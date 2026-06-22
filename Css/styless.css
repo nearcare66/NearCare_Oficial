@@ -234,6 +234,7 @@ nav a:hover{
 .card img{
   width:90px;
   margin-bottom:20px;
+  filter: grayscale(1) brightness(0) !important;
 }
 
 .card h3{
