@@ -32,7 +32,6 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       <div class="family-pill">Familiar</div>
 
       <div class="profile">
-        <div class="user-icon" aria-hidden="true"></div>
         <div class="welcome-box">
           <span>Bienvenido</span>
           <div class="toggle" aria-hidden="true"></div>

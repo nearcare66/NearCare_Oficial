@@ -87,7 +87,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
       <div class="info-card">
 
-        <div class="icon">🎯</div>
+        <div class="icon"> <img src="img/Designer (24).png" alt=""></div>
 
         <div class="card-content">
 
@@ -105,7 +105,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
       <div class="info-card">
 
-        <div class="icon">🚀</div>
+        <div class="icon"><img src="img/Designer (25).png" alt=""></div>
 
         <div class="card-content">
 
@@ -123,17 +123,17 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
       <div class="info-card">
 
-        <div class="icon">📧</div>
+        <div class="icon"><img src="img/Designer (26).png" alt=""></div>
 
         <div class="card-content">
 
-          <h2>Outlook</h2>
+          <h2>Correo</h2>
 
           <p>
             Contáctanos para soporte, dudas o información.
           </p>
 
-          <a href="#">nearcare@outlook.com</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nearcare6@gmail.com">nearcare@gmail.com</a>
 
         </div>
 
@@ -141,7 +141,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
       <div class="info-card">
 
-        <div class="icon">📸</div>
+        <div class="icon"><img src="img/Desugner (27).png" alt=""></div>
 
         <div class="card-content">
 
@@ -152,7 +152,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
             actualizaciones y contenido sobre NearCare.
           </p>
 
-          <a href="#">@NearCare</a>
+          <a href="https://www.instagram.com/nearcare_?igsh=MTQyOHA0MTc0anZ0dw==">@NearCare</a>
 
         </div>
 
