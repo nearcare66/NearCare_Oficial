@@ -1,4 +1,8 @@
-<?php require_once __DIR__ . '/php/paciente-familiar-data.php'; ?>
+
+<?php 
+require_once __DIR__ . '/php/paciente-familiar-data.php'; 
+?>
+
 <?php
 if ($paciente) {
 
@@ -23,6 +27,9 @@ if ($paciente) {
     }
 }
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
