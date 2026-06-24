@@ -37,13 +37,10 @@ if ($paciente) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Informacion del paciente</title>
   <link rel="stylesheet" href="Css/session-menu.css">
-<<<<<<< HEAD
   <link rel="stylesheet" href="Css/paciente-familiar.css">
   <link rel="stylesheet" href="css/calendario.css">
-=======
   <link rel="stylesheet" href="Css/paciente-familiar.css?v=3">
   <link rel="stylesheet" href="Css/botones-globales.css?v=1">
->>>>>>> d7124b730fa0f990656369829213aa0d689069b9
 </head>
 <body>
   <main class="page">
