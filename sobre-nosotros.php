@@ -14,7 +14,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css">
+  <link rel="stylesheet" href="Css/styless.css?v=15">
 
   <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
@@ -161,6 +161,23 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     </div>
 
   </div>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="img/Designer (16).png" alt="NearCare">
+      <p>NearCare acerca a familias, pacientes y doctores con seguimiento claro y humano.</p>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contacto</h3>
+      <p>nearcare6@gmail.com</p>
+      <p>Instagram: <a href="https://www.instagram.com/nearcare_?igsh=MTQyOHA0MTc0anZ0dw==">@nearcare</a></p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <?php echo date('Y'); ?> NearCare. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
   <?php if ($isLoggedIn): ?>
     <script src="menu.js"></script>
