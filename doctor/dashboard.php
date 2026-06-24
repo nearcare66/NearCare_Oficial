@@ -46,7 +46,7 @@ $nombre = $_SESSION['nombre'];
 
 <div class="menu-doctor">
     <a href="pacientes.php" class="btn-paciente">Pacientes</a>
-    <a href="comentarios.php" class="btn-comentarios">Comentarios</a>
+    <a href="../Comentarios.php" class="btn-comentarios">Comentarios</a>
 </div>
 
 <script>

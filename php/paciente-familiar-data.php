@@ -13,6 +13,7 @@ $conn->set_charset("utf8mb4");
 
 if ($nc === '') {
     $mensaje = 'Ingresa el codigo Nc del paciente.';
+
 } else {
     $sql = "SELECT p.*, d.nombre AS doctor_nombre
             FROM pacientes p

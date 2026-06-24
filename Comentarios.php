@@ -33,7 +33,6 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   </div>
 
   <div class="profile">
-    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
     <span class="welcome">Bienvenido</span>
   </div>
 

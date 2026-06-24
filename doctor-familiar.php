@@ -48,8 +48,6 @@ $isLoggedIn = false;
 
     <div class="profile">
 
-      <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
-
       <div class="welcome-box">
 
         <span>Bienvenido</span>

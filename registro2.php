@@ -12,7 +12,7 @@
   <main class="page">
     <header class="navbar">
       <div class="nav-left">
-        <a href="doctor-familiar.php" class="back-link" aria-label="Regresar">&#8249;</a>
+        <a href="doctor-familiar.php" style="text-decoration: none; color: #004080; font-size: 38px;">&larr;</a>
         <img class="brand" src="img/Designer (16).png" alt="NearCare">
       </div>
 

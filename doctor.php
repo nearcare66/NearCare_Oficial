@@ -6,6 +6,7 @@
     <title>NearCare-doctor-id</title>
   <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
+
     <link rel="stylesheet" href="Css/style8.css">
    
 <body>
@@ -16,12 +17,8 @@
  
      
  
-        <input
+        <input>
             type="password"
-            class="input-field"
-            name="codigo"
-            placeholder="Ingrese su ID"
-        >
  
         <button type="submit" class="submit-btn">
             Listo
@@ -45,3 +42,4 @@
 </body>
 </html>
  
+
