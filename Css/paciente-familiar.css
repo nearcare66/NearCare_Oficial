@@ -526,36 +526,175 @@
       right: -64px;
       top: 386px;
     }
+@media (max-width: 768px) {
+  .page {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
-    @media (max-width: 820px) {
-      .content,
-      .lower-row {
-        grid-template-columns: 1fr;
-      }
+  .navbar {
+    min-height: 66px;
+    height: auto;
+    padding: 8px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 
-      .content {
-        width: calc(100% - 32px);
-        padding: 30px 0 0;
-      }
+  .brand {
+    width: 86px;
+  }
 
-      .page-title {
-        position: static;
-        transform: none;
-        font-size: 15px;
-      }
+  .back-link {
+    width: 38px;
+    height: 38px;
+    font-size: 28px;
+    border-width: 2px;
+  }
 
-      .patient-card,
-      .field-value,
-      .schedule-card {
-        justify-self: center;
-      }
+  .page-title {
+    position: static;
+    transform: none;
+    font-size: 19px;
+    text-align: center;
+    white-space: normal;
+    flex: 1 1 100%;
+    order: 3;
+  }
 
-      .schedule-card {
-        grid-column: 1;
-      }
+  .nav-left,
+  .profile {
+    gap: 8px;
+  }
 
-      .calendar-card {
-        padding-inline: 18px;
-      }
-    }
+  .welcome-box {
+    min-width: auto;
+    max-width: 116px;
+    height: 28px;
+    font-size: 11px;
+    padding: 0 8px;
+    overflow: hidden;
+  }
 
+  .content {
+    width: calc(100% - 28px);
+    padding-top: 24px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .patient-card {
+    width: 100%;
+    max-width: 340px;
+    min-height: auto;
+    justify-self: center;
+    padding: 16px;
+  }
+
+  .patient-card img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+  }
+
+  .side-info {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .field-label,
+  .section-label,
+  .field-value {
+    width: 100%;
+  }
+
+  .lower-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .diagnosis-card,
+  .calendar-card {
+    padding: 12px;
+  }
+
+  .call-card {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .schedule-card {
+    grid-column: auto;
+    width: 100%;
+    clip-path: none;
+  }
+
+  .circle {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .brand {
+    width: 76px;
+  }
+
+  .page-title {
+    font-size: 17px;
+  }
+
+  .content {
+    width: calc(100% - 20px);
+    padding-top: 18px;
+    gap: 18px;
+  }
+
+  .patient-card h2 {
+    font-size: 18px;
+  }
+
+  .patient-card p {
+    font-size: 15px;
+  }
+
+  .field-value {
+    min-height: 42px;
+    font-size: 16px;
+  }
+
+  .date-fields {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .calendar {
+    width: 100%;
+  }
+
+  .calendar-grid div {
+    min-height: 24px;
+    font-size: 11px;
+  }
+
+  .call-button,
+  .call-time {
+    border-radius: 6px;
+  }
+
+  .schedule-box {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .message-card {
+    font-size: 15px;
+    padding: 15px;
+  }
+
+  .circle {
+    display: none;
+  }
+}

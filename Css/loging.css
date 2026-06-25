@@ -304,38 +304,113 @@ img {
   right: -62px;
   bottom: 30px;
 }
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+  }
 
-@media (max-width: 780px) {
   .page {
-    width: 100vw;
-    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 32px;
   }
 
   .navbar {
+    min-height: 64px;
     height: auto;
-    min-height: 80px;
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 18px;
+    padding: 8px 16px;
+    gap: 12px;
   }
 
   .family-pill {
-    position: static;
-    transform: none;
-    order: 3;
-    min-width: 100%;
+    display: none;
   }
 
-  .profile {
-    margin-left: auto;
+  .brand {
+    width: 90px;
+  }
+
+  .back-link {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    border-width: 2px;
+  }
+
+  .profile,
+  .nav-left {
+    gap: 10px;
   }
 
   .welcome-box {
-    min-width: 150px;
-    font-size: 15px;
+    min-width: auto;
+    max-width: 128px;
+    height: 30px;
+    font-size: 12px;
+    padding: 0 9px;
   }
 
   .login-card {
-    margin-top: 49px;
+    width: min(360px, calc(100% - 32px));
+    min-height: auto;
+    margin-top: 28px;
+    padding: 38px 26px 28px;
+  }
+
+  .circle {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .brand {
+    width: 78px;
+  }
+
+  .back-link {
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+  }
+
+  .user-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .welcome-box {
+    max-width: 112px;
+    height: 27px;
+    font-size: 11px;
+    gap: 5px;
+  }
+
+  .toggle {
+    width: 18px;
+    height: 14px;
+  }
+
+  .login-card {
+    width: calc(100% - 24px);
+    margin-top: 22px;
+    padding: 32px 20px 24px;
+    border-radius: 22px;
+  }
+
+  .login-card h1 {
+    font-size: 16px;
+    margin-bottom: 26px;
+  }
+
+  .login-form {
+    gap: 18px;
+  }
+
+  .circle {
+    display: none;
   }
 }

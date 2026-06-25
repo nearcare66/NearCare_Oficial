@@ -432,35 +432,6 @@ body{
 
 
 
-@media(max-width:950px){
-
-  .navbar{
-    padding:0 20px;
-  }
-
-  nav{
-    display:none;
-  }
-
-  .info-section{
-    padding:80px 25px;
-  }
-
-  .how-work h1{
-    font-size:45px;
-  }
-
-  .how-work p{
-    font-size:20px;
-  }
-
-  .info-card{
-    flex-direction:column;
-    text-align:center;
-  }
-
-}
-
 *{
   margin:0;
   padding:0;
@@ -640,39 +611,6 @@ body{
 
 
 
-@media(max-width:950px){
-
-  .navbar{
-    flex-wrap:wrap;
-    height:auto;
-    padding:20px;
-  }
-
-  .search-box input{
-    width:100%;
-  }
-
-  .updates-section{
-    padding:50px 20px;
-  }
-
-  .updates-title h1{
-    font-size:42px;
-  }
-
-  .patient-card{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .patient-image img{
-    width:100%;
-    max-width:320px;
-    height:auto;
-  }
-
-}
-
 .back-arrow{
   font-size:60px;
   color:#0d3a7a;
@@ -803,23 +741,6 @@ body{
 
 
 
-@media(max-width:768px){
-
-  .navbar{
-    padding:0 15px;
-  }
-
-  .logo img{
-    width:90px;
-  }
-
-  .selection-buttons button{
-    width:300px;
-    font-size:18px;
-  }
-
-}
-
 *{
   margin:0;
   padding:0;
@@ -945,29 +866,6 @@ body{
 }
 
 
-
-@media(max-width:768px){
-
-  .navbar{
-    flex-direction:column;
-    height:auto;
-    padding:20px;
-    gap:20px;
-  }
-
-  .search-box{
-    width:90%;
-  }
-
-  .notification-card{
-    width:90%;
-  }
-
-  .notifications-section h1{
-    font-size:42px;
-  }
-
-}
 
 *{
   margin:0;
@@ -1150,30 +1048,6 @@ body{
 
 
 
-@media(max-width:768px){
-
-  .navbar{
-    padding:0 15px;
-  }
-
-  .logo img{
-    width:90px;
-  }
-
-  .patient-buttons button{
-    width:320px;
-    font-size:18px;
-  }
-
-  .circle1{
-    width:260px;
-    height:260px;
-  }
-
-}
-
-
-
 .menu-overlay{
   position:fixed;
   inset:0;
@@ -1302,4 +1176,295 @@ img{
 .btn-green:hover{
   background:#2eb762;
   transform:translateY(-3px);
+}
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    min-height: 78px;
+    padding: 12px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-icon,
+  .back-arrow {
+    font-size: 34px;
+  }
+
+  .logo {
+    margin-right: 0;
+  }
+
+  .logo img {
+    width: 95px;
+  }
+
+  .logo h2,
+  nav,
+  .logout-btn {
+    display: none;
+  }
+
+  .profile {
+    gap: 8px;
+  }
+
+  .profile img {
+    width: 42px;
+  }
+
+  .welcome-box {
+    max-width: 128px;
+    padding: 7px 10px;
+    gap: 8px;
+  }
+
+  .welcome-box span {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .search-box {
+    order: 3;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+    font-size: 15px;
+    padding: 13px 18px;
+  }
+
+  .hero,
+  .about,
+  .video-card,
+  .info-card,
+  .patient-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero,
+  .about {
+    padding: 42px 18px;
+    gap: 26px;
+  }
+
+  .hero-text,
+  .hero-image,
+  .about-text,
+  .about-image {
+    width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 38px;
+  }
+
+  .hero-text p,
+  .about-text p,
+  .how-work p,
+  .updates-title p {
+    width: 100%;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .video-card {
+    width: calc(100% - 28px);
+  }
+
+  .video-image {
+    width: 100%;
+    height: 210px;
+  }
+
+  .video-info {
+    padding: 26px 20px;
+  }
+
+  .problems,
+  .why,
+  .info-section,
+  .updates-section {
+    padding: 48px 18px;
+  }
+
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1 {
+    font-size: 34px;
+  }
+
+  .card,
+  .why-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 30px 22px;
+  }
+
+  .info-card {
+    padding: 28px 20px;
+    gap: 20px;
+  }
+
+  .patient-image img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+  }
+
+  .patient-info h2 {
+    font-size: 32px;
+  }
+
+  .patient-info p {
+    font-size: 16px;
+  }
+
+  .detail-box {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .notification-panel {
+    padding: 26px 18px;
+  }
+
+  .notification-card {
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .selection-section,
+  .patient-section {
+    height: auto;
+    min-height: calc(100vh - 78px);
+    padding: 44px 18px;
+  }
+
+  .selection-buttons,
+  .patient-buttons {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .selection-buttons button,
+  .patient-buttons button {
+    width: 100%;
+    height: auto;
+    min-height: 58px;
+    padding: 14px 18px;
+  }
+
+  .circle {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    min-height: 64px;
+    padding: 8px 10px;
+    gap: 9px;
+  }
+
+  .logo img {
+    width: 78px;
+  }
+
+  .menu-icon,
+  .back-arrow {
+    font-size: 28px;
+  }
+
+  .profile img {
+    width: 34px;
+  }
+
+  .welcome-box {
+    max-width: 106px;
+    padding: 6px 8px;
+  }
+
+  .welcome-box span {
+    font-size: 10px;
+  }
+
+  .toggle {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+  }
+
+  .notifications {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .hero {
+    padding: 34px 14px;
+  }
+
+  .hero-text h1 {
+    font-size: 31px;
+  }
+
+  .hero-text p,
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .btn-green {
+    width: 100%;
+    max-width: 270px;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+
+  .play-btn {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+
+  .video-info h3,
+  .card h3,
+  .why-card h3 {
+    font-size: 24px;
+  }
+
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1 {
+    font-size: 28px;
+  }
+
+  .notification-card {
+    align-items: flex-start;
+    padding: 14px 16px;
+  }
+
+  .selection-buttons button,
+  .patient-buttons button {
+    font-size: 18px;
+  }
+
+  .circle1,
+  .circle2,
+  .circle3,
+  .circle4,
+  .circle5 {
+    display: none;
+  }
 }

@@ -313,39 +313,105 @@
       right: -95px;
       bottom: 25px;
     }
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+  }
 
-    @media (max-width: 520px) {
-      .page {
-        width: 100vw;
-        min-height: 100vh;
-      }
+  .page {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 34px;
+  }
 
-      .navbar {
-        height: auto;
-        min-height: 80px;
-        flex-wrap: wrap;
-        gap: 16px;
-        padding: 18px;
-      }
+  .navbar {
+    min-height: 68px;
+    height: auto;
+    padding: 10px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 
-      .family-pill {
-        position: static;
-        transform: none;
-        order: 3;
-        min-width: 100%;
-      }
+  .family-pill {
+    position: static;
+    transform: none;
+    order: 3;
+    width: 100%;
+    min-width: 0;
+    height: 30px;
+    font-size: 15px;
+  }
 
-      .profile {
-        margin-left: auto;
-      }
+  .brand {
+    width: 86px;
+  }
 
-      .welcome-box {
-        min-width: 150px;
-        font-size: 15px;
-      }
+  .back-link {
+    width: 38px;
+    height: 38px;
+    font-size: 28px;
+    border-width: 2px;
+  }
 
-      .welcome-card {
-        margin-top: 49px;
-      }
-    }
+  .nav-left,
+  .profile {
+    gap: 8px;
+  }
 
+  .welcome-box {
+    min-width: auto;
+    max-width: 128px;
+    height: 28px;
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .welcome-card {
+    width: min(360px, calc(100% - 32px));
+    min-height: auto;
+    margin-top: 28px;
+    padding: 36px 24px 28px;
+  }
+
+  .circle {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .brand {
+    width: 76px;
+  }
+
+  .welcome-card {
+    width: calc(100% - 24px);
+    margin-top: 22px;
+    padding: 32px 20px 24px;
+  }
+
+  .welcome-card h1 {
+    font-size: 21px;
+  }
+
+  .welcome-name {
+    font-size: 19px;
+    margin-bottom: 30px;
+  }
+
+  .welcome-form {
+    gap: 18px;
+  }
+
+  .card-logo {
+    width: 92px;
+    margin-top: 26px;
+  }
+
+  .circle {
+    display: none;
+  }
+}
