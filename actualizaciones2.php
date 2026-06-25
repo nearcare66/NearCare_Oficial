@@ -83,9 +83,9 @@ if ($idPacienteSesion > 0) {
 
   <link rel="stylesheet" href="Css/styless.css?v=16">
   <link rel="stylesheet" href="Css/session-menu.css">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
-<body>
+<body class="updates-page">
 
   <header class="navbar">
     <?php if ($isLoggedIn): ?>
@@ -94,7 +94,7 @@ if ($idPacienteSesion > 0) {
       </button>
     <?php endif; ?>
 
-    <a href="index.php" class="back-arrow">&#8592;</a>
+    <a href="index.php" class="back-arrow">&#8249;</a>
 
     <div class="logo">
       <img src="img/Designer (16).png" alt="logo">
@@ -117,20 +117,35 @@ if ($idPacienteSesion > 0) {
 
   <div class="notifications-section">
 
-    <h1>Notificaciones</h1>
+    <div class="notifications-hero">
+      <div>
+        <span class="section-kicker">Actualizaciones del paciente</span>
+        <h1>Notificaciones</h1>
+        <p>Revisa los cambios recientes registrados por el equipo medico y mantente al dia con el seguimiento del paciente.</p>
+      </div>
+
+      <div class="updates-summary" aria-label="Total de notificaciones">
+        <span>Total</span>
+        <strong><?php echo $totalActualizaciones; ?></strong>
+        <small>notificaciones</small>
+      </div>
+    </div>
 
     <?php if ($idPacienteSesion <= 0): ?>
-      <div class="notification-card">
-        <div class="icon">&#128276;</div>
+      <div class="notifications-list">
+      <div class="notification-card notification-empty">
+        <div class="icon notification-icon">&#128276;</div>
         <div class="notification-text">
           <h2>INGRESA EL CODIGO DEL PACIENTE</h2>
           <p>Para ver actualizaciones primero debes entrar con el codigo Nc del paciente.</p>
         </div>
       </div>
+      </div>
     <?php elseif ($totalActualizaciones > 0): ?>
+      <div class="notifications-list">
       <?php while ($actualizacion = $actualizaciones->fetch_assoc()): ?>
         <div class="notification-card">
-          <div class="icon">
+          <div class="icon notification-icon">
             &#128100;
           </div>
 
@@ -142,18 +157,21 @@ if ($idPacienteSesion > 0) {
             <p>
               <?php echo e($actualizacion['mensaje']); ?>
               <br>
-              <small><?php echo e(fechaNotificacion($actualizacion['creado_en'])); ?></small>
+              <small class="notification-date"><?php echo e(fechaNotificacion($actualizacion['creado_en'])); ?></small>
             </p>
           </div>
         </div>
       <?php endwhile; ?>
+      </div>
     <?php else: ?>
-      <div class="notification-card">
-        <div class="icon">&#128276;</div>
+      <div class="notifications-list">
+      <div class="notification-card notification-empty">
+        <div class="icon notification-icon">&#128276;</div>
         <div class="notification-text">
           <h2>NO HAY NOTIFICACIONES</h2>
           <p>Todavia no se han registrado cambios en pacientes.</p>
         </div>
+      </div>
       </div>
     <?php endif; ?>
 

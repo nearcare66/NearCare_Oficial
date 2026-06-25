@@ -63,13 +63,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Agregar Paciente</title>
     <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="left-navbar">
-        <a href="pacientes.php" class="back-arrow">‹</a>
+        <a href="pacientes.php" class="back-arrow">&#8249;</a>
 
         <div class="logo">
             <img src="../img/Designer (16).png" alt="NearCare">

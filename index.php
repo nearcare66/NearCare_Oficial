@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/php/site-cards-data.php';
 
 $isLoggedIn =
     isset($_SESSION['usuario_id']) ||
@@ -7,6 +8,8 @@ $isLoggedIn =
     isset($_SESSION['id_familiar']);
 
 $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['paciente_nc']) !== '';
+$problemCards = getSiteCards('index', 'problems');
+$whyCards = getSiteCards('index', 'why');
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +23,7 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="Css/styless.css?v=15">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
 <body>
 
@@ -126,6 +129,16 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
 
     <div class="cards">
 
+      <?php foreach ($problemCards as $card): ?>
+        <div class="card">
+          <img src="<?php echo siteCardE($card['image_src']); ?>" alt="<?php echo siteCardE($card['image_alt']); ?>">
+          <h3><?php echo siteCardE($card['title']); ?></h3>
+          <p><?php echo siteCardE($card['description']); ?></p>
+        </div>
+      <?php endforeach; ?>
+
+      <?php if (empty($problemCards)): ?>
+
       <div class="card">
 
         <img src="img/Designer (19).png?v=2" alt="Icono de distancia">
@@ -167,6 +180,8 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
 
       </div>
 
+      <?php endif; ?>
+
     </div>
 
   </div>
@@ -197,6 +212,16 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
 
     <div class="why-cards">
 
+      <?php foreach ($whyCards as $card): ?>
+        <div class="why-card">
+          <img src="<?php echo siteCardE($card['image_src']); ?>" alt="<?php echo siteCardE($card['image_alt']); ?>">
+          <h3><?php echo siteCardE($card['title']); ?></h3>
+          <p><?php echo siteCardE($card['description']); ?></p>
+        </div>
+      <?php endforeach; ?>
+
+      <?php if (empty($whyCards)): ?>
+
       <div class="why-card">
 
         <img src="img/Designer (22).png?v=2" alt="Icono del problema">
@@ -222,6 +247,8 @@ $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['pacien
         </p>
 
       </div>
+
+      <?php endif; ?>
 
     </div>
 

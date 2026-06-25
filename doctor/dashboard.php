@@ -14,10 +14,10 @@ $nombre = $_SESSION['nombre'];
 <head>
     <meta charset="UTF-8">
     <title>Panel Doctor</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
   <link rel="stylesheet" href="../Css/botones-globales.css?v=1">
 </head>
-<body>
+<body class="doctor-dashboard-page">
 
 <?php include("menu_doctor.php"); ?>
 
@@ -39,15 +39,20 @@ $nombre = $_SESSION['nombre'];
 <div class="circle circle4"></div>
 <div class="circle circle5"></div>
 
-<div class="welcome-card">
-    <h2>Bienvenida, <?php echo htmlspecialchars($nombre); ?></h2>
-    <p>Gestiona pacientes y comentarios desde tu panel.</p>
-</div>
+<main class="dashboard-main">
+    <section class="welcome-card">
+        <h2>Bienvenida, <?php echo htmlspecialchars($nombre); ?></h2>
+    </section>
 
-<div class="menu-doctor">
-    <a href="pacientes.php" class="btn-paciente">Pacientes</a>
-    <a href="../Comentarios.php" class="btn-comentarios">Comentarios</a>
-</div>
+    <div class="menu-doctor">
+        <a href="pacientes.php" class="btn-paciente">
+            <span>Pacientes</span>
+        </a>
+        <a href="../Comentarios.php" class="btn-comentarios">
+            <span>Comentarios</span>
+        </a>
+    </div>
+</main>
 
 <script>
 function abrirMenu(){
