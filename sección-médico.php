@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['usuario_id'])) {
+    header("Location: index.php");
+    exit();
+}
 $isLoggedIn = isset($_SESSION['usuario_id']);
 // Configuración de rutas y textos dinámicos del proyecto PHP
 $pageTitle = "NearCare - Sección de Médico";
@@ -16,6 +20,7 @@ $doctorPath = "images/Copilot_20260526_215821.png";
     <!-- Vinculación del archivo CSS externo -->
     <link rel="stylesheet" href="Css/styles.css">
     <link rel="stylesheet" href="Css/session-menu.css">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
 

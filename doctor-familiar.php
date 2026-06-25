@@ -1,6 +1,17 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['usuario_id']);
+
+if (isset($_SESSION['id_doctor'])) {
+  header("Location: doctor/dashboard.php");
+  exit();
+}
+
+if (isset($_SESSION['usuario_id'])) {
+  header("Location: index.php");
+  exit();
+}
+
+$isLoggedIn = false;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,6 +24,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
 
@@ -35,8 +47,6 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     </div>
 
     <div class="profile">
-
-      <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
 
       <div class="welcome-box">
 
@@ -80,18 +90,22 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <section class="card">
       <h2>Doctor</h2>
       <img src="img/doctor.png" alt="">
-      <a href="doctor/login.html">
+      <?php if (!$isLoggedIn): ?>
+      <a href="doctor/login-form.php">
          <button>Iniciar Sesión</button>
       </a>
-     <a href="doctor/register.html">
+     <a href="doctor/register-form.php">
       <button>Registrarse</button>
      </a>
+      <?php else: ?>
+        <p class="session-note">Cierra sesi&oacute;n como familiar para acceder como doctor.</p>
+      <?php endif; ?>
     </section>
 
     <!-- LINEA -->
     <div class="divider"></div>
 
-    <!-- CARD DERECHA -->
+    
     <section class="card">
      <h2>Familiar</h2>
      <img src="img/image.png" alt="">

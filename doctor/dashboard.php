@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['id_doctor'])){
-    header("Location: login.html");
+    header("Location: login-form.php");
     exit();
 }
 
@@ -15,6 +15,7 @@ $nombre = $_SESSION['nombre'];
     <meta charset="UTF-8">
     <title>Panel Doctor</title>
     <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=1">
 </head>
 <body>
 
@@ -45,7 +46,7 @@ $nombre = $_SESSION['nombre'];
 
 <div class="menu-doctor">
     <a href="pacientes.php" class="btn-paciente">Pacientes</a>
-    <a href="comentarios.php" class="btn-comentarios">Comentarios</a>
+    <a href="../Comentarios.php" class="btn-comentarios">Comentarios</a>
 </div>
 
 <script>

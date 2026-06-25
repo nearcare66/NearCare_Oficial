@@ -10,6 +10,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <title>NearCare Acceso</title>
   <link rel="stylesheet" href="Css/loging.css">
   <link rel="stylesheet" href="Css/session-menu.css">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
   <main class="page">
@@ -20,14 +21,13 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
             &#9776;
           </button>
         <?php endif; ?>
-        <a href="doctor-familiar.php" class="back-link" aria-label="Regresar">&#8249;</a>
+    <a href="doctor-familiar.php" style="text-decoration: none; color: #004080; font-size: 38px;">&larr;</a>
         <img class="brand" src="img/Designer (16).png" alt="NearCare">
       </div>
 
       <div class="family-pill">Familiar</div>
 
       <div class="profile">
-        <div class="user-icon" aria-hidden="true"></div>
         <div class="welcome-box">
           <span>Bienvenido</span>
           <div class="toggle" aria-hidden="true"></div>

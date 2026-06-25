@@ -11,6 +11,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Css/styles5.css">
   <link rel="stylesheet" href="Css/session-menu.css">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
     <main>
@@ -32,7 +33,6 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   </div>
 
   <div class="profile">
-    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
     <span class="welcome">Bienvenido</span>
   </div>
 

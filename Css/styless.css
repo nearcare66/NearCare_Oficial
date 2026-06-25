@@ -60,24 +60,24 @@ nav a{
   color:#0c2f67;
   font-weight:500;
   padding:12px 22px;
-  border-radius:10px;
+  border-radius:8px;
   transition:.3s;
 }
 
 nav a.active{
-  background:#0e57d1;
+  background:#1E6ADE;
   color:white;
 }
 
 nav a:hover{
-  background:#0e57d1;
+  background:#1E6ADE;
   color:white;
 }
 
 .logout-btn{
   text-decoration:none;
   color:#ffffff;
-  background:#0d3a7a;
+  background:#1E6ADE;
   font-size:13px;
   font-weight:600;
   padding:8px 14px;
@@ -88,7 +88,7 @@ nav a:hover{
 }
 
 .logout-btn:hover{
-  background:#08275c;
+  background:#1554b2;
   transform:translateY(-1px);
 }
 .hero{
@@ -234,6 +234,11 @@ nav a:hover{
 .card img{
   width:90px;
   margin-bottom:20px;
+  filter: grayscale(1) brightness(0) !important;
+}
+
+.why-card img{
+  filter: grayscale(1) brightness(0) !important;
 }
 
 .card h3{
@@ -366,63 +371,46 @@ body{
 }
 
 
-
-.cards-container{
-  display:flex;
-  flex-direction:column;
-  gap:35px;
-}
-
-
-
 .info-card{
   width:100%;
-   background-color: #89b7e2;
+  background:#89b7e2;
   border-radius:28px;
-  padding:40px;
+  padding:35px 50px;
   display:flex;
   align-items:center;
-  gap:35px;
+  gap:25px;
   box-shadow:0 12px 25px rgba(0,0,0,.08);
-  transition:.3s;
-  color: #0b2c3a;
+  margin-bottom: 25px;
 }
-
-.info-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 18px 35px rgba(0,0,0,.15);
-}
-
-
 
 .icon{
-  min-width:100px;
-  height:100px;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:45px;
+  flex:none; /* importante */
 }
 
+.icon img{
+  width:130px;
+  height:auto;
+  display:block;
+}
 
 .card-content{
   flex:1;
 }
 
 .card-content h2{
-  font-size:38px;
+  font-size:42px;
   color:#0d3a7a;
   margin-bottom:15px;
 }
 
 .card-content p{
-  font-size:20px;
-  line-height:1.8;
+  font-size:22px;
+  line-height:1.7;
   color:#35507a;
-  margin-bottom:10px;
+  margin:0;
 }
 
+<<<<<<< HEAD
 .card-content a{
   text-decoration:none;
   color:#0e57d1;
@@ -432,6 +420,37 @@ body{
 
 
 
+=======
+@media(max-width:950px){
+
+  .navbar{
+    padding:0 20px;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .info-section{
+    padding:80px 25px;
+  }
+
+  .how-work h1{
+    font-size:45px;
+  }
+
+  .how-work p{
+    font-size:20px;
+  }
+
+  .info-card{
+    flex-direction:column;
+    text-align:center;
+  }
+
+}
+
+>>>>>>> 3d913bfdc4657562f8a1dadf944750df31742eea
 *{
   margin:0;
   padding:0;
@@ -682,8 +701,8 @@ body{
   width:420px;
   height:60px;
   border:none;
-  border-radius:18px;
-  background:#3c88b6;
+  border-radius:8px;
+  background:#1E6ADE;
   color:white;
   font-size:22px;
   font-family:Arial, Helvetica, sans-serif;
@@ -694,7 +713,7 @@ body{
 
 .selection-buttons button:hover{
   transform:translateY(-5px);
-  background:#2f79a7;
+  background:#1554b2;
 }
 
 
@@ -783,14 +802,14 @@ body{
 
 
 .notification-card{
-  width:620px;
+  width:760px;
   background:linear-gradient(to right,#8cc3e8,#3e89c2);
   border-radius:10px;
   display:flex;
   align-items:center;
-  gap:18px;
-  padding:14px 20px;
-  margin-bottom:18px;
+  gap:24px;
+  padding:24px 30px;
+  margin-bottom:22px;
   box-shadow:0 8px 15px rgba(0,0,0,.1);
   transition:.3s;
 }
@@ -801,14 +820,15 @@ body{
 
 
 .notification-text h2{
-  font-size:15px;
+  font-size:19px;
   color:white;
   font-weight:500;
 }
 
 .notification-text p{
-  font-size:13px;
+  font-size:16px;
   color:white;
+  line-height:1.6;
 }
 
 
@@ -984,8 +1004,8 @@ body{
   width:520px;
   height:72px;
   border:none;
-  border-radius:22px;
-  background:#3c88b6;
+  border-radius:8px;
+  background:#1E6ADE;
   color:white;
   font-size:22px;
   font-family:Arial, Helvetica, sans-serif;
@@ -996,7 +1016,7 @@ body{
 
 .patient-buttons button:hover{
   transform:translateY(-5px);
-  background:#2f79a7;
+  background:#1554b2;
 }
 
 
@@ -1098,13 +1118,13 @@ body{
   text-decoration:none;
   font-weight:600;
   padding:8px 10px;
-  border-radius:18px;
+  border-radius:8px;
   transition:.2s;
 }
 
 .side-menu a:hover,
 .side-menu a.active{
-  background:#3f69c9;
+  background:#1E6ADE;
 }
 
 .side-menu hr{
@@ -1132,7 +1152,7 @@ body.menu-open .menu-overlay{
 
 
 button{
-  border-radius:30px !important;
+  border-radius:8px !important;
 }
 
 
@@ -1140,7 +1160,7 @@ button{
 .patient-buttons button,
 .hero-text button,
 .logout-btn{
-  border-radius:30px !important;
+  border-radius:8px !important;
 }
 
 
@@ -1265,41 +1285,9 @@ img{
   }
 
   .hero-text p,
-  .about-text p,
-  .how-work p,
-  .updates-title p {
-    width: 100%;
+  .about-text p {
     font-size: 17px;
     line-height: 1.6;
-  }
-
-  .video-card {
-    width: calc(100% - 28px);
-  }
-
-  .video-image {
-    width: 100%;
-    height: 210px;
-  }
-
-  .video-info {
-    padding: 26px 20px;
-  }
-
-  .problems,
-  .why,
-  .info-section,
-  .updates-section {
-    padding: 48px 18px;
-  }
-
-  .problems h2,
-  .about-text h2,
-  .why h2,
-  .how-work h1,
-  .updates-title h1,
-  .notifications-section h1 {
-    font-size: 34px;
   }
 
   .card,
@@ -1307,60 +1295,6 @@ img{
     width: 100%;
     max-width: 340px;
     padding: 30px 22px;
-  }
-
-  .info-card {
-    padding: 28px 20px;
-    gap: 20px;
-  }
-
-  .patient-image img {
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-  }
-
-  .patient-info h2 {
-    font-size: 32px;
-  }
-
-  .patient-info p {
-    font-size: 16px;
-  }
-
-  .detail-box {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .notification-panel {
-    padding: 26px 18px;
-  }
-
-  .notification-card {
-    width: 100%;
-    max-width: 620px;
-  }
-
-  .selection-section,
-  .patient-section {
-    height: auto;
-    min-height: calc(100vh - 78px);
-    padding: 44px 18px;
-  }
-
-  .selection-buttons,
-  .patient-buttons {
-    width: 100%;
-    max-width: 420px;
-  }
-
-  .selection-buttons button,
-  .patient-buttons button {
-    width: 100%;
-    height: auto;
-    min-height: 58px;
-    padding: 14px 18px;
   }
 
   .circle {
@@ -1397,18 +1331,6 @@ img{
     font-size: 10px;
   }
 
-  .toggle {
-    width: 16px;
-    height: 16px;
-    flex: 0 0 16px;
-  }
-
-  .notifications {
-    width: 44px;
-    height: 44px;
-    font-size: 20px;
-  }
-
   .hero {
     padding: 34px 14px;
   }
@@ -1417,8 +1339,7 @@ img{
     font-size: 31px;
   }
 
-  .hero-text p,
-  .about-text p {
+  .hero-text p {
     font-size: 16px;
   }
 
@@ -1427,37 +1348,6 @@ img{
     max-width: 270px;
     padding: 14px 20px;
     font-size: 16px;
-  }
-
-  .play-btn {
-    width: 64px;
-    height: 64px;
-    font-size: 28px;
-  }
-
-  .video-info h3,
-  .card h3,
-  .why-card h3 {
-    font-size: 24px;
-  }
-
-  .problems h2,
-  .about-text h2,
-  .why h2,
-  .how-work h1,
-  .updates-title h1,
-  .notifications-section h1 {
-    font-size: 28px;
-  }
-
-  .notification-card {
-    align-items: flex-start;
-    padding: 14px 16px;
-  }
-
-  .selection-buttons button,
-  .patient-buttons button {
-    font-size: 18px;
   }
 
   .circle1,

@@ -2,8 +2,11 @@
 session_start();
 
 $isLoggedIn =
+    isset($_SESSION['usuario_id']) ||
     isset($_SESSION['id_doctor']) ||
     isset($_SESSION['id_familiar']);
+
+$hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['paciente_nc']) !== '';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +19,8 @@ $isLoggedIn =
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css?v=2">
+  <link rel="stylesheet" href="Css/styless.css?v=15">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
 </head>
 <body>
 
@@ -52,6 +56,7 @@ $isLoggedIn =
       <div class="side-menu-content">
         <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
         <a href="index.php" class="active">Inicio</a>
+        <a href="actualizaciones2.php">Actualizaciones</a>
         <hr>
         <a href="Comentarios.php">Comentarios</a>
       </div>
@@ -73,11 +78,19 @@ $isLoggedIn =
         para saber sobre el estado de tu familia.
       </p>
 
-   <?php if(!$isLoggedIn): ?>
+  <?php if (isset($_SESSION['usuario_id'])): ?>
+    <a href="<?php echo $hasPaciente ? 'paciente-familiar.php' : 'registro2.php'; ?>" class="btn-green">
+      Ver paciente
+    </a>
+  <?php elseif (isset($_SESSION['id_doctor'])): ?>
+    <a href="doctor/dashboard.php" class="btn-green">
+      Panel doctor
+    </a>
+  <?php else: ?>
   <a href="doctor-familiar.php" class="btn-green">
     ¿Eres un familiar o un doctor?
   </a>
-<?php endif; ?>
+  <?php endif; ?>
 
     </div>
 
@@ -115,7 +128,7 @@ $isLoggedIn =
 
       <div class="card">
 
-        <img src="img/Designer (19).png">
+        <img src="img/Designer (19).png?v=2" alt="Icono de distancia">
 
         <h3>Distancia</h3>
 
@@ -129,7 +142,7 @@ $isLoggedIn =
 
       <div class="card">
 
-        <img src="img/Designer (20).png">
+        <img src="img/Designer (20).png?v=2" alt="Icono de falta de tiempo">
 
         <h3>Falta de tiempo</h3>
 
@@ -143,7 +156,7 @@ $isLoggedIn =
 
       <div class="card">
 
-        <img src="img/Designer (21).png">
+        <img src="img/Designer (21).png?v=2" alt="Icono de falta de informaci&oacute;n">
 
         <h3>Falta de información</h3>
 
@@ -186,7 +199,7 @@ $isLoggedIn =
 
       <div class="why-card">
 
-        <img src="img/Designer (22).png">
+        <img src="img/Designer (22).png?v=2" alt="Icono del problema">
 
         <h3>El problema</h3>
 
@@ -199,7 +212,7 @@ $isLoggedIn =
 
       <div class="why-card">
 
-        <img src="img/Designer (23).png">
+        <img src="img/Designer (23).png?v=2" alt="Icono de la soluci&oacute;n">
 
         <h3>La solución</h3>
 
@@ -213,6 +226,23 @@ $isLoggedIn =
     </div>
 
   </div>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="img/Designer (16).png" alt="NearCare">
+      <p>NearCare acerca a familias, pacientes y doctores con seguimiento claro y humano.</p>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contacto</h3>
+      <p>nearcare6@gmail.com</p>
+      <p>Instagram: <a href="https://www.instagram.com/nearcare_?igsh=MTQyOHA0MTc0anZ0dw==">@nearcare</a></p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <?php echo date('Y'); ?> NearCare. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
   <?php if ($isLoggedIn): ?>
     <script src="menu.js"></script>

@@ -6,9 +6,9 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(180deg, #a5ddea 0%, #c9eff0 100%);
+      background: #f6f6f6;
       font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
+      color: #ffffff;
     }
 
     .page {
@@ -16,9 +16,9 @@
       min-height: 100vh;
       margin: 0;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
       padding-bottom: 44px;
-      background: linear-gradient(180deg, #a7ddeb 0%, #c7eeef 100%);
+      background: #f6f6f6;
     }
 
     .navbar {
@@ -29,7 +29,9 @@
       justify-content: space-between;
       position: relative;
       z-index: 5;
-      padding: 0 14px;
+      padding: 0 24px;
+      border-bottom: 1px solid #4f9fc0;
+      box-shadow: 0 6px 20px rgba(32, 33, 36, 0.06);
     }
 
     .nav-left,
@@ -48,9 +50,10 @@
       text-decoration: none;
       display: grid;
       place-items: center;
-      font-size: 36px;
+      font-size: 34px;
       line-height: 1;
       font-weight: 700;
+      background: transparent;
     }
 
     .brand {
@@ -64,46 +67,26 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 24px;
       font-weight: 700;
+      color: #ffffff;
       white-space: nowrap;
     }
 
     .user-icon {
       width: 34px;
       height: 34px;
-      position: relative;
+      display: none;
     }
-
-    .user-icon::before {
-      content: "";
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #96a1ff, #7045ed);
-      position: absolute;
-      top: 0;
-      left: 7px;
-    }
-
-    .user-icon::after {
-      content: "";
-      width: 34px;
-      height: 17px;
-      background: linear-gradient(180deg, #7045ed, #5b44d8);
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+  
 
     .welcome-box {
       height: 30px;
       min-width: 111px;
       border-radius: 999px;
       background: #fff;
-      color: #111;
+      color: #202124;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -153,8 +136,8 @@
     .schedule-card {
       background: #3e91bc;
       border: 1px solid #2d6e91;
-      border-radius: 6px;
-      box-shadow: 0 2px 2px rgba(24, 72, 102, 0.2);
+      border-radius: 8px;
+      box-shadow: 0 14px 35px rgba(32, 33, 36, 0.08);
     }
 
     .patient-card {
@@ -166,6 +149,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      color: #202124;
     }
 
     .patient-card img {
@@ -174,6 +158,7 @@
       object-fit: cover;
       border-radius: 7px;
       margin-bottom: 12px;
+      border: 1px solid #e2e2e2;
     }
 
     .patient-card h2 {
@@ -220,23 +205,24 @@
       font-family: Georgia, "Times New Roman", serif;
       font-size: 14px;
       font-weight: 700;
-      color: #fff;
+      color: #ffffff;
     }
 
     .field-value {
       min-height: 48px;
       width: min(100%, 440px);
       justify-self: center;
-      border-radius: 6px;
+      border-radius: 8px;
       background: #3e91bc;
       border: 1px solid #2d6e91;
-      color: #fff;
+      color: #ffffff;
       display: grid;
       place-items: center;
       font-weight: 700;
       font-size: 20px;
       text-align: center;
       padding: 3px 6px;
+      box-shadow: 0 10px 24px rgba(32, 33, 36, 0.06);
     }
 
     .lower-row {
@@ -251,13 +237,14 @@
     .date-card {
       background: #3e91bc;
       border: 1px solid #2d6e91;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 12px 18px 18px;
       min-height: 112px;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 0 14px 35px rgba(32, 33, 36, 0.08);
     }
 
     .date-card .section-label,
@@ -275,7 +262,7 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      color: #fff;
+      color: #ffffff;
       font-weight: 800;
       width: 100%;
       flex: 1;
@@ -285,24 +272,26 @@
       width: 54px;
       height: 30px;
       border-radius: 5px;
-      background: #fff;
-      color: #111;
+      background: #f7f7f7;
+      color: #202124;
       display: grid;
       place-items: center;
       font-weight: 800;
       font-size: 18px;
+      border: 1px solid #e2e2e2;
     }
 
     .reason-card {
       background: #3e91bc;
       border: 1px solid #2d6e91;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 12px 18px 18px;
       min-height: 112px;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: stretch;
+      box-shadow: 0 14px 35px rgba(32, 33, 36, 0.08);
     }
 
     .reason-card .section-label {
@@ -316,8 +305,8 @@
     .reason-value {
       min-height: 34px;
       border-radius: 5px;
-      background: #fff;
-      color: #111;
+      background: #f7f7f7;
+      color: #202124;
       display: grid;
       place-items: center;
       font-weight: 800;
@@ -325,6 +314,7 @@
       text-align: center;
       padding: 6px 12px;
       width: 100%;
+      border: 1px solid #e2e2e2;
     }
 
     .diagnosis-card {
@@ -342,10 +332,11 @@
       min-height: 104px;
       border-radius: 5px;
       background: #fff;
-      color: #173d52;
+      color: #202124;
       padding: 12px;
       font-size: 14px;
       line-height: 1.35;
+      border: 1px solid #e2e2e2;
     }
 
     .calendar-card {
@@ -363,10 +354,12 @@
       width: min(360px, 100%);
       margin: 0 auto;
       background: #fff;
-      border: 2px solid #8b8b8b;
-      color: #111;
+      border: 1px solid #d8d8d8;
+      color: #202124;
       text-align: center;
       font-weight: 800;
+      border-radius: 6px;
+      overflow: hidden;
     }
 
     .calendar h3 {
@@ -377,13 +370,13 @@
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      border-top: 1px solid #777;
+      border-top: 1px solid #dedede;
     }
 
     .calendar-grid div {
       min-height: 31px;
-      border-right: 1px solid #777;
-      border-bottom: 1px solid #777;
+      border-right: 1px solid #dedede;
+      border-bottom: 1px solid #dedede;
       display: grid;
       place-items: center;
       font-size: 14px;
@@ -401,7 +394,7 @@
     }
 
     .event {
-      color: #116ad2;
+      color: #3a3a3a;
       font-size: 6px;
       line-height: 1.05;
       font-weight: 700;
@@ -423,21 +416,24 @@
     .call-button {
       height: 35px;
       border-radius: 6px;
-      background: #df1010;
+      background: #2f3137;
       display: grid;
       place-items: center;
       font-weight: 800;
+      color: #ffffff;
     }
 
     .call-time {
       height: 35px;
       border-radius: 0 6px 6px 0;
-      background: #fff;
-      color: #111;
+      background: #f7f7f7;
+      color: #202124;
       display: grid;
       place-items: center;
       font-size: 18px;
       font-weight: 800;
+      border: 1px solid #e2e2e2;
+      border-left: 0;
     }
 
     .schedule-card {
@@ -452,80 +448,87 @@
 
     .schedule-box {
       background: #fff;
-      color: #111;
+      color: #202124;
       border-radius: 5px;
       margin-top: 26px;
       padding: 8px 8px 12px;
       font-size: 18px;
       font-weight: 800;
       line-height: 1.95;
-      border-left: 7px solid #3fe269;
+      border: 1px solid #e2e2e2;
+      border-left: 7px solid #39b36f;
     }
 
     .message-card {
       grid-column: 1 / -1;
       background: #3e91bc;
+      border: 1px solid #2d6e91;
       border-radius: 8px;
       padding: 24px;
       text-align: center;
       font-weight: 800;
       font-size: 18px;
+      color: #ffffff;
+      box-shadow: 0 14px 35px rgba(32, 33, 36, 0.08);
     }
 
     .message-card a {
-      color: #fff;
+      color: #ffffff;
       display: inline-block;
       margin-top: 12px;
     }
 
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      z-index: 1;
-    }
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
 
-    .circle-dark {
-      background: linear-gradient(150deg, #4969b4 0%, #273f7b 72%);
-    }
+.circle-dark {
+  background: linear-gradient(150deg, #4969b4 0%, #273f7b 72%);
+}
 
-    .circle-light {
-      background: linear-gradient(150deg, #9fc6ee 0%, #3d4b69 80%);
-    }
+.circle-light {
+  background: linear-gradient(150deg, #9fc6ee 0%, #3d4b69 80%);
+}
 
-    .circle-1 {
-      width: 185px;
-      height: 185px;
-      top: 70px;
-      left: -118px;
-    }
+.circle-1 {
+  width: 185px;
+  height: 185px;
+  top: 70px;
+  left: -118px;
+}
 
-    .circle-2 {
-      width: 135px;
-      height: 135px;
-      top: 97px;
-      left: -58px;
-    }
+.circle-2 {
+  width: 135px;
+  height: 135px;
+  top: 97px;
+  left: -58px;
+}
 
-    .circle-3 {
-      width: 120px;
-      height: 120px;
-      top: 73px;
-      right: -45px;
-    }
+.circle-3 {
+  width: 120px;
+  height: 120px;
+  top: 73px;
+  right: -45px;
+}
 
-    .circle-4 {
-      width: 180px;
-      height: 180px;
-      right: -110px;
-      top: 360px;
-    }
+.circle-4 {
+  width: 180px;
+  height: 180px;
+  right: -110px;
+  top: 360px;
+}
 
-    .circle-5 {
-      width: 126px;
-      height: 126px;
-      right: -64px;
-      top: 386px;
-    }
+.circle-5 {
+  width: 126px;
+  height: 126px;
+  right: -64px;
+  top: 386px;
+}
+
+
+
 @media (max-width: 768px) {
   .page {
     overflow-x: hidden;
@@ -556,7 +559,6 @@
     transform: none;
     font-size: 19px;
     text-align: center;
-    white-space: normal;
     flex: 1 1 100%;
     order: 3;
   }
@@ -585,9 +587,8 @@
   .patient-card {
     width: 100%;
     max-width: 340px;
-    min-height: auto;
-    justify-self: center;
     padding: 16px;
+    justify-self: center;
   }
 
   .patient-card img {
@@ -601,31 +602,9 @@
     gap: 20px;
   }
 
-  .field-label,
-  .section-label,
-  .field-value {
-    width: 100%;
-  }
-
   .lower-row {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  .diagnosis-card,
-  .calendar-card {
-    padding: 12px;
-  }
-
-  .call-card {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .schedule-card {
-    grid-column: auto;
-    width: 100%;
-    clip-path: none;
   }
 
   .circle {
@@ -663,35 +642,6 @@
   .field-value {
     min-height: 42px;
     font-size: 16px;
-  }
-
-  .date-fields {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .calendar {
-    width: 100%;
-  }
-
-  .calendar-grid div {
-    min-height: 24px;
-    font-size: 11px;
-  }
-
-  .call-button,
-  .call-time {
-    border-radius: 6px;
-  }
-
-  .schedule-box {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .message-card {
-    font-size: 15px;
-    padding: 15px;
   }
 
   .circle {

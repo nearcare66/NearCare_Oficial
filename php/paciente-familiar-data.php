@@ -4,7 +4,7 @@ require_once __DIR__ . '/../doctor/conexion.php';
 
 $isLoggedIn = isset($_SESSION['usuario_id']);
 $idDoctor = (int)($_GET['id_doctor'] ?? 0);
-$nc = trim($_GET['nc'] ?? '');
+$nc = trim($_GET['nc'] ?? ($_SESSION['paciente_nc'] ?? ''));
 $nc = preg_replace('/^nc\s*/i', '', $nc);
 $paciente = null;
 $mensaje = '';
@@ -13,6 +13,7 @@ $conn->set_charset("utf8mb4");
 
 if ($nc === '') {
     $mensaje = 'Ingresa el codigo Nc del paciente.';
+
 } else {
     $sql = "SELECT p.*, d.nombre AS doctor_nombre
             FROM pacientes p
@@ -42,6 +43,11 @@ if ($nc === '') {
 
     if (!$paciente) {
         $mensaje = 'No se encontro un paciente con ese codigo Nc.';
+        unset($_SESSION['paciente_id'], $_SESSION['paciente_nc'], $_SESSION['paciente_nombre']);
+    } else {
+        $_SESSION['paciente_id'] = (int)$paciente['id_paciente'];
+        $_SESSION['paciente_nc'] = $paciente['nc'];
+        $_SESSION['paciente_nombre'] = $paciente['nombre_completo'];
     }
 }
 
