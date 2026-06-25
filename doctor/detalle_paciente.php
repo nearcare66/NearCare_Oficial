@@ -147,7 +147,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 /* OBTENER PACIENTE */
-$sql = "SELECT * FROM pacientes WHERE id_paciente = ? AND id_doctor = ?";
+$sql = "SELECT p.*, d.nombre AS doctor_nombre
+        FROM pacientes p
+        INNER JOIN doctores d ON d.id_doctor = p.id_doctor
+        WHERE p.id_paciente = ? AND p.id_doctor = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $id_paciente, $id_doctor);
 $stmt->execute();
@@ -159,95 +162,120 @@ if($resultado->num_rows == 0){
 }
 
 $paciente = $resultado->fetch_assoc();
+$fechaIngreso = $paciente['fecha_ingreso'] ? strtotime($paciente['fecha_ingreso']) : false;
+$diaIngreso = $fechaIngreso ? date('j', $fechaIngreso) : '';
+$mesIngreso = $fechaIngreso ? date('n', $fechaIngreso) : '';
+$anioIngreso = $fechaIngreso ? date('Y', $fechaIngreso) : '';
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Detalle Paciente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informacion del paciente</title>
     <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
+    <link rel="stylesheet" href="css/detalle_paciente.css?v=1">
+    <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
 </head>
-<body>
+<body class="doctor-detail-page">
 
-<nav class="navbar detalle-navbar">
-    <div class="left-navbar">
-        <a href="pacientes.php" class="back-arrow">&#8249;</a>
+<main class="detalle-page">
+    <nav class="navbar detalle-navbar">
+        <div class="left-navbar">
+            <a href="pacientes.php" class="back-arrow" aria-label="Regresar">&#8249;</a>
 
-        <div class="logo">
-            <img src="../img/Designer (16).png" alt="NearCare">
-        </div>
-    </div>
-
-    <h1 class="detalle-title">
-        <?php echo htmlspecialchars($paciente['nombre_completo']); ?>
-    </h1>
-
-    <div class="acciones">
-        <a href="detalle_paciente.php?id=<?php echo $id_paciente; ?>">↻</a>
-        <a href="#editar">✎</a>
-        <a 
-            href="detalle_paciente.php?id=<?php echo $id_paciente; ?>&eliminar=1"
-            onclick="return confirm('¿Seguro que quieres eliminar este paciente?')"
-        >🗑</a>
-    </div>
-</nav>
-
-<div class="detalle-container">
-
-    <div class="paciente-header">
-        <img src="../img/<?php echo htmlspecialchars($paciente['foto']); ?>" alt="Paciente">
-
-        <div>
-            <h2><?php echo htmlspecialchars($paciente['nombre_completo']); ?></h2>
-            <p>Nc<?php echo htmlspecialchars($paciente['nc']); ?></p>
-        </div>
-    </div>
-
-    <form method="POST" id="editar">
-
-        <div class="detalle-card">
-            <label>Nombre completo:</label>
-            <input type="text" name="nombre_completo" value="<?php echo htmlspecialchars($paciente['nombre_completo']); ?>">
+            <div class="logo">
+                <img src="../img/Designer (16).png" alt="NearCare">
+            </div>
         </div>
 
-        <div class="detalle-card">
-            <label>Nc:</label>
-            <input type="text" name="nc" value="<?php echo htmlspecialchars($paciente['nc']); ?>">
+        <h1 class="detalle-title">Informacion del paciente</h1>
+
+        <div class="profile">
+            <div class="welcome-box">
+                <span>Bienvenido</span>
+                <div class="toggle" aria-hidden="true"></div>
+            </div>
+        </div>
+    </nav>
+
+    <form method="POST" id="editar" class="detalle-content">
+        <article class="detalle-patient-card">
+            <img src="../img/<?php echo htmlspecialchars($paciente['foto']); ?>" alt="Paciente">
+
+            <label class="sr-only" for="nombre_completo">Nombre completo</label>
+            <textarea id="nombre_completo" name="nombre_completo" class="patient-name-input" rows="2" required><?php echo htmlspecialchars($paciente['nombre_completo']); ?></textarea>
+
+            <label class="sr-only" for="nc">Nc</label>
+            <div class="nc-pill">
+                <span>Nc</span>
+                <input id="nc" type="text" name="nc" value="<?php echo htmlspecialchars($paciente['nc']); ?>" required>
+            </div>
+
+            <div class="doctor-name"><?php echo htmlspecialchars($paciente['doctor_nombre']); ?></div>
+        </article>
+
+        <aside class="detalle-side-info">
+            <div class="editable-field">
+                <label for="condicion_paciente">Condicion del paciente</label>
+                <input id="condicion_paciente" type="text" name="condicion_paciente" value="<?php echo htmlspecialchars($paciente['condicion_paciente']); ?>" required>
+            </div>
+
+            <div class="editable-field">
+                <label for="genero">Genero</label>
+                <input id="genero" type="text" name="genero" value="<?php echo htmlspecialchars($paciente['genero']); ?>" required>
+            </div>
+
+            <input type="hidden" name="edad" value="<?php echo htmlspecialchars($paciente['edad']); ?>">
+        </aside>
+
+        <div class="detalle-lower-row">
+            <article class="detalle-date-card">
+                <div class="section-label">Fecha de ingreso:</div>
+                <input type="hidden" name="fecha_ingreso" id="fecha_ingreso" value="<?php echo htmlspecialchars($paciente['fecha_ingreso']); ?>">
+                <div class="date-fields">
+                    <input type="number" id="fecha_dia" value="<?php echo htmlspecialchars($diaIngreso); ?>" min="1" max="31" aria-label="Dia de ingreso" required>
+                    <span>/</span>
+                    <input type="number" id="fecha_mes" value="<?php echo htmlspecialchars($mesIngreso); ?>" min="1" max="12" aria-label="Mes de ingreso" required>
+                    <span>/</span>
+                    <input type="number" id="fecha_anio" value="<?php echo htmlspecialchars($anioIngreso); ?>" min="1900" max="2100" aria-label="Anio de ingreso" required>
+                </div>
+            </article>
+
+            <article class="detalle-reason-card">
+                <label for="motivo_ingreso" class="section-label">Motivo de ingreso:</label>
+                <input id="motivo_ingreso" type="text" name="motivo_ingreso" value="<?php echo htmlspecialchars($paciente['motivo_ingreso']); ?>" required>
+            </article>
         </div>
 
-        <div class="detalle-card">
-            <label>Edad:</label>
-            <input type="number" name="edad" value="<?php echo htmlspecialchars($paciente['edad']); ?>">
+        <article class="detalle-diagnosis-card">
+            <label for="diagnostico_medico" class="section-label">diagnostico:</label>
+            <textarea id="diagnostico_medico" name="diagnostico_medico" required><?php echo htmlspecialchars($paciente['diagnostico_medico']); ?></textarea>
+        </article>
 
-            <label>Género:</label>
-            <input type="text" name="genero" value="<?php echo htmlspecialchars($paciente['genero']); ?>">
-        </div>
+        <article class="detalle-call-card">
+            <button type="submit" class="btn-guardar-cambios">Guardar cambios</button>
+            <div class="call-time">9:30-10:30 AM</div>
+        </article>
 
-        <div class="detalle-card">
-            <label>Fecha de ingreso:</label>
-            <input type="date" name="fecha_ingreso" value="<?php echo htmlspecialchars($paciente['fecha_ingreso']); ?>">
-        </div>
-
-        <div class="detalle-card">
-            <label>Motivo de ingreso:</label>
-            <input type="text" name="motivo_ingreso" value="<?php echo htmlspecialchars($paciente['motivo_ingreso']); ?>">
-
-            <label>Condición del paciente:</label>
-            <input type="text" name="condicion_paciente" value="<?php echo htmlspecialchars($paciente['condicion_paciente']); ?>">
-        </div>
-
-        <div class="detalle-card">
-            <label>Diagnóstico médico:</label>
-            <textarea name="diagnostico_medico"><?php echo htmlspecialchars($paciente['diagnostico_medico']); ?></textarea>
-        </div>
-
-        <button type="submit" class="btn-guardar-cambios">Guardar cambios</button>
-
+        <article class="detalle-schedule-card">
+            <div class="schedule-box">
+                <div>9:30-10:30 AM</div>
+                <div>10:30-11:30 AM</div>
+            </div>
+        </article>
     </form>
+</main>
 
-</div>
+<script>
+document.getElementById('editar').addEventListener('submit', function () {
+    const day = document.getElementById('fecha_dia').value.padStart(2, '0');
+    const month = document.getElementById('fecha_mes').value.padStart(2, '0');
+    const year = document.getElementById('fecha_anio').value;
+    document.getElementById('fecha_ingreso').value = `${year}-${month}-${day}`;
+});
+</script>
 
 </body>
 </html>

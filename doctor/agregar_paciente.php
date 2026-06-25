@@ -63,7 +63,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Agregar Paciente</title>
     <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
+    <link rel="stylesheet" href="css/agregar_paciente.css?v=2">
+    <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
 </head>
 <body>
 
@@ -83,27 +84,54 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <form action="agregar_paciente.php" method="POST" enctype="multipart/form-data" class="form-agregar">
 
-        <input type="text" name="nombre_completo" placeholder="Nombre completo" required>
+        <div class="form-field field-full">
+            <label>Nombre completo<span>*</span></label>
+            <input type="text" name="nombre_completo" placeholder="Nombre completo" required>
+        </div>
 
-        <input type="text" name="nc" placeholder="Nc" required>
+        <div class="form-field">
+            <label>Nc<span>*</span></label>
+            <input type="text" name="nc" placeholder="Nc" required>
+        </div>
 
-        <input type="number" name="edad" placeholder="Edad" required>
+        <div class="form-field">
+            <label>Edad<span>*</span></label>
+            <input type="number" name="edad" placeholder="Edad" required>
+        </div>
 
-        <select name="genero" required>
-            <option value="">Género</option>
-            <option value="Femenino">Femenino</option>
-            <option value="Masculino">Masculino</option>
-        </select>
+        <div class="form-field">
+            <label>Genero<span>*</span></label>
+            <select name="genero" required>
+                <option value="">Genero</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
+            </select>
+        </div>
 
-        <input type="date" name="fecha_ingreso" required>
+        <div class="form-field">
+            <label>Fecha de ingreso<span>*</span></label>
+            <input type="date" name="fecha_ingreso" required>
+        </div>
 
-        <input type="text" name="motivo_ingreso" placeholder="Motivo de ingreso" required>
+        <div class="form-field field-full">
+            <label>Motivo de ingreso<span>*</span></label>
+            <input type="text" name="motivo_ingreso" placeholder="Motivo de ingreso" required>
+        </div>
 
-        <input type="text" name="condicion_paciente" placeholder="Condición del paciente" required>
+        <div class="form-field field-full">
+            <label>Condicion del paciente<span>*</span></label>
+            <input type="text" name="condicion_paciente" placeholder="Condicion del paciente" required>
+        </div>
 
-        <textarea name="diagnostico_medico" placeholder="Diagnóstico médico"></textarea>
+        <div class="form-field field-full">
+            <label>Diagnostico medico</label>
+            <textarea name="diagnostico_medico" placeholder="Diagnostico medico"></textarea>
+        </div>
 
-        <input type="file" name="foto" accept="image/*" required>
+        <div class="form-field field-full">
+            <label>Foto del paciente<span>*</span></label>
+            <input type="file" name="foto" accept="image/*" required>
+        </div>
 
         <button type="submit">Guardar paciente</button>
 
