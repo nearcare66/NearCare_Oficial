@@ -209,27 +209,105 @@ body {
 img {
     border-radius: 30px; 
 }
+@media (max-width: 768px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
-@media (max-width: 900px) {
-    .nav-title {
-        position: static;
-        transform: none;
-        font-size: 26px;
-        margin: 0 auto;
-    }
+  .interface-container {
+    height: auto;
+    min-height: 100vh;
+  }
 
-    .background-shapes,
-    .doctor-container {
-        display: none;
-    }
+  .navbar {
+    align-items: center;
+    padding: 12px 18px;
+    gap: 12px;
+  }
 
-    .main-content {
-        justify-content: center;
-        padding-right: 0;
-    }
+  .nav-left {
+    gap: 12px;
+  }
 
-    .button-group {
-        width: 85%;
-        top: 0;
-    }
+  .logo-container {
+    height: 46px;
+  }
+
+  .nav-title {
+    position: static;
+    transform: none;
+    font-size: 24px;
+    margin: 0 auto;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .background-shapes,
+  .doctor-container {
+    display: none;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 78px);
+    justify-content: center;
+    padding: 42px 20px;
+  }
+
+  .button-group {
+    width: 100%;
+    max-width: 420px;
+    top: 0;
+    gap: 24px;
+  }
+
+  .btn {
+    padding: 18px 20px;
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .nav-left {
+    gap: 8px;
+  }
+
+  .menu-toggle {
+    width: 26px;
+    height: 18px;
+  }
+
+  .logo-container {
+    height: 38px;
+  }
+
+  .nav-title {
+    font-size: 18px;
+  }
+
+  .nav-spacer {
+    display: none;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 64px);
+    padding: 30px 14px;
+  }
+
+  .button-group {
+    gap: 18px;
+  }
+
+  .btn {
+    padding: 15px 16px;
+    font-size: 18px;
+  }
 }

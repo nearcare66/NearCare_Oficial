@@ -12,7 +12,7 @@ body{
     overflow-y:auto;
 }
 
-/* NAVBAR */
+
 
 .navbar{
     width:100%;
@@ -207,7 +207,7 @@ body{
     right:-80px;
 }
 
-/* ANIMACIÓN */
+
 
 @keyframes float{
 
@@ -224,37 +224,9 @@ body{
     }
 }
 
-/* RESPONSIVE */
 
-@media(max-width:900px){
 
-    
 
-    .form-container{
-        width:95%;
-        height:auto;
-        flex-direction:column;
-    }
-
-    .image-side{
-        width:100%;
-        height:250px;
-    }
-
-    .image-side img{
-        width:180px;
-    }
-
-    .form-side{
-        width:100%;
-    }
-
-    .role{
-        display:none;
-    }
-}
-
-/* AJUSTE PARA LOGIN */
 .login-container{
     height:390px;
 }
@@ -311,7 +283,7 @@ body{
     overflow-y:auto;
 }
 
-/* NAVBAR */
+
 
 .navbar{
     width:100%;
@@ -349,7 +321,7 @@ body{
     font-family:'Segoe UI', Arial, sans-serif;
 }
 
-/* BIENVENIDA */
+
 
 .welcome-card{
     text-align:center;
@@ -367,7 +339,7 @@ body{
     font-size:16px;
 }
 
-/* BOTONES */
+
 
 .menu-doctor{
     display:flex;
@@ -410,7 +382,7 @@ body{
     transform:translateY(-5px);
 }
 
-/* CÍRCULOS */
+
 
 .circle{
     position:fixed;
@@ -454,9 +426,7 @@ body{
     right:30px;
 }
 
-/* ========================= */
-/* PÁGINA PACIENTES */
-/* ========================= */
+
 
 .titulo-pacientes{
     color:white;
@@ -571,9 +541,7 @@ body{
     font-weight:bold;
 }
 
-/* ========================= */
-/* AGREGAR PACIENTE */
-/* ========================= */
+
 
 .agregar-container{
     width:100%;
@@ -627,7 +595,7 @@ body{
     background:#0d6da7;
 }
 
-/* DETALLE PACIENTE */
+
 
 .detalle-title{
     color:white;
@@ -724,7 +692,7 @@ body{
     margin-bottom:30px;
 }
 
-/* MENÚ DOCTOR */
+
 
 .side-menu{
     position:fixed;
@@ -776,7 +744,6 @@ body{
     margin:25px 0;
 }
 
-/* Dashboard del doctor */
 .doctor-dashboard-page{
     background:
         linear-gradient(180deg, #cceef8 0%, #eaf7fb 58%, #f7fcfd 100%);
@@ -1114,6 +1081,5 @@ body{
     }
 
     .doctor-patients-page .btn-ver{
-        align-self:flex-end;
-    }
-}
+        align-self:flex-end;}
+        }

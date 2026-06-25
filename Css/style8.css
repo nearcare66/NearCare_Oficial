@@ -388,7 +388,7 @@ body::after {
     right: -90px;
 }
  
-/* Estilo general */
+
 .circle {
     position: absolute;
     border-radius: 50%;
@@ -402,7 +402,7 @@ body::after {
     z-index: 1;
 }
  
-/* Círculo 1 */
+
 .circle-one {
     width: 130px;
     height: 130px;
@@ -411,7 +411,7 @@ body::after {
     left: -40px;
 }
  
-/* Círculo 2 */
+
 .circle-two {
     width: 90px;
     height: 90px;
@@ -420,7 +420,7 @@ body::after {
     right: 60px;
 }
  
-/* Círculo 3 */
+
 .circle-three {
     width: 160px;
     height: 160px;
@@ -429,7 +429,7 @@ body::after {
     right: -50px;
 }
  
-/* Círculo 4 */
+
 .circle-four {
     width: 70px;
     height: 70px;
@@ -438,7 +438,7 @@ body::after {
     left: 80px;
 }
  
-/* Círculo 5 */
+
 .circle-five {
     width: 50px;
     height: 50px;
@@ -447,11 +447,70 @@ body::after {
     right: 250px;
 }
  
-/* Círculo 6 */
+
 .circle-six {
     width: 110px;
     height: 110px;
  
     bottom: 40px;
     left: 250px;
+}
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 28px 0;
+  }
+
+  .container {
+    min-height: calc(100vh - 56px);
+    padding: 0 18px;
+  }
+
+  form {
+    width: min(90%, 390px);
+  }
+
+  .circle,
+  body::before,
+  body::after {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    padding: 20px 0;
+  }
+
+  form {
+    width: calc(100% - 28px);
+    padding: 28px 18px;
+    border-radius: 20px;
+  }
+
+  form::before {
+    font-size: 22px;
+    margin-bottom: 22px;
+    text-align: center;
+  }
+
+  .input-field,
+  .submit-btn {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+
+  .logo img {
+    width: 135px;
+  }
+
+  .circle {
+    display: none;
+  }
 }
