@@ -91,7 +91,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 13px;
       font-weight: 700;
       padding: 0 7px;
@@ -168,7 +168,7 @@
     }
 
     .patient-card p {
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 18px;
     }
 
@@ -202,7 +202,7 @@
       background: #85bfdb;
       display: grid;
       place-items: center;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
       font-weight: 700;
       color: #ffffff;
