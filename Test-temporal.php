@@ -40,7 +40,7 @@ if ($paciente) {
   <link rel="stylesheet" href="Css/paciente-familiar.css">
   <link rel="stylesheet" href="css/calendario.css">
   <link rel="stylesheet" href="Css/paciente-familiar.css?v=3">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
 <body>
   <main class="page">

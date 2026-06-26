@@ -128,3 +128,97 @@ img {
     right: -80px;
     bottom: -80px;
 }
+@media (max-width: 768px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .navbar {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .bienvenido {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .container {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: min(100% - 36px, 480px);
+    min-height: calc(100vh - 76px);
+    margin: 0 auto;
+    justify-content: center;
+    padding: 38px 0;
+  }
+
+  button {
+    width: 100%;
+    max-width: 360px;
+    padding: 17px 28px;
+    font-size: 20px;
+  }
+
+  .circle-big,
+  .circle-small,
+  .circle-right,
+  .circle-corner {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+
+  .left,
+  .right {
+    gap: 8px;
+  }
+
+  .logo {
+    height: 34px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .bienvenido {
+    max-width: 112px;
+    font-size: 11px;
+    padding: 5px 9px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+    gap: 16px;
+    padding: 30px 0;
+  }
+
+  button {
+    padding: 15px 18px;
+    font-size: 17px;
+  }
+
+  .circle-big,
+  .circle-small,
+  .circle-right,
+  .circle-corner {
+    display: none;
+  }
+}

@@ -78,5 +78,69 @@
 }
 
 img{
-    border-radius: 30px; /* CAMBIO AQUÍ */
+    border-radius: 30px;
+}
+@media (max-width: 768px) {
+  .user-panel {
+    padding: 0 18px;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .welcome-text {
+    max-width: 520px;
+    font-size: 19px;
+    padding: 16px 28px;
+  }
+
+  .register-btn,
+  .login-btn {
+    padding: 13px 26px;
+  }
+
+  img {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .user-panel {
+    flex-direction: column;
+    padding: 0 12px;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 28px;
+  }
+
+  .welcome-text {
+    width: 100%;
+    max-width: 320px;
+    font-size: 16px;
+    padding: 14px 18px;
+    border-radius: 16px;
+  }
+
+  .custom-btn {
+    width: 100%;
+    max-width: 220px;
+    font-size: 14px;
+  }
+
+  .register-btn,
+  .login-btn {
+    padding: 12px 18px;
+  }
+
+  .logout-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 20px;
+  }
 }

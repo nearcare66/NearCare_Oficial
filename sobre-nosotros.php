@@ -1,6 +1,8 @@
 <?php
 session_start();
+require_once __DIR__ . '/php/site-cards-data.php';
 $isLoggedIn = isset($_SESSION['usuario_id']);
+$aboutCards = getSiteCards('about', 'info');
 ?>
 
 <!DOCTYPE html>
@@ -14,11 +16,11 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css?v=15">
+  <link rel="stylesheet" href="Css/styless.css?v=20">
 
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
-<body>
+<body class="about-page">
 
   <header class="navbar">
 
@@ -84,6 +86,25 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     </div>
 
     <div class="cards-container">
+
+      <?php foreach ($aboutCards as $card): ?>
+        <div class="info-card">
+          <div class="icon">
+            <img src="<?php echo siteCardE($card['image_src']); ?>" alt="<?php echo siteCardE($card['image_alt']); ?>">
+          </div>
+
+          <div class="card-content">
+            <h2><?php echo siteCardE($card['title']); ?></h2>
+            <p><?php echo siteCardE($card['description']); ?></p>
+
+            <?php if (!empty($card['link_url']) && !empty($card['link_text'])): ?>
+              <a href="<?php echo siteCardE($card['link_url']); ?>"><?php echo siteCardE($card['link_text']); ?></a>
+            <?php endif; ?>
+          </div>
+        </div>
+      <?php endforeach; ?>
+
+      <?php if (empty($aboutCards)): ?>
 
       <div class="info-card">
 
@@ -157,6 +178,8 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
         </div>
 
       </div>
+
+      <?php endif; ?>
 
     </div>
 

@@ -99,3 +99,54 @@ body.menu-open .menu-overlay {
 img {
   border-radius: 30px; 
 }
+@media (max-width: 768px) {
+  .menu-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 26px;
+  }
+
+  .side-menu {
+    width: 280px;
+    max-width: 86vw;
+  }
+
+  .side-menu-content {
+    padding: 20px 16px;
+  }
+
+  .side-menu-logo {
+    width: 118px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .menu-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
+  }
+
+  .side-menu {
+    width: 84vw;
+  }
+
+  .side-menu-strip {
+    width: 26px;
+    flex-basis: 26px;
+  }
+
+  .side-menu-content {
+    padding: 18px 14px;
+  }
+
+  .side-menu-logo {
+    width: 104px;
+  }
+
+  .side-menu a {
+    padding: 10px 9px;
+    font-size: 14px;
+  }
+}

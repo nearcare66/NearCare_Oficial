@@ -32,12 +32,12 @@ body {
     );
 }
 
-/* BOTÓN */
+
 .back-btn {
     width: 40px;
     height: 40px;
 
-    border-radius: 30px; /* CAMBIO */
+    border-radius: 30px; 
     border: 2px solid #000;
 
     background: transparent;
@@ -184,7 +184,7 @@ form {
 
 
 img {
-    border-radius: 30px; 
+    border-radius: 30px;
 }
 
 .circle {
@@ -247,4 +247,133 @@ img {
 
     top: 120px;
     right: 300px;
+}
+@media (max-width: 768px) {
+  .navbar {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+    padding: 12px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .izquierda {
+    gap: 12px;
+  }
+
+  .logo {
+    height: 56px;
+  }
+
+  .derecha ul {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .derecha ul li {
+    font-size: 15px;
+    padding: 8px 12px;
+  }
+
+  .introduction h1 {
+    font-size: 34px;
+  }
+
+  .introduction p,
+  .text-second-part p {
+    font-size: 18px;
+  }
+
+  .second-part {
+    flex-direction: column;
+    padding: 12px 24px;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .image-second-part img {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .text-second-part {
+    max-width: 100%;
+  }
+
+  .card,
+  .porque-card {
+    width: 100%;
+    max-width: 330px;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    width: calc(100% - 18px);
+    margin: 9px auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .izquierda {
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 48px;
+  }
+
+  .derecha ul {
+    gap: 7px;
+  }
+
+  .derecha ul li {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  .introduction {
+    padding: 16px 12px;
+  }
+
+  .introduction h1 {
+    font-size: 28px;
+  }
+
+  .introduction p,
+  .text-second-part p,
+  .que-es p {
+    font-size: 16px;
+  }
+
+  .in-button {
+    width: 100%;
+    max-width: 250px;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .second-part {
+    padding: 8px 14px;
+  }
+
+  h1,
+  .que-es h1,
+  .porque-nearcare h1 {
+    font-size: 26px;
+    margin-bottom: 22px;
+  }
+
+  .cards,
+  .porque-cards {
+    gap: 16px;
+    padding: 0 12px;
+  }
+
+  .que-es,
+  .porque-nearcare {
+    padding: 38px 14px;
+  }
 }
