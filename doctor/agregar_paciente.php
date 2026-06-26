@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Agregar Paciente</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/agregar_paciente.css?v=2">
+    <link rel="stylesheet" href="css/agregar_paciente.css?v=3">
     <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
 </head>
 <body>
