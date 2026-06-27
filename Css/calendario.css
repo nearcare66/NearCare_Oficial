@@ -77,3 +77,54 @@
     padding: 8px;
     border-left: 4px solid blue;
 }
+
+
+@media (max-width: 768px) {
+    
+   
+    .contenedor {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+   
+    .calendario {
+        width: 100%;
+        padding: 10px;
+        overflow-x: auto; 
+    }
+
+    
+    .calendario table {
+        width: 100%;
+    }
+
+    .calendario th, .calendario td {
+        width: auto; 
+        height: 55px; 
+        padding: 3px;
+        font-size: 12px;
+    }
+
+   
+    .calendario td strong {
+        font-size: 13px;
+    }
+
+    
+    .evento {
+        font-size: 8px;
+        padding: 1px 2px;
+        margin-top: 2px;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
+    }
+
+
+    .lista-eventos {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
