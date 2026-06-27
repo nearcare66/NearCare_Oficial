@@ -14,7 +14,7 @@ if(!isset($_GET['id'])){
     exit();
 }
 
-$id_paciente = $_GET['id'];
+$id_paciente = (int)$_GET['id'];
 
 $sqlNotificaciones = "CREATE TABLE IF NOT EXISTS actualizaciones_pacientes (
     id_actualizacion INT AUTO_INCREMENT PRIMARY KEY,
@@ -28,6 +28,32 @@ $sqlNotificaciones = "CREATE TABLE IF NOT EXISTS actualizaciones_pacientes (
     creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 $conn->query($sqlNotificaciones);
+
+//CREAR EVENTO
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['crear_evento'])){
+    $titulo = trim($_POST['titulo_evento'] ?? '');
+    $descripcion = trim($_POST['descripcion_evento'] ?? '');
+    $fecha = trim($_POST['fecha_evento'] ?? '');
+
+    if($titulo !== '' && $fecha !== ''){
+        $sqlEvento = "INSERT INTO eventos (id_paciente, titulo, descripcion, fecha)
+                      VALUES (?, ?, ?, ?)";
+
+        $stmtEvento = $conn->prepare($sqlEvento);
+        $stmtEvento->bind_param("isss", $id_paciente, $titulo, $descripcion, $fecha);
+        $stmtEvento->execute();
+        $stmtEvento->close();
+    }
+
+    header("Location: detalle_paciente.php?id=".$id_paciente);
+    exit();
+}
+// ✅ OBTENER EVENTOS
+$sqlEventos = "SELECT * FROM eventos WHERE id_paciente = ? ORDER BY fecha ASC";
+$stmtEventos = $conn->prepare($sqlEventos);
+$stmtEventos->bind_param("i", $id_paciente);
+$stmtEventos->execute();
+$resultEventos = $stmtEventos->get_result();
 
 /* ELIMINAR */
 if(isset($_GET['eliminar'])){
@@ -277,10 +303,31 @@ function conditionStatusClass($condition) {
             <textarea id="diagnostico_medico" name="diagnostico_medico" required><?php echo htmlspecialchars($paciente['diagnostico_medico']); ?></textarea>
         </article>
 
+        <article class="detalle-eventos-card">
+            <h3>Agregar Evento</h3>
+
+            <input type="text" name="titulo_evento" placeholder="Titulo">
+            <input type="date" name="fecha_evento">
+            <textarea name="descripcion_evento"></textarea>
+
+            <button type="submit" name="crear_evento">Guardar Evento</button>
+        </article>
+
+        <article class="lista-eventos-doctor">
+            <h3>Eventos del paciente</h3>
+
+            <?php while($ev = $resultEventos->fetch_assoc()): ?>
+                <div class="item-evento">
+                    <strong><?php echo date('d/m/Y', strtotime($ev['fecha'])); ?></strong><br>
+                    <?php echo htmlspecialchars($ev['titulo']); ?><br>
+                    <small><?php echo htmlspecialchars($ev['descripcion']); ?></small>
+                </div>
+            <?php endwhile; ?>
+        </article>
+
         <article class="detalle-call-card">
             <button type="submit" class="btn-guardar-cambios">Guardar cambios</button>
         </article>
-
     </form>
 </main>
 
