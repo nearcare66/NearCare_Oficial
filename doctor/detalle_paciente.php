@@ -295,12 +295,12 @@ $anioIngreso = $fechaIngreso ? date('Y', $fechaIngreso) : '';
             </article>
         <article class="detalle-call-card">
             <button type="submit" class="btn-guardar-cambios">Guardar cambios</button>
-            <div class="call-time">9:30-10:30 AM</div>
+            <div class="call-time">9:30-10:30 am</div>
 
         <article class="detalle-schedule-card">
             <div class="schedule-box">
-                <div>9:30-10:30 AM</div>
-                <div>10:30-11:30 AM</div>
+                <div>9:30-10:30 am</div>
+                <div>10:30-11:30 am</div>
             </div>
         </article>
     </form>
