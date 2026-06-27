@@ -29,6 +29,23 @@ $sqlNotificaciones = "CREATE TABLE IF NOT EXISTS actualizaciones_pacientes (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 $conn->query($sqlNotificaciones);
 
+//CREAR EVENTO
+if(isset($_POST['crear_evento'])){
+    $titulo = $_POST['titulo_evento'];
+    $descripcion = $_POST['descripcion_evento'];
+    $fecha = $_POST['fecha_evento'];
+
+    $sqlEvento = "INSERT INTO eventos (id_paciente, titulo, descripcion, fecha)
+                  VALUES (?, ?, ?, ?)";
+
+    $stmtEvento = $conn->prepare($sqlEvento);
+    $stmtEvento->bind_param("isss", $id_paciente, $titulo, $descripcion, $fecha);
+    $stmtEvento->execute();
+}
+// ✅ OBTENER EVENTOS
+$sqlEventos = "SELECT * FROM eventos WHERE id_paciente = $id_paciente ORDER BY fecha ASC";
+$resultEventos = $conn->query($sqlEventos);
+
 /* ELIMINAR */
 if(isset($_GET['eliminar'])){
     $sql = "DELETE FROM pacientes WHERE id_paciente = ? AND id_doctor = ?";
@@ -253,11 +270,32 @@ $anioIngreso = $fechaIngreso ? date('Y', $fechaIngreso) : '';
             <label for="diagnostico_medico" class="section-label">diagnostico:</label>
             <textarea id="diagnostico_medico" name="diagnostico_medico" required><?php echo htmlspecialchars($paciente['diagnostico_medico']); ?></textarea>
         </article>
+        </article>
+        <article class="detalle-eventos-card">
+            <h3>Agregar Evento</h3>
 
+            <input type="text" name="titulo_evento" placeholder="Titulo">
+            <input type="date" name="fecha_evento">
+            <textarea name="descripcion_evento"></textarea>
+
+            <button type="submit" name="crear_evento">Guardar Evento</button>
+        </article>
+                    <article class="lista-eventos-doctor">
+
+                <h3>Eventos del paciente</h3>
+
+                <?php while($ev = $resultEventos->fetch_assoc()): ?>
+                    <div class="item-evento">
+                    <strong><?php echo date('d/m/Y', strtotime($ev['fecha'])); ?></strong><br>
+                    <?php echo htmlspecialchars($ev['titulo']); ?><br>
+                    <small><?php echo htmlspecialchars($ev['descripcion']); ?></small>
+                    </div>
+                <?php endwhile; ?>
+
+            </article>
         <article class="detalle-call-card">
             <button type="submit" class="btn-guardar-cambios">Guardar cambios</button>
             <div class="call-time">9:30-10:30 AM</div>
-        </article>
 
         <article class="detalle-schedule-card">
             <div class="schedule-box">

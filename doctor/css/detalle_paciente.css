@@ -487,3 +487,40 @@
         width:56px;
     }
 }
+/* HACER EL BLOQUE DE EVENTOS MÁS GRANDE Y ANCHO */
+.detalle-eventos-card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* INPUTS MÁS LARGOS */
+.detalle-eventos-card input,
+.detalle-eventos-card textarea {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    background: #f1f3f6;
+    font-size: 14px;
+}
+.detalle-eventos-card {
+    grid-column: 1 / -1;
+    max-width: 900px;
+    margin: 30px auto;
+}
+.detalle-eventos-card {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(180deg, #eff9fc 0%, #dceff6 100%);
+    border: 1px solid rgba(13, 58, 122, .14);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 16px 34px rgba(13, 58, 122, .10);
+}
