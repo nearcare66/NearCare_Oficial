@@ -100,8 +100,7 @@
 .detalle-date-card,
 .detalle-reason-card,
 .detalle-diagnosis-card,
-.detalle-call-card,
-.detalle-schedule-card{
+.detalle-call-card{
     background:linear-gradient(180deg, #eff9fc 0%, #dceff6 100%);
     border:1px solid rgba(13, 58, 122, .14);
     border-radius:18px;
@@ -222,6 +221,31 @@
     font-size:22px;
     font-weight:800;
     box-shadow:0 16px 34px rgba(13, 58, 122, .10);
+}
+
+.editable-field input.condition-status{
+    transition:background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.editable-field input.condition-stable{
+    background:linear-gradient(180deg, #ecfff5 0%, #d9f8e8 100%);
+    border-color:rgba(45, 184, 110, .24);
+    border-left-color:#31c978;
+    color:#126b43;
+}
+
+.editable-field input.condition-warning{
+    background:linear-gradient(180deg, #f1fbff 0%, #d9f1ff 100%);
+    border-color:rgba(80, 168, 220, .28);
+    border-left-color:#4fb3e8;
+    color:#0d5278;
+}
+
+.editable-field input.condition-danger{
+    background:linear-gradient(180deg, #fff0ef 0%, #ffd9d7 100%);
+    border-color:rgba(231, 86, 76, .26);
+    border-left-color:#e8564c;
+    color:#8e231d;
 }
 
 .editable-field input:focus,
@@ -352,14 +376,13 @@
 
 .detalle-call-card{
     grid-column:1 / -1;
-    display:grid;
-    grid-template-columns:minmax(0, 1fr) minmax(180px, .55fr);
-    gap:12px;
+    display:flex;
     align-items:center;
+    justify-content:center;
 }
 
 .doctor-detail-page .btn-guardar-cambios{
-    width:100%;
+    width:min(100%, 520px);
     height:46px;
     margin:0;
     border:0;
@@ -375,39 +398,6 @@
 
 .doctor-detail-page .btn-guardar-cambios:hover{
     background:#0d3a7a;
-}
-
-.doctor-detail-page .call-time{
-    height:46px;
-    display:grid;
-    place-items:center;
-    border-radius:12px;
-    background:#d8f8e4;
-    color:#15824a;
-    border:1px solid rgba(53, 201, 111, .28);
-    font-size:18px;
-    font-weight:800;
-}
-
-.detalle-schedule-card{
-    grid-column:2;
-    width:min(100%, 260px);
-    justify-self:center;
-    padding:14px;
-    border-top:6px solid #35c96f;
-}
-
-.doctor-detail-page .schedule-box{
-    margin-top:0;
-    border:1px solid rgba(13, 58, 122, .10);
-    border-left:6px solid #35c96f;
-    border-radius:12px;
-    background:#f3fbfd;
-    color:#12315f;
-    padding:10px 12px;
-    font-size:18px;
-    font-weight:800;
-    line-height:1.9;
 }
 
 .sr-only{
@@ -449,11 +439,6 @@
         padding-top:28px;
     }
 
-    .detalle-schedule-card{
-        grid-column:1;
-        justify-self:stretch;
-        width:100%;
-    }
 }
 
 @media(max-width:560px){

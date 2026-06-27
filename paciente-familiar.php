@@ -22,6 +22,29 @@ if ($paciente) {
         $eventos[$dia][] = $row;
     }
 }
+
+function conditionStatusClass($condition) {
+    $normalized = strtolower(trim((string)$condition));
+    $normalized = str_replace(
+        ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú'],
+        ['a', 'e', 'i', 'o', 'u', 'a', 'e', 'i', 'o', 'u'],
+        $normalized
+    );
+
+    if (strpos($normalized, 'grave') !== false || strpos($normalized, 'critico') !== false) {
+        return 'condition-danger';
+    }
+
+    if (strpos($normalized, 'estable') !== false) {
+        return 'condition-stable';
+    }
+
+    if (strpos($normalized, 'observacion') !== false || strpos($normalized, 'delicado') !== false || strpos($normalized, 'regular') !== false) {
+        return 'condition-warning';
+    }
+
+    return '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +55,7 @@ if ($paciente) {
   <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/paciente-familiar.css">
   <link rel="stylesheet" href="css/calendario.css">
-  <link rel="stylesheet" href="Css/paciente-familiar.css?v=6">
+  <link rel="stylesheet" href="Css/paciente-familiar.css?v=10">
   <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
 <body>
@@ -70,7 +93,7 @@ if ($paciente) {
         <aside class="side-info">
           <div class="field-group">
             <div class="field-label">Condicion del paciente</div>
-            <div class="field-value"><?php echo e($paciente['condicion_paciente']); ?></div>
+            <div class="field-value condition-status <?php echo conditionStatusClass($paciente['condicion_paciente']); ?>"><?php echo e($paciente['condicion_paciente']); ?></div>
           </div>
 
           <div class="field-group">
@@ -178,17 +201,6 @@ if ($paciente) {
           </div>
         </article>
 
-        <article class="call-card">
-          <div class="call-button">Agendar llamada</div>
-          <div class="call-time">9:30-10:30 AM</div>
-        </article>
-
-        <article class="schedule-card">
-          <div class="schedule-box">
-            <div>9:30-10:30 AM</div>
-            <div>10:30-11:30 AM</div>
-          </div>
-        </article>
       <?php else: ?>
         <div class="message-card">
           <?php echo e($mensaje); ?>

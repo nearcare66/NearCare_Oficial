@@ -149,8 +149,7 @@ body {
 .info-card,
 .diagnosis-card,
 .calendar-card,
-.call-card,
-.schedule-card {
+.call-card {
   background: #3e91bc;
   border: 1px solid #2d6e91;
   border-radius: 8px;
@@ -477,29 +476,6 @@ body {
   border-left: 0;
 }
 
-.schedule-card {
-  grid-column: 2;
-  width: 185px;
-  justify-self: center;
-  min-height: 112px;
-  padding: 9px 13px;
-  position: relative;
-  clip-path: polygon(50% 0, 100% 22%, 100% 100%, 0 100%, 0 22%);
-}
-
-.schedule-box {
-  background: #fff;
-  color: #202124;
-  border-radius: 5px;
-  margin-top: 26px;
-  padding: 8px 8px 12px;
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.95;
-  border: 1px solid #e2e2e2;
-  border-left: 7px solid #39b36f;
-}
-
 .message-card {
   grid-column: 1 / -1;
   background: #3e91bc;
@@ -643,7 +619,6 @@ body,
 .diagnosis-card,
 .calendar-card,
 .call-card,
-.schedule-card,
 .message-card,
 .field-value {
   background: #eaf7fb;
@@ -733,6 +708,31 @@ body,
   background: #dff1f7;
 }
 
+.condition-status {
+  transition: background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.condition-stable {
+  background: linear-gradient(180deg, #ecfff5 0%, #d9f8e8 100%);
+  border-color: rgba(45, 184, 110, .24);
+  border-left-color: #31c978;
+  color: #126b43;
+}
+
+.condition-warning {
+  background: linear-gradient(180deg, #f1fbff 0%, #d9f1ff 100%);
+  border-color: rgba(80, 168, 220, .28);
+  border-left-color: #4fb3e8;
+  color: #0d5278;
+}
+
+.condition-danger {
+  background: linear-gradient(180deg, #fff0ef 0%, #ffd9d7 100%);
+  border-color: rgba(231, 86, 76, .26);
+  border-left-color: #e8564c;
+  color: #8e231d;
+}
+
 .lower-row {
   gap: 24px;
 }
@@ -762,8 +762,7 @@ body,
 
 .date-box,
 .reason-value,
-.diagnosis-box,
-.schedule-box {
+.diagnosis-box {
   background: #f3fbfd;
   border: 1px solid rgba(13, 58, 122, .10);
   color: #12315f;
@@ -910,18 +909,6 @@ body,
   border: 1px solid rgba(53, 201, 111, .28);
 }
 
-.schedule-card {
-  width: min(100%, 260px);
-  border-top: 6px solid #35c96f;
-  clip-path: none;
-}
-
-.schedule-box {
-  margin-top: 0;
-  border-left: 6px solid #35c96f;
-  color: #12315f;
-}
-
 .message-card {
   color: #12315f;
   border-top: 6px solid #35c96f;
@@ -966,10 +953,6 @@ body,
     place-items: center;
   }
 
-  .schedule-card {
-    grid-column: 1;
-    justify-self: stretch;
-  }
 }
 
 @media (max-width: 560px) {

@@ -166,6 +166,29 @@ $fechaIngreso = $paciente['fecha_ingreso'] ? strtotime($paciente['fecha_ingreso'
 $diaIngreso = $fechaIngreso ? date('j', $fechaIngreso) : '';
 $mesIngreso = $fechaIngreso ? date('n', $fechaIngreso) : '';
 $anioIngreso = $fechaIngreso ? date('Y', $fechaIngreso) : '';
+
+function conditionStatusClass($condition) {
+    $normalized = strtolower(trim((string)$condition));
+    $normalized = str_replace(
+        ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú'],
+        ['a', 'e', 'i', 'o', 'u', 'a', 'e', 'i', 'o', 'u'],
+        $normalized
+    );
+
+    if (strpos($normalized, 'grave') !== false || strpos($normalized, 'critico') !== false) {
+        return 'condition-danger';
+    }
+
+    if (strpos($normalized, 'estable') !== false) {
+        return 'condition-stable';
+    }
+
+    if (strpos($normalized, 'observacion') !== false || strpos($normalized, 'delicado') !== false || strpos($normalized, 'regular') !== false) {
+        return 'condition-warning';
+    }
+
+    return '';
+}
 ?>
 
 <!DOCTYPE html>
@@ -175,7 +198,7 @@ $anioIngreso = $fechaIngreso ? date('Y', $fechaIngreso) : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informacion del paciente</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/detalle_paciente.css?v=1">
+    <link rel="stylesheet" href="css/detalle_paciente.css?v=2">
     <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
 </head>
 <body class="doctor-detail-page">
@@ -219,7 +242,7 @@ $anioIngreso = $fechaIngreso ? date('Y', $fechaIngreso) : '';
         <aside class="detalle-side-info">
             <div class="editable-field">
                 <label for="condicion_paciente">Condicion del paciente</label>
-                <input id="condicion_paciente" type="text" name="condicion_paciente" value="<?php echo htmlspecialchars($paciente['condicion_paciente']); ?>" required>
+                <input id="condicion_paciente" class="condition-status <?php echo conditionStatusClass($paciente['condicion_paciente']); ?>" type="text" name="condicion_paciente" value="<?php echo htmlspecialchars($paciente['condicion_paciente']); ?>" required>
             </div>
 
             <div class="editable-field">
@@ -256,19 +279,44 @@ $anioIngreso = $fechaIngreso ? date('Y', $fechaIngreso) : '';
 
         <article class="detalle-call-card">
             <button type="submit" class="btn-guardar-cambios">Guardar cambios</button>
-            <div class="call-time">9:30-10:30 AM</div>
         </article>
 
-        <article class="detalle-schedule-card">
-            <div class="schedule-box">
-                <div>9:30-10:30 AM</div>
-                <div>10:30-11:30 AM</div>
-            </div>
-        </article>
     </form>
 </main>
 
 <script>
+function conditionStatusClass(condition) {
+    const normalized = condition
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+
+    if (normalized.includes('grave') || normalized.includes('critico')) {
+        return 'condition-danger';
+    }
+
+    if (normalized.includes('estable')) {
+        return 'condition-stable';
+    }
+
+    if (normalized.includes('observacion') || normalized.includes('delicado') || normalized.includes('regular')) {
+        return 'condition-warning';
+    }
+
+    return '';
+}
+
+const condicionPaciente = document.getElementById('condicion_paciente');
+condicionPaciente.addEventListener('input', function () {
+    this.classList.remove('condition-stable', 'condition-warning', 'condition-danger');
+    const statusClass = conditionStatusClass(this.value);
+
+    if (statusClass) {
+        this.classList.add(statusClass);
+    }
+});
+
 document.getElementById('editar').addEventListener('submit', function () {
     const day = document.getElementById('fecha_dia').value.padStart(2, '0');
     const month = document.getElementById('fecha_mes').value.padStart(2, '0');
