@@ -1,0 +1,356 @@
+/* --- Variables de Color e Identidad de NearCare --- */
+:root {
+    --bg-light-blue: #c4e5f7;
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --primary-blue: #1d62dc;
+    --text-dark: #2c3e50;
+    --text-muted: #7f8c8d;
+    --input-bg: #f0f7fc;
+    --success-green: #35c96f;
+    --warning-orange: #e67e22;
+}
+
+/* --- Estilos Generales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light-blue);
+    color: var(--text-dark);
+    min-height: 100vh;
+    
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- Aplicar Arial a toda la página (opcional, si no lo tenías) --- */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- Modificación Exclusiva de la Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   padding: 25px;
+    background-color: #80bfdf;
+    width: 100%;
+    margin-bottom: 40px;
+    border: none;          /* Eliminamos el borde blanco pálido */
+    box-shadow: none;      /* Eliminamos cualquier sombra flotante */
+    border-radius: 0;      /* Quitamos las esquinas redondeadas exteriores */
+    backdrop-filter: none; /* Quitamos el efecto borroso traslúcido */
+    -webkit-backdrop-filter: none;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative; 
+    width: 220px;  /* Le damos un ancho fijo para reservar el espacio del logo grande */
+    height: 40px;
+}
+
+.back-arrow {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #0b4ca8; /* Color azul original de tu flecha */
+    font-weight: bold;
+}
+
+.navbar-logo {
+    height: 120px; /* Sube el tamaño a lo que prefieras (ej. 55px o 60px) */
+    width: auto;
+    object-fit: contain;
+    
+    /* El truco para no alterar la navbar: */
+    margin-top: 25px;    /* Sube el logo ligeramente */
+    margin-bottom: -10px; /* Absorbe el espacio extra abajo para que la navbar no crezca */
+    vertical-align: middle;
+    
+}
+
+/* Píldora Centralizada (Médico Asignado) */
+.nav-badge {
+    background-color: #80bfdf ;
+    padding: 8px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: #2b4b81;
+     transform: translateY(65px);
+}
+
+/* Etiqueta de Bienvenido Estilo Cápsula */
+.welcome-tag {
+    background-color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Punto indicador verde */
+.online-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #35c96f;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* --- Contenedor del Dashboard (Distribución de Paneles) --- */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* Agrega o aumenta esta línea para separar las tarjetas de la navbar */
+    margin-top: 30px; 
+    
+    padding: 0 20px 40px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Adaptación para celulares o pantallas pequeñas */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Tarjetas / Paneles Traslúcidos (Glassmorphism) --- */
+.profile-card, .info-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.right-panels {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Panel Izquierdo: Foto y Datos --- */
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: #e0e0e0;
+    border: 3px solid white;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.profile-card .subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+/* --- Formularios e Inputs Estilo Píldora --- */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.input-group input {
+    background-color: var(--input-bg);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    padding: 14px 20px;
+    border-radius: 30px; /* Estilo redondeado como tus inputs originales */
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+}
+
+.input-group input:disabled {
+    color: #556270;
+    cursor: not-allowed;
+}
+
+/* --- Botón Principal de NearCare --- */
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 30px; /* Redondeado igual que tus botones de Iniciar Sesión */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 15px rgba(29, 98, 220, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #154eb0;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* --- Panel de Información (Derecha) --- */
+.info-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.info-row, .agenda-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.info-row:last-child, .agenda-item:last-child {
+    border-bottom: none;
+}
+
+.info-row strong {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.info-row p {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.agenda-item span:first-child {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* --- Etiquetas de Estado (Badges) --- */
+.status-badge {
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-active {
+    background-color: #e3fcef;
+    color: var(--success-green);
+}
+
+.badge-pending {
+    background-color: #fff3e0;
+    color: var(--warning-orange);
+}
+
+.badge-success {
+    background-color: #e3fcef;
+    color: var(--success-green);
+}
+
+/* --- Esferas Decorativas de Fondo (Burbujas NearCare) --- */
+.decor-sphere {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7baedb, #436d99);
+    opacity: 0.35;
+    z-index: 1;
+    pointer-events: none; /* Para que no estorben al hacer clic */
+}
+
+.sphere-1 { width: 100px; height: 100px; top: 15%; left: -30px; }
+.sphere-2 { width: 140px; height: 140px; bottom: 8%; left: 8%; }
+.sphere-3 { width: 190px; height: 190px; bottom: -40px; right: -40px; }
+.circle-one {
+    width: 130px;
+    height: 130px;
+
+    top: -40px;
+    left: -40px;
+}
+
+.circle-two {
+    width: 90px;
+    height: 90px;
+
+    top: 120px;
+    right: 60px;
+}
+
+.circle-three {
+    width: 160px;
+    height: 160px;
+
+    bottom: -60px;
+    right: -50px;
+}
+
+.circle-four {
+    width: 70px;
+    height: 70px;
+
+    bottom: 140px;
+    left: 80px;
+}
+
+.circle-five {
+    width: 50px;
+    height: 50px;
+
+    top: 300px;
+    right: 250px;
+}
+
+.circle-six {
+    width: 110px;
+    height: 110px;
+
+    bottom: 40px;
+    left: 250px;
+}

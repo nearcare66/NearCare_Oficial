@@ -153,3 +153,67 @@ input[type="reset"]:hover,
   color: black !important;
   box-shadow: none !important;
 }
+
+/* =========================
+   RESPONSIVO (BOTONES Y ENLACES)
+========================= */
+
+@media (max-width: 768px) {
+
+  /* Asegura un área de contacto (hitbox) cómoda para los dedos en móviles */
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .btn,
+  .button,
+  .ready-button,
+  .action-submit,
+  .submit-btn,
+  .custom-btn,
+  .register-btn,
+  .login-btn,
+  .btn-enviar,
+  .in-button,
+  .btn-paciente,
+  .btn-comentarios,
+  .btn-guardar-cambios,
+  .card button,
+  .register-form button,
+  .form-agregar button,
+  .selection-buttons button,
+  .patient-buttons button {
+    padding: 12px 20px !important; /* Incrementa el espacio interno para facilitar el clic */
+    font-size: 16px !important;    /* Evita que el texto sea diminuto en pantallas pequeñas */
+    width: auto !important;         /* Evita que los botones rompan su contenedor */
+    display: inline-block !important;
+  }
+
+  /* Ajustes específicos para menús de navegación en móvil */
+  nav a,
+  .side-menu a {
+    padding: 10px 15px !important;
+    display: block !important;     /* Suele ser mejor que se apilen en menús móviles */
+  }
+
+  /* Optimización para el botón de "Regresar" (flecha) en móvil */
+  .back-arrow,
+  .back-link,
+  .back {
+    width: 44px !important;        /* Ligera reducción para no saturar la barra superior */
+    height: 44px !important;
+    flex: 0 0 44px !important;
+    font-size: 38px !important;
+  }
+
+  .back::before {
+    font-size: 38px !important;    /* Ajuste en el tamaño del caracter '‹' */
+  }
+
+  /* Desactivamos los efectos de desplazamiento (transform) en móviles para evitar parpadeos visuales al tocar */
+  .back-arrow:hover,
+  .back-link:hover,
+  .back:hover {
+    transform: none !important;
+  }
+}
