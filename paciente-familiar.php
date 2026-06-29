@@ -7,11 +7,30 @@ if ($paciente) {
 
     $id_paciente = $paciente['id_paciente'];
 
-    // ✅ EVENTOS DEL MES
+    // ✅ MES Y AÑO DINÁMICOS
+    $mes = isset($_GET['mes']) ? intval($_GET['mes']) : date('n');
+    $anio = isset($_GET['anio']) ? intval($_GET['anio']) : date('Y');
+
+    if($mes < 1){ $mes = 12; $anio--; }
+    if($mes > 12){ $mes = 1; $anio++; }
+
+    // ✅ DÍAS DEL MES
+    $diasMes = cal_days_in_month(CAL_GREGORIAN, $mes, $anio);
+
+    // ✅ PRIMER DÍA (0=domingo)
+    $primerDia = date('w', strtotime("$anio-$mes-01"));
+
+    // ✅ NOMBRE MESES
+    $meses = [
+    1=>"ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO",
+    7=>"JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"
+    ];
+
+    // ✅ EVENTOS DEL MES ACTUAL
     $queryEventos = "SELECT * FROM eventos 
     WHERE id_paciente = $id_paciente 
-    AND MONTH(fecha) = 4 
-    AND YEAR(fecha) = 2026";
+    AND MONTH(fecha) = $mes 
+    AND YEAR(fecha) = $anio";
 
     $resultEventos = mysqli_query($conn, $queryEventos);
 
@@ -21,7 +40,8 @@ if ($paciente) {
         $dia = date('j', strtotime($row['fecha']));
         $eventos[$dia][] = $row;
     }
-}
+
+  }
 
 function conditionStatusClass($condition) {
     $normalized = strtolower(trim((string)$condition));
@@ -132,7 +152,13 @@ function conditionStatusClass($condition) {
 
             <!-- CALENDARIO -->
             <div class="calendario">
-              <h3>ABRIL</h3>
+             <div class="mes-nav">
+                <a href="?mes=<?php echo $mes-1; ?>&anio=<?php echo $anio; ?>">⬅</a>
+
+                <span><?php echo $meses[$mes] . " " . $anio; ?></span>
+
+                <a href="?mes=<?php echo $mes+1; ?>&anio=<?php echo $anio; ?>">➡</a>
+              </div>
               <table>
                 <tr>
                   <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th>
@@ -140,41 +166,38 @@ function conditionStatusClass($condition) {
                 </tr>
 
                 <?php
-                $diasMes = 30;
-                $diaSemana = 2; // abril empieza martes
+                  echo "<tr>";
 
-                $contador = 1;
-
-                echo "<tr>";
-
-                for ($i = 0; $i < $diaSemana; $i++) {
-                  echo "<td></td>";
-                }
-
-                while ($contador <= $diasMes) {
-
-                  if (($diaSemana % 7) == 0) {
-                    echo "</tr><tr>";
+                  // espacios vacíos
+                  for ($i = 0; $i < $primerDia; $i++) {
+                      echo "<td></td>";
                   }
 
-                  echo "<td>";
-                  echo "<strong>$contador</strong>";
+                  $diaActual = 1;
 
-                  if (isset($eventos[$contador])) {
-                    foreach ($eventos[$contador] as $evento) {
-                      echo "<div class='evento'>";
-                      echo $evento['titulo'];
-                      echo "</div>";
-                    }
+                  while ($diaActual <= $diasMes) {
+
+                      if ((($primerDia + $diaActual - 1) % 7) == 0 && $diaActual != 1) {
+                          echo "</tr><tr>";
+                      }
+
+                      echo "<td>";
+                      echo "<strong>$diaActual</strong>";
+
+                      if (isset($eventos[$diaActual])) {
+                          foreach ($eventos[$diaActual] as $evento) {
+                              echo "<div class='evento'>";
+                              echo htmlspecialchars($evento['titulo']);
+                              echo "</div>";
+                          }
+                      }
+
+                      echo "</td>";
+
+                      $diaActual++;
                   }
 
-                  echo "</td>";
-
-                  $contador++;
-                  $diaSemana++;
-                }
-
-                echo "</tr>";
+                  echo "</tr>";
                 ?>
 
               </table>
