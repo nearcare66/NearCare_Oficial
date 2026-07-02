@@ -145,7 +145,7 @@ function conditionStatusClass($condition) {
           <div class="diagnosis-box"><?php echo nl2br(e($paciente['diagnostico_medico'])); ?></div>
         </article>
 
-        <article class="calendar-card">
+        <article class="calendar-card" id="calendario">
           <div class="section-label">Calendario</div>
 
           <div class="contenedor">
@@ -153,11 +153,11 @@ function conditionStatusClass($condition) {
             <!-- CALENDARIO -->
             <div class="calendario">
              <div class="mes-nav">
-                <a href="?mes=<?php echo $mes-1; ?>&anio=<?php echo $anio; ?>">⬅</a>
+                <a href="?mes=<?php echo $mes-1; ?>&anio=<?php echo $anio; ?>#calendario">⬅</a>
 
                 <span><?php echo $meses[$mes] . " " . $anio; ?></span>
 
-                <a href="?mes=<?php echo $mes+1; ?>&anio=<?php echo $anio; ?>">➡</a>
+                <a href="?mes=<?php echo $mes+1; ?>&anio=<?php echo $anio; ?>#calendario">➡</a>
               </div>
               <table>
                 <tr>
