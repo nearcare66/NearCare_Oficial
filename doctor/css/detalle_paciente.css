@@ -548,3 +548,147 @@
         width:56px;
     }
 }
+/* ===================================
+   NOTAS Y AUDIOS DEL PACIENTE
+=================================== */
+
+.notas-paciente-card{
+    background:linear-gradient(180deg,#eff9fc 0%,#dceff6 100%);
+    border:1px solid rgba(13,58,122,.14);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 16px 34px rgba(13,58,122,.10);
+
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.notas-paciente-card h3{
+    color:#0d3a7a;
+    font-size:20px;
+    font-weight:800;
+}
+
+.notas-paciente-card textarea{
+    width:100%;
+    min-height:120px;
+
+    border:1px solid rgba(13,58,122,.10);
+    border-radius:12px;
+
+    padding:15px;
+
+    resize:vertical;
+
+    background:#f3fbfd;
+
+    color:#12315f;
+
+    font-size:15px;
+    font-family:Arial, Helvetica, sans-serif;
+
+    outline:none;
+}
+
+.notas-paciente-card textarea:focus{
+    border-color:#2b6fde;
+    box-shadow:0 0 0 4px rgba(43,111,222,.15);
+}
+
+.audio-controls{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.audio-controls button,
+.btn-guardar-audio{
+    border:none;
+    border-radius:12px;
+
+    padding:12px 18px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+#btnGrabar{
+    background:#35c96f;
+    color:white;
+}
+
+#btnGrabar:hover{
+    background:#24b45c;
+}
+
+#btnDetener{
+    background:#e8564c;
+    color:white;
+}
+
+#btnDetener:hover{
+    background:#d43f35;
+}
+
+.btn-guardar-audio{
+    background:#2b6fde;
+    color:white;
+}
+
+.btn-guardar-audio:hover{
+    background:#0d3a7a;
+}
+
+#audioPreview{
+    width:100%;
+    border-radius:12px;
+}
+
+/* ===================================
+   HISTORIAL
+=================================== */
+
+.historial-notas{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.historial-notas h3{
+    color:#0d3a7a;
+    font-size:18px;
+    font-weight:800;
+}
+
+.item-nota{
+    background:#f3fbfd;
+    border-left:6px solid #35c96f;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.item-nota small{
+    color:#35507a;
+    font-weight:700;
+}
+
+.item-nota p{
+    color:#12315f;
+    line-height:1.5;
+    margin:0;
+}
+
+.item-nota audio{
+    width:100%;
+}

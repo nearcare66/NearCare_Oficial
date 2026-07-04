@@ -65,9 +65,53 @@ if(isset($_GET['eliminar'])){
     header("Location: pacientes.php");
     exit();
 }
+if(
+    $_SERVER["REQUEST_METHOD"] == "POST"
+    && isset($_POST['guardar_nota'])
+)
+{
+    $nota = trim($_POST['nota_texto'] ?? '');
+
+    if($nota != ''){
+
+        $sql = "INSERT INTO notas_paciente
+        (
+            id_paciente,
+            id_doctor,
+            tipo,
+            nota
+        )
+        VALUES
+        (
+            ?,
+            ?,
+            'texto',
+            ?
+        )";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param(
+            "iis",
+            $id_paciente,
+            $id_doctor,
+            $nota
+        );
+
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    header("Location: detalle_paciente.php?id=".$id_paciente);
+    exit();
+}
 
 /* EDITAR */
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(
+    $_SERVER["REQUEST_METHOD"] == "POST"
+    && !isset($_POST['guardar_nota'])
+    && !isset($_POST['crear_evento'])
+){
 
     $sqlAnterior = "SELECT p.*, d.nombre AS doctor_nombre
                     FROM pacientes p
@@ -215,6 +259,18 @@ function conditionStatusClass($condition) {
 
     return '';
 }
+$sqlNotas = "
+SELECT *
+FROM notas_paciente
+WHERE id_paciente = ?
+ORDER BY fecha_creacion DESC
+";
+
+$stmtNotas = $conn->prepare($sqlNotas);
+$stmtNotas->bind_param("i",$id_paciente);
+$stmtNotas->execute();
+
+$resultNotas = $stmtNotas->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -224,7 +280,7 @@ function conditionStatusClass($condition) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informacion del paciente</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/detalle_paciente.css?v=2">
+    <link rel="stylesheet" href="css/detalle_paciente.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
 </head>
 <body class="doctor-detail-page">
@@ -278,7 +334,91 @@ function conditionStatusClass($condition) {
 
             <input type="hidden" name="edad" value="<?php echo htmlspecialchars($paciente['edad']); ?>">
         </aside>
+                    <article class="notas-paciente-card">
 
+                        <h3>Notas Médicas</h3>
+
+                        <textarea
+                            name="nota_texto"
+                            placeholder="Agregar observación médica..."
+                        ></textarea>
+                        <button
+                            type="submit"
+                            name="guardar_nota"
+                            class="btn-guardar-audio">
+                            📝 Guardar Nota
+                        </button>
+
+                        <div class="audio-controls">
+
+                            <button type="button" id="btnGrabar">
+                                🎤 Grabar Audio
+                            </button>
+
+                            <button type="button" id="btnDetener">
+                                ⏹ Detener
+                            </button>
+
+                            <button
+                                type="button"
+                                id="btnGuardarAudio"
+                                class="btn-guardar-audio">
+                                💾 Guardar Audio
+                            </button>
+
+                        </div>
+
+                        <audio
+                            id="audioPreview"
+                            controls>
+                        </audio>
+
+                    </article>
+                    <div class="historial-notas">
+
+                        <h3>Historial</h3>
+
+                        <?php while($nota = $resultNotas->fetch_assoc()): ?>
+
+                        <div class="item-nota">
+
+                            <small>
+                                <?= date(
+                                    "d/m/Y H:i",
+                                    strtotime($nota['fecha_creacion'])
+                                ); ?>
+                            </small>
+
+                            <?php if($nota['tipo'] == 'texto'): ?>
+
+                                <p>
+                                    <?= htmlspecialchars($nota['nota']) ?>
+                                </p>
+
+                            <?php else: ?>
+
+                                <audio controls preload="metadata">
+                                    <?= htmlspecialchars($nota['archivo_audio']); ?>            type="audio/webm">
+                                    Tu navegador no soporta audio.
+                                </audio>
+
+                                <br>
+
+                                ?>"
+                                    target="_blank">
+
+                                    Abrir audio
+
+                                </a>
+
+                            <?php endif; ?>
+
+                        </div>
+
+                        <?php endwhile; ?>
+
+                    </div>
+                </div>
         <div class="detalle-lower-row">
             <article class="detalle-date-card">
                 <div class="section-label">Fecha de ingreso:</div>
@@ -371,6 +511,100 @@ document.getElementById('editar').addEventListener('submit', function () {
     document.getElementById('fecha_ingreso').value = `${year}-${month}-${day}`;
 });
 </script>
+<script>
 
+let mediaRecorder;
+let audioChunks = [];
+let audioBlob = null;
+
+const btnGrabar = document.getElementById('btnGrabar');
+const btnDetener = document.getElementById('btnDetener');
+const btnGuardarAudio = document.getElementById('btnGuardarAudio');
+const audioPreview = document.getElementById('audioPreview');
+
+btnGrabar.onclick = async function(){
+
+    const stream = await navigator.mediaDevices.getUserMedia({
+        audio: true
+    });
+
+    audioChunks = [];
+
+    mediaRecorder = new MediaRecorder(stream);
+
+    mediaRecorder.ondataavailable = function(event){
+            if(event.data.size > 0){
+                audioChunks.push(event.data);
+            }
+        };
+
+        mediaRecorder.onstop * function(){
+
+        if(audioChunks.l*ngth === 0){
+            alert("No se *rabó audio");
+            return;
+        *
+
+        audioBlob = new Blob(
+        * audioChunks,
+            {
+            * type:"audio/webm"
+            }
+        )*
+
+        audioPreview.src =
+            U*L.createObjectURL(audioBlob);
+
+    *audioPreview.load();
+    };
+
+    med*aRecorder.start(1000);
+};
+
+btnDetener.onclick = function(){
+
+    if(mediaRecorder &&
+        mediaRecorder.state !== 'inactive'){
+
+        mediaRecorder.stop();
+    }
+};
+
+btnGuardarAudio.onclick = function(){
+
+    if(!audioBlob){
+        alert("Primero grabe un audio");
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append(
+        "audio",
+        audioBlob,
+        "audio.webm"
+    );
+
+    formData.append(
+        "id_paciente",
+        <?= $id_paciente ?>
+    );
+
+    fetch("subir_audio.php",{
+        method:"POST",
+        body:formData
+    })
+    .then(res => res.text())
+    .then(data => {
+
+        console.log(data);
+
+        alert("Audio guardado");
+
+        location.reload();
+    });
+};
+
+</script>
 </body>
 </html>
