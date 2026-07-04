@@ -39,14 +39,14 @@ $resultado = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <title>Pacientes</title>
-    <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../Css/botones-globales.css?v=1">
+    <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
 </head>
-<body>
+<body class="doctor-patients-page">
 
 <nav class="navbar">
     <div class="left-navbar">
-        <a href="dashboard.php" class="back-arrow">‹</a>
+        <a href="dashboard.php" class="back-arrow">&#8249;</a>
 
         <div class="logo">
             <img src="../img/Designer (16).png" alt="NearCare">

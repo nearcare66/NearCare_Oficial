@@ -256,8 +256,23 @@ form button:hover {
 }
 
 /* Responsive renovado: tablet */
+
+
+/* Responsive renovado: telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
 @media (max-width: 768px) {
-  html,
+html,
   body {
     min-height: 100%;
     overflow-x: hidden;
@@ -641,9 +656,9 @@ form button:hover {
   }
 }
 
-/* Responsive renovado: telefono */
+/* Responsive telefono */
 @media (max-width: 480px) {
-  .navbar {
+.navbar {
     min-height: 58px;
     padding: 8px 10px;
     gap: 9px;
@@ -875,5 +890,4 @@ form button:hover {
     flex-basis: 24px;
   }
 }
-
 

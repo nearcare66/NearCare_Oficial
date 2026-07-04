@@ -1,0 +1,562 @@
+﻿/* Detalle editable con estilo de informacion familiar */
+.doctor-detail-page{
+    background:linear-gradient(180deg, #d5eef6 0%, #c7e7f1 42%, #d9f1ec 100%);
+    color:#12315f;
+}
+
+.doctor-detail-page .detalle-page{
+    min-height:100vh;
+    padding-bottom:64px;
+}
+
+.doctor-detail-page .detalle-navbar{
+    min-height:82px;
+    height:auto;
+    padding:12px 34px;
+    background:rgba(127, 193, 218, .92);
+    border-bottom:1px solid rgba(13, 58, 122, .12);
+    box-shadow:0 10px 26px rgba(13, 58, 122, .12);
+}
+
+.doctor-detail-page .back-arrow{
+    border:0;
+    background:transparent;
+    color:#0d3a7a;
+    box-shadow:none;
+    transition:.25s;
+}
+
+.doctor-detail-page .back-arrow:hover{
+    transform:translateX(-3px);
+}
+
+.doctor-detail-page .logo img{
+    width:128px;
+    border-radius:18px;
+}
+
+.doctor-detail-page .detalle-title{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    color:#0d3a7a;
+    font-size:25px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.doctor-detail-page .profile{
+    display:flex;
+    align-items:center;
+}
+
+.doctor-detail-page .welcome-box{
+    height:38px;
+    min-width:130px;
+    border-radius:999px;
+    background:#ffffff;
+    color:#0d3a7a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:13px;
+    font-weight:800;
+    border:1px solid rgba(13, 58, 122, .08);
+    box-shadow:0 8px 18px rgba(13, 58, 122, .10);
+}
+
+.doctor-detail-page .toggle{
+    width:22px;
+    height:18px;
+    border-radius:999px;
+    background:#d8f8e4;
+    position:relative;
+}
+
+.doctor-detail-page .toggle::after{
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#35c96f;
+    position:absolute;
+    top:4px;
+    right:4px;
+}
+
+.detalle-content{
+    width:min(100% - 48px, 1120px);
+    max-width:1120px;
+    margin:0 auto;
+    padding-top:42px;
+    display:grid;
+    grid-template-columns:minmax(280px, 340px) minmax(0, 1fr);
+    gap:24px 32px;
+}
+
+.detalle-patient-card,
+.detalle-date-card,
+.detalle-reason-card,
+.detalle-diagnosis-card,
+.detalle-eventos-card,
+.lista-eventos-doctor,
+.detalle-call-card{
+    background:linear-gradient(180deg, #eff9fc 0%, #dceff6 100%);
+    border:1px solid rgba(13, 58, 122, .14);
+    border-radius:18px;
+    color:#12315f;
+    box-shadow:0 16px 34px rgba(13, 58, 122, .10);
+}
+
+.detalle-patient-card{
+    width:100%;
+    min-height:312px;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    border-top:6px solid #35c96f;
+    background:linear-gradient(180deg, #f4fbfd 0%, #dff1f7 100%);
+}
+
+.detalle-patient-card img{
+    width:220px;
+    height:154px;
+    object-fit:cover;
+    border-radius:16px;
+    border:4px solid #eef9fb;
+    box-shadow:0 12px 24px rgba(13, 58, 122, .12);
+    margin-bottom:12px;
+}
+
+.patient-name-input{
+    width:100%;
+    min-height:62px;
+    border:0;
+    outline:none;
+    resize:none;
+    overflow:hidden;
+    background:transparent;
+    color:#0d3a7a;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:25px;
+    font-weight:800;
+    line-height:1.2;
+    text-align:center;
+}
+
+.patient-name-input:focus{
+    border-radius:12px;
+    background:rgba(255, 255, 255, .62);
+    box-shadow:inset 0 0 0 2px rgba(13, 58, 122, .12);
+}
+
+.nc-pill{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:34px;
+    max-width:180px;
+    padding:6px 16px;
+    border-radius:999px;
+    background:#e3f8eb;
+    color:#15824a;
+    font-weight:800;
+}
+
+.nc-pill input{
+    width:90px;
+    border:0;
+    outline:none;
+    background:transparent;
+    color:#15824a;
+    font-size:16px;
+    font-weight:800;
+}
+
+.detalle-patient-card .doctor-name{
+    margin-top:10px;
+    color:#35507a;
+    font-size:15px;
+    font-weight:800;
+}
+
+.detalle-side-info{
+    display:grid;
+    gap:22px;
+    align-content:start;
+}
+
+.editable-field{
+    display:grid;
+    gap:8px;
+}
+
+.editable-field label,
+.section-label{
+    width:max-content;
+    min-width:180px;
+    min-height:31px;
+    padding:7px 18px;
+    border-radius:999px;
+    background:#0d3a7a;
+    color:#ffffff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:800;
+}
+
+.editable-field input{
+    width:100%;
+    min-height:80px;
+    border:1px solid rgba(13, 58, 122, .14);
+    border-left:6px solid #35c96f;
+    border-radius:18px;
+    outline:none;
+    background:#dff1f7;
+    color:#12315f;
+    padding:18px 22px;
+    font-size:22px;
+    font-weight:800;
+    box-shadow:0 16px 34px rgba(13, 58, 122, .10);
+}
+
+.editable-field input.condition-status{
+    transition:background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.editable-field input.condition-stable{
+    background:linear-gradient(180deg, #ecfff5 0%, #d9f8e8 100%);
+    border-color:rgba(45, 184, 110, .24);
+    border-left-color:#31c978;
+    color:#126b43;
+}
+
+.editable-field input.condition-warning{
+    background:linear-gradient(180deg, #f1fbff 0%, #d9f1ff 100%);
+    border-color:rgba(80, 168, 220, .28);
+    border-left-color:#4fb3e8;
+    color:#0d5278;
+}
+
+.editable-field input.condition-danger{
+    background:linear-gradient(180deg, #fff0ef 0%, #ffd9d7 100%);
+    border-color:rgba(231, 86, 76, .26);
+    border-left-color:#e8564c;
+    color:#8e231d;
+}
+
+.editable-field input:focus,
+.date-fields input:focus,
+.detalle-reason-card input:focus,
+.detalle-diagnosis-card textarea:focus,
+.detalle-eventos-card input:focus,
+.detalle-eventos-card textarea:focus,
+.nc-pill:focus-within{
+    border-color:rgba(47, 111, 222, .38);
+    box-shadow:0 0 0 4px rgba(47, 111, 222, .12), 0 16px 34px rgba(13, 58, 122, .10);
+    background:#f3fbfd;
+}
+
+.detalle-lower-row{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:minmax(0, 1.5fr) minmax(260px, 1fr);
+    gap:24px;
+}
+
+.detalle-date-card,
+.detalle-reason-card,
+.detalle-diagnosis-card,
+.detalle-eventos-card,
+.lista-eventos-doctor,
+.detalle-call-card{
+    padding:22px;
+}
+
+.detalle-date-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.detalle-date-card .section-label,
+.detalle-reason-card .section-label,
+.detalle-diagnosis-card .section-label{
+    margin:0 0 16px;
+}
+
+.date-fields{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    color:#0d3a7a;
+    font-weight:800;
+    width:100%;
+}
+
+.date-fields input{
+    width:68px;
+    height:42px;
+    border:1px solid rgba(13, 58, 122, .10);
+    border-radius:12px;
+    outline:none;
+    background:#f3fbfd;
+    color:#12315f;
+    text-align:center;
+    font-size:19px;
+    font-weight:800;
+}
+
+.detalle-reason-card{
+    display:flex;
+    flex-direction:column;
+}
+
+.detalle-reason-card input,
+.detalle-diagnosis-card textarea,
+.detalle-eventos-card input,
+.detalle-eventos-card textarea{
+    width:100%;
+    border:1px solid rgba(13, 58, 122, .10);
+    border-radius:12px;
+    outline:none;
+    background:#f3fbfd;
+    color:#12315f;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:800;
+}
+
+.detalle-reason-card input{
+    min-height:58px;
+    padding:14px 16px;
+    font-size:18px;
+}
+
+.detalle-diagnosis-card{
+    grid-column:1 / -1;
+    min-height:195px;
+    padding:0 20px 28px;
+    position:relative;
+    background:#eaf7fb;
+    border:1px solid rgba(13, 58, 122, .14);
+    border-radius:18px;
+    box-shadow:0 16px 34px rgba(13, 58, 122, .10);
+}
+
+.detalle-diagnosis-card textarea{
+    width:100%;
+    min-height:125px;
+    resize:vertical;
+    margin-top:40px;
+    padding:20px 18px;
+    border:1px solid rgba(13, 58, 122, .10);
+    border-radius:12px;
+    outline:none;
+    background:#f3fbfd;
+    color:#12315f;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:17px;
+    font-weight:800;
+    line-height:1.5;
+}
+
+.detalle-diagnosis-card .section-label{
+    position:absolute;
+    top:16px;
+    left:20px;
+    z-index:2;
+    min-width:130px;
+    min-height:28px;
+    margin:0;
+    padding:6px 18px;
+    border-radius:999px;
+    background:#0d3a7a;
+    color:#ffffff;
+    font-size:15px;
+    line-height:1;
+}
+
+.detalle-call-card{
+    grid-column:1 / -1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.doctor-detail-page .btn-guardar-cambios{
+    width:min(100%, 520px);
+    height:46px;
+    margin:0;
+    border:0;
+    border-radius:12px;
+    background:#2b6fde;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:none;
+    transition:.2s;
+}
+
+.doctor-detail-page .btn-guardar-cambios:hover{
+    background:#0d3a7a;
+}
+
+.detalle-eventos-card,
+.lista-eventos-doctor{
+    grid-column:1 / -1;
+}
+
+.detalle-eventos-card h3,
+.lista-eventos-doctor h3{
+    margin:0 0 16px;
+    color:#0d3a7a;
+    font-size:18px;
+    font-weight:800;
+}
+
+.detalle-eventos-card input,
+.detalle-eventos-card textarea{
+    width:100%;
+    border:1px solid rgba(13, 58, 122, .10);
+    border-radius:12px;
+    outline:none;
+    background:#f3fbfd;
+    color:#12315f;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:800;
+    padding:14px 16px;
+    margin-bottom:12px;
+}
+
+.detalle-eventos-card textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.detalle-eventos-card button{
+    min-height:44px;
+    border:0;
+    border-radius:12px;
+    background:#35c96f;
+    color:#ffffff;
+    font-size:15px;
+    font-weight:800;
+    padding:10px 18px;
+    cursor:pointer;
+}
+
+.item-evento{
+    padding:14px 16px;
+    border-left:6px solid #35c96f;
+    border-radius:12px;
+    background:#f3fbfd;
+    color:#12315f;
+    font-weight:800;
+}
+
+.item-evento + .item-evento{
+    margin-top:12px;
+}
+
+.item-evento strong{
+    color:#0d3a7a;
+}
+
+.item-evento small{
+    color:#35507a;
+}
+
+.sr-only{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0, 0, 0, 0);
+    white-space:nowrap;
+    border:0;
+}
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+@media (max-width: 768px) {
+.doctor-detail-page .detalle-navbar{
+        gap:14px;
+        padding:14px 20px;
+        flex-wrap:wrap;
+    }
+
+    .doctor-detail-page .detalle-title{
+        position:static;
+        transform:none;
+        order:3;
+        width:100%;
+        text-align:center;
+        font-size:20px;
+    }
+
+    .detalle-content,
+    .detalle-lower-row,
+    .detalle-call-card{
+        grid-template-columns:1fr;
+    }
+
+    .detalle-content{
+        width:min(100% - 32px, 680px);
+        padding-top:28px;
+    }
+}
+
+/* Responsive telefono */
+@media (max-width: 480px) {
+.doctor-detail-page .logo img{
+        width:104px;
+    }
+
+    .doctor-detail-page .profile{
+        width:100%;
+        justify-content:center;
+    }
+
+    .detalle-patient-card img{
+        width:100%;
+        height:auto;
+        max-height:210px;
+    }
+
+    .detalle-date-card,
+    .detalle-reason-card,
+    .detalle-diagnosis-card,
+    .detalle-eventos-card,
+    .lista-eventos-doctor,
+    .detalle-call-card{
+        padding:18px;
+    }
+
+    .date-fields{
+        gap:6px;
+    }
+
+    .date-fields input{
+        width:56px;
+    }
+}
+

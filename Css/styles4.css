@@ -130,8 +130,23 @@ img {
 }
 
 /* Responsive renovado: tablet */
+
+
+/* Responsive renovado: telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
 @media (max-width: 768px) {
-  html,
+html,
   body {
     min-height: 100%;
     overflow-x: hidden;
@@ -515,9 +530,9 @@ img {
   }
 }
 
-/* Responsive renovado: telefono */
+/* Responsive telefono */
 @media (max-width: 480px) {
-  .navbar {
+.navbar {
     min-height: 58px;
     padding: 8px 10px;
     gap: 9px;
@@ -749,5 +764,4 @@ img {
     flex-basis: 24px;
   }
 }
-
 

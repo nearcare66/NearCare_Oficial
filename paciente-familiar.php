@@ -7,11 +7,30 @@ if ($paciente) {
 
     $id_paciente = $paciente['id_paciente'];
 
-    // ✅ EVENTOS DEL MES
+    // ✅ MES Y AÑO DINÁMICOS
+    $mes = isset($_GET['mes']) ? intval($_GET['mes']) : date('n');
+    $anio = isset($_GET['anio']) ? intval($_GET['anio']) : date('Y');
+
+    if($mes < 1){ $mes = 12; $anio--; }
+    if($mes > 12){ $mes = 1; $anio++; }
+
+    // ✅ DÍAS DEL MES
+    $diasMes = cal_days_in_month(CAL_GREGORIAN, $mes, $anio);
+
+    // ✅ PRIMER DÍA (0=domingo)
+    $primerDia = date('w', strtotime("$anio-$mes-01"));
+
+    // ✅ NOMBRE MESES
+    $meses = [
+    1=>"ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO",
+    7=>"JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"
+    ];
+
+    // ✅ EVENTOS DEL MES ACTUAL
     $queryEventos = "SELECT * FROM eventos 
     WHERE id_paciente = $id_paciente 
-    AND MONTH(fecha) = 4 
-    AND YEAR(fecha) = 2026";
+    AND MONTH(fecha) = $mes 
+    AND YEAR(fecha) = $anio";
 
     $resultEventos = mysqli_query($conn, $queryEventos);
 
@@ -21,6 +40,30 @@ if ($paciente) {
         $dia = date('j', strtotime($row['fecha']));
         $eventos[$dia][] = $row;
     }
+
+  }
+
+function conditionStatusClass($condition) {
+    $normalized = strtolower(trim((string)$condition));
+    $normalized = str_replace(
+        ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú'],
+        ['a', 'e', 'i', 'o', 'u', 'a', 'e', 'i', 'o', 'u'],
+        $normalized
+    );
+
+    if (strpos($normalized, 'grave') !== false || strpos($normalized, 'critico') !== false) {
+        return 'condition-danger';
+    }
+
+    if (strpos($normalized, 'estable') !== false) {
+        return 'condition-stable';
+    }
+
+    if (strpos($normalized, 'observacion') !== false || strpos($normalized, 'delicado') !== false || strpos($normalized, 'regular') !== false) {
+        return 'condition-warning';
+    }
+
+    return '';
 }
 ?>
 <!DOCTYPE html>
@@ -32,8 +75,8 @@ if ($paciente) {
   <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/paciente-familiar.css">
   <link rel="stylesheet" href="css/calendario.css">
-  <link rel="stylesheet" href="Css/paciente-familiar.css?v=3">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/paciente-familiar.css?v=10">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
 <body>
   <main class="page">
@@ -70,7 +113,7 @@ if ($paciente) {
         <aside class="side-info">
           <div class="field-group">
             <div class="field-label">Condicion del paciente</div>
-            <div class="field-value"><?php echo e($paciente['condicion_paciente']); ?></div>
+            <div class="field-value condition-status <?php echo conditionStatusClass($paciente['condicion_paciente']); ?>"><?php echo e($paciente['condicion_paciente']); ?></div>
           </div>
 
           <div class="field-group">
@@ -102,14 +145,20 @@ if ($paciente) {
           <div class="diagnosis-box"><?php echo nl2br(e($paciente['diagnostico_medico'])); ?></div>
         </article>
 
-        <article class="calendar-card">
+        <article class="calendar-card" id="calendario">
           <div class="section-label">Calendario</div>
 
           <div class="contenedor">
 
             <!-- CALENDARIO -->
             <div class="calendario">
-              <h3>ABRIL</h3>
+             <div class="mes-nav">
+                <a href="?mes=<?php echo $mes-1; ?>&anio=<?php echo $anio; ?>#calendario">⬅</a>
+
+                <span><?php echo $meses[$mes] . " " . $anio; ?></span>
+
+                <a href="?mes=<?php echo $mes+1; ?>&anio=<?php echo $anio; ?>#calendario">➡</a>
+              </div>
               <table>
                 <tr>
                   <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th>
@@ -117,41 +166,38 @@ if ($paciente) {
                 </tr>
 
                 <?php
-                $diasMes = 30;
-                $diaSemana = 2; // abril empieza martes
+                  echo "<tr>";
 
-                $contador = 1;
-
-                echo "<tr>";
-
-                for ($i = 0; $i < $diaSemana; $i++) {
-                  echo "<td></td>";
-                }
-
-                while ($contador <= $diasMes) {
-
-                  if (($diaSemana % 7) == 0) {
-                    echo "</tr><tr>";
+                  // espacios vacíos
+                  for ($i = 0; $i < $primerDia; $i++) {
+                      echo "<td></td>";
                   }
 
-                  echo "<td>";
-                  echo "<strong>$contador</strong>";
+                  $diaActual = 1;
 
-                  if (isset($eventos[$contador])) {
-                    foreach ($eventos[$contador] as $evento) {
-                      echo "<div class='evento'>";
-                      echo $evento['titulo'];
-                      echo "</div>";
-                    }
+                  while ($diaActual <= $diasMes) {
+
+                      if ((($primerDia + $diaActual - 1) % 7) == 0 && $diaActual != 1) {
+                          echo "</tr><tr>";
+                      }
+
+                      echo "<td>";
+                      echo "<strong>$diaActual</strong>";
+
+                      if (isset($eventos[$diaActual])) {
+                          foreach ($eventos[$diaActual] as $evento) {
+                              echo "<div class='evento'>";
+                              echo htmlspecialchars($evento['titulo']);
+                              echo "</div>";
+                          }
+                      }
+
+                      echo "</td>";
+
+                      $diaActual++;
                   }
 
-                  echo "</td>";
-
-                  $contador++;
-                  $diaSemana++;
-                }
-
-                echo "</tr>";
+                  echo "</tr>";
                 ?>
 
               </table>
@@ -178,17 +224,6 @@ if ($paciente) {
           </div>
         </article>
 
-        <article class="call-card">
-          <div class="call-button">Agendar llamada</div>
-          <div class="call-time">9:30-10:30 AM</div>
-        </article>
-
-        <article class="schedule-card">
-          <div class="schedule-box">
-            <div>9:30-10:30 AM</div>
-            <div>10:30-11:30 AM</div>
-          </div>
-        </article>
       <?php else: ?>
         <div class="message-card">
           <?php echo e($mensaje); ?>

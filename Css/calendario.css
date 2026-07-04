@@ -71,8 +71,51 @@
     border-left: 4px solid blue;
 }
 
+
+.mes-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.btn-mes {
+    background: #2d6cdf;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-mes:hover {
+    background: #1e4fa3;
+    transform: scale(1.1);
+}
+
+#tituloMes {
+    font-weight: 600;
+    font-size: 16px;
+    color: #0b3c74;
+}
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
 @media (max-width: 768px) {
-  html,
+html,
   body {
     min-height: 100%;
     overflow-x: hidden;
@@ -454,10 +497,57 @@
   .footer-links {
     align-items: center;
   }
+
+.contenedor {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+   
+    .calendario {
+        width: 100%;
+        padding: 10px;
+        overflow-x: auto; 
+    }
+
+    
+    .calendario table {
+        width: 100%;
+    }
+
+    .calendario th, .calendario td {
+        width: auto; 
+        height: 55px; 
+        padding: 3px;
+        font-size: 12px;
+    }
+
+   
+    .calendario td strong {
+        font-size: 13px;
+    }
+
+    
+    .evento {
+        font-size: 8px;
+        padding: 1px 2px;
+        margin-top: 2px;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
+    }
+
+
+    .lista-eventos {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
+/* Responsive telefono */
 @media (max-width: 480px) {
-  .navbar {
+.navbar {
     min-height: 58px;
     padding: 8px 10px;
     gap: 9px;
@@ -689,5 +779,4 @@
     flex-basis: 24px;
   }
 }
-
 

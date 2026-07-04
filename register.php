@@ -337,7 +337,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       }
     }
   </style>
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
 <body>
   <main class="page">
@@ -348,7 +348,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
             &#9776;
           </button>
         <?php endif; ?>
-       <a href="doctor-familiar.php" style="text-decoration: none; color: #004080; font-size: 38px;">&larr;</a>
+       <a href="doctor-familiar.php" class="back-arrow">&#8249;</a>
 
         <img class="brand" src="img/Designer (16).png" alt="NearCare">
       </div>

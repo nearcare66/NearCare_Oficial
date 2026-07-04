@@ -11,7 +11,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Css/styles5.css">
   <link rel="stylesheet" href="Css/session-menu.css">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
 <body>
     <main>
@@ -25,7 +25,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
   <div class="navbar-left">
 
-      <a href="javascript:history.back()" class="back-arrow">‹</a>
+      <a href="javascript:history.back()" class="back-arrow">&#8249;</a>
 
     <div class="logo">
       <img src="img/Designer (16).png" alt="">

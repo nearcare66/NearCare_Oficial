@@ -12,19 +12,19 @@ if (isset($_SESSION['id_doctor'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Doctor</title>
     <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="left-navbar">
-        <a href="../doctor-familiar.php" class="back-arrow">&larr;</a>
+        <a href="../doctor-familiar.php" class="back-arrow">&#8249;</a>
 
         <div class="logo">
             <img src="../img/Designer (16).png" alt="NearCare">

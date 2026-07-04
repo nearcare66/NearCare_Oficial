@@ -1,0 +1,183 @@
+﻿/* Formulario profesional para agregar paciente */
+body{
+    background:
+        linear-gradient(135deg, #b8e9f7 0%, #d9f6ff 42%, #a7dff1 100%);
+    color:#153653;
+}
+
+.agregar-container{
+    width:min(100% - 40px, 860px);
+    margin:38px auto 62px;
+    display:block;
+}
+
+.form-agregar{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:16px 22px;
+    padding:22px;
+    background:linear-gradient(180deg, #f3fcff 0%, #dff5fc 100%);
+    border:1px solid #8fcfe4;
+    border-radius:10px;
+    box-shadow:0 22px 45px rgba(23, 96, 135, .22);
+    position:relative;
+    overflow:hidden;
+}
+
+.form-agregar::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    border:6px solid rgba(114, 197, 225, .20);
+    border-radius:10px;
+}
+
+.form-agregar::before{
+    content:"Descripcion del paciente";
+    grid-column:1 / -1;
+    margin:-22px -22px 6px;
+    padding:15px 18px;
+    background:linear-gradient(90deg, #2d9fd0 0%, #67c5e2 100%);
+    border-bottom:1px solid #79c9df;
+    border-radius:10px 10px 0 0;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:800;
+    box-shadow:0 10px 22px rgba(38, 141, 188, .18);
+}
+
+.form-field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    min-width:0;
+}
+
+.field-full{
+    grid-column:1 / -1;
+}
+
+.form-field label{
+    color:#174665;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.2px;
+}
+
+.form-field label span{
+    color:#d73333;
+}
+
+.form-agregar input,
+.form-agregar select,
+.form-agregar textarea{
+    width:100%;
+    height:42px;
+    margin:0;
+    padding:10px 12px;
+    border:1px solid #90cfe5;
+    border-radius:8px;
+    outline:none;
+    background:#f8fdff;
+    color:#17395e;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:600;
+    text-align:left;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.75);
+    transition:border-color .18s, box-shadow .18s, background .18s, transform .18s;
+}
+
+.form-agregar input::placeholder,
+.form-agregar textarea::placeholder{
+    color:#6d99ac;
+}
+
+.form-agregar input:focus,
+.form-agregar select:focus,
+.form-agregar textarea:focus{
+    border-color:#2197c8;
+    background:#ffffff;
+    box-shadow:0 0 0 4px rgba(80, 188, 224, .26);
+    transform:translateY(-1px);
+}
+
+.form-agregar textarea{
+    min-height:96px;
+    height:96px;
+    resize:vertical;
+    line-height:1.45;
+}
+
+.form-agregar input[type="file"]{
+    height:auto;
+    min-height:42px;
+    padding:8px 10px;
+    background:#eaf9fe;
+}
+
+.form-agregar button{
+    grid-column:2;
+    justify-self:end;
+    width:220px;
+    height:42px;
+    margin:4px 0 0;
+    border:0;
+    border-radius:8px;
+    background:#1f7fbd;
+    color:#ffffff;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 12px 22px rgba(31, 127, 189, .28);
+    transition:background .18s, transform .18s, box-shadow .18s;
+}
+
+.form-agregar button:hover{
+    background:#166ea8;
+    transform:translateY(-1px);
+    box-shadow:0 15px 26px rgba(31, 127, 189, .34);
+}
+
+.form-agregar select{
+    cursor:pointer;
+}
+
+/* Responsive tablet */
+
+/* Responsive tablet */
+
+/* Responsive tablet */
+@media (max-width: 768px) {
+.agregar-container{
+        width:min(100% - 28px, 620px);
+        margin-top:24px;
+    }
+
+    .form-agregar{
+        grid-template-columns:1fr;
+        padding:16px;
+    }
+
+    .form-agregar::before{
+        margin:-16px -16px 2px;
+    }
+
+    .form-agregar input[name="nombre_completo"],
+    .form-agregar input[name="motivo_ingreso"],
+    .form-agregar input[name="condicion_paciente"],
+    .form-agregar textarea,
+    .form-agregar input[type="file"],
+    .field-full,
+    .form-agregar button{
+        grid-column:1;
+    }
+
+    .form-agregar button{
+        justify-self:stretch;
+        width:100%;
+    }
+}
+

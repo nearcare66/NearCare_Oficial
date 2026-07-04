@@ -20,13 +20,13 @@ $isLoggedIn = false;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NearCare</title>
 
-  <link rel="stylesheet" href="Css/style.css">
+  <link rel="stylesheet" href="Css/style.css?v=9">
   <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
-<body>
+<body class="doctor-family-page">
 
  
    <header class="navbar">
@@ -39,7 +39,7 @@ $isLoggedIn = false;
         </button>
       <?php endif; ?>
 
-      <a href="index.php" class="back-arrow">&larr;</a>
+      <a href="index.php" class="back-arrow">&#8249;</a>
 
       <div class="logo">
         <img src="img/Designer (16).png" alt="">
@@ -85,6 +85,12 @@ $isLoggedIn = false;
     <!-- CIRCULOS -->
     <div class="circle-left"></div>
     <div class="circle-right"></div>
+
+    <div class="choice-heading">
+      <span>Acceso NearCare</span>
+      <h1>Elige cómo quieres ingresar</h1>
+      <p>Selecciona tu perfil para continuar con tu cuenta.</p>
+    </div>
 
     <!-- CARD IZQUIERDA -->
     <section class="card">

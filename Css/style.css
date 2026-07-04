@@ -99,7 +99,6 @@ body{
 }
 
 
-
 .card{
     width: 380px;
     min-height: 500px;
@@ -169,29 +168,27 @@ body{
     font-weight: 600;
     cursor: pointer;
     position: relative;
-    overflow: hidden; /* Obligatorio para recortar el brillo interno */
+    overflow: hidden; 
     
     border-bottom: 5px solid #296390;
     box-shadow: 
         0 8px 20px rgba(12, 38, 66, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4); /* LÃ­nea de luz interna superior */
+        inset 0 1px 0 rgba(255, 255, 255, 0.4); 
     
     transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
 }
 
-/* REFLEJO FIJO: Capa superior blanca translÃºcida (Efecto Cristal Glaseado) */
 .card button::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50%; /* Cubre solo la mitad superior */
+    height: 50%;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
     pointer-events: none;
 }
 
-/* DESTELLO DINÃMICO: LÃ­nea de brillo que cruza al pasar el mouse */
 .card button::after {
     content: "";
     position: absolute;
@@ -381,9 +378,197 @@ body.menu-open .menu-overlay{
   pointer-events:auto;
 }
 
-/* Responsive renovado: tablet */
+
+/* Mejora visual de doctor-familiar.php conservando la idea original */
+.doctor-family-page{
+    overflow-x:hidden;
+    overflow-y:auto;
+    background:
+        linear-gradient(180deg, #b9dcf5 0%, #d8eff7 52%, #f3fbfd 100%);
+}
+
+.doctor-family-page .navbar{
+    min-height:90px;
+    height:auto;
+    background:rgba(127, 193, 218, .94);
+    border-bottom:1px solid rgba(23, 57, 94, .12);
+    box-shadow:0 10px 26px rgba(12, 38, 66, .12);
+}
+
+.doctor-family-page .back-arrow{
+    background:transparent;
+    border-radius:0;
+    transition:.25s;
+}
+
+.doctor-family-page .back-arrow:hover{
+    transform:translateX(-4px);
+}
+
+.doctor-family-page .welcome-box{
+    color:#17395e;
+    border:1px solid rgba(23, 57, 94, .08);
+}
+
+.doctor-family-page .toggle{
+    background:#d8f8e4;
+    position:relative;
+}
+
+.doctor-family-page .toggle::after{
+    content:"";
+    position:absolute;
+    width:12px;
+    height:12px;
+    inset:8px;
+    border-radius:50%;
+    background:#35c96f;
+}
+
+.doctor-family-page .main-container{
+    min-height:calc(100vh - 90px);
+    height:auto;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(280px, 390px));
+    justify-content:center;
+    align-items:stretch;
+    gap:26px;
+    padding:54px 28px 72px;
+}
+
+.doctor-family-page .choice-heading{
+    grid-column:1 / -1;
+    max-width:760px;
+    margin:0 auto 10px;
+    text-align:center;
+}
+
+.doctor-family-page .choice-heading span{
+    display:inline-block;
+    margin-bottom:10px;
+    padding:7px 16px;
+    border-radius:999px;
+    background:#7fc1da;
+    color:#0d3a7a;
+    font-weight:800;
+    font-size:14px;
+}
+
+.doctor-family-page .choice-heading h1{
+    color:#17395e;
+    font-size:46px;
+    line-height:1.08;
+    margin-bottom:12px;
+}
+
+.doctor-family-page .choice-heading p{
+    color:#35507a;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.doctor-family-page .card{
+    width:100%;
+    min-height:0;
+    margin-top:0;
+    padding:30px 30px 32px;
+    background:linear-gradient(180deg, #8cc3e8 0%, #6fb5d4 100%);
+    border:1px solid rgba(23, 57, 94, .14);
+    border-radius:24px;
+    box-shadow:
+        0 18px 36px rgba(12, 38, 66, .15);
+}
+
+.doctor-family-page .card h2{
+    color:#0d3a7a;
+    font-size:34px;
+    margin-bottom:14px;
+}
+
+.doctor-family-page .card img{
+    width:230px;
+    max-height:205px;
+    object-fit:contain;
+    margin-bottom:16px;
+    background:transparent;
+    padding:0;
+    border-radius:20px;
+    filter:none;
+}
+
+.doctor-family-page .card:hover img{
+    transform:none;
+    filter:none;
+}
+
+.doctor-family-page .card a{
+    text-decoration:none;
+}
+
+.doctor-family-page .role-description{
+    min-height:48px;
+    margin:0 0 18px;
+    color:#17395e;
+    text-align:center;
+    font-size:16px;
+    font-weight:600;
+    line-height:1.5;
+}
+
+.doctor-family-page .card button{
+    width:245px;
+    padding:14px 18px;
+    border-radius:12px;
+    background:linear-gradient(180deg, #1e6ade 0%, #1554b2 100%);
+    color:#ffffff;
+    border:1px solid rgba(255,255,255,.28);
+    border-bottom:1px solid rgba(8,39,92,.28);
+    box-shadow:
+        0 10px 22px rgba(13,58,122,.22),
+        inset 0 1px 0 rgba(255,255,255,.22);
+    font-weight:700;
+    letter-spacing:.2px;
+}
+
+.doctor-family-page .card button:hover{
+    background:linear-gradient(180deg, #2b78e4 0%, #1e6ade 100%);
+    color:#ffffff;
+    border-color:rgba(255,255,255,.36);
+    transform:translateY(-2px);
+    box-shadow:
+        0 14px 28px rgba(13,58,122,.28),
+        inset 0 1px 0 rgba(255,255,255,.26);
+}
+
+.doctor-family-page .card button:active{
+    transform:translateY(0);
+    box-shadow:
+        0 7px 14px rgba(13,58,122,.22),
+        inset 0 2px 4px rgba(8,39,92,.24);
+}
+
+.doctor-family-page .divider{
+    display:none;
+}
+
+.doctor-family-page .circle-left,
+.doctor-family-page .circle-right{
+    display:none;
+}
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
 @media (max-width: 768px) {
-  html,
+html,
   body {
     min-height: 100%;
     overflow-x: hidden;
@@ -767,9 +952,9 @@ body.menu-open .menu-overlay{
   }
 }
 
-/* Responsive renovado: telefono */
+/* Responsive telefono */
 @media (max-width: 480px) {
-  .navbar {
+.navbar {
     min-height: 58px;
     padding: 8px 10px;
     gap: 9px;
@@ -1001,5 +1186,4 @@ body.menu-open .menu-overlay{
     flex-basis: 24px;
   }
 }
-
 

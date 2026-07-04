@@ -100,6 +100,48 @@ input[type="reset"]:hover,
   color: inherit !important;
 }
 
+.back-arrow,
+.back-link,
+.back {
+  width: 48px !important;
+  height: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 48px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #0d3a7a !important;
+  cursor: pointer !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 44px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  transition: transform .25s ease, color .25s ease !important;
+}
+
+.back-arrow:hover,
+.back-link:hover,
+.back:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #08275c !important;
+  transform: translateX(-3px) !important;
+}
+
+.back {
+  font-size: 0 !important;
+}
+
+.back::before {
+  content: "\2039";
+  font-size: 44px !important;
+}
+
 .btn-ver,
 .btn-ver:hover,
 .btn-agregar,
@@ -113,8 +155,19 @@ input[type="reset"]:hover,
 }
 
 
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
 @media (max-width: 768px) {
-  html,
+html,
   body {
     min-height: 100%;
     overflow-x: hidden;
@@ -496,10 +549,64 @@ input[type="reset"]:hover,
   .footer-links {
     align-items: center;
   }
+
+button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .btn,
+  .button,
+  .ready-button,
+  .action-submit,
+  .submit-btn,
+  .custom-btn,
+  .register-btn,
+  .login-btn,
+  .btn-enviar,
+  .in-button,
+  .btn-paciente,
+  .btn-comentarios,
+  .btn-guardar-cambios,
+  .card button,
+  .register-form button,
+  .form-agregar button,
+  .selection-buttons button,
+  .patient-buttons button {
+    padding: 12px 20px !important; 
+    font-size: 16px !important;   
+    width: auto !important;        
+    display: inline-block !important;
+  }
+
+  nav a,
+  .side-menu a {
+    padding: 10px 15px !important;
+    display: block !important;    
+  }
+
+  .back-arrow,
+  .back-link,
+  .back {
+    width: 44px !important;        
+    height: 44px !important;
+    flex: 0 0 44px !important;
+    font-size: 38px !important;
+  }
+
+  .back::before {
+    font-size: 38px !important;
+  }
+
+  .back-arrow:hover,
+  .back-link:hover,
+  .back:hover {
+    transform: none !important;
+  }
 }
 
+/* Responsive telefono */
 @media (max-width: 480px) {
-  .navbar {
+.navbar {
     min-height: 58px;
     padding: 8px 10px;
     gap: 9px;
@@ -731,5 +838,4 @@ input[type="reset"]:hover,
     flex-basis: 24px;
   }
 }
-
 

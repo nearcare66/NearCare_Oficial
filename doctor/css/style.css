@@ -733,8 +733,292 @@ body{
 }
 
 /* Responsive renovado: tablet */
+
+
+/* Responsive renovado: telefono */
+
+
+.doctor-dashboard-page{
+    background:
+        linear-gradient(180deg, #cceef8 0%, #eaf7fb 58%, #f7fcfd 100%);
+}
+
+.doctor-dashboard-page .navbar{
+    background:rgba(127,193,218,.95);
+    border-bottom:1px solid rgba(22,59,99,.12);
+    box-shadow:0 10px 26px rgba(12,38,66,.12);
+}
+
+.doctor-dashboard-page .menu-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    transition:.25s;
+}
+
+.doctor-dashboard-page .menu-icon:hover{
+    background:rgba(255,255,255,.42);
+}
+
+.doctor-dashboard-page .navbar h1{
+    padding:10px 18px;
+    border-radius:999px;
+    background:rgba(255,255,255,.55);
+    color:#163b63;
+    font-size:22px;
+    box-shadow:0 8px 18px rgba(12,38,66,.08);
+}
+
+.doctor-dashboard-page .circle{
+    display:none;
+}
+
+.dashboard-main{
+    width:min(860px, calc(100% - 48px));
+    margin:0 auto;
+    padding:72px 0 70px;
+}
+
+.doctor-dashboard-page .welcome-card{
+    position:static;
+    overflow:visible;
+    margin:0;
+    padding:0;
+    text-align:center;
+    background:transparent;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+}
+
+.doctor-dashboard-page .welcome-card::after{
+    display:none;
+}
+
+.doctor-dashboard-page .welcome-card span,
+.doctor-dashboard-page .welcome-card h2,
+.doctor-dashboard-page .welcome-card p{
+    position:relative;
+    z-index:1;
+}
+
+.doctor-dashboard-page .welcome-card span{
+    display:inline-block;
+    margin-bottom:12px;
+    padding:7px 16px;
+    border-radius:999px;
+    background:#d8f8e4;
+    color:#15824a;
+    font-size:14px;
+    font-weight:800;
+}
+
+.doctor-dashboard-page .welcome-card h2{
+    color:#163b63;
+    font-size:38px;
+    line-height:1.12;
+    margin-bottom:0;
+}
+
+.doctor-dashboard-page .welcome-card p{
+    color:#4f6f85;
+    font-size:18px;
+    line-height:1.65;
+}
+
+.doctor-dashboard-page .menu-doctor{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:28px;
+    margin-top:54px;
+}
+
+.doctor-dashboard-page .btn-paciente,
+.doctor-dashboard-page .btn-comentarios{
+    width:360px;
+    min-height:74px;
+    height:auto;
+    padding:0 28px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    border-radius:18px;
+    color:#ffffff;
+    text-align:center;
+    box-shadow:0 12px 24px rgba(12,38,66,.16);
+}
+
+.doctor-dashboard-page .btn-paciente{
+    background:linear-gradient(135deg, #3f86bb, #1e6ade);
+}
+
+.doctor-dashboard-page .btn-comentarios{
+    background:linear-gradient(135deg, #47b87d, #15824a);
+}
+
+.doctor-dashboard-page .btn-paciente span,
+.doctor-dashboard-page .btn-comentarios span{
+    display:block;
+    font-size:26px;
+    line-height:1.1;
+}
+
+.doctor-dashboard-page .btn-paciente small,
+.doctor-dashboard-page .btn-comentarios small{
+    display:block;
+    margin-top:10px;
+    color:rgba(255,255,255,.86);
+    font-size:15px;
+    font-weight:600;
+}
+
+.doctor-dashboard-page .btn-paciente:hover,
+.doctor-dashboard-page .btn-comentarios:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px rgba(12,38,66,.20);
+}
+
+
+/* Ajustes suaves para la lista de pacientes */
+.doctor-patients-page{
+    background:
+        linear-gradient(180deg, #cceef8 0%, #eaf7fb 62%, #f7fcfd 100%);
+}
+
+.doctor-patients-page .navbar{
+    background:rgba(127,193,218,.95);
+    border-bottom:1px solid rgba(22,59,99,.12);
+    box-shadow:0 10px 24px rgba(12,38,66,.10);
+}
+
+.doctor-patients-page .titulo-pacientes{
+    color:#163b63;
+    font-size:28px;
+    font-weight:800;
+}
+
+.doctor-patients-page .search-box{
+    height:44px;
+    min-width:240px;
+    background:#ffffff;
+    border:1px solid rgba(22,59,99,.10);
+    border-radius:14px;
+    box-shadow:0 8px 18px rgba(12,38,66,.08);
+}
+
+.doctor-patients-page .search-box input{
+    width:190px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    color:#163b63;
+}
+
+.doctor-patients-page .search-box button{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    color:#163b63;
+    transition:.25s;
+}
+
+.doctor-patients-page .search-box button:hover{
+    background:#eaf7fb;
+}
+
+.doctor-patients-page .pacientes-container{
+    width:min(82%, 900px);
+    gap:18px;
+    margin-top:44px;
+}
+
+.doctor-patients-page .linea-verde{
+    left:-24px;
+    width:6px;
+    height:100%;
+    max-height:250px;
+    border-radius:999px;
+    background:#47b87d;
+}
+
+.doctor-patients-page .card-paciente{
+    min-height:118px;
+    padding:14px 18px;
+    background:linear-gradient(135deg, #428ec1, #3f86bb);
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:16px;
+    box-shadow:0 12px 24px rgba(12,38,66,.14);
+    transition:.25s;
+}
+
+.doctor-patients-page .card-paciente:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 30px rgba(12,38,66,.20);
+}
+
+.doctor-patients-page .foto-paciente{
+    width:145px;
+    height:88px;
+    border:3px solid rgba(255,255,255,.38);
+    box-shadow:0 8px 16px rgba(12,38,66,.15);
+}
+
+.doctor-patients-page .info-paciente h2{
+    font-size:24px;
+    line-height:1.2;
+}
+
+.doctor-patients-page .info-paciente p{
+    display:inline-block;
+    margin-top:5px;
+    padding:4px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.20);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:800;
+}
+
+.doctor-patients-page .btn-ver,
+.doctor-patients-page .btn-agregar{
+    border:0;
+    background:#ffffff;
+    color:#163b63;
+    box-shadow:0 8px 16px rgba(12,38,66,.16);
+    transition:.25s;
+}
+
+.doctor-patients-page .btn-ver:hover,
+.doctor-patients-page .btn-agregar:hover{
+    background:#47b87d;
+    color:#ffffff;
+    transform:translateY(-2px);
+}
+
+.doctor-patients-page .btn-agregar{
+    width:44px;
+    height:44px;
+    right:34px;
+    top:112px;
+    font-size:32px;
+}
+
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
 @media (max-width: 768px) {
-  html,
+html,
   body {
     min-height: 100%;
     overflow-x: hidden;
@@ -1116,11 +1400,81 @@ body{
   .footer-links {
     align-items: center;
   }
+
+.dashboard-main{
+        width:min(100% - 32px, 560px);
+        padding-top:34px;
+    }
+
+    .doctor-dashboard-page .navbar{
+        padding:14px 18px;
+        gap:12px;
+        height:auto;
+    }
+
+    .doctor-dashboard-page .navbar h1{
+        font-size:18px;
+    }
+
+    .doctor-dashboard-page .welcome-card{
+        padding:30px 24px;
+    }
+
+    .doctor-dashboard-page .welcome-card h2{
+        font-size:30px;
+    }
+
+    .doctor-dashboard-page .menu-doctor{
+        display:flex;
+        margin-top:38px;
+    }
+
+    .doctor-dashboard-page .btn-paciente,
+    .doctor-dashboard-page .btn-comentarios{
+        width:100%;
+    }
+
+.doctor-patients-page .navbar{
+        height:auto;
+        flex-wrap:wrap;
+        gap:14px;
+        padding:14px 18px;
+    }
+
+    .doctor-patients-page .search-box{
+        order:4;
+        width:100%;
+    }
+
+    .doctor-patients-page .search-box input{
+        width:100%;
+    }
+
+    .doctor-patients-page .pacientes-container{
+        width:min(100% - 32px, 620px);
+    }
+
+    .doctor-patients-page .linea-verde{
+        display:none;
+    }
+
+    .doctor-patients-page .card-paciente{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .doctor-patients-page .info-paciente{
+        margin-left:0;
+    }
+
+    .doctor-patients-page .btn-ver{
+        align-self:flex-end;}
 }
 
-/* Responsive renovado: telefono */
+/* Responsive telefono */
 @media (max-width: 480px) {
-  .navbar {
+.navbar {
     min-height: 58px;
     padding: 8px 10px;
     gap: 9px;
@@ -1352,5 +1706,4 @@ body{
     flex-basis: 24px;
   }
 }
-
 
