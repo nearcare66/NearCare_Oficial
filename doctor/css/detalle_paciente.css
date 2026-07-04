@@ -1,4 +1,4 @@
-/* Detalle editable con estilo de informacion familiar */
+﻿/* Detalle editable con estilo de informacion familiar */
 .doctor-detail-page{
     background:linear-gradient(180deg, #d5eef6 0%, #c7e7f1 42%, #d9f1ec 100%);
     color:#12315f;
@@ -486,8 +486,19 @@
     border:0;
 }
 
-@media(max-width:900px){
-    .doctor-detail-page .detalle-navbar{
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+
+
+/* Responsive telefono */
+
+/* Responsive tablet */
+@media (max-width: 768px) {
+.doctor-detail-page .detalle-navbar{
         gap:14px;
         padding:14px 20px;
         flex-wrap:wrap;
@@ -512,11 +523,11 @@
         width:min(100% - 32px, 680px);
         padding-top:28px;
     }
-
 }
 
-@media(max-width:560px){
-    .doctor-detail-page .logo img{
+/* Responsive telefono */
+@media (max-width: 480px) {
+.doctor-detail-page .logo img{
         width:104px;
     }
 
@@ -548,6 +559,7 @@
         width:56px;
     }
 }
+<<<<<<< HEAD
 /* ===================================
    NOTAS Y AUDIOS DEL PACIENTE
 =================================== */
@@ -692,3 +704,6 @@
 .item-nota audio{
     width:100%;
 }
+=======
+
+>>>>>>> f1187b55ca7b85d3a9b569c8d561e11ae4cabfa1

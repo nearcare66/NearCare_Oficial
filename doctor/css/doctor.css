@@ -1,4 +1,4 @@
-/* --- Variables de Color e Identidad de NearCare --- */
+﻿/* --- Variables de Color e Identidad de NearCare --- */
 :root {
     --bg-light-blue: #c4e5f7;
     --card-bg: rgba(255, 255, 255, 0.75);
@@ -27,12 +27,12 @@ body {
     overflow-x: hidden;
 }
 
-/* --- Aplicar Arial a toda la página (opcional, si no lo tenías) --- */
+/* --- Aplicar Arial a toda la pÃ¡gina (opcional, si no lo tenÃ­as) --- */
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* --- Modificación Exclusiva de la Navbar --- */
+/* --- ModificaciÃ³n Exclusiva de la Navbar --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -41,10 +41,10 @@ body {
     background-color: #80bfdf;
     width: 100%;
     margin-bottom: 40px;
-    border: none;          /* Eliminamos el borde blanco pálido */
+    border: none;          /* Eliminamos el borde blanco pÃ¡lido */
     box-shadow: none;      /* Eliminamos cualquier sombra flotante */
     border-radius: 0;      /* Quitamos las esquinas redondeadas exteriores */
-    backdrop-filter: none; /* Quitamos el efecto borroso traslúcido */
+    backdrop-filter: none; /* Quitamos el efecto borroso traslÃºcido */
     -webkit-backdrop-filter: none;
 }
 
@@ -65,7 +65,7 @@ body {
 }
 
 .navbar-logo {
-    height: 120px; /* Sube el tamaño a lo que prefieras (ej. 55px o 60px) */
+    height: 120px; /* Sube el tamaÃ±o a lo que prefieras (ej. 55px o 60px) */
     width: auto;
     object-fit: contain;
     
@@ -76,7 +76,7 @@ body {
     
 }
 
-/* Píldora Centralizada (Médico Asignado) */
+/* PÃ­ldora Centralizada (MÃ©dico Asignado) */
 .nav-badge {
     background-color: #80bfdf ;
     padding: 8px 30px;
@@ -86,7 +86,7 @@ body {
      transform: translateY(65px);
 }
 
-/* Etiqueta de Bienvenido Estilo Cápsula */
+/* Etiqueta de Bienvenido Estilo CÃ¡psula */
 .welcome-tag {
     background-color: #fff;
     padding: 8px 20px;
@@ -107,7 +107,7 @@ body {
     display: inline-block;
 }
 
-/* --- Contenedor del Dashboard (Distribución de Paneles) --- */
+/* --- Contenedor del Dashboard (DistribuciÃ³n de Paneles) --- */
 .dashboard-container {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -115,7 +115,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     
-    /* Agrega o aumenta esta línea para separar las tarjetas de la navbar */
+    /* Agrega o aumenta esta lÃ­nea para separar las tarjetas de la navbar */
     margin-top: 30px; 
     
     padding: 0 20px 40px 20px;
@@ -123,14 +123,10 @@ body {
     z-index: 2;
 }
 
-/* Adaptación para celulares o pantallas pequeñas */
-@media (max-width: 768px) {
-    .dashboard-container {
-        grid-template-columns: 1fr;
-    }
-}
+/* AdaptaciÃ³n para celulares o pantallas pequeÃ±as */
 
-/* --- Tarjetas / Paneles Traslúcidos (Glassmorphism) --- */
+
+/* --- Tarjetas / Paneles TraslÃºcidos (Glassmorphism) --- */
 .profile-card, .info-card {
     background: var(--card-bg);
     border-radius: 24px;
@@ -176,7 +172,7 @@ body {
     margin-bottom: 25px;
 }
 
-/* --- Formularios e Inputs Estilo Píldora --- */
+/* --- Formularios e Inputs Estilo PÃ­ldora --- */
 .profile-form {
     display: flex;
     flex-direction: column;
@@ -211,13 +207,13 @@ body {
     cursor: not-allowed;
 }
 
-/* --- Botón Principal de NearCare --- */
+/* --- BotÃ³n Principal de NearCare --- */
 .btn-primary {
     background-color: var(--primary-blue);
     color: white;
     border: none;
     padding: 14px;
-    border-radius: 30px; /* Redondeado igual que tus botones de Iniciar Sesión */
+    border-radius: 30px; /* Redondeado igual que tus botones de Iniciar SesiÃ³n */
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
@@ -234,7 +230,7 @@ body {
     transform: scale(0.98);
 }
 
-/* --- Panel de Información (Derecha) --- */
+/* --- Panel de InformaciÃ³n (Derecha) --- */
 .info-card h3 {
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -354,3 +350,15 @@ body {
     bottom: 40px;
     left: 250px;
 }
+
+/* Responsive tablet */
+
+/* Responsive tablet */
+
+/* Responsive tablet */
+@media (max-width: 768px) {
+.dashboard-container {
+        grid-template-columns: 1fr;
+    }
+}
+

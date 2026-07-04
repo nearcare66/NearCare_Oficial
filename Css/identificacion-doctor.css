@@ -1,4 +1,4 @@
-/* =========================
+﻿/* =========================
    CONFIGURACION GENERAL
 ========================= */
 
@@ -61,7 +61,7 @@ body {
     color: #0c2b44;
     cursor: pointer;
     font-weight: 600;
-    padding-bottom: 6px; /* Ajuste óptico para centrar la flecha '‹' */
+    padding-bottom: 6px; /* Ajuste Ã³ptico para centrar la flecha 'â€¹' */
     transition: all 0.3s ease;
 }
 
@@ -145,7 +145,7 @@ body {
     height: 65px;
     border: none;
     border-radius: 18px;
-    /* Se cambió a verde siguiendo la referencia exacta de tu imagen */
+    /* Se cambiÃ³ a verde siguiendo la referencia exacta de tu imagen */
     background: linear-gradient(135deg, #42b983, #34a873);
     color: white;
     font-size: 26px;
@@ -241,11 +241,13 @@ body {
     opacity: 0.5;
 }
 
+/* Responsive tablet */
 
+/* Responsive tablet */
 
+/* Responsive tablet */
 @media (max-width: 768px) {
-    
-    body {
+body {
         overflow-y: auto;
     }
 
@@ -320,3 +322,4 @@ body {
     .c5 { width: 90px; height: 90px; top: 90px; right: -30px; }
     .c6 { width: 50px; height: 50px; top: 170px; right: 20px; }
 }
+

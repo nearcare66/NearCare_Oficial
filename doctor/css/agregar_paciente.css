@@ -1,4 +1,4 @@
-/* Formulario profesional para agregar paciente */
+﻿/* Formulario profesional para agregar paciente */
 body{
     background:
         linear-gradient(135deg, #b8e9f7 0%, #d9f6ff 42%, #a7dff1 100%);
@@ -145,8 +145,13 @@ body{
     cursor:pointer;
 }
 
-@media(max-width:760px){
-    .agregar-container{
+/* Responsive tablet */
+
+/* Responsive tablet */
+
+/* Responsive tablet */
+@media (max-width: 768px) {
+.agregar-container{
         width:min(100% - 28px, 620px);
         margin-top:24px;
     }
@@ -175,3 +180,4 @@ body{
         width:100%;
     }
 }
+
