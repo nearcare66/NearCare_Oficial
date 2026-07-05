@@ -41,6 +41,16 @@ if ($paciente) {
         $eventos[$dia][] = $row;
     }
 
+    $sqlNotas = "SELECT np.*, d.nombre AS doctor_nombre
+                 FROM notas_paciente np
+                 LEFT JOIN doctores d ON d.id_doctor = np.id_doctor
+                 WHERE np.id_paciente = ?
+                 ORDER BY np.fecha_creacion DESC";
+    $stmtNotas = $conn->prepare($sqlNotas);
+    $stmtNotas->bind_param("i", $id_paciente);
+    $stmtNotas->execute();
+    $resultNotas = $stmtNotas->get_result();
+
   }
 
 function conditionStatusClass($condition) {
@@ -65,6 +75,7 @@ function conditionStatusClass($condition) {
 
     return '';
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -72,17 +83,16 @@ function conditionStatusClass($condition) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Informacion del paciente</title>
-  <link rel="stylesheet" href="Css/session-menu.css">
-  <link rel="stylesheet" href="Css/paciente-familiar.css">
-  <link rel="stylesheet" href="css/calendario.css">
-  <link rel="stylesheet" href="Css/paciente-familiar.css?v=10">
   <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="Css/session-menu.css">
+  <link rel="stylesheet" href="css/calendario.css">
+  <link rel="stylesheet" href="Css/paciente-familiar.css?v=<?php echo time(); ?>">
 </head>
-<body>
+<body class="family-detail-page">
   <main class="page">
     <header class="navbar">
       <div class="nav-left">
-        <a href="index.php" class="back-link" aria-label="Regresar al inicio">&#8249;</a>
+        <a href="index.php" class="back-link family-back-link" aria-label="Volver al inicio">&#8249;</a>
         <img class="brand" src="img/Designer (16).png" alt="NearCare">
       </div>
 
@@ -221,6 +231,39 @@ function conditionStatusClass($condition) {
               ?>
             </div>
 
+          </div>
+        </article>
+
+        <article class="notas-readonly-card">
+          <h3>Notas Medicas</h3>
+          <h4 class="notas-subtitle">Notas y audios</h4>
+
+          <div class="historial-notas">
+            <?php if (isset($resultNotas) && $resultNotas->num_rows > 0): ?>
+              <?php while($nota = $resultNotas->fetch_assoc()): ?>
+                <div class="item-nota">
+                  <div class="nota-meta">
+                    <strong><?php echo e($nota['doctor_nombre'] ?: $paciente['doctor_nombre']); ?></strong>
+                    <small><?php echo date("d/m/Y H:i", strtotime($nota['fecha_creacion'])); ?></small>
+                  </div>
+
+                  <?php if ($nota['tipo'] === 'texto'): ?>
+                    <p><?php echo nl2br(e($nota['nota'])); ?></p>
+                  <?php else: ?>
+                    <?php $audioUrl = 'doctor/audio_nota.php?id=' . (int)$nota['id_nota']; ?>
+                    <audio controls preload="metadata">
+                      <source src="<?php echo e($audioUrl); ?>" type="audio/webm">
+                      Tu navegador no soporta audio.
+                    </audio>
+                    <a href="<?php echo e($audioUrl); ?>" target="_blank" rel="noopener">Abrir audio</a>
+                  <?php endif; ?>
+                </div>
+              <?php endwhile; ?>
+            <?php else: ?>
+              <div class="item-nota empty-note">
+                <p>Todavia no hay notas o audios registrados.</p>
+              </div>
+            <?php endif; ?>
           </div>
         </article>
 

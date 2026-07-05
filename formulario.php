@@ -24,7 +24,7 @@
 
         <div class="nav-right">
            
-            <img src="img/avatar_hombre.png" alt="Usuario" class="avatar">
+            <span class="avatar" aria-hidden="true"></span>
             <div class="bienvenido">
                 <span>Bienvenido</span>
             </div>

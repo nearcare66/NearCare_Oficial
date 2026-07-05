@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NearCare - Doctor ID</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Css/identificacion-doctor.css">
     <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
 <body>

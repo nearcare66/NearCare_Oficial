@@ -1,4 +1,4 @@
-body{
+﻿body{
     margin: 0;
     min-height: 100vh;
     background: linear-gradient(
@@ -60,12 +60,12 @@ body {
     font-size: 18px;
     cursor: pointer;
     border-radius: 30px; 
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .derecha ul li.activo {
     background-color: #2b8dcc;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .introduction {
@@ -78,7 +78,7 @@ body {
     font-size: 48px;
     color: #1f3a6d;
     margin-bottom: 15px;
-    font-family:  Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
 }
@@ -133,10 +133,10 @@ body {
 
 .text-second-part p {
     font-size: 22px;
-    font-family:  Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: #000;
     line-height: 1.4;
-    font-family:  Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -192,7 +192,7 @@ h1 {
     line-height: 1.5;
     text-align: center;
     color: #000;
-    font-family:  Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .que-es {
@@ -204,7 +204,7 @@ h1 {
   font-size: 36px;
   margin-bottom: 25px;
   color: #000;
-  font-family:  Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
 }
 
@@ -214,7 +214,7 @@ h1 {
   font-size: 18px;
   line-height: 1.7;
   color: #000;
-  font-family:  Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .porque-nearcare {
@@ -225,7 +225,7 @@ h1 {
 .porque-nearcare h1 {
   font-size: 36px;
   margin-bottom: 50px;
-  font-family:  Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
   color: #000;
 }
@@ -262,20 +262,20 @@ h1 {
 .porque-card h2 {
   font-size: 22px;
   margin-bottom: 15px;
-  font-family:  Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .porque-card p {
   font-size: 15px;
   line-height: 1.6;
-  font-family:  Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .porque-card:hover {
     transform: translateY(-20px);
 }
 
-/* BOTÓN */
+/* BOTÃ“N */
 .btn {
     padding: 12px 30px;
     font-size: 16px;
@@ -330,132 +330,344 @@ h1 {
 img {
     border-radius: 30px;
 }
+
+/* Responsive renovado: tablet */
+
+
+/* Responsive renovado: telefono */
+/* Media query unica para tablet y telefono */
 @media (max-width: 768px) {
-  .navbar {
-    width: calc(100% - 24px);
-    margin: 12px auto;
-    padding: 12px 16px;
-    gap: 12px;
-    flex-wrap: wrap;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
-  .izquierda {
-    gap: 12px;
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
-  .logo {
-    height: 56px;
+  body {
+    min-height: 100dvh;
   }
 
-  .derecha ul {
+  .page,
+  .container,
+  .contenedor,
+  .main-container,
+  .content,
+  .dashboard-main,
+  .dashboard-container,
+  .patient-dashboard,
+  .selection-section,
+  .patient-section,
+  .updates-section,
+  .notifications-section,
+  .pacientes-container,
+  .detalle-container,
+  .agregar-container,
+  .interface-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  .navbar,
+  header.navbar,
+  nav.navbar,
+  .topbar {
+    width: 100%;
+    height: auto;
+    min-height: 66px;
+    padding: 10px 14px;
     gap: 10px;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-  }
-
-  .derecha ul li {
-    font-size: 15px;
-    padding: 8px 12px;
-  }
-
-  .introduction h1 {
-    font-size: 34px;
-  }
-
-  .introduction p,
-  .text-second-part p {
-    font-size: 18px;
-  }
-
-  .second-part {
-    flex-direction: column;
-    padding: 12px 24px;
-    gap: 24px;
     text-align: center;
   }
 
-  .image-second-part img {
-    width: 100%;
-    max-width: 480px;
-  }
-
-  .text-second-part {
+  .left-navbar,
+  .left,
+  .izquierda,
+  .nav-left,
+  .nav-right,
+  .right,
+  .profile,
+  .logo-container,
+  .user-panel {
+    min-width: 0;
     max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
 
-  .card,
-  .porque-card {
-    width: 100%;
-    max-width: 330px;
-  }
-}
-
-@media (max-width: 320px) {
-  .navbar {
-    width: calc(100% - 18px);
-    margin: 9px auto;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px;
-  }
-
-  .izquierda {
-    justify-content: space-between;
-  }
-
-  .logo {
-    height: 48px;
-  }
-
-  .derecha ul {
-    gap: 7px;
-  }
-
-  .derecha ul li {
-    font-size: 13px;
-    padding: 7px 10px;
-  }
-
-  .introduction {
-    padding: 16px 12px;
-  }
-
-  .introduction h1 {
+  .menu-icon,
+  .menu-toggle,
+  .back,
+  .back-arrow,
+  .back-link,
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
     font-size: 28px;
+    line-height: 1;
   }
 
-  .introduction p,
-  .text-second-part p,
-  .que-es p {
-    font-size: 16px;
+  .logo img,
+  img.logo,
+  .brand,
+  .navbar-logo,
+  .side-menu-logo,
+  .menu-logo img,
+  .logo-container img {
+    width: auto;
+    max-width: 96px;
+    max-height: 74px;
+    height: auto;
+    object-fit: contain;
   }
 
-  .in-button {
-    width: 100%;
-    max-width: 250px;
-    font-size: 16px;
-    padding: 12px 20px;
-  }
-
-  .second-part {
-    padding: 8px 14px;
+  .role,
+  .family-pill,
+  .welcome,
+  .welcome-box,
+  .welcome-pill,
+  .bienvenido,
+  .page-title,
+  .titulo-pacientes,
+  .detalle-title,
+  .nav-badge,
+  .welcome-tag,
+  .title,
+  .navbar h1 {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 320px;
+    min-height: 30px;
+    padding: 7px 11px;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
   }
 
   h1,
+  .hero-text h1,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1,
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .introduction h1,
   .que-es h1,
-  .porque-nearcare h1 {
+  .porque-nearcare h1,
+  .doctor-family-page .choice-heading h1,
+  .subtitle,
+  form::before {
     font-size: 26px;
-    margin-bottom: 22px;
+    line-height: 1.18;
+  }
+
+  h2,
+  .card h2,
+  .card-content h2,
+  .patient-info h2,
+  .notification-panel h2,
+  .video-info h3,
+  .why-card h3,
+  .porque-card h2,
+  .doctor-family-page .card h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  p,
+  .hero-text p,
+  .about-text p,
+  .how-work p,
+  .updates-title p,
+  .notifications-hero p,
+  .patient-info p,
+  .card-content p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero,
+  .about,
+  .video-card,
+  .info-card,
+  .patient-card,
+  .content-row,
+  .form-row,
+  .row,
+  .card-paciente,
+  .paciente-header,
+  .notifications-hero,
+  .doctor-family-page .cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero,
+  .about,
+  .problems,
+  .why,
+  .info-section,
+  .updates-section,
+  .selection-section,
+  .patient-section,
+  .main-container,
+  .notifications-section {
+    padding: 30px 14px;
+  }
+
+  .card,
+  .why-card,
+  .porque-card,
+  .form-container,
+  .form-agregar,
+  .pacientes-container,
+  .detalle-container,
+  form,
+  .formulario,
+  .box,
+  .panel,
+  .shell,
+  .login-card,
+  .register-card,
+  .content-card,
+  .notification-panel,
+  .profile-card,
+  .info-card,
+  .welcome-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    min-height: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .cards,
-  .porque-cards {
-    gap: 16px;
-    padding: 0 12px;
+  .why-cards,
+  .details,
+  .selection-buttons,
+  .patient-buttons,
+  .menu-doctor,
+  .doctor-family-page .cards {
+    width: 100%;
+    max-width: 430px;
+    gap: 18px;
   }
 
-  .que-es,
-  .porque-nearcare {
-    padding: 38px 14px;
+  button,
+  .btn,
+  .custom-btn,
+  .register-btn,
+  .login-btn,
+  .logout-btn,
+  .ready-button,
+  .action-submit,
+  .submit-btn,
+  .in-button,
+  .call-button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    max-width: 100%;
+    min-height: 40px;
+    white-space: normal;
+  }
+
+  input,
+  select,
+  textarea,
+  .input-field {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  img,
+  .image-panel,
+  .patient-image img,
+  .foto-paciente,
+  .paciente-header img,
+  .hero-image img,
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .table-wrap,
+  .calendar-wrap,
+  .calendario {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .circle,
+  .circulo,
+  .decor-circle,
+  .bubble,
+  .decoracion,
+  .circle-left,
+  .circle-right,
+  .circle-big,
+  .circle-small,
+  .circle-corner,
+  .circle-top,
+  .circle-bottom,
+  .circle-center,
+  .circle-one,
+  .circle-two,
+  .circle-three,
+  .circle-four,
+  .circle-five,
+  .circle-six,
+  .circle-1,
+  .circle-2,
+  .circle-3,
+  .circle-4,
+  .circle-5,
+  .circle-6,
+  .circle-7,
+  .circle-8,
+  .circle-9,
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6,
+  body::before,
+  body::after {
+    max-width: 82px;
+    max-height: 82px;
+    opacity: .18;
+    pointer-events: none;
   }
 }

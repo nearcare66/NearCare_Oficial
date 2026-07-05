@@ -298,18 +298,29 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     }
 
     @media (max-width: 780px) {
+      body {
+        align-items: flex-start;
+      }
+
       .page {
         width: 100vw;
-        min-height: 100vh;
+        min-height: 100dvh;
         border: 0;
+        overflow-y: auto;
       }
 
       .navbar {
         height: auto;
-        min-height: 80px;
+        min-height: 70px;
         flex-wrap: wrap;
-        gap: 16px;
-        padding: 18px;
+        gap: 8px;
+        padding: 10px 14px;
+      }
+
+      .nav-left,
+      .profile {
+        flex-wrap: nowrap;
+        gap: 8px;
       }
 
       .family-pill {
@@ -317,6 +328,8 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
         transform: none;
         order: 3;
         min-width: 100%;
+        height: 30px;
+        font-size: 14px;
       }
 
       .brand {
@@ -328,12 +341,13 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       }
 
       .welcome-box {
-        min-width: 150px;
-        font-size: 15px;
+        min-width: auto;
+        font-size: 12px;
       }
 
       .register-card {
-        margin-top: 49px;
+        margin: 28px auto 32px;
+        min-height: auto;
       }
     }
   </style>

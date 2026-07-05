@@ -1,4 +1,4 @@
-* {
+﻿* {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -54,7 +54,7 @@ form {
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
  
-/* Título */
+/* TÃ­tulo */
 form::before {
     content: "NearCare Doctor ID";
  
@@ -92,7 +92,7 @@ form::before {
     color: #777;
 }
  
-/* Botón */
+/* BotÃ³n */
 .submit-btn {
     width: 55%;
     height: 50px;
@@ -134,7 +134,7 @@ form::before {
     height: auto;
 }
  
-/* Círculos decorativos */
+/* CÃ­rculos decorativos */
 body::before,
 body::after {
     content: "";
@@ -174,7 +174,7 @@ body::after {
     z-index: 1;
 }
  
-/* Círculo 1 */
+/* CÃ­rculo 1 */
 .circle-one {
     width: 130px;
     height: 130px;
@@ -183,7 +183,7 @@ body::after {
     left: -40px;
 }
  
-/* Círculo 2 */
+/* CÃ­rculo 2 */
 .circle-two {
     width: 90px;
     height: 90px;
@@ -192,7 +192,7 @@ body::after {
     right: 60px;
 }
  
-/* Círculo 3 */
+/* CÃ­rculo 3 */
 .circle-three {
     width: 160px;
     height: 160px;
@@ -201,7 +201,7 @@ body::after {
     right: -50px;
 }
  
-/* Círculo 4 */
+/* CÃ­rculo 4 */
 .circle-four {
     width: 70px;
     height: 70px;
@@ -210,7 +210,7 @@ body::after {
     left: 80px;
 }
  
-/* Círculo 5 */
+/* CÃ­rculo 5 */
 .circle-five {
     width: 50px;
     height: 50px;
@@ -219,7 +219,7 @@ body::after {
     right: 250px;
 }
  
-/* Círculo 6 */
+/* CÃ­rculo 6 */
 .circle-six {
     width: 110px;
     height: 110px;
@@ -282,7 +282,7 @@ form {
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
  
-/* Título */
+/* TÃ­tulo */
 form::before {
     content: "NearCare Doctor ID";
  
@@ -320,7 +320,7 @@ form::before {
     color: #777;
 }
  
-/* Botón */
+/* BotÃ³n */
 .submit-btn {
     width: 55%;
     height: 50px;
@@ -362,7 +362,7 @@ form::before {
     height: auto;
 }
  
-/* Círculos decorativos */
+/* CÃ­rculos decorativos */
 body::before,
 body::after {
     content: "";
@@ -455,62 +455,344 @@ body::after {
     bottom: 40px;
     left: 250px;
 }
+
+/* Responsive renovado: tablet */
+
+
+/* Responsive renovado: telefono */
+/* Media query unica para tablet y telefono */
 @media (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
   body {
-    align-items: flex-start;
+    width: 100%;
+    min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 28px 0;
   }
 
-  .container {
-    min-height: calc(100vh - 56px);
-    padding: 0 18px;
-  }
-
-  form {
-    width: min(90%, 390px);
-  }
-
-  .circle,
-  body::before,
-  body::after {
-    opacity: 0.35;
-  }
-}
-
-@media (max-width: 320px) {
   body {
-    padding: 20px 0;
+    min-height: 100dvh;
   }
 
-  form {
-    width: calc(100% - 28px);
-    padding: 28px 18px;
-    border-radius: 20px;
+  .page,
+  .container,
+  .contenedor,
+  .main-container,
+  .content,
+  .dashboard-main,
+  .dashboard-container,
+  .patient-dashboard,
+  .selection-section,
+  .patient-section,
+  .updates-section,
+  .notifications-section,
+  .pacientes-container,
+  .detalle-container,
+  .agregar-container,
+  .interface-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow-x: hidden;
   }
 
-  form::before {
-    font-size: 22px;
-    margin-bottom: 22px;
+  .navbar,
+  header.navbar,
+  nav.navbar,
+  .topbar {
+    width: 100%;
+    height: auto;
+    min-height: 66px;
+    padding: 10px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
 
-  .input-field,
-  .submit-btn {
-    height: 44px;
+  .left-navbar,
+  .left,
+  .izquierda,
+  .nav-left,
+  .nav-right,
+  .right,
+  .profile,
+  .logo-container,
+  .user-panel {
+    min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .menu-icon,
+  .menu-toggle,
+  .back,
+  .back-arrow,
+  .back-link,
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .logo img,
+  img.logo,
+  .brand,
+  .navbar-logo,
+  .side-menu-logo,
+  .menu-logo img,
+  .logo-container img {
+    width: auto;
+    max-width: 96px;
+    max-height: 74px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .role,
+  .family-pill,
+  .welcome,
+  .welcome-box,
+  .welcome-pill,
+  .bienvenido,
+  .page-title,
+  .titulo-pacientes,
+  .detalle-title,
+  .nav-badge,
+  .welcome-tag,
+  .title,
+  .navbar h1 {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 320px;
+    min-height: 30px;
+    padding: 7px 11px;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  h1,
+  .hero-text h1,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1,
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .introduction h1,
+  .que-es h1,
+  .porque-nearcare h1,
+  .doctor-family-page .choice-heading h1,
+  .subtitle,
+  form::before {
+    font-size: 26px;
+    line-height: 1.18;
+  }
+
+  h2,
+  .card h2,
+  .card-content h2,
+  .patient-info h2,
+  .notification-panel h2,
+  .video-info h3,
+  .why-card h3,
+  .porque-card h2,
+  .doctor-family-page .card h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  p,
+  .hero-text p,
+  .about-text p,
+  .how-work p,
+  .updates-title p,
+  .notifications-hero p,
+  .patient-info p,
+  .card-content p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero,
+  .about,
+  .video-card,
+  .info-card,
+  .patient-card,
+  .content-row,
+  .form-row,
+  .row,
+  .card-paciente,
+  .paciente-header,
+  .notifications-hero,
+  .doctor-family-page .cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero,
+  .about,
+  .problems,
+  .why,
+  .info-section,
+  .updates-section,
+  .selection-section,
+  .patient-section,
+  .main-container,
+  .notifications-section {
+    padding: 30px 14px;
+  }
+
+  .card,
+  .why-card,
+  .porque-card,
+  .form-container,
+  .form-agregar,
+  .pacientes-container,
+  .detalle-container,
+  form,
+  .formulario,
+  .box,
+  .panel,
+  .shell,
+  .login-card,
+  .register-card,
+  .content-card,
+  .notification-panel,
+  .profile-card,
+  .info-card,
+  .welcome-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    min-height: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .cards,
+  .why-cards,
+  .details,
+  .selection-buttons,
+  .patient-buttons,
+  .menu-doctor,
+  .doctor-family-page .cards {
+    width: 100%;
+    max-width: 430px;
+    gap: 18px;
+  }
+
+  button,
+  .btn,
+  .custom-btn,
+  .register-btn,
+  .login-btn,
+  .logout-btn,
+  .ready-button,
+  .action-submit,
+  .submit-btn,
+  .in-button,
+  .call-button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    max-width: 100%;
+    min-height: 40px;
+    white-space: normal;
+  }
+
+  input,
+  select,
+  textarea,
+  .input-field {
+    max-width: 100%;
     font-size: 14px;
   }
 
-  .submit-btn {
+  img,
+  .image-panel,
+  .patient-image img,
+  .foto-paciente,
+  .paciente-header img,
+  .hero-image img,
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .table-wrap,
+  .calendar-wrap,
+  .calendario {
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .logo img {
-    width: 135px;
-  }
-
-  .circle {
-    display: none;
+  .circle,
+  .circulo,
+  .decor-circle,
+  .bubble,
+  .decoracion,
+  .circle-left,
+  .circle-right,
+  .circle-big,
+  .circle-small,
+  .circle-corner,
+  .circle-top,
+  .circle-bottom,
+  .circle-center,
+  .circle-one,
+  .circle-two,
+  .circle-three,
+  .circle-four,
+  .circle-five,
+  .circle-six,
+  .circle-1,
+  .circle-2,
+  .circle-3,
+  .circle-4,
+  .circle-5,
+  .circle-6,
+  .circle-7,
+  .circle-8,
+  .circle-9,
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6,
+  body::before,
+  body::after {
+    max-width: 82px;
+    max-height: 82px;
+    opacity: .18;
+    pointer-events: none;
   }
 }
