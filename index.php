@@ -62,6 +62,7 @@ $whyCards = getSiteCards('index', 'why');
         <a href="actualizaciones2.php">Actualizaciones</a>
         <hr>
         <a href="Comentarios.php">Comentarios</a>
+        <a href="perfildoctor.html">Doctor encargado</a>
       </div>
     </aside>
   <?php endif; ?>

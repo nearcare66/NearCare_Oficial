@@ -22,6 +22,7 @@
       <a href="sobre-nosotros.php" class="<?php echo $isSobre ? 'active' : ''; ?>">Sobre nosotros</a>
       <a href="actualizaciones2.php" class="<?php echo $isActualizaciones ? 'active' : ''; ?>">Actualizaciones</a>
       <a href="Comentarios.php" class="<?php echo $isComentarios ? 'active' : ''; ?>">Comentarios</a>
+      <a href="perfildoctor.html">Perfil del doctor</a>
     </div>
   </aside>
 <?php endif; ?>

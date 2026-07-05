@@ -86,12 +86,12 @@ body {
 }
 
 .navbar-logo {
-    height: 80px; /* Sube el tamaño a lo que prefieras (ej. 55px o 60px) */
-    width: 170px;
+    height: 70px; /* Sube el tamaño a lo que prefieras (ej. 55px o 60px) */
+    width: auto;
     object-fit: contain;
     
     /* El truco para no alterar la navbar: */
-    margin-top: 5px;    /* Sube el logo ligeramente */
+    margin-top: 3px;    /* Sube el logo ligeramente */
     margin-bottom: -10px; /* Absorbe el espacio extra abajo para que la navbar no crezca */
     vertical-align: middle;
     
