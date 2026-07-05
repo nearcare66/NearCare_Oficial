@@ -326,47 +326,62 @@ img {
 
 
 /* Responsive renovado: telefono */
-
-/* Responsive tablet */
-
-
-/* Responsive telefono */
-
-/* Responsive tablet */
-
-
-/* Responsive telefono */
-
-/* Responsive tablet */
+/* Media query unica para tablet y telefono */
 @media (max-width: 768px) {
-html,
-  body {
-    min-height: 100%;
-    overflow-x: hidden;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
+  html,
   body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 
-  .page,
-  .interface-container,
-  .selection-section,
-  .patient-section,
-  .main-container,
-  .container {
-    width: 100%;
-    min-height: auto;
-    height: auto;
+  body {
+    min-height: 100dvh;
   }
 
-  .navbar {
+  .page,
+  .container,
+  .contenedor,
+  .main-container,
+  .content,
+  .dashboard-main,
+  .dashboard-container,
+  .patient-dashboard,
+  .selection-section,
+  .patient-section,
+  .updates-section,
+  .notifications-section,
+  .pacientes-container,
+  .detalle-container,
+  .agregar-container,
+  .interface-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
     height: auto;
-    min-height: 70px;
-    padding: 12px 18px;
-    gap: 12px;
+    overflow-x: hidden;
+  }
+
+  .navbar,
+  header.navbar,
+  nav.navbar,
+  .topbar {
+    width: 100%;
+    height: auto;
+    min-height: 66px;
+    padding: 10px 14px;
+    gap: 10px;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   .left-navbar,
@@ -376,35 +391,48 @@ html,
   .nav-right,
   .right,
   .profile,
-  .logo {
-    gap: 10px;
+  .logo-container,
+  .user-panel {
+    min-width: 0;
+    max-width: 100%;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 10px;
   }
 
   .menu-icon,
   .menu-toggle,
+  .back,
   .back-arrow,
   .back-link,
   .back-btn {
-    max-width: 42px;
-    max-height: 42px;
-    font-size: 32px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    font-size: 28px;
+    line-height: 1;
   }
 
   .logo img,
+  img.logo,
   .brand,
+  .navbar-logo,
   .side-menu-logo,
   .menu-logo img,
   .logo-container img {
     width: auto;
-    max-width: 100px;
+    max-width: 96px;
+    max-height: 74px;
     height: auto;
-  }
-
-  nav,
-  .derecha ul {
-    display: none;
+    object-fit: contain;
   }
 
   .role,
@@ -416,23 +444,64 @@ html,
   .page-title,
   .titulo-pacientes,
   .detalle-title,
+  .nav-badge,
+  .welcome-tag,
+  .title,
   .navbar h1 {
     position: static;
     transform: none;
-    max-width: 150px;
+    width: auto;
+    max-width: 320px;
+    min-height: 30px;
     padding: 7px 11px;
     font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.2;
+    white-space: normal;
     text-align: center;
   }
 
-  .welcome-box span {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  h1,
+  .hero-text h1,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1,
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .introduction h1,
+  .que-es h1,
+  .porque-nearcare h1,
+  .doctor-family-page .choice-heading h1,
+  .subtitle,
+  form::before {
+    font-size: 26px;
+    line-height: 1.18;
+  }
+
+  h2,
+  .card h2,
+  .card-content h2,
+  .patient-info h2,
+  .notification-panel h2,
+  .video-info h3,
+  .why-card h3,
+  .porque-card h2,
+  .doctor-family-page .card h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  p,
+  .hero-text p,
+  .about-text p,
+  .how-work p,
+  .updates-title p,
+  .notifications-hero p,
+  .patient-info p,
+  .card-content p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
   }
 
   .hero,
@@ -441,13 +510,12 @@ html,
   .info-card,
   .patient-card,
   .content-row,
-  .login-container .content-row,
   .form-row,
   .row,
   .card-paciente,
   .paciente-header,
   .notifications-hero,
-  .contenedor {
+  .doctor-family-page .cards {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -463,58 +531,12 @@ html,
   .patient-section,
   .main-container,
   .notifications-section {
-    padding: 42px 18px;
-  }
-
-  .hero-text,
-  .hero-image,
-  .about-text,
-  .about-image,
-  .video-image,
-  .register-form,
-  .patient-info,
-  .card-content,
-  .search-box {
-    width: 100%;
-  }
-
-  .search-box {
-    order: 3;
-    flex: 0 0 100%;
-  }
-
-  .search-box input {
-    width: 100%;
-    max-width: 560px;
-    font-size: 15px;
-    padding: 13px 18px;
-  }
-
-  .hero-text h1,
-  .how-work h1,
-  .updates-title h1,
-  .notifications-section h1,
-  .problems h2,
-  .about-text h2,
-  .why h2 {
-    font-size: 34px;
-    line-height: 1.15;
-  }
-
-  .hero-text p,
-  .about-text p,
-  .how-work p,
-  .updates-title p,
-  .notifications-hero p,
-  .patient-info p,
-  .card-content p {
-    width: 100%;
-    font-size: 17px;
-    line-height: 1.65;
+    padding: 30px 14px;
   }
 
   .card,
   .why-card,
+  .porque-card,
   .form-container,
   .form-agregar,
   .pacientes-container,
@@ -527,13 +549,18 @@ html,
   .login-card,
   .register-card,
   .content-card,
-  .notification-panel {
-    width: calc(100% - 28px);
-    max-width: 430px;
+  .notification-panel,
+  .profile-card,
+  .info-card,
+  .welcome-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
     min-height: auto;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    padding: 28px 20px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .cards,
@@ -541,19 +568,13 @@ html,
   .details,
   .selection-buttons,
   .patient-buttons,
-  .menu-doctor {
+  .menu-doctor,
+  .doctor-family-page .cards {
     width: 100%;
     max-width: 430px;
-    gap: 22px;
+    gap: 18px;
   }
 
-  .selection-buttons button,
-  .patient-buttons button,
-  .btn-paciente,
-  .btn-comentarios,
-  .card button,
-  .register-form button,
-  .form-agregar button,
   button,
   .btn,
   .custom-btn,
@@ -568,363 +589,35 @@ html,
   input[type="submit"],
   input[type="button"],
   input[type="reset"] {
-    width: 100%;
-    max-width: 340px;
-    height: auto;
-    min-height: 46px;
-    padding: 13px 18px;
+    max-width: 100%;
+    min-height: 40px;
     white-space: normal;
   }
 
-  .navbar .menu-icon,
-  .navbar .back-arrow,
-  .navbar .back-link,
-  .navbar .back-btn,
-  .navbar .menu-toggle {
-    width: 42px;
-    max-width: 42px;
-    min-height: 42px;
-    padding: 0;
-    flex: 0 0 42px;
-  }
-
   input,
   select,
   textarea,
   .input-field {
-    width: 100%;
     max-width: 100%;
-    font-size: 15px;
-  }
-
-  .image-panel,
-  .login-container .image-panel,
-  .patient-image img,
-  .foto-paciente,
-  .paciente-header img,
-  .hero-image img,
-  .about-image img {
-    width: 100%;
-    max-width: 270px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .video-card {
-    width: calc(100% - 28px);
-    border-radius: 22px;
-  }
-
-  .video-image {
-    height: 210px;
-    max-width: none;
-  }
-
-  .video-info {
-    padding: 26px 20px;
-  }
-
-  .info-card {
-    gap: 20px;
-  }
-
-  .icon img {
-    width: 92px;
-  }
-
-  .detail-box,
-  .lista-eventos {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .calendario {
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  .calendario table {
-    min-width: 560px;
-  }
-
-  .notification-card,
-  .updates-page .notification-card {
-    width: 100%;
-    min-height: 0;
-    align-items: flex-start;
-    padding: 20px 18px;
-    gap: 16px;
-  }
-
-  .notification-icon {
-    width: 52px;
-    height: 52px;
-    flex-basis: 52px;
-    border-radius: 16px;
-  }
-
-  .updates-page .notifications-section {
-    width: calc(100% - 28px);
-    padding-top: 36px;
-  }
-
-  .updates-summary {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .divider {
-    width: min(270px, 82vw);
-    height: 6px;
-  }
-
-  .linea-verde,
-  .circle-bg {
-    display: none;
-  }
-
-  .circle,
-  .circulo,
-  .decor-circle,
-  .bubble,
-  .decoracion,
-  .circle-left,
-  .circle-right {
-    opacity: .28;
-  }
-
-  .side-menu {
-    width: min(290px, 86vw);
-    max-width: 86vw;
-  }
-
-  .side-menu-strip {
-    width: 28px;
-    flex-basis: 28px;
-  }
-
-  .side-menu-content {
-    padding: 18px 16px;
-  }
-
-  .site-footer {
-    grid-template-columns: 1fr;
-    padding: 24px 20px 14px;
-    text-align: center;
-  }
-
-  .footer-brand p {
-    margin: 0 auto;
-  }
-
-  .footer-links {
-    align-items: center;
-  }
-}
-
-/* Responsive telefono */
-@media (max-width: 480px) {
-.navbar {
-    min-height: 58px;
-    padding: 8px 10px;
-    gap: 9px;
-  }
-
-  .menu-icon,
-  .menu-toggle,
-  .back-arrow,
-  .back-link,
-  .back-btn {
-    max-width: 36px;
-    max-height: 36px;
-    font-size: 28px;
-  }
-
-  .logo img,
-  .brand,
-  .side-menu-logo,
-  .menu-logo img,
-  .logo-container img {
-    max-width: 78px;
-  }
-
-  .role,
-  .family-pill,
-  .welcome,
-  .welcome-box,
-  .welcome-pill,
-  .bienvenido,
-  .page-title,
-  .titulo-pacientes,
-  .detalle-title,
-  .navbar h1 {
-    max-width: 118px;
-    padding: 6px 8px;
-    font-size: 11px;
-  }
-
-  .welcome-box span {
-    font-size: 10px;
-  }
-
-  .toggle,
-  .user-icon {
-    width: 26px;
-    height: 26px;
-    flex: 0 0 26px;
-  }
-
-  .hero,
-  .about,
-  .problems,
-  .why,
-  .info-section,
-  .updates-section,
-  .selection-section,
-  .patient-section,
-  .main-container,
-  .notifications-section {
-    padding: 30px 12px;
-  }
-
-  .hero-text h1,
-  .how-work h1,
-  .updates-title h1,
-  .notifications-section h1,
-  .problems h2,
-  .about-text h2,
-  .why h2,
-  h1 {
-    font-size: 28px;
-  }
-
-  h2,
-  .card-content h2,
-  .patient-info h2,
-  .notification-panel h2,
-  .video-info h3,
-  .card h3,
-  .why-card h3 {
-    font-size: 23px;
-  }
-
-  .hero-text p,
-  .about-text p,
-  .how-work p,
-  .updates-title p,
-  .notifications-hero p,
-  .patient-info p,
-  .card-content p,
-  p {
-    font-size: 16px;
-  }
-
-  .card,
-  .why-card,
-  .form-container,
-  .form-agregar,
-  .pacientes-container,
-  .detalle-container,
-  form,
-  .formulario,
-  .box,
-  .panel,
-  .shell,
-  .login-card,
-  .register-card,
-  .content-card,
-  .notification-panel {
-    width: calc(100% - 20px);
-    padding: 22px 16px;
-    border-radius: 20px;
-  }
-
-  .selection-buttons button,
-  .patient-buttons button,
-  .btn-paciente,
-  .btn-comentarios,
-  .card button,
-  .register-form button,
-  .form-agregar button,
-  button,
-  .btn,
-  .custom-btn,
-  .register-btn,
-  .login-btn,
-  .logout-btn,
-  .ready-button,
-  .action-submit,
-  .submit-btn,
-  .in-button,
-  .call-button,
-  input[type="submit"],
-  input[type="button"],
-  input[type="reset"] {
-    max-width: 100%;
-    min-height: 44px;
-    font-size: 16px;
-  }
-
-  .navbar .menu-icon,
-  .navbar .back-arrow,
-  .navbar .back-link,
-  .navbar .back-btn,
-  .navbar .menu-toggle {
-    width: 36px;
-    max-width: 36px;
-    min-height: 36px;
-    padding: 0;
-    flex: 0 0 36px;
-  }
-
-  input,
-  select,
-  textarea,
-  .input-field {
-    height: 44px;
     font-size: 14px;
   }
 
-  textarea {
-    min-height: 90px;
-  }
-
+  img,
   .image-panel,
-  .login-container .image-panel,
   .patient-image img,
   .foto-paciente,
   .paciente-header img,
   .hero-image img,
   .about-image img {
-    max-width: 230px;
+    max-width: 100%;
   }
 
-  .play-btn {
-    width: 64px;
-    height: 64px;
-    font-size: 28px;
-  }
-
-  .video-image {
-    height: 180px;
-  }
-
-  .notification-card,
-  .updates-page .notification-card {
-    flex-direction: column;
-    padding: 16px;
-  }
-
-  .calendario th,
-  .calendario td {
-    width: 64px;
-    height: 58px;
-    padding: 4px;
-  }
-
-  .evento {
-    font-size: 9px;
+  .table-wrap,
+  .calendar-wrap,
+  .calendario {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .circle,
@@ -934,27 +627,38 @@ html,
   .decoracion,
   .circle-left,
   .circle-right,
-  .circle1,
-  .circle2,
-  .circle3,
-  .circle4,
-  .circle5,
+  .circle-big,
+  .circle-small,
+  .circle-corner,
+  .circle-top,
+  .circle-bottom,
+  .circle-center,
+  .circle-one,
+  .circle-two,
+  .circle-three,
+  .circle-four,
+  .circle-five,
+  .circle-six,
+  .circle-1,
+  .circle-2,
+  .circle-3,
+  .circle-4,
+  .circle-5,
+  .circle-6,
+  .circle-7,
+  .circle-8,
+  .circle-9,
   .c1,
   .c2,
   .c3,
   .c4,
-  .c5 {
-    display: none;
-  }
-
-  .side-menu {
-    width: 88vw;
-    max-width: 88vw;
-  }
-
-  .side-menu-strip {
-    width: 24px;
-    flex-basis: 24px;
+  .c5,
+  .c6,
+  body::before,
+  body::after {
+    max-width: 82px;
+    max-height: 82px;
+    opacity: .18;
+    pointer-events: none;
   }
 }
-

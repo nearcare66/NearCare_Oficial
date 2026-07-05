@@ -81,7 +81,7 @@ if ($idPacienteSesion > 0) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css?v=16">
+  <link rel="stylesheet" href="Css/styless.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>

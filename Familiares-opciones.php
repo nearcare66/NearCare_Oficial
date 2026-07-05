@@ -26,7 +26,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
                 &#9776;
             </button>
         <?php endif; ?>
-        <span class="back">âŸµ</span>
+        <span class="back">&#8249;</span>
         <img src="img/Designer (16).png" class="logo" alt="NearCare">
     </div>
 
@@ -45,9 +45,9 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 </div>
 
 <div class="container">
-    <button>Ingrese el cÃ³digo del paciente</button>
-    <button>Generar cÃ³digo de acceso</button>
-    <button>CondiciÃ³n del paciente</button>
+    <button>Ingrese el c&oacute;digo del paciente</button>
+    <button>Generar c&oacute;digo de acceso</button>
+    <button>Condici&oacute;n del paciente</button>
 </div>
 
 <?php if ($isLoggedIn): ?>

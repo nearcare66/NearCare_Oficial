@@ -82,7 +82,38 @@ body {
 .user-icon {
   width: 34px;
   height: 34px;
-  display: none;
+  min-width: 34px;
+  position: relative;
+  display: inline-block;
+  flex: 0 0 34px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffffff 0%, #eaf7fb 100%);
+  border: 2px solid rgba(30, 106, 222, .55);
+  box-shadow: 0 4px 10px rgba(13, 58, 122, .12);
+  overflow: hidden;
+}
+
+.user-icon::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1E6ADE;
+  position: absolute;
+  top: 7px;
+  left: 10px;
+}
+
+.user-icon::after {
+  content: "";
+  width: 18px;
+  height: 9px;
+  background: #35c96f;
+  border-radius: 999px 999px 6px 6px;
+  clip-path: none;
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
 }
 
     .welcome-box {
@@ -650,1182 +681,7 @@ body {
   top: 386px;
 }
 
-/* Responsive tablet */
-
-/* Responsive tablet */
-
-/* Responsive tablet */
-@media (max-width: 768px) {
-html,
-  body {
-    min-height: 100%;
-    overflow-x: hidden;
-  }
-
-  body {
-    overflow-y: auto;
-  }
-
-  .page,
-  .interface-container,
-  .selection-section,
-  .patient-section,
-  .main-container,
-  .container {
-    width: 100%;
-    min-height: auto;
-    height: auto;
-  }
-
-  .navbar {
-    height: auto;
-    min-height: 70px;
-    padding: 12px 18px;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .left-navbar,
-  .left,
-  .izquierda,
-  .nav-left,
-  .nav-right,
-  .right,
-  .profile,
-  .logo {
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .menu-icon,
-  .menu-toggle,
-  .back-arrow,
-  .back-link,
-  .back-btn {
-    max-width: 42px;
-    max-height: 42px;
-    font-size: 32px;
-  }
-
-  .logo img,
-  .brand,
-  .side-menu-logo,
-  .menu-logo img,
-  .logo-container img {
-    width: auto;
-    max-width: 100px;
-    height: auto;
-
-body,
-.page {
-  background: linear-gradient(180deg, #d5eef6 0%, #c7e7f1 42%, #d9f1ec 100%) !important;
-  color: #12315f;
-}
-
-.page {
-  padding-bottom: 64px;
-}
-
-.navbar {
-  min-height: 82px;
-  height: auto;
-  padding: 12px 34px;
-  background: rgba(127, 193, 218, .92);
-  border-bottom: 1px solid rgba(13, 58, 122, .12);
-  box-shadow: 0 10px 26px rgba(13, 58, 122, .12);
-}
-
-.back-link {
-  border: 0;
-  background: transparent;
-  color: #0d3a7a;
-  box-shadow: none;
-  transition: .25s;
-}
-
-.back-link:hover {
-  background: transparent;
-  transform: translateX(-3px);
-}
-
-.brand {
-  width: 128px;
-  border-radius: 18px;
-}
-
-.page-title {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #0d3a7a;
-  font-size: 25px;
-  letter-spacing: 0;
-}
-
-.welcome-box {
-  height: 38px;
-  min-width: 130px;
-  color: #0d3a7a;
-  font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid rgba(13, 58, 122, .08);
-  box-shadow: 0 8px 18px rgba(13, 58, 122, .10);
-}
-
-.toggle {
-  background: #d8f8e4;
-}
-
-.toggle::after {
-  background: #35c96f;
-}
-
-.content {
-  max-width: 1120px;
-  width: min(100% - 48px, 1120px);
-  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
-  gap: 24px 32px;
-  padding-top: 42px;
-}
-
-.patient-card,
-.date-card,
-.reason-card,
-.diagnosis-card,
-.calendar-card,
-.call-card,
-.message-card,
-.field-value {
-  background: #eaf7fb;
-  border: 1px solid rgba(13, 58, 122, .14);
-  border-radius: 18px;
-  color: #12315f;
-  box-shadow: 0 16px 34px rgba(13, 58, 122, .10);
-}
-
-.patient-card {
-  width: 100%;
-  min-height: 312px;
-  padding: 24px;
-  justify-content: center;
-  border-top: 6px solid #35c96f;
-  background: linear-gradient(180deg, #f4fbfd 0%, #dff1f7 100%);
-}
-
-.patient-card img {
-  width: 220px;
-  height: 154px;
-  border-radius: 16px;
-  border: 4px solid #eef9fb;
-  box-shadow: 0 12px 24px rgba(13, 58, 122, .12);
-}
-
-.patient-card h2 {
-  color: #0d3a7a;
-  font-size: 25px;
-  line-height: 1.2;
-  margin-bottom: 10px;
-}
-
-.patient-card p {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 34px;
-  padding: 6px 16px;
-  border-radius: 999px;
-  background: #e3f8eb;
-  color: #15824a;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-}
-
-.patient-card .doctor-name {
-  color: #35507a;
-  font-size: 15px;
-}
-
-.side-info {
-  width: 100%;
-  gap: 22px;
-}
-
-.field-group {
-  gap: 8px;
-}
-
-.field-label,
-.section-label {
-  width: max-content;
-  min-width: 180px;
-  height: auto;
-  min-height: 31px;
-  padding: 7px 18px;
-  margin: 0;
-  background: #0d3a7a;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  border-radius: 999px;
-}
-
-.field-value {
-  width: 100%;
-  min-height: 80px;
-  justify-content: start;
-  place-items: center start;
-  padding: 18px 22px;
-  color: #12315f;
-  font-size: 22px;
-  text-align: left;
-  border-left: 6px solid #35c96f;
-  background: #dff1f7;
-}
-
-.condition-status {
-  transition: background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
-}
-
-.condition-stable {
-  background: linear-gradient(180deg, #ecfff5 0%, #d9f8e8 100%);
-  border-color: rgba(45, 184, 110, .24);
-  border-left-color: #31c978;
-  color: #126b43;
-}
-
-.condition-warning {
-  background: linear-gradient(180deg, #f1fbff 0%, #d9f1ff 100%);
-  border-color: rgba(80, 168, 220, .28);
-  border-left-color: #4fb3e8;
-  color: #0d5278;
-}
-
-.condition-danger {
-  background: linear-gradient(180deg, #fff0ef 0%, #ffd9d7 100%);
-  border-color: rgba(231, 86, 76, .26);
-  border-left-color: #e8564c;
-  color: #8e231d;
-}
-
-.lower-row {
-  gap: 24px;
-}
-
-.date-card,
-.reason-card,
-.diagnosis-card,
-.calendar-card,
-.call-card {
-  padding: 22px;
-  background: linear-gradient(180deg, #eff9fc 0%, #dceff6 100%);
-}
-
-.date-card .section-label,
-.reason-card .section-label,
-.diagnosis-card .section-label,
-.calendar-card .section-label {
-  width: max-content;
-  height: auto;
-  margin: 0 0 16px;
-  font-size: 14px;
-}
-
-.date-fields {
-  color: #0d3a7a;
-}
-
-.date-box,
-.reason-value,
-.diagnosis-box {
-  background: #f3fbfd;
-  border: 1px solid rgba(13, 58, 122, .10);
-  color: #12315f;
-  border-radius: 12px;
-}
-
-.date-box {
-  width: 68px;
-  height: 42px;
-  font-size: 19px;
-}
-
-.reason-value {
-  min-height: 58px;
-  place-items: center start;
-  text-align: left;
-  padding: 14px 16px;
-}
-
-.diagnosis-card {
-  min-height: 190px;
-}
-
-.diagnosis-box {
-  min-height: 126px;
-  padding: 18px;
-  color: #35507a;
-  font-size: 16px;
-  line-height: 1.55;
-}
-
-.calendar-card {
-  padding: 22px;
-}
-
-.contenedor {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 22px;
-  padding: 0;
-  align-items: start;
-}
-
-.calendario,
-.lista-eventos {
-  background: #dff1f7;
-  border: 1px solid rgba(13, 58, 122, .10);
-  border-radius: 16px;
-  color: #12315f;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
-}
-
-.calendario {
-  overflow: hidden;
-  padding: 0;
-}
-
-.calendario h3 {
-  background: #0d3a7a;
-  color: #ffffff;
-  padding: 12px;
-  font-size: 18px;
-  letter-spacing: 0;
-}
-
-.calendario table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.calendario th {
-  background: #e3f8eb;
-  color: #15824a;
-  font-size: 13px;
-  padding: 10px 6px;
-  border-color: rgba(13, 58, 122, .10);
-}
-
-.calendario td {
-  width: auto;
-  height: 76px;
-  background: #f4fbfd;
-  border-color: rgba(13, 58, 122, .10);
-  color: #12315f;
-}
-
-.calendario td strong {
-  color: #0d3a7a;
-  font-size: 14px;
-}
-
-.evento {
-  background: #35c96f;
-  color: #07305f;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 3px 7px;
-  margin-top: 5px;
-}
-
-.lista-eventos {
-  width: 100%;
-  padding: 16px;
-}
-
-.lista-eventos h4 {
-  color: #0d3a7a;
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.item {
-  background: #f4fbfd;
-  color: #35507a;
-  border-left: 5px solid #35c96f;
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 8px 18px rgba(13, 58, 122, .07);
-}
-
-.item strong {
-  color: #0d3a7a;
-}
-
-.call-card {
-  grid-template-columns: minmax(0, 1fr) minmax(180px, .55fr);
-  gap: 12px;
-}
-
-.call-button,
-.call-time {
-  height: 46px;
-  border-radius: 12px;
-}
-
-.call-button {
-  background: #0d3a7a;
-}
-
-.call-time {
-  background: #d8f8e4;
-  color: #15824a;
-  border: 1px solid rgba(53, 201, 111, .28);
-}
-
-.message-card {
-  color: #12315f;
-  border-top: 6px solid #35c96f;
-  background: #eaf7fb;
-}
-
-.message-card a {
-  color: #0d3a7a;
-  font-weight: 800;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    gap: 14px;
-    padding: 14px 20px;
-  }
-
-  nav,
-  .derecha ul {
-    display: none;
-  }
-
-  .role,
-  .family-pill,
-  .welcome,
-  .welcome-box,
-  .welcome-pill,
-  .bienvenido,
-  .page-title,
-  .titulo-pacientes,
-  .detalle-title,
-  .navbar h1 {
-    position: static;
-    transform: none;
-    max-width: 150px;
-    padding: 7px 11px;
-    font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-  }
-
-  .welcome-box span {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .hero,
-  .about,
-  .video-card,
-  .info-card,
-  .patient-card,
-  .content-row,
-  .login-container .content-row,
-  .form-row,
-  .row,
-  .card-paciente,
-  .paciente-header,
-  .notifications-hero,
-  .contenedor {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero,
-  .about,
-  .problems,
-  .why,
-  .info-section,
-  .updates-section,
-  .selection-section,
-  .patient-section,
-  .main-container,
-  .notifications-section {
-    padding: 42px 18px;
-  }
-
-  .hero-text,
-  .hero-image,
-  .about-text,
-  .about-image,
-  .video-image,
-  .register-form,
-  .patient-info,
-  .card-content,
-  .search-box {
-    width: 100%;
-  }
-
-  .search-box {
-    order: 3;
-    flex: 0 0 100%;
-  }
-
-  .search-box input {
-    width: 100%;
-    max-width: 560px;
-    font-size: 15px;
-    padding: 13px 18px;
-  }
-
-  .hero-text h1,
-  .how-work h1,
-  .updates-title h1,
-  .notifications-section h1,
-  .problems h2,
-  .about-text h2,
-  .why h2 {
-    font-size: 34px;
-    line-height: 1.15;
-  }
-
-  .hero-text p,
-  .about-text p,
-  .how-work p,
-  .updates-title p,
-  .notifications-hero p,
-  .patient-info p,
-  .card-content p {
-    width: 100%;
-    font-size: 17px;
-    line-height: 1.65;
-  }
-
-  .card,
-  .why-card,
-  .form-container,
-  .form-agregar,
-  .pacientes-container,
-  .detalle-container,
-  form,
-  .formulario,
-  .box,
-  .panel,
-  .shell,
-  .login-card,
-  .register-card,
-  .content-card,
-  .notification-panel {
-    width: calc(100% - 28px);
-    max-width: 430px;
-    min-height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 28px 20px;
-  }
-
-  .cards,
-  .why-cards,
-  .details,
-  .selection-buttons,
-  .patient-buttons,
-  .menu-doctor {
-    width: 100%;
-    max-width: 430px;
-    gap: 22px;
-  }
-
-  .selection-buttons button,
-  .patient-buttons button,
-  .btn-paciente,
-  .btn-comentarios,
-  .card button,
-  .register-form button,
-  .form-agregar button,
-  button,
-  .btn,
-  .custom-btn,
-  .register-btn,
-  .login-btn,
-  .logout-btn,
-  .ready-button,
-  .action-submit,
-  .submit-btn,
-  .in-button,
-  .call-button,
-  input[type="submit"],
-  input[type="button"],
-  input[type="reset"] {
-    width: 100%;
-    max-width: 340px;
-    height: auto;
-    min-height: 46px;
-    padding: 13px 18px;
-    white-space: normal;
-  }
-
-  .navbar .menu-icon,
-  .navbar .back-arrow,
-  .navbar .back-link,
-  .navbar .back-btn,
-  .navbar .menu-toggle {
-    width: 42px;
-    max-width: 42px;
-    min-height: 42px;
-    padding: 0;
-    flex: 0 0 42px;
-  }
-
-  input,
-  select,
-  textarea,
-  .input-field {
-    width: 100%;
-    max-width: 100%;
-    font-size: 15px;
-  }
-
-  .image-panel,
-  .login-container .image-panel,
-  .patient-image img,
-  .foto-paciente,
-  .paciente-header img,
-  .hero-image img,
-  .about-image img {
-    width: 100%;
-    max-width: 270px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .video-card {
-    width: calc(100% - 28px);
-    border-radius: 22px;
-  }
-
-  .video-image {
-    height: 210px;
-    max-width: none;
-  }
-
-  .video-info {
-    padding: 26px 20px;
-  }
-
-  .info-card {
-    gap: 20px;
-  }
-
-  .icon img {
-    width: 92px;
-  }
-
-  .detail-box,
-  .lista-eventos {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .calendario {
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  .calendario table {
-    min-width: 560px;
-  }
-
-  .notification-card,
-  .updates-page .notification-card {
-    width: 100%;
-    min-height: 0;
-    align-items: flex-start;
-    padding: 20px 18px;
-    gap: 16px;
-  }
-
-  .notification-icon {
-    width: 52px;
-    height: 52px;
-    flex-basis: 52px;
-    border-radius: 16px;
-  }
-
-  .updates-page .notifications-section {
-    width: calc(100% - 28px);
-    padding-top: 36px;
-  }
-
-  .updates-summary {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .divider {
-    width: min(270px, 82vw);
-    height: 6px;
-  }
-
-  .linea-verde,
-  .circle-bg {
-    display: none;
-  }
-
-  .circle,
-  .circulo,
-  .decor-circle,
-  .bubble,
-  .decoracion,
-  .circle-left,
-  .circle-right {
-    opacity: .28;
-  }
-
-  .side-menu {
-    width: min(290px, 86vw);
-    max-width: 86vw;
-  }
-
-  .side-menu-strip {
-    width: 28px;
-    flex-basis: 28px;
-  }
-
-  .side-menu-content {
-    padding: 18px 16px;
-  }
-
-  .site-footer {
-    grid-template-columns: 1fr;
-    padding: 24px 20px 14px;
-    text-align: center;
-  }
-
-  .footer-brand p {
-    margin: 0 auto;
-  }
-
-  .footer-links {
-    align-items: center;
-  }
-}
-
-/* Responsive renovado: telefono */
-@media (max-width: 480px) {
-  .navbar {
-    min-height: 58px;
-    padding: 8px 10px;
-    gap: 9px;
-  }
-
-  .menu-icon,
-  .menu-toggle,
-  .back-arrow,
-  .back-link,
-  .back-btn {
-    max-width: 36px;
-    max-height: 36px;
-    font-size: 28px;
-  }
-
-  .logo img,
-  .brand,
-  .side-menu-logo,
-  .menu-logo img,
-  .logo-container img {
-    max-width: 78px;
-  }
-
-  .role,
-  .family-pill,
-  .welcome,
-  .welcome-box,
-  .welcome-pill,
-  .bienvenido,
-  .page-title,
-  .titulo-pacientes,
-  .detalle-title,
-  .navbar h1 {
-    max-width: 118px;
-    padding: 6px 8px;
-    font-size: 11px;
-  }
-
-  .welcome-box span {
-    font-size: 10px;
-  }
-
-  .toggle,
-  .user-icon {
-    width: 26px;
-    height: 26px;
-    flex: 0 0 26px;
-  }
-
-  .hero,
-  .about,
-  .problems,
-  .why,
-  .info-section,
-  .updates-section,
-  .selection-section,
-  .patient-section,
-  .main-container,
-  .notifications-section {
-    padding: 30px 12px;
-  }
-
-  .hero-text h1,
-  .how-work h1,
-  .updates-title h1,
-  .notifications-section h1,
-  .problems h2,
-  .about-text h2,
-  .why h2,
-  h1 {
-    font-size: 28px;
-  }
-
-  h2,
-  .card-content h2,
-  .patient-info h2,
-  .notification-panel h2,
-  .video-info h3,
-  .card h3,
-  .why-card h3 {
-    font-size: 23px;
-  }
-
-  .hero-text p,
-  .about-text p,
-  .how-work p,
-  .updates-title p,
-  .notifications-hero p,
-  .patient-info p,
-  .card-content p,
-  p {
-    font-size: 16px;
-  }
-
-  .card,
-  .why-card,
-  .form-container,
-  .form-agregar,
-  .pacientes-container,
-  .detalle-container,
-  form,
-  .formulario,
-  .box,
-  .panel,
-  .shell,
-  .login-card,
-  .register-card,
-  .content-card,
-  .notification-panel {
-    width: calc(100% - 20px);
-    padding: 22px 16px;
-    border-radius: 20px;
-  }
-
-  .selection-buttons button,
-  .patient-buttons button,
-  .btn-paciente,
-  .btn-comentarios,
-  .card button,
-  .register-form button,
-  .form-agregar button,
-  button,
-  .btn,
-  .custom-btn,
-  .register-btn,
-  .login-btn,
-  .logout-btn,
-  .ready-button,
-  .action-submit,
-  .submit-btn,
-  .in-button,
-  .call-button,
-  input[type="submit"],
-  input[type="button"],
-  input[type="reset"] {
-    max-width: 100%;
-    min-height: 44px;
-    font-size: 16px;
-  }
-
-  .navbar .menu-icon,
-  .navbar .back-arrow,
-  .navbar .back-link,
-  .navbar .back-btn,
-  .navbar .menu-toggle {
-    width: 36px;
-    max-width: 36px;
-    min-height: 36px;
-    padding: 0;
-    flex: 0 0 36px;
-  }
-
-  input,
-  select,
-  textarea,
-  .input-field {
-    height: 44px;
-    font-size: 14px;
-  }
-
-  textarea {
-    min-height: 90px;
-  }
-
-  .image-panel,
-  .login-container .image-panel,
-  .patient-image img,
-  .foto-paciente,
-  .paciente-header img,
-  .hero-image img,
-  .about-image img {
-    max-width: 230px;
-  }
-
-  .play-btn {
-    width: 64px;
-    height: 64px;
-    font-size: 28px;
-  }
-
-  .video-image {
-    height: 180px;
-  }
-
-  .notification-card,
-  .updates-page .notification-card {
-    flex-direction: column;
-    padding: 16px;
-    order: 3;
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-  }
-
-  .content,
-  .lower-row,
-  .contenedor,
-  .call-card {
-    grid-template-columns: 1fr;
-  }
-
-  .content {
-    width: min(100% - 32px, 680px);
-    padding-top: 28px;
-  }
-
-  .field-value,
-  .reason-value {
-    text-align: center;
-    place-items: center;
-  }
-
-}
-
-@media (max-width: 480px) {
-  .profile {
-    gap: 8px;
-  }
-
-  .brand {
-    width: 104px;
-  }
-
-  .welcome-box {
-    min-width: 110px;
-    font-size: 12px;
-  }
-
-  .patient-card img {
-    width: 100%;
-    height: auto;
-    max-height: 210px;
-  }
-
-  .date-card,
-  .reason-card,
-  .diagnosis-card,
-  .calendar-card,
-  .notas-readonly-card,
-  .call-card {
-    padding: 18px;
-  }
-
-  .date-fields {
-    gap: 6px;
-  }
-
-  .date-box {
-    width: 56px;
-  }
-
-  .calendario th,
-  .calendario td {
-    width: 64px;
-    height: 58px;
-    padding: 4px;
-
-    padding: 5px 3px;
-  }
-
-  .calendario td {
-    height: 62px;
-  }
-
-  .evento {
-    font-size: 9px;
-  }
-
-  .circle,
-  .circulo,
-  .decor-circle,
-  .bubble,
-  .decoracion,
-  .circle-left,
-  .circle-right,
-  .circle1,
-  .circle2,
-  .circle3,
-  .circle4,
-  .circle5,
-  .c1,
-  .c2,
-  .c3,
-  .c4,
-  .c5 {
-    display: none;
-  }
-
-  .side-menu {
-    width: 88vw;
-    max-width: 88vw;
-  }
-
-  .side-menu-strip {
-    width: 24px;
-    flex-basis: 24px;
-  }
-}
-
-
-    padding: 2px 4px;
-  }
-}
-
-/* Notas y audios del familiar: mismo lenguaje visual que la vista del doctor */
-.content .notas-readonly-card {
-  grid-column: 1 / -1;
-  padding: 24px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, #f5fbfd 0%, #e3f2f7 100%);
-  border: 1px solid rgba(13, 58, 122, .14);
-  color: #12315f;
-  box-shadow: 0 16px 34px rgba(13, 58, 122, .10);
-}
-
-.content .notas-readonly-card h3 {
-  margin: 0 0 12px;
-  color: #0d3a7a;
-  font-size: 22px;
-  font-weight: 800;
-}
-
-.content .notas-readonly-card .notas-subtitle {
-  width: max-content;
-  min-height: 30px;
-  margin: 0 0 16px;
-  padding: 7px 18px;
-  border-radius: 999px;
-  background: #0d3a7a;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.1;
-}
-
-.content .notas-readonly-card .historial-notas {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.content .notas-readonly-card .item-nota {
-  background: #ffffff;
-  border-left: 6px solid #35c96f;
-  border-radius: 14px;
-  color: #12315f;
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 10px 22px rgba(13, 58, 122, .08);
-}
-
-.content .notas-readonly-card .nota-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  color: #0d3a7a;
-  font-weight: 800;
-}
-
-.content .notas-readonly-card .nota-meta small {
-  width: max-content;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: #eef8fc;
-  color: #35507a;
-  font-weight: 700;
-}
-
-.content .notas-readonly-card .item-nota p {
-  margin: 0;
-  line-height: 1.5;
-  color: #12315f;
-}
-
-.content .notas-readonly-card .item-nota audio {
-  width: 100%;
-  border-radius: 14px;
-  background: #eef4f8;
-}
-
-.content .notas-readonly-card .item-nota a {
-  width: max-content;
-  min-height: 38px;
-  border-radius: 12px;
-  padding: 9px 14px;
-  background: #eef8fc;
-  color: #0d3a7a;
-  font-weight: 800;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid rgba(13, 58, 122, .10);
-}
-
-.content .notas-readonly-card .empty-note {
-  border-left-color: #85bfdb;
-}
-
-/* Vista familiar alineada con detalle_paciente.php */
+/* Vista familiar alineada visualmente con el detalle del doctor */
 .family-detail-page {
   min-height: 100vh;
   background: linear-gradient(180deg, #d5eef6 0%, #c7e7f1 42%, #d9f1ec 100%);
@@ -1835,8 +691,8 @@ body,
 
 .family-detail-page .page {
   min-height: 100vh;
-  background: transparent;
   padding-bottom: 64px;
+  background: transparent;
 }
 
 .family-detail-page .navbar {
@@ -1848,18 +704,23 @@ body,
   box-shadow: 0 10px 26px rgba(13, 58, 122, .12);
 }
 
-.family-detail-page .brand {
-  width: 128px;
-  border-radius: 18px;
-}
-
 .family-detail-page .family-back-link,
 .family-detail-page .family-back-link:hover {
+  border: 0 !important;
   background: transparent !important;
   background-color: transparent !important;
   color: #0d3a7a !important;
   box-shadow: none !important;
   text-decoration: none !important;
+}
+
+.family-detail-page .family-back-link:hover {
+  transform: translateX(-3px) !important;
+}
+
+.family-detail-page .brand {
+  width: 128px;
+  border-radius: 18px;
 }
 
 .family-detail-page .page-title {
@@ -1904,7 +765,8 @@ body,
 .family-detail-page .reason-card,
 .family-detail-page .diagnosis-card,
 .family-detail-page .calendar-card,
-.family-detail-page .notas-readonly-card {
+.family-detail-page .notas-readonly-card,
+.family-detail-page .message-card {
   background: linear-gradient(180deg, #eff9fc 0%, #dceff6 100%);
   border: 1px solid rgba(13, 58, 122, .14);
   border-radius: 18px;
@@ -1916,11 +778,8 @@ body,
   width: 100%;
   min-height: 312px;
   padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-self: stretch;
   justify-content: center;
-  text-align: center;
   border-top: 6px solid #35c96f;
   background: linear-gradient(180deg, #f4fbfd 0%, #dff1f7 100%);
 }
@@ -1928,20 +787,17 @@ body,
 .family-detail-page .patient-card img {
   width: 220px;
   height: 154px;
-  object-fit: cover;
   border-radius: 16px;
   border: 4px solid #eef9fb;
   box-shadow: 0 12px 24px rgba(13, 58, 122, .12);
-  margin-bottom: 12px;
 }
 
 .family-detail-page .patient-card h2 {
-  width: 100%;
   margin: 0 0 8px;
   color: #0d3a7a;
-  font-size: 27px;
+  font-size: 25px;
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .family-detail-page .patient-card p {
@@ -1963,22 +819,17 @@ body,
 .family-detail-page .patient-card .doctor-name {
   margin-top: 10px;
   color: #35507a;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: 800;
 }
 
 .family-detail-page .side-info {
-  display: grid;
-  gap: 22px;
-  align-content: start;
-  justify-self: stretch;
   width: 100%;
-  padding: 0;
+  gap: 22px;
+  justify-self: stretch;
 }
 
 .family-detail-page .field-group {
-  display: grid;
   gap: 8px;
 }
 
@@ -1993,8 +844,6 @@ body,
   border-radius: 999px;
   background: #0d3a7a;
   color: #ffffff;
-  display: inline-grid;
-  place-items: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 800;
@@ -2012,8 +861,9 @@ body,
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
+  text-align: left;
   box-shadow: 0 16px 34px rgba(13, 58, 122, .10);
 }
 
@@ -2047,7 +897,6 @@ body,
 
 .family-detail-page .date-card,
 .family-detail-page .reason-card,
-.family-detail-page .diagnosis-card,
 .family-detail-page .calendar-card,
 .family-detail-page .notas-readonly-card {
   padding: 22px;
@@ -2061,18 +910,13 @@ body,
 
 .family-detail-page .date-card .section-label,
 .family-detail-page .reason-card .section-label,
-.family-detail-page .diagnosis-card .section-label {
+.family-detail-page .diagnosis-card .section-label,
+.family-detail-page .calendar-card .section-label {
   margin: 0 0 16px;
 }
 
 .family-detail-page .date-fields {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   color: #0d3a7a;
-  font-weight: 800;
-  width: 100%;
 }
 
 .family-detail-page .date-box {
@@ -2082,19 +926,10 @@ body,
   border-radius: 12px;
   background: #f3fbfd;
   color: #12315f;
-  display: grid;
-  place-items: center;
   font-size: 19px;
-  font-weight: 800;
-}
-
-.family-detail-page .reason-card {
-  display: flex;
-  flex-direction: column;
 }
 
 .family-detail-page .reason-value {
-  width: 100%;
   min-height: 58px;
   border: 1px solid rgba(13, 58, 122, .10);
   border-radius: 12px;
@@ -2106,6 +941,7 @@ body,
   justify-content: flex-start;
   font-size: 18px;
   font-weight: 800;
+  text-align: left;
 }
 
 .family-detail-page .diagnosis-card {
@@ -2145,17 +981,13 @@ body,
 
 .family-detail-page .calendar-card {
   grid-column: 1 / -1;
-  padding: 22px;
 }
 
-.family-detail-page .calendar-card .section-label {
-  margin: 0 0 16px;
-}
-
-.family-detail-page .contenedor {
+.family-detail-page .calendar-card .contenedor {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
   gap: 22px;
+  padding: 0;
   align-items: start;
 }
 
@@ -2163,99 +995,968 @@ body,
 .family-detail-page .lista-eventos {
   width: 100%;
   background: #f3fbfd;
-  color: #12315f;
   border: 1px solid rgba(13, 58, 122, .10);
   border-radius: 14px;
+  color: #12315f;
   box-shadow: none;
+}
+
+.family-detail-page .calendario {
+  padding: 0;
+  overflow: hidden;
+}
+
+.family-detail-page .mes-nav {
+  min-height: 46px;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 14px 14px 0 0;
+  background: #0d3a7a;
+  color: #ffffff;
+  gap: 18px;
+}
+
+.family-detail-page .mes-nav a {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.family-detail-page .mes-nav span {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.family-detail-page .calendario table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.family-detail-page .calendario th {
+  background: #e3f8eb;
+  color: #15824a;
+  font-size: 13px;
+  padding: 10px 6px;
+  border-color: rgba(13, 58, 122, .10);
+}
+
+.family-detail-page .calendario td {
+  width: auto;
+  height: 76px;
+  background: #f4fbfd;
+  border-color: rgba(13, 58, 122, .10);
+  color: #12315f;
+}
+
+.family-detail-page .calendario td strong {
+  color: #0d3a7a;
+  font-size: 14px;
+}
+
+.family-detail-page .evento {
+  background: #35c96f;
+  color: #07305f;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 7px;
+  margin-top: 5px;
 }
 
 .family-detail-page .lista-eventos {
   padding: 16px;
 }
 
-.family-detail-page .lista-eventos h4 {
-  margin: 0 0 12px;
+.family-detail-page .lista-eventos h4,
+.family-detail-page .notas-readonly-card h3 {
+  margin: 0 0 16px;
   color: #0d3a7a;
   font-size: 18px;
   font-weight: 800;
 }
 
-.family-detail-page .lista-eventos .item {
+.family-detail-page .lista-eventos .item,
+.family-detail-page .item-nota {
   padding: 14px 16px;
   border-left: 6px solid #35c96f;
   border-radius: 12px;
-  background: #ffffff;
+  background: #f3fbfd;
   color: #12315f;
   font-weight: 800;
 }
 
-.family-detail-page .lista-eventos .item + .item {
+.family-detail-page .lista-eventos .item + .item,
+.family-detail-page .item-nota + .item-nota {
   margin-top: 12px;
-}
-
-.family-detail-page .evento {
-  max-width: 100%;
-  margin-top: 4px;
-  padding: 3px 6px;
-  border-radius: 7px;
-  background: #35c96f;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 800;
-  line-height: 1.15;
-  box-shadow: 0 4px 10px rgba(53, 201, 111, .22);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .family-detail-page .notas-readonly-card {
   grid-column: 1 / -1;
 }
 
+.family-detail-page .notas-subtitle {
+  width: max-content;
+  min-height: 31px;
+  margin: 0 0 16px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: #0d3a7a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+}
+/* Media query unica para tablet y telefono */
 @media (max-width: 768px) {
-  .family-detail-page .navbar {
-    gap: 14px;
-    padding: 14px 20px;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  .page,
+  .container,
+  .contenedor,
+  .main-container,
+  .content,
+  .dashboard-main,
+  .dashboard-container,
+  .patient-dashboard,
+  .selection-section,
+  .patient-section,
+  .updates-section,
+  .notifications-section,
+  .pacientes-container,
+  .detalle-container,
+  .agregar-container,
+  .interface-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  .navbar,
+  header.navbar,
+  nav.navbar,
+  .topbar {
+    width: 100%;
+    height: auto;
+    min-height: 66px;
+    padding: 10px 14px;
+    gap: 10px;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .left-navbar,
+  .left,
+  .izquierda,
+  .nav-left,
+  .nav-right,
+  .right,
+  .profile,
+  .logo-container,
+  .user-panel {
+    min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .user-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    flex-basis: 28px;
+  }
+
+  .user-icon::before {
+    width: 9px;
+    height: 9px;
+    left: 8px;
+    top: 5px;
+  }
+
+  .user-icon::after {
+    width: 16px;
+    height: 8px;
+    left: 4px;
+    bottom: 5px;
+  }
+
+  .menu-icon,
+  .menu-toggle,
+  .back,
+  .back-arrow,
+  .back-link,
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .logo img,
+  img.logo,
+  .brand,
+  .navbar-logo,
+  .side-menu-logo,
+  .menu-logo img,
+  .logo-container img {
+    width: auto;
+    max-width: 96px;
+    max-height: 74px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .role,
+  .family-pill,
+  .welcome,
+  .welcome-box,
+  .welcome-pill,
+  .bienvenido,
+  .page-title,
+  .titulo-pacientes,
+  .detalle-title,
+  .nav-badge,
+  .welcome-tag,
+  .title,
+  .navbar h1 {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 320px;
+    min-height: 30px;
+    padding: 7px 11px;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  h1,
+  .hero-text h1,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1,
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .introduction h1,
+  .que-es h1,
+  .porque-nearcare h1,
+  .doctor-family-page .choice-heading h1,
+  .subtitle,
+  form::before {
+    font-size: 26px;
+    line-height: 1.18;
+  }
+
+  h2,
+  .card h2,
+  .card-content h2,
+  .patient-info h2,
+  .notification-panel h2,
+  .video-info h3,
+  .why-card h3,
+  .porque-card h2,
+  .doctor-family-page .card h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  p,
+  .hero-text p,
+  .about-text p,
+  .how-work p,
+  .updates-title p,
+  .notifications-hero p,
+  .patient-info p,
+  .card-content p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero,
+  .about,
+  .video-card,
+  .info-card,
+  .patient-card,
+  .content-row,
+  .form-row,
+  .row,
+  .card-paciente,
+  .paciente-header,
+  .notifications-hero,
+  .doctor-family-page .cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero,
+  .about,
+  .problems,
+  .why,
+  .info-section,
+  .updates-section,
+  .selection-section,
+  .patient-section,
+  .main-container,
+  .notifications-section {
+    padding: 30px 14px;
+  }
+
+  .card,
+  .why-card,
+  .porque-card,
+  .form-container,
+  .form-agregar,
+  .pacientes-container,
+  .detalle-container,
+  form,
+  .formulario,
+  .box,
+  .panel,
+  .shell,
+  .login-card,
+  .register-card,
+  .content-card,
+  .notification-panel,
+  .profile-card,
+  .info-card,
+  .welcome-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    min-height: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .cards,
+  .why-cards,
+  .details,
+  .selection-buttons,
+  .patient-buttons,
+  .menu-doctor,
+  .doctor-family-page .cards {
+    width: 100%;
+    max-width: 430px;
+    gap: 18px;
+  }
+
+  button,
+  .btn,
+  .custom-btn,
+  .register-btn,
+  .login-btn,
+  .logout-btn,
+  .ready-button,
+  .action-submit,
+  .submit-btn,
+  .in-button,
+  .call-button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    max-width: 100%;
+    min-height: 40px;
+    white-space: normal;
+  }
+
+  input,
+  select,
+  textarea,
+  .input-field {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  img,
+  .image-panel,
+  .patient-image img,
+  .foto-paciente,
+  .paciente-header img,
+  .hero-image img,
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .table-wrap,
+  .calendar-wrap,
+  .calendario {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .patient-card,
+  .side-info,
+  .lower-row,
+  .diagnosis-card,
+  .calendar-card,
+  .notas-readonly-card,
+  .call-card,
+  .message-card {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .side-info,
+  .lower-row {
+    grid-template-columns: 1fr;
+  }
+
+  .date-card,
+  .reason-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .date-fields {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .diagnosis-box,
+  .reason-value,
+  .field-value {
+    overflow-wrap: anywhere;
+  }
+
+  .calendar-card .contenedor {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .calendario,
+  .lista-eventos {
+    max-width: 100%;
+  }
+
+  .family-detail-page .navbar {
+    height: auto;
+    min-height: 86px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .family-detail-page .nav-left,
+  .family-detail-page .profile {
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+
+  .family-detail-page .brand {
+    max-width: 88px;
   }
 
   .family-detail-page .page-title {
     position: static;
+    left: auto;
+    top: auto;
     transform: none;
     order: 3;
+    flex: 1 0 100%;
     width: 100%;
     max-width: none;
+    margin: 2px 0 0;
+    padding: 0;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.15;
   }
 
-  .family-detail-page .content,
-  .family-detail-page .lower-row,
-  .family-detail-page .contenedor {
-    grid-template-columns: 1fr;
+  .family-detail-page .page {
+    background: #d8f0f7;
+    padding-bottom: 28px;
   }
 
   .family-detail-page .content {
-    width: min(100% - 32px, 680px);
-    padding-top: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .family-detail-page .brand {
-    width: 104px;
+    width: min(100% - 18px, 380px);
+    max-width: 380px;
+    padding: 28px 0 0;
+    gap: 8px;
+    margin: 0 auto;
   }
 
-  .family-detail-page .profile {
-    width: 100%;
-    justify-content: center;
+  .family-detail-page .patient-card,
+  .family-detail-page .date-card,
+  .family-detail-page .reason-card,
+  .family-detail-page .diagnosis-card,
+  .family-detail-page .calendar-card,
+  .family-detail-page .notas-readonly-card {
+    background: #3e91bc;
+    border: 1px solid #2d6e91;
+    border-radius: 8px;
+    box-shadow: 0 12px 28px rgba(32, 33, 36, .08);
+  }
+
+  .family-detail-page .patient-card {
+    max-width: 100%;
+    min-height: auto;
+    padding: 18px 14px 16px;
   }
 
   .family-detail-page .patient-card img {
+    width: min(100%, 210px);
+    height: 140px;
+    object-fit: cover;
+    border-radius: 7px;
+  }
+
+  .family-detail-page .patient-card h2 {
+    margin: 0 0 12px;
+    color: #202124;
+    font-size: 20px;
+    line-height: 1.12;
+  }
+
+  .family-detail-page .patient-card p,
+  .family-detail-page .patient-card .doctor-name {
+    color: #202124;
+  }
+
+  .family-detail-page .side-info,
+  .family-detail-page .lower-row {
+    gap: 8px;
+  }
+
+  .family-detail-page .field-group {
+    gap: 6px;
+  }
+
+  .family-detail-page .field-label,
+  .family-detail-page .section-label {
+    width: min(100%, 210px);
+    min-height: 20px;
+    height: 20px;
+    margin: 0 auto;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: #85bfdb;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .family-detail-page .field-value {
     width: 100%;
-    height: auto;
-    max-height: 210px;
+    min-height: 44px;
+    border-radius: 8px;
+    background: #3e91bc;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+
+  .family-detail-page .date-card,
+  .family-detail-page .reason-card,
+  .family-detail-page .diagnosis-card,
+  .family-detail-page .calendar-card,
+  .family-detail-page .notas-readonly-card {
+    padding: 12px 10px 14px;
+  }
+
+  .family-detail-page .reason-card .section-label {
+    align-self: center;
+  }
+
+  .family-detail-page .date-fields {
+    gap: 6px;
+    flex-wrap: nowrap;
+  }
+
+  .family-detail-page .date-box {
+    width: 50px;
+    height: 30px;
+    font-size: 17px;
+  }
+
+  .family-detail-page .reason-value,
+  .family-detail-page .diagnosis-box {
+    width: 100%;
+    background: #ffffff;
+    color: #202124;
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .family-detail-page .calendar-card .contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .family-detail-page .calendario {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+
+  .family-detail-page .calendario table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .family-detail-page .calendario th,
+  .family-detail-page .calendario td {
+    width: auto;
+    height: 48px;
+    min-width: 0;
+    padding: 4px 2px;
+    font-size: 11px;
+  }
+
+  .family-detail-page .calendario td strong {
+    font-size: 12px;
+  }
+
+  .family-detail-page .evento {
+    max-width: 100%;
+    margin-top: 3px;
+    padding: 2px 3px;
+    font-size: 8px;
+    line-height: 1.1;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .family-detail-page .lista-eventos {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    background: #f4f4f4;
+    border-radius: 8px;
+  }
+
+  .family-detail-page .lista-eventos h4 {
+    margin: 0 0 8px;
+    color: #202124;
+    font-size: 15px;
+  }
+
+  .family-detail-page .lista-eventos .item {
+    margin-bottom: 8px;
+    padding: 8px;
+    border-left: 4px solid #1E6ADE;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #202124;
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .family-detail-page {
+    background: linear-gradient(180deg, #d5eef6 0%, #c7e7f1 42%, #d9f1ec 100%);
+    color: #12315f;
+  }
+
+  .family-detail-page .page {
+    background: transparent;
+    padding-bottom: 36px;
+  }
+
+  .family-detail-page .navbar {
+    min-height: 92px;
+    padding: 12px 16px;
+    background: rgba(127, 193, 218, .92);
+    justify-content: space-between;
+  }
+
+  .family-detail-page .page-title {
+    color: #0d3a7a;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .family-detail-page .content {
+    width: min(100% - 28px, 680px);
+    max-width: 680px;
+    padding: 28px 0 0;
+    gap: 18px;
+  }
+
+  .family-detail-page .patient-card,
+  .family-detail-page .date-card,
+  .family-detail-page .reason-card,
+  .family-detail-page .diagnosis-card,
+  .family-detail-page .calendar-card,
+  .family-detail-page .notas-readonly-card {
+    background: linear-gradient(180deg, #eff9fc 0%, #dceff6 100%);
+    border: 1px solid rgba(13, 58, 122, .14);
+    border-radius: 18px;
+    color: #12315f;
+    box-shadow: 0 16px 34px rgba(13, 58, 122, .10);
+  }
+
+  .family-detail-page .patient-card {
+    min-height: auto;
+    padding: 22px 18px;
+    border-top: 6px solid #35c96f;
+    background: linear-gradient(180deg, #f4fbfd 0%, #dff1f7 100%);
+  }
+
+  .family-detail-page .patient-card img {
+    width: min(100%, 220px);
+    height: 154px;
+    border-radius: 16px;
+    border: 4px solid #eef9fb;
+    box-shadow: 0 12px 24px rgba(13, 58, 122, .12);
+  }
+
+  .family-detail-page .patient-card h2 {
+    color: #0d3a7a;
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  .family-detail-page .patient-card p {
+    background: #e3f8eb;
+    color: #15824a;
+  }
+
+  .family-detail-page .patient-card .doctor-name {
+    color: #35507a;
+  }
+
+  .family-detail-page .field-label,
+  .family-detail-page .section-label {
+    width: max-content;
+    min-width: 150px;
+    min-height: 30px;
+    margin: 0 0 12px;
+    padding: 7px 16px;
+    background: #0d3a7a;
+    color: #ffffff;
+    font-size: 13px;
+  }
+
+  .family-detail-page .field-value {
+    min-height: 72px;
+    border: 1px solid rgba(13, 58, 122, .14);
+    border-left: 6px solid #35c96f;
+    border-radius: 18px;
+    background: #dff1f7;
+    color: #12315f;
+    padding: 16px 18px;
+    justify-content: flex-start;
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .family-detail-page .side-info,
+  .family-detail-page .lower-row {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 18px;
+  }
+
+  .family-detail-page .date-card,
+  .family-detail-page .reason-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .family-detail-page .date-card,
+  .family-detail-page .reason-card,
+  .family-detail-page .diagnosis-card,
+  .family-detail-page .calendar-card,
+  .family-detail-page .notas-readonly-card {
+    padding: 20px 18px;
+  }
+
+  .family-detail-page .date-fields {
+    color: #0d3a7a;
+    gap: 8px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .family-detail-page .date-box {
+    width: clamp(46px, 18vw, 60px);
+    height: 38px;
+    flex: 0 1 60px;
+    border-radius: 12px;
+    background: #f3fbfd;
+    color: #12315f;
+  }
+
+  .family-detail-page .reason-value,
+  .family-detail-page .diagnosis-box {
+    background: #f3fbfd;
+    color: #12315f;
+    border: 1px solid rgba(13, 58, 122, .10);
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+  }
+
+  .family-detail-page .diagnosis-card .section-label {
+    position: static;
+    margin-bottom: 12px;
+  }
+
+  .family-detail-page .diagnosis-box {
+    min-height: 120px;
+    margin-top: 0;
+    padding: 18px;
+  }
+
+  .family-detail-page .calendar-card .contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .family-detail-page .calendario,
+  .family-detail-page .lista-eventos {
+    background: #f3fbfd;
+    border: 1px solid rgba(13, 58, 122, .10);
+    border-radius: 14px;
+    color: #12315f;
+  }
+
+  .family-detail-page .calendario {
+    padding: 0;
+    overflow-x: auto;
+  }
+
+  .family-detail-page .calendario table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .family-detail-page .calendario th,
+  .family-detail-page .calendario td {
+    height: 62px;
+    padding: 5px 4px;
+    font-size: 11px;
+  }
+
+  .family-detail-page .evento {
+    background: #35c96f;
+    color: #07305f;
+    border-radius: 999px;
+    font-size: 9px;
+    line-height: 1.1;
+    white-space: normal;
+  }
+
+  .family-detail-page .lista-eventos {
+    padding: 16px;
+  }
+
+  .family-detail-page .lista-eventos h4,
+  .family-detail-page .notas-readonly-card h3 {
+    color: #0d3a7a;
+    font-size: 18px;
+  }
+
+  .family-detail-page .lista-eventos .item,
+  .family-detail-page .item-nota {
+    padding: 14px 16px;
+    border-left: 6px solid #35c96f;
+    border-radius: 12px;
+    background: #f3fbfd;
+    color: #12315f;
+    font-size: 14px;
+  }
+
+  .circle,
+  .circulo,
+  .decor-circle,
+  .bubble,
+  .decoracion,
+  .circle-left,
+  .circle-right,
+  .circle-big,
+  .circle-small,
+  .circle-corner,
+  .circle-top,
+  .circle-bottom,
+  .circle-center,
+  .circle-one,
+  .circle-two,
+  .circle-three,
+  .circle-four,
+  .circle-five,
+  .circle-six,
+  .circle-1,
+  .circle-2,
+  .circle-3,
+  .circle-4,
+  .circle-5,
+  .circle-6,
+  .circle-7,
+  .circle-8,
+  .circle-9,
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6,
+  body::before,
+  body::after {
+    max-width: 82px;
+    max-height: 82px;
+    opacity: .18;
+    pointer-events: none;
   }
 }
-
