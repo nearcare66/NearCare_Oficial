@@ -395,7 +395,8 @@
     margin:0;
     border:0;
     border-radius:12px;
-    background:#2b6fde;
+    background:#0d3a7a !important;
+    background-color:#0d3a7a !important;
     color:#ffffff;
     font-size:16px;
     font-weight:800;
@@ -405,7 +406,8 @@
 }
 
 .doctor-detail-page .btn-guardar-cambios:hover{
-    background:#0d3a7a;
+    background:#092b5c !important;
+    background-color:#092b5c !important;
 }
 
 .detalle-eventos-card,
@@ -445,12 +447,18 @@
     min-height:44px;
     border:0;
     border-radius:12px;
-    background:#35c96f;
+    background:#0d3a7a !important;
+    background-color:#0d3a7a !important;
     color:#ffffff;
     font-size:15px;
     font-weight:800;
     padding:10px 18px;
     cursor:pointer;
+}
+
+.detalle-eventos-card button:hover{
+    background:#092b5c !important;
+    background-color:#092b5c !important;
 }
 
 .item-evento{
@@ -559,48 +567,76 @@
         width:56px;
     }
 }
-<<<<<<< HEAD
 /* ===================================
    NOTAS Y AUDIOS DEL PACIENTE
 =================================== */
 
 .notas-paciente-card{
-    background:linear-gradient(180deg,#eff9fc 0%,#dceff6 100%);
+    grid-column:1 / -1;
+    background:linear-gradient(180deg,#f5fbfd 0%,#e3f2f7 100%);
     border:1px solid rgba(13,58,122,.14);
     border-radius:18px;
-    padding:22px;
+    padding:24px;
     box-shadow:0 16px 34px rgba(13,58,122,.10);
-
     display:flex;
     flex-direction:column;
-    gap:14px;
+    gap:16px;
 }
 
 .notas-paciente-card h3{
     color:#0d3a7a;
-    font-size:20px;
+    font-size:22px;
     font-weight:800;
+    margin:0;
+}
+
+.notas-subtitle{
+    width:max-content;
+    min-height:30px;
+    margin:2px 0 0;
+    padding:7px 18px;
+    border-radius:999px;
+    background:#0d3a7a;
+    color:#ffffff;
+    font-size:14px;
+    font-weight:800;
+    line-height:1.1;
 }
 
 .notas-paciente-card textarea{
     width:100%;
     min-height:120px;
-
     border:1px solid rgba(13,58,122,.10);
     border-radius:12px;
-
-    padding:15px;
-
+    padding:16px;
     resize:vertical;
-
-    background:#f3fbfd;
-
+    background:#ffffff;
     color:#12315f;
-
     font-size:15px;
     font-family:Arial, Helvetica, sans-serif;
-
     outline:none;
+    box-shadow:inset 0 1px 0 rgba(13,58,122,.04);
+}
+
+.nota-edit-textarea{
+    width:100%;
+    min-height:86px;
+    border:1px solid rgba(13,58,122,.10);
+    border-radius:12px;
+    padding:13px 14px;
+    resize:vertical;
+    background:#f8fcfe;
+    color:#12315f;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:15px;
+    font-weight:700;
+    line-height:1.45;
+    outline:none;
+}
+
+.nota-edit-textarea:focus{
+    border-color:#2b6fde;
+    box-shadow:0 0 0 4px rgba(43,111,222,.12);
 }
 
 .notas-paciente-card textarea:focus{
@@ -612,52 +648,189 @@
     display:flex;
     gap:12px;
     flex-wrap:wrap;
+    align-items:center;
+    padding:14px;
+    border-radius:14px;
+    background:rgba(255,255,255,.58);
+    border:1px solid rgba(13,58,122,.10);
+}
+
+.audio-timer{
+    width:max-content;
+    min-height:30px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:#f3fbfd;
+    color:#0d3a7a;
+    font-weight:800;
+    border:1px solid rgba(13,58,122,.12);
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+}
+
+.timer-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#9cb3d0;
+    flex:0 0 9px;
+}
+
+.audio-timer.recording{
+    background:#e7f5ff;
+    box-shadow:0 0 0 4px rgba(13,58,122,.08);
+}
+
+.audio-timer.recording .timer-dot{
+    background:#e8564c;
+    box-shadow:0 0 0 5px rgba(232,86,76,.12);
 }
 
 .audio-controls button,
 .btn-guardar-audio{
     border:none;
-    border-radius:12px;
-
+    border-radius:12px !important;
     padding:12px 18px;
-
     font-weight:800;
-
     cursor:pointer;
+    transition:transform .2s ease, background .2s ease, opacity .2s ease;
+    box-shadow:0 10px 18px rgba(13,58,122,.12);
+}
 
-    transition:.25s;
+.audio-controls button:disabled,
+.btn-guardar-audio:disabled{
+    opacity:.55;
+    cursor:not-allowed;
+    box-shadow:none;
+}
+
+.audio-controls button:not(:disabled):hover,
+.btn-guardar-audio:not(:disabled):hover{
+    transform:translateY(-1px);
+}
+
+.btn-guardar-nota{
+    align-self:flex-end;
+    min-width:190px;
+}
+
+.btn-audio-save{
+    min-width:150px;
 }
 
 #btnGrabar{
-    background:#35c96f;
+    background:#0d3a7a !important;
+    background-color:#0d3a7a !important;
     color:white;
 }
 
 #btnGrabar:hover{
-    background:#24b45c;
+    background:#092b5c !important;
+    background-color:#092b5c !important;
 }
 
 #btnDetener{
-    background:#e8564c;
+    background:#0d3a7a !important;
+    background-color:#0d3a7a !important;
     color:white;
 }
 
 #btnDetener:hover{
-    background:#d43f35;
+    background:#092b5c !important;
+    background-color:#092b5c !important;
 }
 
 .btn-guardar-audio{
-    background:#2b6fde;
+    background:#0d3a7a !important;
+    background-color:#0d3a7a !important;
     color:white;
 }
 
 .btn-guardar-audio:hover{
-    background:#0d3a7a;
+    background:#092b5c !important;
+    background-color:#092b5c !important;
+}
+
+.btn-editar-nota,
+.btn-eliminar-audio,
+.btn-eliminar-nota{
+    width:max-content;
+    border:0;
+    border-radius:12px !important;
+    padding:10px 16px;
+    background:#0d3a7a !important;
+    background-color:#0d3a7a !important;
+    color:#ffffff !important;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 8px 16px rgba(13,58,122,.12);
+    transition:transform .2s ease, background .2s ease;
+}
+
+.btn-editar-nota:hover,
+.btn-eliminar-audio:hover,
+.btn-eliminar-nota:hover{
+    background:#092b5c !important;
+    background-color:#092b5c !important;
+    transform:translateY(-1px);
+}
+
+.audio-speed-control{
+    min-height:38px;
+    border-radius:12px;
+    padding:7px 10px 7px 12px;
+    background:#eef8fc;
+    color:#0d3a7a;
+    font-weight:800;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid rgba(13,58,122,.10);
+}
+
+.audio-speed-control select{
+    min-height:28px;
+    border:1px solid rgba(13,58,122,.14);
+    border-radius:9px;
+    background:#ffffff;
+    color:#0d3a7a;
+    font-weight:800;
+    outline:none;
+    cursor:pointer;
+}
+
+.nota-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding-top:2px;
+}
+
+.nota-actions a{
+    min-height:38px;
+    border-radius:12px !important;
+    padding:9px 14px;
+    background:#eef8fc;
+    color:#0d3a7a;
+    font-weight:800;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    border:1px solid rgba(13,58,122,.10);
+    transition:background .2s ease, transform .2s ease;
+}
+
+.nota-actions a:hover{
+    background:#dceff6;
+    transform:translateY(-1px);
 }
 
 #audioPreview{
     width:100%;
-    border-radius:12px;
+    border-radius:14px;
+    background:#eef4f8;
 }
 
 /* ===================================
@@ -665,32 +838,41 @@
 =================================== */
 
 .historial-notas{
-    margin-top:20px;
+    grid-column:1 / -1;
+    margin-top:4px;
+    padding:24px;
+    border-radius:18px;
+    background:linear-gradient(180deg,#f5fbfd 0%,#e3f2f7 100%);
+    border:1px solid rgba(13,58,122,.14);
+    box-shadow:0 16px 34px rgba(13,58,122,.10);
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:14px;
 }
 
 .historial-notas h3{
     color:#0d3a7a;
-    font-size:18px;
+    font-size:22px;
     font-weight:800;
+    margin:0 0 4px;
 }
 
 .item-nota{
-    background:#f3fbfd;
+    background:#ffffff;
     border-left:6px solid #35c96f;
-
-    border-radius:12px;
-
-    padding:15px;
-
+    border-radius:14px;
+    padding:16px 18px;
     display:flex;
     flex-direction:column;
-    gap:8px;
+    gap:10px;
+    box-shadow:0 10px 22px rgba(13,58,122,.08);
 }
 
 .item-nota small{
+    width:max-content;
+    padding:5px 10px;
+    border-radius:999px;
+    background:#eef8fc;
     color:#35507a;
     font-weight:700;
 }
@@ -703,7 +885,5 @@
 
 .item-nota audio{
     width:100%;
+    border-radius:12px;
 }
-=======
-
->>>>>>> f1187b55ca7b85d3a9b569c8d561e11ae4cabfa1

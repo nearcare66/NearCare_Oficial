@@ -81,8 +81,12 @@ $whyCards = getSiteCards('index', 'why');
         para saber sobre el estado de tu familia.
       </p>
 
-  <?php if (isset($_SESSION['usuario_id'])): ?>
-    <a href="<?php echo $hasPaciente ? 'paciente-familiar.php' : 'registro2.php'; ?>" class="btn-green">
+  <?php if ($hasPaciente): ?>
+    <a href="paciente-familiar.php" class="btn-green">
+      Ver paciente
+    </a>
+  <?php elseif (isset($_SESSION['usuario_id'])): ?>
+    <a href="registro2.php" class="btn-green">
       Ver paciente
     </a>
   <?php elseif (isset($_SESSION['id_doctor'])): ?>
