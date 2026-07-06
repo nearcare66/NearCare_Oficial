@@ -1,15 +1,15 @@
 <?php
 session_start();
 if (isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 $isLoggedIn = isset($_SESSION['usuario_id']);
 // Configuración de rutas y textos dinámicos del proyecto PHP
 $pageTitle = "NearCare - Sección de Médico";
 $sectionTitle = "Sección de médico";
-$logoPath = "images/Multimedia__7_-removebg-preview.png";
-$doctorPath = "images/Copilot_20260526_215821.png";
+$logoPath = "../img/Designer (16).png";
+$doctorPath = "img/doctorrr.webp";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,9 +18,9 @@ $doctorPath = "images/Copilot_20260526_215821.png";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $pageTitle; ?></title>
     <!-- Vinculación del archivo CSS externo -->
-    <link rel="stylesheet" href="Css/styles.css">
-    <link rel="stylesheet" href="Css/session-menu.css">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../Css/session-menu.css">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -45,7 +45,7 @@ $doctorPath = "images/Copilot_20260526_215821.png";
             <div class="nav-spacer"></div>
         </header>
 
-        <?php include "php/menu-lateral.php"; ?>
+        <?php include "../php/menu-lateral.php"; ?>
 
         <main class="main-content">
             
@@ -64,13 +64,13 @@ $doctorPath = "images/Copilot_20260526_215821.png";
             <!-- Grupo de botones agrandados y elevados -->
             <div class="button-group">
                 <a href="pacientes.php" class="btn btn-patient">Ver Pacientes</a>
-                <a href="comentarios.php" class="btn btn-comments">Comentarios públicos</a>
+                <a href="Comentarios-admin.php" class="btn btn-comments">Comentarios públicos</a>
             </div>
         </main>
     </div>
 
     <?php if ($isLoggedIn): ?>
-        <script src="menu.js"></script>
+        <script src="../menu.js"></script>
     <?php endif; ?>
 </body>
 </html>

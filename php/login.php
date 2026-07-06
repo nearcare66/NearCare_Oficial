@@ -31,7 +31,7 @@ if ($resultado->num_rows > 0) {
     $_SESSION['correo'] = $usuario['correo'];
     $_SESSION['registro_nombre'] = $usuario['nombre'];
 
-    header("Location: ../registro2.php");
+    header("Location: ../familiar/registro2.php");
     exit();
 }
 

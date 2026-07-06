@@ -23,6 +23,7 @@ $whyCards = getSiteCards('index', 'why');
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="Css/styless.css?v=15">
+  <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/botones-globales.css?v=2">
 </head>
 <body>
@@ -52,18 +53,7 @@ $whyCards = getSiteCards('index', 'why');
   </header>
 
   <?php if ($isLoggedIn): ?>
-    <div class="menu-overlay" data-close-menu></div>
-
-    <aside class="side-menu" id="sideMenu" aria-hidden="true">
-      <div class="side-menu-strip"></div>
-      <div class="side-menu-content">
-        <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
-        <a href="index.php" class="active">Inicio</a>
-        <a href="actualizaciones2.php">Actualizaciones</a>
-        <hr>
-        <a href="Comentarios.php">Comentarios</a>
-      </div>
-    </aside>
+    <?php include "php/menu-lateral.php"; ?>
   <?php endif; ?>
 
   <div class="hero">
@@ -82,11 +72,11 @@ $whyCards = getSiteCards('index', 'why');
       </p>
 
   <?php if ($hasPaciente): ?>
-    <a href="paciente-familiar.php" class="btn-green">
+    <a href="familiar/paciente-familiar.php" class="btn-green">
       Ver paciente
     </a>
   <?php elseif (isset($_SESSION['usuario_id'])): ?>
-    <a href="registro2.php" class="btn-green">
+    <a href="familiar/registro2.php" class="btn-green">
       Ver paciente
     </a>
   <?php elseif (isset($_SESSION['id_doctor'])): ?>
@@ -94,7 +84,7 @@ $whyCards = getSiteCards('index', 'why');
       Panel doctor
     </a>
   <?php else: ?>
-  <a href="doctor-familiar.php" class="btn-green">
+  <a href="familiar/index.php" class="btn-green">
     ¿Eres un familiar o un doctor?
   </a>
   <?php endif; ?>

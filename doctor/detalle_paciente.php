@@ -1,7 +1,9 @@
-﻿<?php
+<?php
 session_start();
+require_once __DIR__ . '/../php/saludo.php';
 include("conexion.php");
 $conn->set_charset("utf8mb4");
+$saludo = nearcare_saludo($_SESSION['nombre'] ?? '');
 
 if(!isset($_SESSION['id_doctor'])){
     header("Location: login-form.php");
@@ -87,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['crear_evento'])){
     header("Location: detalle_paciente.php?id=".$id_paciente);
     exit();
 }
-// âœ… OBTENER EVENTOS
+// ✅ OBTENER EVENTOS
 $sqlEventos = "SELECT * FROM eventos WHERE id_paciente = ? ORDER BY fecha ASC";
 $stmtEventos = $conn->prepare($sqlEventos);
 $stmtEventos->bind_param("i", $id_paciente);
@@ -416,7 +418,7 @@ $anioIngreso = $fechaIngreso ? date('Y', $fechaIngreso) : '';
 function conditionStatusClass($condition) {
     $normalized = strtolower(trim((string)$condition));
     $normalized = str_replace(
-        ['Ã¡', 'Ã©', 'Ã­', 'Ã³', 'Ãº', 'Ã', 'Ã‰', 'Ã', 'Ã“', 'Ãš'],
+        ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú'],
         ['a', 'e', 'i', 'o', 'u', 'a', 'e', 'i', 'o', 'u'],
         $normalized
     );
@@ -457,7 +459,7 @@ $resultNotas = $stmtNotas->get_result();
     <title>Informacion del paciente</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/detalle_paciente.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
+    <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
 </head>
 <body class="doctor-detail-page">
 
@@ -475,7 +477,7 @@ $resultNotas = $stmtNotas->get_result();
 
         <div class="profile">
             <div class="welcome-box">
-                <span>Bienvenido</span>
+                <span><?php echo $saludo; ?></span>
                 <div class="toggle" aria-hidden="true"></div>
             </div>
         </div>

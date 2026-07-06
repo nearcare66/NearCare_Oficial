@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NearCare-doctor-id</title>
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+    <link rel="stylesheet" href="css/style8.css">
+    <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
 </head>
-
-    <link rel="stylesheet" href="Css/style8.css">
    
 <body>
  
 <div class="container">
  
-   <form action="PHP/doctor.php" method="POST">
- 
-     
- 
-        <input>
-            type="password"
+   <form action="doctor.php" method="POST">
+        <input type="password" name="codigo" placeholder="Codigo del doctor">
  
         <button type="submit" class="submit-btn">
             Listo
@@ -27,7 +22,7 @@
     </form>
  
     <div class="logo">
-        <img src="img/WhatsApp Image 2026-04-23 at 8.59.30 PM.png" alt="NearCare">
+        <img src="../img/Designer (16).png" alt="NearCare">
     </div>
  
 </div>

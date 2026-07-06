@@ -38,7 +38,7 @@ $busqueda = trim($_GET['buscar'] ?? '');
 $idPacienteSesion = (int)($_SESSION['paciente_id'] ?? 0);
 
 if (!$isLoggedIn) {
-    header("Location: loging.php");
+    header("Location: familiar/loging.php");
     exit();
 }
 
@@ -81,9 +81,9 @@ if ($idPacienteSesion > 0) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="Css/styless.css?v=16">
   <link rel="stylesheet" href="Css/session-menu.css">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
 </head>
 <body class="updates-page">
 
@@ -178,7 +178,7 @@ if ($idPacienteSesion > 0) {
   </div>
 
   <footer class="site-footer updates-footer">
-    <div class="footer-brand">
+    <div class="footer-brand">t
       <img src="img/Designer (16).png" alt="NearCare">
       <p>NearCare acerca a familias, pacientes y doctores con seguimiento claro y humano.</p>
     </div>

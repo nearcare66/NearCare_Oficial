@@ -1,17 +1,19 @@
 <?php
 session_start();
+require_once __DIR__ . '/../php/saludo.php';
 
 if (isset($_SESSION['id_doctor'])) {
-  header("Location: doctor/dashboard.php");
+  header("Location: ../doctor/dashboard.php");
   exit();
 }
 
 if (isset($_SESSION['usuario_id'])) {
-  header("Location: index.php");
+  header("Location: ../index.php");
   exit();
 }
 
 $isLoggedIn = false;
+$saludo = nearcare_saludo($_SESSION['usuario'] ?? $_SESSION['registro_nombre'] ?? $_SESSION['nombre'] ?? '');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,11 +22,11 @@ $isLoggedIn = false;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NearCare</title>
 
-  <link rel="stylesheet" href="Css/style.css?v=9">
+  <link rel="stylesheet" href="../Css/style.css?v=9">
   <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
 </head>
 <body class="doctor-family-page">
 
@@ -39,10 +41,10 @@ $isLoggedIn = false;
         </button>
       <?php endif; ?>
 
-      <a href="index.php" class="back-arrow">&#8249;</a>
+      <a href="../index.php" class="back-arrow">&#8249;</a>
 
       <div class="logo">
-        <img src="img/Designer (16).png" alt="">
+        <img src="../img/Designer (16).png" alt="">
       </div>
     </div>
 
@@ -50,7 +52,7 @@ $isLoggedIn = false;
 
       <div class="welcome-box">
 
-        <span>Bienvenido</span>
+        <span><?php echo $saludo; ?></span>
 
         <div class="toggle"></div>
 
@@ -61,22 +63,7 @@ $isLoggedIn = false;
   </header>
 
   <?php if ($isLoggedIn): ?>
-    <div class="menu-overlay" data-close-menu></div>
-
-    <aside class="side-menu" id="sideMenu" aria-hidden="true">
-      <div class="side-menu-strip"></div>
-      <div class="side-menu-content">
-        <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
-        <a href="index.php">Inicio</a>
-        <a href="doctor-familiar.php" class="active">Familiar o doctor</a>
-        <a href="#" class="active">Familiar</a>
-        <a href="#">Doctor</a>
-        <hr>
-        <a href="sobre-nosotros.php">Sobre nosotros</a>
-        <a href="actualizaciones2.php">Actualizaciones</a>
-        <a href="Comentarios.php">Comentarios</a>
-      </div>
-    </aside>
+    <?php include "../php/menu-lateral.php"; ?>
   <?php endif; ?>
 
   <!-- CONTENIDO -->
@@ -95,12 +82,12 @@ $isLoggedIn = false;
     <!-- CARD IZQUIERDA -->
     <section class="card">
       <h2>Doctor</h2>
-      <img src="img/doctor.png" alt="">
+      <img src="../doctor/img/doctor.png" alt="">
       <?php if (!$isLoggedIn): ?>
-      <a href="doctor/login-form.php">
+      <a href="../doctor/login-form.php">
          <button>Iniciar Sesión</button>
       </a>
-     <a href="doctor/register-form.php">
+     <a href="../doctor/register-form.php">
       <button>Registrarse</button>
      </a>
       <?php else: ?>
@@ -114,7 +101,7 @@ $isLoggedIn = false;
     
     <section class="card">
      <h2>Familiar</h2>
-     <img src="img/image.png" alt="">
+     <img src="../img/image.png" alt="">
       <a href="loging.php">
          <button>Iniciar Sesión</button>
       </a>
@@ -125,6 +112,6 @@ $isLoggedIn = false;
   </main>
 </body>
 <?php if ($isLoggedIn): ?>
-  <script src="menu.js"></script>
+  <script src="../menu.js"></script>
 <?php endif; ?>
 </html>
