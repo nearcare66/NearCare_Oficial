@@ -6,3 +6,4 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 header('Location: ' . $target);
 exit;
 ?>
+

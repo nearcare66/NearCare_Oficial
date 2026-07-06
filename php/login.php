@@ -7,8 +7,12 @@ $nombre = trim($_POST['nombre'] ?? '');
 $correo = trim($_POST['correo'] ?? '');
 $codigo = trim($_POST['codigo'] ?? '');
 
+$_SESSION['familiar_login_nombre'] = $nombre;
+$_SESSION['familiar_login_correo'] = $correo;
+
 if ($nombre === '' || $correo === '' || $codigo === '') {
-    echo "información incorrecta";
+    $_SESSION['familiar_login_error'] = "Nombre, correo o codigo de familiar incorrectos.";
+    header("Location: ../loging.php");
     exit();
 }
 
@@ -30,13 +34,13 @@ if ($resultado->num_rows > 0) {
     $_SESSION['usuario'] = $usuario['nombre'];
     $_SESSION['correo'] = $usuario['correo'];
     $_SESSION['registro_nombre'] = $usuario['nombre'];
+    unset($_SESSION['familiar_login_error'], $_SESSION['familiar_login_nombre'], $_SESSION['familiar_login_correo']);
 
     header("Location: ../familiar/registro2.php");
     exit();
 }
 
-echo "información incorrecta";
-
-$stmt->close();
-$conexion->close();
+$_SESSION['familiar_login_error'] = "Nombre, correo o codigo de familiar incorrectos.";
+header("Location: ../loging.php");
+exit();
 ?>

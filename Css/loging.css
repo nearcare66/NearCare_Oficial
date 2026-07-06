@@ -185,6 +185,57 @@ body {
   color: #94c8e8;
 }
 
+.form-error {
+  width: 100%;
+  max-width: 245px;
+  min-height: 40px;
+  margin-top: -8px;
+  padding: 9px 12px 9px 38px;
+  border-radius: 12px;
+  background: rgba(255, 245, 247, 0.96);
+  color: #7b2430;
+  border: 1px solid rgba(217, 75, 97, 0.22);
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  position: relative;
+  box-shadow: 0 8px 18px rgba(41, 65, 141, 0.1);
+  display: flex;
+  align-items: center;
+  animation: errorIn 0.28s ease;
+}
+
+.form-error::before {
+  content: "!";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d94b61;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 10px rgba(217, 75, 97, 0.2);
+}
+
+@keyframes errorIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .register-link {
   color: #25445f;
   font-size: 12px;

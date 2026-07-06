@@ -22,6 +22,7 @@
   <aside class="side-menu" id="sideMenu" aria-hidden="true">
     <div class="side-menu-strip"></div>
     <div class="side-menu-content">
+
       <?php if ($isFamilySession): ?>
         <img class="side-menu-logo" src="<?php echo $basePath; ?>img/Designer (16).png" alt="NearCare">
         <a href="<?php echo $patientLink; ?>" class="<?php echo $isPaciente ? 'active' : ''; ?>">Paciente</a>

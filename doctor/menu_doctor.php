@@ -21,4 +21,8 @@ if(!isset($_SESSION['id_doctor'])){
 
     <a href="logout.php">Cerrar sesión</a>
 
+    <a href="perfil-familiar.html">Perfil familiar encargado</a>
+
+
+   
 </div>

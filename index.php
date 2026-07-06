@@ -54,6 +54,7 @@ $whyCards = getSiteCards('index', 'why');
 
   <?php if ($isLoggedIn): ?>
     <?php include "php/menu-lateral.php"; ?>
+
   <?php endif; ?>
 
   <div class="hero">

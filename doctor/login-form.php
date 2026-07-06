@@ -10,6 +10,10 @@ if (isset($_SESSION['id_doctor'])) {
     header("Location: dashboard.php");
     exit();
 }
+
+$loginError = $_SESSION['doctor_login_error'] ?? '';
+$loginCorreo = $_SESSION['doctor_login_correo'] ?? '';
+unset($_SESSION['doctor_login_error'], $_SESSION['doctor_login_correo']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,7 +61,7 @@ if (isset($_SESSION['id_doctor'])) {
 
             <form action="login.php" method="POST" class="register-form login-form">
 
-                <input type="email" name="correo" placeholder="Correo electronico" required>
+                <input type="email" name="correo" placeholder="Correo electronico" value="<?php echo htmlspecialchars($loginCorreo); ?>" required>
 
                 <input type="password" name="password" placeholder="Contrasena" required>
 
@@ -67,6 +71,10 @@ if (isset($_SESSION['id_doctor'])) {
                 </p>
 
                 <button type="submit">Iniciar sesion</button>
+
+                <?php if ($loginError !== ''): ?>
+                    <div class="form-error" role="alert"><?php echo htmlspecialchars($loginError); ?></div>
+                <?php endif; ?>
 
             </form>
 
