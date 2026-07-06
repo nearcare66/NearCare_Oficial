@@ -100,10 +100,6 @@ if ($idPacienteSesion > 0) {
       <img src="img/Designer (16).png" alt="logo">
     </div>
 
-    <form class="search-box" method="GET" action="actualizaciones2.php">
-      <input type="text" name="buscar" placeholder="Buscar paciente..." value="<?php echo e($busqueda); ?>">
-    </form>
-
     <div class="notifications">
       &#128276;
       <span><?php echo $totalActualizaciones; ?></span>

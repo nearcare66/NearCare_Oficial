@@ -1,6 +1,10 @@
 <?php
 session_start();
 $isLoggedIn = isset($_SESSION['usuario_id']);
+$loginError = $_SESSION['familiar_login_error'] ?? '';
+$loginNombre = $_SESSION['familiar_login_nombre'] ?? '';
+$loginCorreo = $_SESSION['familiar_login_correo'] ?? '';
+unset($_SESSION['familiar_login_error'], $_SESSION['familiar_login_nombre'], $_SESSION['familiar_login_correo']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -51,13 +55,17 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       <h1>Iniciar Sesion</h1>
 
       <form class="login-form" action="php/login.php" method="POST">
-        <input type="text" name="nombre" placeholder="Nombre..." required>
-        <input type="email" name="correo" placeholder="Correo electronico" required>
+        <input type="text" name="nombre" placeholder="Nombre..." value="<?php echo htmlspecialchars($loginNombre); ?>" required>
+        <input type="email" name="correo" placeholder="Correo electronico" value="<?php echo htmlspecialchars($loginCorreo); ?>" required>
         <input type="password" name="codigo" placeholder="Codigo..." required>
 
         <a class="register-link" href="register.php">¿No tienes cuenta? <span>Registrate</span></a>
 
         <button class="action-submit" type="submit">Iniciar sesion</button>
+
+        <?php if ($loginError !== ''): ?>
+          <div class="form-error" role="alert"><?php echo htmlspecialchars($loginError); ?></div>
+        <?php endif; ?>
       </form>
     </section>
   </main>
