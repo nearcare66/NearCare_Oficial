@@ -16,6 +16,7 @@
     $isSobre = $currentPage === 'sobre-nosotros.php';
     $isActualizaciones = $currentPage === 'actualizaciones2.php';
     $isComentarios = $currentPage === 'Comentarios.php';
+    $isPerfil = $inFamiliarFolder && $currentPage === 'perfil.php';
   ?>
   <div class="menu-overlay" data-close-menu></div>
 
@@ -26,6 +27,7 @@
       <?php if ($isFamilySession): ?>
         <img class="side-menu-logo" src="<?php echo $basePath; ?>img/Designer (16).png" alt="NearCare">
         <a href="<?php echo $patientLink; ?>" class="<?php echo $isPaciente ? 'active' : ''; ?>">Paciente</a>
+        <a href="<?php echo $basePath; ?>familiar/perfil.php" class="<?php echo $isPerfil ? 'active' : ''; ?>">Ver perfil</a>
         <a href="<?php echo $basePath; ?>actualizaciones2.php" class="<?php echo $isActualizaciones ? 'active' : ''; ?>">Actualizaciones</a>
         <a href="<?php echo $basePath; ?>Comentarios.php" class="<?php echo $isComentarios ? 'active' : ''; ?>">Comentarios</a>
         <hr>
