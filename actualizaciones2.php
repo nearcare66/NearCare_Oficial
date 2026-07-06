@@ -84,6 +84,8 @@ if ($idPacienteSesion > 0) {
   <link rel="stylesheet" href="Css/styless.css?v=16">
   <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="Css/dark-mode.css?v=1">
+  <script src="dark-mode.js" defer></script>
 </head>
 <body class="updates-page">
 

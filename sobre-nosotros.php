@@ -18,6 +18,8 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link rel="stylesheet" href="Css/session-menu.css">
 
   <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="Css/dark-mode.css?v=1">
+  <script src="dark-mode.js" defer></script>
 </head>
 <body>
 

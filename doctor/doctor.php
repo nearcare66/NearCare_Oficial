@@ -6,6 +6,8 @@
     <title>NearCare-doctor-id</title>
     <link rel="stylesheet" href="css/style8.css">
     <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
+  <script src="../dark-mode.js" defer></script>
 </head>
    
 <body>

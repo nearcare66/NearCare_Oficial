@@ -25,6 +25,8 @@ $whyCards = getSiteCards('index', 'why');
   <link rel="stylesheet" href="Css/styless.css?v=15">
   <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="Css/dark-mode.css?v=1">
+  <script src="dark-mode.js" defer></script>
 </head>
 <body>
 
@@ -45,6 +47,10 @@ $whyCards = getSiteCards('index', 'why');
       <a href="sobre-nosotros.php">Sobre nosotros</a>
       <a href="actualizaciones2.php">Actualizaciones</a>
     </nav>
+
+    <button class="dark-mode-toggle" type="button" data-dark-mode-toggle aria-pressed="false">
+      Modo oscuro
+    </button>
 
     <?php if ($isLoggedIn): ?>
       <a class="logout-btn" href="php/logout.php">Cerrar sesi&oacute;n</a>

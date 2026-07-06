@@ -7,6 +7,8 @@
   <title>NearCare Registro Familiar</title>
   <link rel="stylesheet" href="../Css/registro2.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
+  <script src="../dark-mode.js" defer></script>
 </head>
 <body>
   <main class="page">

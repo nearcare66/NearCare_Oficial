@@ -92,6 +92,8 @@ function conditionStatusClass($condition) {
   <link rel="stylesheet" href="../Css/session-menu.css">
   <link rel="stylesheet" href="../Css/calendario.css">
   <link rel="stylesheet" href="../Css/paciente-familiar.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
+  <script src="../dark-mode.js" defer></script>
 </head>
 <body class="family-detail-page">
   <main class="page">

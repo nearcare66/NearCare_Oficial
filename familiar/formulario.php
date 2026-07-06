@@ -16,6 +16,8 @@ $saludo = nearcare_saludo($_SESSION['usuario'] ?? $_SESSION['registro_nombre'] ?
     <link rel="stylesheet" href="../Css/style7.css">
     <link rel="stylesheet" href="../Css/session-menu.css"> 
   <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
+  <script src="../dark-mode.js" defer></script>
 </head>
 <body>
 

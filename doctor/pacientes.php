@@ -42,6 +42,8 @@ $resultado = $stmt->get_result();
     <title>Pacientes</title>
     <link rel="stylesheet" href="css/style.css?v=5">
   <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
+  <script src="../dark-mode.js" defer></script>
 </head>
 <body class="doctor-patients-page">
 
