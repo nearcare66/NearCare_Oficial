@@ -14,6 +14,11 @@ $saludo = nearcare_saludo($_SESSION['usuario'] ?? $_SESSION['registro_nombre'] ?
   <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
   <script src="../dark-mode.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_io%20%283%29/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io%20%283%29/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io%20%283%29/favicon-16x16.png">
+    <link rel="shortcut icon" href="../img/favicon_io%20%283%29/favicon.ico">
+    <link rel="manifest" href="../img/favicon_io%20%283%29/site.webmanifest">
 </head>
 <body>
 

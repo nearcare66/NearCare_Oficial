@@ -1,0 +1,552 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interface-container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #99d2ec 0%, #ffffff 40%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px 40px;
+    z-index: 10;
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+/* BOTÃ“N */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    border-radius: 30px; /* CAMBIO */
+}
+
+.menu-toggle span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: #0c3350;
+    border-radius: 2px;
+}
+
+.logo-container {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(1px 2px 3px rgba(12, 51, 80, 0.15));
+}
+
+/* IMAGEN */
+.logo-container img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    border-radius: 30px; /* CAMBIO */
+}
+
+.nav-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    top: 15px;
+}
+
+.nav-spacer {
+    width: 50px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12%;
+}
+
+.background-shapes {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 65%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sphere {
+    border-radius: 50%;
+    position: absolute;
+    box-shadow:
+        inset 15px 15px 30px rgba(255, 255, 255, 0.4),
+        inset -20px -20px 40px rgba(0, 0, 0, 0.6),
+        10px 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.circle-large {
+    bottom: -60px;
+    left: -60px;
+    width: 660px;
+    height: 620px;
+    background: radial-gradient(circle at 30% 30%, #1f3b8f 0%, #0d1a42 80%);
+}
+
+.circle-medium {
+    bottom: -90px;
+    left: 250px;
+    width: 560px;
+    height: 530px;
+    background: radial-gradient(circle at 30% 30%, #254cc4 0%, #112661 80%);
+}
+
+.circle-small {
+    bottom: -15px;
+    left: 510px;
+    width: 270px;
+    height: 270px;
+    background: radial-gradient(circle at 30% 30%, #466ffa 0%, #16328c 80%);
+    box-shadow:
+        inset 10px 10px 20px rgba(255, 255, 255, 0.5),
+        inset -12px -12px 25px rgba(0, 0, 0, 0.5),
+        5px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.doctor-container {
+    position: absolute;
+    bottom: 2px;
+    left: 7%;
+    height: 145%;
+    z-index: 10;
+}
+
+
+.doctor-img {
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 30px; 
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    width: 460px;
+    z-index: 10;
+    position: relative;
+    top: -60px;
+}
+
+
+.btn {
+    width: 100%;
+    padding: 22px 24px;
+    border: none;
+    border-radius: 30px; 
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-patient {
+    background: linear-gradient(to bottom, #397ba6 0%, #25587d 100%);
+}
+
+.btn-comments {
+    background: linear-gradient(to bottom, #2ebd6a 0%, #1c8f4e 100%);
+}
+
+
+img {
+    border-radius: 30px; 
+}
+
+/* Responsive renovado: tablet */
+
+
+/* Responsive renovado: telefono */
+/* Media query unica para tablet y telefono */
+@media (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  .page,
+  .container,
+  .contenedor,
+  .main-container,
+  .content,
+  .dashboard-main,
+  .dashboard-container,
+  .patient-dashboard,
+  .selection-section,
+  .patient-section,
+  .updates-section,
+  .notifications-section,
+  .pacientes-container,
+  .detalle-container,
+  .agregar-container,
+  .interface-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  .navbar,
+  header.navbar,
+  nav.navbar,
+  .topbar {
+    width: 100%;
+    height: auto;
+    min-height: 66px;
+    padding: 10px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .left-navbar,
+  .left,
+  .izquierda,
+  .nav-left,
+  .nav-right,
+  .right,
+  .profile,
+  .logo-container,
+  .user-panel {
+    min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .menu-icon,
+  .menu-toggle,
+  .back,
+  .back-arrow,
+  .back-link,
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .logo img,
+  img.logo,
+  .brand,
+  .navbar-logo,
+  .side-menu-logo,
+  .menu-logo img,
+  .logo-container img {
+    width: auto;
+    max-width: 96px;
+    max-height: 74px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .role,
+  .family-pill,
+  .welcome,
+  .welcome-box,
+  .welcome-pill,
+  .bienvenido,
+  .page-title,
+  .titulo-pacientes,
+  .detalle-title,
+  .nav-badge,
+  .welcome-tag,
+  .title,
+  .navbar h1 {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 320px;
+    min-height: 30px;
+    padding: 7px 11px;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  h1,
+  .hero-text h1,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1,
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .introduction h1,
+  .que-es h1,
+  .porque-nearcare h1,
+  .doctor-family-page .choice-heading h1,
+  .subtitle,
+  form::before {
+    font-size: 26px;
+    line-height: 1.18;
+  }
+
+  h2,
+  .card h2,
+  .card-content h2,
+  .patient-info h2,
+  .notification-panel h2,
+  .video-info h3,
+  .why-card h3,
+  .porque-card h2,
+  .doctor-family-page .card h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  p,
+  .hero-text p,
+  .about-text p,
+  .how-work p,
+  .updates-title p,
+  .notifications-hero p,
+  .patient-info p,
+  .card-content p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero,
+  .about,
+  .video-card,
+  .info-card,
+  .patient-card,
+  .content-row,
+  .form-row,
+  .row,
+  .card-paciente,
+  .paciente-header,
+  .notifications-hero,
+  .doctor-family-page .cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero,
+  .about,
+  .problems,
+  .why,
+  .info-section,
+  .updates-section,
+  .selection-section,
+  .patient-section,
+  .main-container,
+  .notifications-section {
+    padding: 30px 14px;
+  }
+
+  .card,
+  .why-card,
+  .porque-card,
+  .form-container,
+  .form-agregar,
+  .pacientes-container,
+  .detalle-container,
+  form,
+  .formulario,
+  .box,
+  .panel,
+  .shell,
+  .login-card,
+  .register-card,
+  .content-card,
+  .notification-panel,
+  .profile-card,
+  .info-card,
+  .welcome-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    min-height: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .cards,
+  .why-cards,
+  .details,
+  .selection-buttons,
+  .patient-buttons,
+  .menu-doctor,
+  .doctor-family-page .cards {
+    width: 100%;
+    max-width: 430px;
+    gap: 18px;
+  }
+
+  button,
+  .btn,
+  .custom-btn,
+  .register-btn,
+  .login-btn,
+  .logout-btn,
+  .ready-button,
+  .action-submit,
+  .submit-btn,
+  .in-button,
+  .call-button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    max-width: 100%;
+    min-height: 40px;
+    white-space: normal;
+  }
+
+  input,
+  select,
+  textarea,
+  .input-field {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  img,
+  .image-panel,
+  .patient-image img,
+  .foto-paciente,
+  .paciente-header img,
+  .hero-image img,
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .table-wrap,
+  .calendar-wrap,
+  .calendario {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .circle,
+  .circulo,
+  .decor-circle,
+  .bubble,
+  .decoracion,
+  .circle-left,
+  .circle-right,
+  .circle-big,
+  .circle-small,
+  .circle-corner,
+  .circle-top,
+  .circle-bottom,
+  .circle-center,
+  .circle-one,
+  .circle-two,
+  .circle-three,
+  .circle-four,
+  .circle-five,
+  .circle-six,
+  .circle-1,
+  .circle-2,
+  .circle-3,
+  .circle-4,
+  .circle-5,
+  .circle-6,
+  .circle-7,
+  .circle-8,
+  .circle-9,
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6,
+  body::before,
+  body::after {
+    max-width: 82px;
+    max-height: 82px;
+    opacity: .18;
+    pointer-events: none;
+  }
+}
