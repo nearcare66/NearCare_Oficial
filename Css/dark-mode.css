@@ -173,3 +173,174 @@ html.dark-mode .circle-light {
     white-space: nowrap;
   }
 }
+/* ===== DARK MODE: DASHBOARD DOCTOR ===== */
+
+html.dark-mode .doctor-dashboard-page {
+  background: #0f172a !important;
+  color: #e5eefb !important;
+}
+
+html.dark-mode .doctor-dashboard-page .navbar {
+  background: #10243d !important;
+  border-bottom: 1px solid rgba(148, 163, 184, .22) !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.30) !important;
+}
+
+html.dark-mode .doctor-dashboard-page .navbar h1 {
+  background: #94a3b8 !important;
+  color: #0f172a !important;
+}
+
+html.dark-mode .doctor-dashboard-page .menu-icon {
+  color: #e5eefb !important;
+}
+
+html.dark-mode .doctor-dashboard-page .logo img {
+  filter: brightness(1.35) contrast(1.08) !important;
+}
+
+html.dark-mode .doctor-dashboard-page .dashboard-main {
+  background: transparent !important;
+}
+
+html.dark-mode .doctor-dashboard-page .welcome-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+html.dark-mode .doctor-dashboard-page .welcome-card h2 {
+  color: #e5eefb !important;
+  background: rgba(30, 41, 59, .75) !important;
+  padding: 8px 18px !important;
+  border-radius: 0 !important;
+}
+
+html.dark-mode .doctor-dashboard-page .menu-doctor {
+  background: rgba(30, 41, 59, .75) !important;
+  border: 1px solid rgba(148, 163, 184, .18) !important;
+  border-radius: 0 !important;
+  padding: 36px 24px !important;
+}
+
+html.dark-mode .doctor-dashboard-page .btn-paciente,
+html.dark-mode .doctor-dashboard-page .btn-comentarios {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,.28) !important;
+}
+
+html.dark-mode .doctor-dashboard-page .btn-paciente:hover,
+html.dark-mode .doctor-dashboard-page .btn-comentarios:hover {
+  background: #3b82f6 !important;
+}
+/* ===== DARK MODE DETALLE PACIENTE ===== */
+
+html.dark-mode .doctor-detail-page {
+  background: #0f172a !important;
+  color: #e5eefb !important;
+}
+
+html.dark-mode .detalle-navbar {
+  background: #10243d !important;
+  border-bottom: 1px solid rgba(148,163,184,.22) !important;
+}
+
+html.dark-mode .detalle-title {
+  color: #93c5fd !important;
+}
+
+html.dark-mode .welcome-box {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.dark-mode .detalle-patient-card,
+html.dark-mode .detalle-date-card,
+html.dark-mode .detalle-reason-card,
+html.dark-mode .detalle-diagnosis-card,
+html.dark-mode .detalle-eventos-card,
+html.dark-mode .lista-eventos-doctor,
+html.dark-mode .notas-paciente-card,
+html.dark-mode .historial-notas,
+html.dark-mode .detalle-call-card {
+  background: #17233a !important;
+  color: #e5eefb !important;
+  border-color: rgba(148,163,184,.22) !important;
+}
+
+html.dark-mode .patient-name-input,
+html.dark-mode .doctor-name,
+html.dark-mode .notas-paciente-card h3,
+html.dark-mode .historial-notas h3,
+html.dark-mode .notas-subtitle {
+  color: #e5eefb !important;
+}
+
+html.dark-mode .nc-pill {
+  background: #123524 !important;
+  color: #86efac !important;
+}
+
+html.dark-mode .nc-pill input {
+  background: transparent !important;
+  color: #86efac !important;
+}
+
+html.dark-mode .editable-field label,
+html.dark-mode .section-label {
+  background: #1d4ed8 !important;
+  color: #ffffff !important;
+}
+
+html.dark-mode .editable-field input,
+html.dark-mode .date-fields input,
+html.dark-mode .detalle-reason-card input,
+html.dark-mode .detalle-diagnosis-card textarea,
+html.dark-mode .detalle-eventos-card input,
+html.dark-mode .detalle-eventos-card textarea,
+html.dark-mode .notas-paciente-card textarea,
+html.dark-mode .nota-edit-textarea,
+html.dark-mode .audio-speed {
+  background: #0f172a !important;
+  color: #e5eefb !important;
+  border-color: rgba(148,163,184,.30) !important;
+}
+
+html.dark-mode .date-fields {
+  color: #e5eefb !important;
+}
+
+html.dark-mode .item-evento,
+html.dark-mode .item-nota {
+  background: #0f172a !important;
+  color: #e5eefb !important;
+  border-left-color: #22c55e !important;
+}
+
+html.dark-mode .item-evento strong,
+html.dark-mode .item-evento small,
+html.dark-mode .item-nota small,
+html.dark-mode .item-nota p,
+html.dark-mode .audio-speed-control span,
+html.dark-mode .nota-actions a {
+  color: #e5eefb !important;
+}
+
+html.dark-mode .condition-stable {
+  background: #123524 !important;
+  color: #86efac !important;
+  border-left-color: #22c55e !important;
+}
+
+html.dark-mode .condition-warning {
+  background: #3b2f12 !important;
+  color: #fde68a !important;
+  border-left-color: #facc15 !important;
+}
+
+html.dark-mode .condition-danger {
+  background: #3b1212 !important;
+  color: #fecaca !important;
+  border-left-color: #ef4444 !important;
+}
