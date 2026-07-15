@@ -26,7 +26,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <link rel="shortcut icon" href="img/favicon_io%20%283%29/favicon.ico">
     <link rel="manifest" href="img/favicon_io%20%283%29/site.webmanifest">
 </head>
-<body>
+<body class="about-page">
 
   <header class="navbar">
 
@@ -75,6 +75,8 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       </p>
 
     </div>
+
+    <img class="about-team-photo" src="img/_DSC7716.jpg" alt="Equipo de NearCare">
 
     <div class="cards-container">
 

@@ -1175,6 +1175,18 @@ img{
   line-height:1.9;
 }
 
+.about-page .about-team-photo{
+  display:block;
+  width:calc(100% - 40px);
+  max-width:900px;
+  height:auto;
+  margin:0 auto 58px;
+  border:6px solid rgba(255,255,255,.85);
+  border-radius:30px !important;
+  box-shadow:0 20px 45px rgba(13,58,122,.22);
+  box-sizing:border-box;
+}
+
 .about-page .cards-container{
   display:flex;
   flex-direction:column;
@@ -2004,6 +2016,14 @@ img{
   .about-page .how-work p {
     font-size: 16px;
     line-height: 1.7;
+  }
+
+  .about-page .about-team-photo {
+    width: calc(100% - 16px);
+    margin-bottom: 30px;
+    border-width: 3px;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 26px rgba(13,58,122,.18);
   }
 
   .about-page .info-card {

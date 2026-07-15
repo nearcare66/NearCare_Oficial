@@ -98,8 +98,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-field">
-            <label>Nc<span>*</span></label>
-            <input type="text" name="nc" placeholder="Nc" required>
+            <label>Nc ID<span>*</span></label>
+            <input type="text" name="nc" placeholder="Nc ID" required>
         </div>
 
         <div class="form-field">
@@ -108,9 +108,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-field">
-            <label>Genero<span>*</span></label>
-            <select name="genero" required>
-                <option value="">Genero</option>
+            <label>Sexo<span>*</span></label>
+            <select name="Sexo" required>
+                <option value="">Sexo</option>
                 <option value="Femenino">Femenino</option>
                 <option value="Masculino">Masculino</option>
             </select>
@@ -127,8 +127,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-field field-full">
-            <label>Condicion del paciente<span>*</span></label>
-            <input type="text" name="condicion_paciente" placeholder="Condicion del paciente" required>
+            <label>Condición del paciente<span>*</span></label>
+            <select name="Condición" required>
+                <option value="">Condición</option>
+                <option value="Femenino">Grave</option>
+                <option value="Masculino">Estable</option>
+                <option value="Masculino">En observación</option>
+            </select>
         </div>
 
         <div class="form-field field-full">
@@ -137,7 +142,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-field field-full">
-            <label>Foto del paciente<span>*</span></label>
+            <label>Foto del paciente</label>
             <input type="file" name="foto" accept="image/*" required>
         </div>
 
