@@ -17,11 +17,13 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <header class="navbar">
       <div class="nav-left">
         <?php if ($isLoggedIn): ?>
-          <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+          <button class="menu-icon" type="button" aria-label="Abrir menú" aria-controls="sideMenu" aria-expanded="false">
             &#9776;
           </button>
         <?php endif; ?>
-    <a href="doctor-familiar.php" class="back-arrow">&#8249;</a>
+
+        <a href="doctor-familiar.php" class="back-arrow">&#8249;</a>
+
         <img class="brand" src="img/Designer (16).png" alt="NearCare">
       </div>
 
@@ -48,21 +50,24 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <div class="circle circle-light circle-9"></div>
 
     <section class="login-card">
-      <h1>Iniciar Sesion</h1>
+      <h1>Iniciar sesión</h1>
 
       <form class="login-form" action="php/login.php" method="POST">
         <input type="text" name="nombre" placeholder="Nombre..." required>
-        <input type="email" name="correo" placeholder="Correo electronico" required>
-        <input type="password" name="codigo" placeholder="Codigo..." required>
+        <input type="email" name="correo" placeholder="Correo electrónico" required>
+        <input type="password" name="codigo" placeholder="Código..." required>
 
-        <a class="register-link" href="register.php">¿No tienes cuenta? <span>Registrate</span></a>
+        <a class="register-link" href="register.php">¿No tienes cuenta? <span>Regístrate</span></a>
 
-        <button class="action-submit" type="submit">Iniciar sesion</button>
+        <button class="action-submit" type="submit">Iniciar sesión</button>
       </form>
     </section>
   </main>
+
   <?php if ($isLoggedIn): ?>
     <script src="menu.js"></script>
   <?php endif; ?>
+
 </body>
 </html>
+

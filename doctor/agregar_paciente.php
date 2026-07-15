@@ -119,7 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-field field-full">
-            <label>Condicion del paciente<span>*</span></label>
+            <label>Condición del paciente<span>*</span></label>
             <input type="text" name="condicion_paciente" placeholder="Condicion del paciente" required>
         </div>
 

@@ -45,9 +45,9 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 </div>
 
 <div class="container">
-    <button>Ingrese el cÃ³digo del paciente</button>
-    <button>Generar cÃ³digo de acceso</button>
-    <button>CondiciÃ³n del paciente</button>
+    <button>Ingrese el código del paciente</button>
+    <button>Generar código de acceso</button>
+    <button>Condición del paciente</button>
 </div>
 
 <?php if ($isLoggedIn): ?>

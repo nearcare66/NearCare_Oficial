@@ -43,7 +43,7 @@
 
       <form class="welcome-form" action="paciente-familiar.php" method="GET">
         <input type="number" name="id_doctor" placeholder="ID del doctor..." min="1">
-        <input type="text" name="nc" placeholder="Codigo..." required>
+        <input type="text" name="nc" placeholder="Código..." required>
         <button type="submit" class="ready-button">Listo</button>
       </form>
 

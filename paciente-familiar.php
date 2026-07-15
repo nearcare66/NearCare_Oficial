@@ -238,3 +238,4 @@ function conditionStatusClass($condition) {
   <?php endif; ?>
 </body>
 </html>
+

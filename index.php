@@ -146,7 +146,7 @@ $whyCards = getSiteCards('index', 'why');
         <h3>Distancia</h3>
 
         <p>
-          La distancia fisica es un obstaculo
+          La distancia física es un obstaculo
           para el cuidado y la atención constante
           de tus familiares.
         </p>
