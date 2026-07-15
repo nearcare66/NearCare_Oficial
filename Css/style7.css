@@ -1,0 +1,599 @@
+﻿body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #cfe8f3;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ANIMACION */
+@keyframes moverPelota {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -15px);
+  }
+  50% {
+    transform: translate(-20px, 20px);
+  }
+  75% {
+    transform: translate(15px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.circulo {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #7ec0e6, #3b8dbd);
+  opacity: 0.85;
+  z-index: 0;
+}
+
+.c1 {
+  width: 250px;
+  height: 250px;
+  top: 180px;
+  right: 100px;
+  animation: moverPelota 12s ease-in-out infinite;
+}
+
+.c2 {
+  width: 120px;
+  height: 120px;
+  top: 100px;
+  right: 250px;
+  animation: moverPelota 8s ease-in-out infinite;
+}
+
+.c3 {
+  width: 180px;
+  height: 180px;
+  bottom: 120px;
+  left: 80px;
+  animation: moverPelota 10s ease-in-out infinite;
+}
+
+.c4 {
+  width: 300px;
+  height: 300px;
+  bottom: 60px;
+  right: 150px;
+  animation: moverPelota 15s ease-in-out infinite;
+}
+
+.c5 {
+  width: 90px;
+  height: 90px;
+  top: 350px;
+  left: 100px;
+  animation: moverPelota 7s ease-in-out infinite;
+}
+
+.navbar {
+  position: relative;
+  width: 100%;
+  background-color: #7ec0e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.menu-icon {
+  font-size: 28px;
+  color: #0b2e4e;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+.logo {
+  height: 45px;
+  margin-left: 10px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-right: 40px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: inline-block;
+  background: linear-gradient(180deg, #96a1ff, #7045ed);
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bienvenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  color: #0b2e4e;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 20px;
+  border-radius: 30px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  margin-right: 20px;
+}
+
+.bienvenido::after {
+  content: "D";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #0b2e4e;
+}
+
+.contenedor {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  background-color: #3b8dbd;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.subtitulo {
+  color: #0b2e4e;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+form {
+  background-color: #cfe8f3;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+}
+
+form label {
+  display: block;
+  font-weight: 600;
+  color: #0b2e4e;
+  margin-bottom: 5px;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #aee0f8;
+  color: #0b2e4e;
+  font-size: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+form input:focus,
+form select:focus {
+  background-color: #c8f1ff;
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.6);
+  outline: none;
+}
+
+input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #aee0f8;
+  color: #0b2e4e;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+input[type="time"]:hover,
+input[type="time"]:focus {
+  background-color: #c8f1ff;
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.6);
+}
+
+form button {
+  background-color: #aee0f8;
+  color: #0b2e4e;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 25px;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background-color: #7ec0e6;
+  box-shadow: 0 0 15px rgba(0, 150, 255, 0.6);
+  transform: scale(1.05);
+}
+
+/* Responsive renovado: tablet */
+
+
+/* Responsive renovado: telefono */
+/* Media query unica para tablet y telefono */
+@media (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  .page,
+  .container,
+  .contenedor,
+  .main-container,
+  .content,
+  .dashboard-main,
+  .dashboard-container,
+  .patient-dashboard,
+  .selection-section,
+  .patient-section,
+  .updates-section,
+  .notifications-section,
+  .pacientes-container,
+  .detalle-container,
+  .agregar-container,
+  .interface-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  .navbar,
+  header.navbar,
+  nav.navbar,
+  .topbar {
+    width: 100%;
+    height: auto;
+    min-height: 66px;
+    padding: 10px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .left-navbar,
+  .left,
+  .izquierda,
+  .nav-left,
+  .nav-right,
+  .right,
+  .profile,
+  .logo-container,
+  .user-panel {
+    min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .menu-icon,
+  .menu-toggle,
+  .back,
+  .back-arrow,
+  .back-link,
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .logo img,
+  img.logo,
+  .brand,
+  .navbar-logo,
+  .side-menu-logo,
+  .menu-logo img,
+  .logo-container img {
+    width: auto;
+    max-width: 96px;
+    max-height: 74px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .role,
+  .family-pill,
+  .welcome,
+  .welcome-box,
+  .welcome-pill,
+  .bienvenido,
+  .page-title,
+  .titulo-pacientes,
+  .detalle-title,
+  .nav-badge,
+  .welcome-tag,
+  .title,
+  .navbar h1 {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 320px;
+    min-height: 30px;
+    padding: 7px 11px;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  h1,
+  .hero-text h1,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1,
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .introduction h1,
+  .que-es h1,
+  .porque-nearcare h1,
+  .doctor-family-page .choice-heading h1,
+  .subtitle,
+  form::before {
+    font-size: 26px;
+    line-height: 1.18;
+  }
+
+  h2,
+  .card h2,
+  .card-content h2,
+  .patient-info h2,
+  .notification-panel h2,
+  .video-info h3,
+  .why-card h3,
+  .porque-card h2,
+  .doctor-family-page .card h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  p,
+  .hero-text p,
+  .about-text p,
+  .how-work p,
+  .updates-title p,
+  .notifications-hero p,
+  .patient-info p,
+  .card-content p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero,
+  .about,
+  .video-card,
+  .info-card,
+  .patient-card,
+  .content-row,
+  .form-row,
+  .row,
+  .card-paciente,
+  .paciente-header,
+  .notifications-hero,
+  .doctor-family-page .cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero,
+  .about,
+  .problems,
+  .why,
+  .info-section,
+  .updates-section,
+  .selection-section,
+  .patient-section,
+  .main-container,
+  .notifications-section {
+    padding: 30px 14px;
+  }
+
+  .card,
+  .why-card,
+  .porque-card,
+  .form-container,
+  .form-agregar,
+  .pacientes-container,
+  .detalle-container,
+  form,
+  .formulario,
+  .box,
+  .panel,
+  .shell,
+  .login-card,
+  .register-card,
+  .content-card,
+  .notification-panel,
+  .profile-card,
+  .info-card,
+  .welcome-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    min-height: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .cards,
+  .why-cards,
+  .details,
+  .selection-buttons,
+  .patient-buttons,
+  .menu-doctor,
+  .doctor-family-page .cards {
+    width: 100%;
+    max-width: 430px;
+    gap: 18px;
+  }
+
+  button,
+  .btn,
+  .custom-btn,
+  .register-btn,
+  .login-btn,
+  .logout-btn,
+  .ready-button,
+  .action-submit,
+  .submit-btn,
+  .in-button,
+  .call-button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    max-width: 100%;
+    min-height: 40px;
+    white-space: normal;
+  }
+
+  input,
+  select,
+  textarea,
+  .input-field {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  img,
+  .image-panel,
+  .patient-image img,
+  .foto-paciente,
+  .paciente-header img,
+  .hero-image img,
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .table-wrap,
+  .calendar-wrap,
+  .calendario {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .circle,
+  .circulo,
+  .decor-circle,
+  .bubble,
+  .decoracion,
+  .circle-left,
+  .circle-right,
+  .circle-big,
+  .circle-small,
+  .circle-corner,
+  .circle-top,
+  .circle-bottom,
+  .circle-center,
+  .circle-one,
+  .circle-two,
+  .circle-three,
+  .circle-four,
+  .circle-five,
+  .circle-six,
+  .circle-1,
+  .circle-2,
+  .circle-3,
+  .circle-4,
+  .circle-5,
+  .circle-6,
+  .circle-7,
+  .circle-8,
+  .circle-9,
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6,
+  body::before,
+  body::after {
+    max-width: 82px;
+    max-height: 82px;
+    opacity: .18;
+    pointer-events: none;
+  }
+}

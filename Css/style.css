@@ -1,0 +1,985 @@
+﻿*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#cceef8;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+
+.navbar{
+    width:100%;
+    height:90px;
+    background:#7fc1da;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+}
+
+.left-navbar{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.menu-icon{
+    background:none;
+    border:none;
+    font-size:36px;
+    color:#17395e;
+    cursor:pointer;
+}
+
+.back-arrow{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:#17395e;
+    font-size:40px;
+    font-weight:bold;
+}
+
+.logo img{
+    width:140px;
+    border-radius:20px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+}
+
+.profile img{
+    width: 45px; 
+}
+
+.welcome-box{
+    background: white;
+    padding: 10px 24px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 5px 12px rgba(0,0,0,.08);
+}
+
+.welcome-box span{
+    color: #333;
+    font-size: 18px;
+}
+
+.toggle{
+    width: 28px;
+    height: 28px;
+    background: #d8d8d8;
+    border-radius: 50%;
+}
+
+
+.main-container{
+    width: 100%;
+    height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 70px;
+    padding: 40px 20px;
+}
+
+
+.card{
+    width: 380px;
+    min-height: 500px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(118, 185, 219, 0.5));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 28px;
+    padding: 45px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.6); 
+    
+    box-shadow: 
+        0 22px 45px rgba(12, 38, 66, 0.22),
+        0 6px 14px rgba(12, 38, 66, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
+        
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.card h2{
+    color: #17395e;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 35px 70px rgba(12, 38, 66, 0.32),
+        0 15px 30px rgba(12, 38, 66, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.card img{
+    width: 260px;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 20px; 
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    filter: drop-shadow(0 14px 18px rgba(12, 38, 66, 0.28));
+}
+
+.card:hover img{
+    transform: scale(1.05) translateY(-4px);
+    filter: drop-shadow(0 20px 28px rgba(12, 38, 66, 0.38));
+}
+
+
+.card button{
+    width: 240px;
+    padding: 14px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 16px; 
+    background: linear-gradient(135deg, #3f88bf, #5ea6dc);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; 
+    
+    border-bottom: 5px solid #296390;
+    box-shadow: 
+        0 8px 20px rgba(12, 38, 66, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4); 
+    
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
+
+.card button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+.card button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.55) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    transition: none;
+    pointer-events: none;
+}
+
+.card button:hover{
+    background: linear-gradient(135deg, #4b97d1, #6cb5eb);
+    box-shadow: 
+        0 10px 24px rgba(12, 38, 66, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.card button:hover::after {
+    left: 140%;
+    transition: left 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card button:active{
+    transform: translateY(4px);
+    border-bottom: 1px solid #296390;
+    box-shadow: 
+        0 3px 8px rgba(12, 38, 66, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.card button:active::before {
+    height: 45%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+.session-note{
+    width: 240px;
+    color: #17395e;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+
+.divider{
+    width: 6px;
+    height: 380px;
+    background: linear-gradient(
+        to bottom,
+        #7fc1da,
+        #35588d
+    );
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(53,88,141,.3);
+}
+
+
+.circle-left{
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    background: radial-gradient(circle, #7d9ee8, #28498d);
+    border-radius: 50%;
+    left: -80px;
+    top: 70px;
+}
+
+.circle-left::before{
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background: radial-gradient(circle, #b5c5ef, #6c7fa7);
+    border-radius: 50%;
+    right: -10px;
+    top: 35px;
+}
+
+.circle-right{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #6c8ed9, #27488a);
+    border-radius: 50%;
+    right: -100px;
+    bottom: -100px;
+}
+
+.circle-right::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #a7b8e8, #667a9f);
+    border-radius: 50%;
+    left: -30px;
+    top: 20px;
+}
+
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.28);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:80;
+}
+
+.side-menu{
+  position:fixed;
+  top:0;
+  left:0;
+  width:290px;
+  max-width:82vw;
+  height:100vh;
+  background:#5d91c4;
+  transform:translateX(-100%);
+  transition:transform .3s ease;
+  z-index:90;
+  display:flex;
+  box-shadow:10px 0 25px rgba(0,0,0,.18);
+}
+
+.side-menu-strip{
+  width:34px;
+  flex:0 0 34px;
+  background:#263578;
+}
+
+.side-menu-content{
+  flex:1;
+  padding:22px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.side-menu-logo{
+  width:130px;
+  height:auto;
+  margin:0 auto 22px;
+  border-radius: 30px; 
+}
+
+.side-menu a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  padding:8px 10px;
+  border-radius:30px; 
+  transition:.2s;
+}
+
+.side-menu a:hover,
+.side-menu a.active{
+  background:#3f69c9;
+}
+
+.side-menu hr{
+  width:100%;
+  border:0;
+  border-top:1px solid rgba(255,255,255,.45);
+  margin:16px 0;
+}
+
+body.menu-open{
+  overflow:hidden;
+}
+
+body.menu-open .side-menu{
+  transform:translateX(0);
+}
+
+body.menu-open .menu-overlay{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+/* Mejora visual de la seleccion de perfil conservando la idea original */
+.doctor-family-page{
+    overflow-x:hidden;
+    overflow-y:auto;
+    background:
+        linear-gradient(180deg, #b9dcf5 0%, #d8eff7 52%, #f3fbfd 100%);
+}
+
+.doctor-family-page .navbar{
+    min-height:90px;
+    height:auto;
+    background:rgba(127, 193, 218, .94);
+    border-bottom:1px solid rgba(23, 57, 94, .12);
+    box-shadow:0 10px 26px rgba(12, 38, 66, .12);
+}
+
+.doctor-family-page .back-arrow{
+    background:transparent;
+    border-radius:0;
+    transition:.25s;
+}
+
+.doctor-family-page .back-arrow:hover{
+    transform:translateX(-4px);
+}
+
+.doctor-family-page .welcome-box{
+    color:#17395e;
+    border:1px solid rgba(23, 57, 94, .08);
+}
+
+.doctor-family-page .toggle{
+    background:#d8f8e4;
+    position:relative;
+}
+
+.doctor-family-page .toggle::after{
+    content:"";
+    position:absolute;
+    width:12px;
+    height:12px;
+    inset:8px;
+    border-radius:50%;
+    background:#35c96f;
+}
+
+.doctor-family-page .main-container{
+    min-height:calc(100vh - 90px);
+    height:auto;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(280px, 390px));
+    justify-content:center;
+    align-items:stretch;
+    gap:26px;
+    padding:54px 28px 72px;
+}
+
+.doctor-family-page .choice-heading{
+    grid-column:1 / -1;
+    max-width:760px;
+    margin:0 auto 10px;
+    text-align:center;
+}
+
+.doctor-family-page .choice-heading span{
+    display:inline-block;
+    margin-bottom:10px;
+    padding:7px 16px;
+    border-radius:999px;
+    background:#7fc1da;
+    color:#0d3a7a;
+    font-weight:800;
+    font-size:14px;
+}
+
+.doctor-family-page .choice-heading h1{
+    color:#17395e;
+    font-size:46px;
+    line-height:1.08;
+    margin-bottom:12px;
+}
+
+.doctor-family-page .choice-heading p{
+    color:#35507a;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.doctor-family-page .card{
+    width:100%;
+    min-height:0;
+    margin-top:0;
+    padding:30px 30px 32px;
+    background:linear-gradient(180deg, #8cc3e8 0%, #6fb5d4 100%);
+    border:1px solid rgba(23, 57, 94, .14);
+    border-radius:24px;
+    box-shadow:
+        0 18px 36px rgba(12, 38, 66, .15);
+}
+
+.doctor-family-page .card h2{
+    color:#0d3a7a;
+    font-size:34px;
+    margin-bottom:14px;
+}
+
+.doctor-family-page .card img{
+    width:230px;
+    max-height:205px;
+    object-fit:contain;
+    margin-bottom:16px;
+    background:transparent;
+    padding:0;
+    border-radius:20px;
+    filter:none;
+}
+
+.doctor-family-page .card:hover img{
+    transform:none;
+    filter:none;
+}
+
+.doctor-family-page .card a{
+    text-decoration:none;
+}
+
+.doctor-family-page .role-description{
+    min-height:48px;
+    margin:0 0 18px;
+    color:#17395e;
+    text-align:center;
+    font-size:16px;
+    font-weight:600;
+    line-height:1.5;
+}
+
+.doctor-family-page .card button{
+    width:245px;
+    padding:14px 18px;
+    border-radius:12px;
+    background:linear-gradient(180deg, #1e6ade 0%, #1554b2 100%);
+    color:#ffffff;
+    border:1px solid rgba(255,255,255,.28);
+    border-bottom:1px solid rgba(8,39,92,.28);
+    box-shadow:
+        0 10px 22px rgba(13,58,122,.22),
+        inset 0 1px 0 rgba(255,255,255,.22);
+    font-weight:700;
+    letter-spacing:.2px;
+}
+
+.doctor-family-page .card button:hover{
+    background:linear-gradient(180deg, #2b78e4 0%, #1e6ade 100%);
+    color:#ffffff;
+    border-color:rgba(255,255,255,.36);
+    transform:translateY(-2px);
+    box-shadow:
+        0 14px 28px rgba(13,58,122,.28),
+        inset 0 1px 0 rgba(255,255,255,.26);
+}
+
+.doctor-family-page .card button:active{
+    transform:translateY(0);
+    box-shadow:
+        0 7px 14px rgba(13,58,122,.22),
+        inset 0 2px 4px rgba(8,39,92,.24);
+}
+
+.doctor-family-page .divider{
+    display:none;
+}
+
+.doctor-family-page .circle-left,
+.doctor-family-page .circle-right{
+    display:none;
+}
+/* Media query unica para tablet y telefono */
+@media (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  .page,
+  .container,
+  .contenedor,
+  .main-container,
+  .content,
+  .dashboard-main,
+  .dashboard-container,
+  .patient-dashboard,
+  .selection-section,
+  .patient-section,
+  .updates-section,
+  .notifications-section,
+  .pacientes-container,
+  .detalle-container,
+  .agregar-container,
+  .interface-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  .navbar,
+  header.navbar,
+  nav.navbar,
+  .topbar {
+    width: 100%;
+    height: auto;
+    min-height: 66px;
+    padding: 10px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .left-navbar,
+  .left,
+  .izquierda,
+  .nav-left,
+  .nav-right,
+  .right,
+  .profile,
+  .logo-container,
+  .user-panel {
+    min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .menu-icon,
+  .menu-toggle,
+  .back,
+  .back-arrow,
+  .back-link,
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .logo img,
+  img.logo,
+  .brand,
+  .navbar-logo,
+  .side-menu-logo,
+  .menu-logo img,
+  .logo-container img {
+    width: auto;
+    max-width: 96px;
+    max-height: 74px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .role,
+  .family-pill,
+  .welcome,
+  .welcome-box,
+  .welcome-pill,
+  .bienvenido,
+  .page-title,
+  .titulo-pacientes,
+  .detalle-title,
+  .nav-badge,
+  .welcome-tag,
+  .title,
+  .navbar h1 {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 320px;
+    min-height: 30px;
+    padding: 7px 11px;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  h1,
+  .hero-text h1,
+  .how-work h1,
+  .updates-title h1,
+  .notifications-section h1,
+  .problems h2,
+  .about-text h2,
+  .why h2,
+  .introduction h1,
+  .que-es h1,
+  .porque-nearcare h1,
+  .doctor-family-page .choice-heading h1,
+  .subtitle,
+  form::before {
+    font-size: 26px;
+    line-height: 1.18;
+  }
+
+  h2,
+  .card h2,
+  .card-content h2,
+  .patient-info h2,
+  .notification-panel h2,
+  .video-info h3,
+  .why-card h3,
+  .porque-card h2,
+  .doctor-family-page .card h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  p,
+  .hero-text p,
+  .about-text p,
+  .how-work p,
+  .updates-title p,
+  .notifications-hero p,
+  .patient-info p,
+  .card-content p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero,
+  .about,
+  .video-card,
+  .info-card,
+  .patient-card,
+  .content-row,
+  .form-row,
+  .row,
+  .card-paciente,
+  .paciente-header,
+  .notifications-hero,
+  .doctor-family-page .cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero,
+  .about,
+  .problems,
+  .why,
+  .info-section,
+  .updates-section,
+  .selection-section,
+  .patient-section,
+  .main-container,
+  .notifications-section {
+    padding: 30px 14px;
+  }
+
+  .card,
+  .why-card,
+  .porque-card,
+  .form-container,
+  .form-agregar,
+  .pacientes-container,
+  .detalle-container,
+  form,
+  .formulario,
+  .box,
+  .panel,
+  .shell,
+  .login-card,
+  .register-card,
+  .content-card,
+  .notification-panel,
+  .profile-card,
+  .info-card,
+  .welcome-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    min-height: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .cards,
+  .why-cards,
+  .details,
+  .selection-buttons,
+  .patient-buttons,
+  .menu-doctor,
+  .doctor-family-page .cards {
+    width: 100%;
+    max-width: 430px;
+    gap: 18px;
+  }
+
+  .doctor-family-page .navbar {
+    min-height: 72px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 10px 12px;
+  }
+
+  .doctor-family-page .left-navbar {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .doctor-family-page .main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: auto;
+    padding: 26px 14px 36px;
+    gap: 18px;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .doctor-family-page .choice-heading {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 8px;
+  }
+
+  .doctor-family-page .choice-heading span {
+    margin-bottom: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .doctor-family-page .choice-heading h1 {
+    font-size: 22px;
+    line-height: 1.18;
+    margin-bottom: 8px;
+  }
+
+  .doctor-family-page .choice-heading p {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .doctor-family-page .card {
+    width: 100%;
+    max-width: 330px;
+    min-height: auto;
+    margin: 0 auto;
+    padding: 24px 16px 26px;
+    border-radius: 18px;
+    overflow: visible;
+  }
+
+  .doctor-family-page .card h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .doctor-family-page .card img {
+    width: 100%;
+    max-width: 210px;
+    height: auto;
+    max-height: 150px;
+    margin-bottom: 14px;
+    object-fit: contain;
+  }
+
+  .doctor-family-page .role-description {
+    min-height: auto;
+    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .doctor-family-page .card a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .doctor-family-page .card button {
+    width: 100%;
+    max-width: 250px;
+    min-height: 44px;
+    padding: 12px 14px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  button,
+  .btn,
+  .custom-btn,
+  .register-btn,
+  .login-btn,
+  .logout-btn,
+  .ready-button,
+  .action-submit,
+  .submit-btn,
+  .in-button,
+  .call-button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    max-width: 100%;
+    min-height: 40px;
+    white-space: normal;
+  }
+
+  input,
+  select,
+  textarea,
+  .input-field {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  img,
+  .image-panel,
+  .patient-image img,
+  .foto-paciente,
+  .paciente-header img,
+  .hero-image img,
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .table-wrap,
+  .calendar-wrap,
+  .calendario {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .circle,
+  .circulo,
+  .decor-circle,
+  .bubble,
+  .decoracion,
+  .circle-left,
+  .circle-right,
+  .circle-big,
+  .circle-small,
+  .circle-corner,
+  .circle-top,
+  .circle-bottom,
+  .circle-center,
+  .circle-one,
+  .circle-two,
+  .circle-three,
+  .circle-four,
+  .circle-five,
+  .circle-six,
+  .circle-1,
+  .circle-2,
+  .circle-3,
+  .circle-4,
+  .circle-5,
+  .circle-6,
+  .circle-7,
+  .circle-8,
+  .circle-9,
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6,
+  body::before,
+  body::after {
+    max-width: 82px;
+    max-height: 82px;
+    opacity: .18;
+    pointer-events: none;
+  }
+}

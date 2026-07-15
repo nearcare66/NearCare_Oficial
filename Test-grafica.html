@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfica de pastel</title>
+
+  <!-- ✅ CDN CORRECTO -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+    }
+
+    canvas {
+      background: transparent;
+    }
+  </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io%20%283%29/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io%20%283%29/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io%20%283%29/favicon-16x16.png">
+    <link rel="shortcut icon" href="img/favicon_io%20%283%29/favicon.ico">
+    <link rel="manifest" href="img/favicon_io%20%283%29/site.webmanifest">
+</head>
+<body>
+
+<canvas id="miGrafica"></canvas>
+
+<script>
+const ctx = document.getElementById('miGrafica').getContext('2d');
+
+new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Rojo', 'Azul', 'Amarillo'],
+        datasets: [{
+            data: [10, 20, 30],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(255, 206, 86, 0.7)'
+            ],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#000'
+                }
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
