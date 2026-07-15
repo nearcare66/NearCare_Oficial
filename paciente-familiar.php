@@ -1,69 +1,7 @@
-<?php require_once __DIR__ . '/php/paciente-familiar-data.php'; ?>
 <?php
-if ($paciente) {
-
-    // ✅ ESTA ES LA SOLUCIÓN REAL
-    require_once "conexion.php";
-
-    $id_paciente = $paciente['id_paciente'];
-
-    // ✅ MES Y AÑO DINÁMICOS
-    $mes = isset($_GET['mes']) ? intval($_GET['mes']) : date('n');
-    $anio = isset($_GET['anio']) ? intval($_GET['anio']) : date('Y');
-
-    if($mes < 1){ $mes = 12; $anio--; }
-    if($mes > 12){ $mes = 1; $anio++; }
-
-    // ✅ DÍAS DEL MES
-    $diasMes = cal_days_in_month(CAL_GREGORIAN, $mes, $anio);
-
-    // ✅ PRIMER DÍA (0=domingo)
-    $primerDia = date('w', strtotime("$anio-$mes-01"));
-
-    // ✅ NOMBRE MESES
-    $meses = [
-    1=>"ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO",
-    7=>"JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"
-    ];
-
-    // ✅ EVENTOS DEL MES ACTUAL
-    $queryEventos = "SELECT * FROM eventos 
-    WHERE id_paciente = $id_paciente 
-    AND MONTH(fecha) = $mes 
-    AND YEAR(fecha) = $anio";
-
-    $resultEventos = mysqli_query($conn, $queryEventos);
-
-    $eventos = [];
-
-    while ($row = mysqli_fetch_assoc($resultEventos)) {
-        $dia = date('j', strtotime($row['fecha']));
-        $eventos[$dia][] = $row;
-    }
-
-  }
-
-function conditionStatusClass($condition) {
-    $normalized = strtolower(trim((string)$condition));
-    $normalized = str_replace(
-        ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú'],
-        ['a', 'e', 'i', 'o', 'u', 'a', 'e', 'i', 'o', 'u'],
-        $normalized
-    );
-
-    if (strpos($normalized, 'grave') !== false || strpos($normalized, 'critico') !== false) {
-        return 'condition-danger';
-    }
-
-    if (strpos($normalized, 'estable') !== false) {
-        return 'condition-stable';
-    }
-
-    if (strpos($normalized, 'observacion') !== false || strpos($normalized, 'delicado') !== false || strpos($normalized, 'regular') !== false) {
-        return 'condition-warning';
-    }
-
-    return '';
+$target = 'familiar/paciente-familiar.php';
+if (!empty($_SERVER['QUERY_STRING'])) {
+    $target .= '?' . $_SERVER['QUERY_STRING'];
 }
 ?>
 <!DOCTYPE html>
@@ -238,4 +176,8 @@ function conditionStatusClass($condition) {
   <?php endif; ?>
 </body>
 </html>
+
+header('Location: ' . $target);
+exit;
+?>
 

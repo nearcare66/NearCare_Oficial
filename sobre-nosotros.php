@@ -1,8 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/php/site-cards-data.php';
 $isLoggedIn = isset($_SESSION['usuario_id']);
-$aboutCards = getSiteCards('about', 'info');
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +16,18 @@ $aboutCards = getSiteCards('about', 'info');
 
   <link rel="stylesheet" href="Css/styless.css?v=20">
   <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="Css/styless.css?v=5">
+  <link rel="stylesheet" href="Css/session-menu.css">
+
+  <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="Css/dark-mode.css?v=1">
+  <script src="dark-mode.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io%20%283%29/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io%20%283%29/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io%20%283%29/favicon-16x16.png">
+    <link rel="shortcut icon" href="img/favicon_io%20%283%29/favicon.ico">
+    <link rel="manifest" href="img/favicon_io%20%283%29/site.webmanifest">
+
 </head>
 <body class="about-page">
 
@@ -46,22 +56,7 @@ $aboutCards = getSiteCards('about', 'info');
   </header>
 
   <?php if ($isLoggedIn): ?>
-    <div class="menu-overlay" data-close-menu></div>
-
-    <aside class="side-menu" id="sideMenu" aria-hidden="true">
-      <div class="side-menu-strip"></div>
-      <div class="side-menu-content">
-        <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
-        <a href="index.php">Inicio</a>
-        <a href="doctor-familiar.php">Familiar o doctor</a>
-        <a href="#">Familiar</a>
-        <a href="#">Doctor</a>
-        <hr>
-        <a href="sobre-nosotros.php" class="active">Sobre nosotros</a>
-        <a href="actualizaciones2.php">Actualizaciones</a>
-        <a href="Comentarios.php">Comentarios</a>
-      </div>
-    </aside>
+    <?php include "php/menu-lateral.php"; ?>
   <?php endif; ?>
 
   <div class="info-section">
@@ -80,26 +75,9 @@ $aboutCards = getSiteCards('about', 'info');
 
     </div>
 
+    <img class="about-team-photo" src="img/_DSC7716.jpg" alt="Equipo de NearCare">
+
     <div class="cards-container">
-
-      <?php foreach ($aboutCards as $card): ?>
-        <div class="info-card">
-          <div class="icon">
-            <img src="<?php echo siteCardE($card['image_src']); ?>" alt="<?php echo siteCardE($card['image_alt']); ?>">
-          </div>
-
-          <div class="card-content">
-            <h2><?php echo siteCardE($card['title']); ?></h2>
-            <p><?php echo siteCardE($card['description']); ?></p>
-
-            <?php if (!empty($card['link_url']) && !empty($card['link_text'])): ?>
-              <a href="<?php echo siteCardE($card['link_url']); ?>"><?php echo siteCardE($card['link_text']); ?></a>
-            <?php endif; ?>
-          </div>
-        </div>
-      <?php endforeach; ?>
-
-      <?php if (empty($aboutCards)): ?>
 
       <div class="info-card">
 
@@ -185,8 +163,6 @@ $aboutCards = getSiteCards('about', 'info');
         </div>
 
       </div>
-
-      <?php endif; ?>
 
     </div>
 

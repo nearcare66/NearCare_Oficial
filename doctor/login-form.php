@@ -10,6 +10,10 @@ if (isset($_SESSION['id_doctor'])) {
     header("Location: dashboard.php");
     exit();
 }
+
+$loginError = $_SESSION['doctor_login_error'] ?? '';
+$loginCorreo = $_SESSION['doctor_login_correo'] ?? '';
+unset($_SESSION['doctor_login_error'], $_SESSION['doctor_login_correo']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,13 +22,20 @@ if (isset($_SESSION['id_doctor'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Doctor</title>
     <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
+  <script src="../dark-mode.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_io%20%283%29/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io%20%283%29/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io%20%283%29/favicon-16x16.png">
+    <link rel="shortcut icon" href="../img/favicon_io%20%283%29/favicon.ico">
+    <link rel="manifest" href="../img/favicon_io%20%283%29/site.webmanifest">
 </head>
-<body>
+<body class="nearcare-loading">
 
 <nav class="navbar">
     <div class="left-navbar">
-        <a href="../doctor-familiar.php" class="back-arrow">&#8249;</a>
+        <a href="../familiar/index.php" class="back-arrow">&#8249;</a>
 
         <div class="logo">
             <img src="../img/Designer (16).png" alt="NearCare">
@@ -57,7 +68,7 @@ if (isset($_SESSION['id_doctor'])) {
 
             <form action="login.php" method="POST" class="register-form login-form">
 
-                <input type="email" name="correo" placeholder="Correo electronico" required>
+                <input type="email" name="correo" placeholder="Correo electronico" value="<?php echo htmlspecialchars($loginCorreo); ?>" required>
 
                 <input type="password" name="password" placeholder="Contrasena" required>
 
@@ -67,6 +78,10 @@ if (isset($_SESSION['id_doctor'])) {
                 </p>
 
                 <button type="submit">Iniciar sesion</button>
+
+                <?php if ($loginError !== ''): ?>
+                    <div class="form-error" role="alert"><?php echo htmlspecialchars($loginError); ?></div>
+                <?php endif; ?>
 
             </form>
 

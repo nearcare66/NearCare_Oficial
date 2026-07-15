@@ -1,6 +1,10 @@
 <?php
-session_start();
-$isLoggedIn = isset($_SESSION['usuario_id']);
+$target = 'familiar/loging.php';
+if (!empty($_SERVER['QUERY_STRING'])) {
+    $target .= '?' . $_SERVER['QUERY_STRING'];
+}
+header('Location: ' . $target);
+exit;
 ?>
 <!DOCTYPE html>
 <html lang="es">

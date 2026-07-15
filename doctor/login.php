@@ -2,34 +2,51 @@
 session_start();
 include("conexion.php");
 
-if(isset($_SESSION['usuario_id'])){
+if (isset($_SESSION['usuario_id'])) {
     header("Location: ../index.php");
     exit();
 }
 
-$correo = $_POST['correo'];
-$password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: login-form.php");
+    exit();
+}
 
-$sql = "SELECT * FROM doctores WHERE correo='$correo'";
-$result = $conn->query($sql);
+$correo = trim($_POST['correo'] ?? '');
+$password = $_POST['password'] ?? '';
 
-if($result->num_rows > 0){
+$_SESSION['doctor_login_correo'] = $correo;
 
+if ($correo === '' || $password === '') {
+    $_SESSION['doctor_login_error'] = "Correo o contrasena de doctor incorrectos.";
+    header("Location: login-form.php");
+    exit();
+}
+
+$stmt = $conn->prepare("SELECT id_doctor, nombre, password FROM doctores WHERE correo = ?");
+
+if (!$stmt) {
+    die("Error en prepare: " . $conn->error);
+}
+
+$stmt->bind_param("s", $correo);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
     $doctor = $result->fetch_assoc();
 
-    if(password_verify($password, $doctor['password'])){
-
+    if (password_verify($password, $doctor['password'])) {
         $_SESSION['id_doctor'] = $doctor['id_doctor'];
         $_SESSION['nombre'] = $doctor['nombre'];
+        unset($_SESSION['doctor_login_error'], $_SESSION['doctor_login_correo']);
 
         header("Location: dashboard.php");
         exit();
-
-    }else{
-        echo "Contraseña incorrecta";
     }
-
-}else{
-    echo "Doctor no encontrado";
 }
+
+$_SESSION['doctor_login_error'] = "Correo o contrasena de doctor incorrectos.";
+header("Location: login-form.php");
+exit();
 ?>
