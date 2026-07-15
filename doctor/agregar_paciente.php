@@ -143,7 +143,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         <div class="form-field field-full">
             <label>Foto del paciente</label>
-            <input type="file" name="foto" accept="image/*" required>
+            <input type="file" name="foto" accept="image/*">
         </div>
 
         <button type="submit">Guardar paciente</button>
