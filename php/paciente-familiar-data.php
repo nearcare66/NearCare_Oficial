@@ -66,7 +66,12 @@ function fechaPartes($fecha) {
 }
 
 [$diaIngreso, $mesIngreso, $anioIngreso] = $paciente ? fechaPartes($paciente['fecha_ingreso']) : ['-', '-', '-'];
-$fotoPaciente = $paciente && !empty($paciente['foto']) ? "img/" . $paciente['foto'] : "img/Designer (16).png";
+
+$scriptPath = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
+$assetPrefix = strpos($scriptPath, '/familiar/') !== false ? '../' : '';
+$fotoPaciente = $paciente && !empty($paciente['foto'])
+    ? $assetPrefix . "img/" . $paciente['foto']
+    : $assetPrefix . "img/Designer (16).png";
 
 ?>
 

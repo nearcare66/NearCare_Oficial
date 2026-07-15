@@ -774,6 +774,27 @@ body {
   box-shadow: 0 16px 34px rgba(13, 58, 122, .10);
 }
 
+.family-detail-page .message-card {
+  grid-column: 1 / -1;
+  width: min(100%, 560px);
+  justify-self: center;
+  margin-top: 18px;
+  padding: 22px 30px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f1fff9 0%, #d9f5ea 100%);
+  border: 1px solid rgba(53, 201, 111, .28);
+  color: #0f4b39;
+  font-size: 17px;
+  line-height: 1.35;
+  box-shadow: 0 10px 24px rgba(15, 75, 57, .10);
+}
+
+.family-detail-page .message-card a {
+  color: #0b7a5a;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
 .family-detail-page .patient-card {
   width: 100%;
   min-height: 312px;
@@ -1440,6 +1461,12 @@ body {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+  }
+
+  .family-detail-page .message-card {
+    width: min(100%, 440px);
+    padding: 18px 20px;
+    font-size: 15px;
   }
 
   .side-info,

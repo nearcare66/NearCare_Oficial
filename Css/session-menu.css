@@ -75,6 +75,16 @@
   background: #3f69c9;
 }
 
+.side-menu-profile {
+  display: block;
+  margin: 8px 0 10px;
+  padding: 7px 10px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
 .side-menu hr {
   width: 100%;
   border: 0;

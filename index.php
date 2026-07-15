@@ -23,7 +23,15 @@ $whyCards = getSiteCards('index', 'why');
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="Css/styless.css?v=15">
+  <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="Css/dark-mode.css?v=1">
+  <script src="dark-mode.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io%20%283%29/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io%20%283%29/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io%20%283%29/favicon-16x16.png">
+    <link rel="shortcut icon" href="img/favicon_io%20%283%29/favicon.ico">
+    <link rel="manifest" href="img/favicon_io%20%283%29/site.webmanifest">
 </head>
 <body>
 
@@ -45,6 +53,10 @@ $whyCards = getSiteCards('index', 'why');
       <a href="actualizaciones2.php">Actualizaciones</a>
     </nav>
 
+    <button class="dark-mode-toggle" type="button" data-dark-mode-toggle aria-pressed="false">
+      Modo oscuro
+    </button>
+
     <?php if ($isLoggedIn): ?>
       <a class="logout-btn" href="php/logout.php">Cerrar sesi&oacute;n</a>
     <?php endif; ?>
@@ -52,19 +64,8 @@ $whyCards = getSiteCards('index', 'why');
   </header>
 
   <?php if ($isLoggedIn): ?>
-    <div class="menu-overlay" data-close-menu></div>
+    <?php include "php/menu-lateral.php"; ?>
 
-    <aside class="side-menu" id="sideMenu" aria-hidden="true">
-      <div class="side-menu-strip"></div>
-      <div class="side-menu-content">
-        <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
-        <a href="index.php" class="active">Inicio</a>
-        <a href="actualizaciones2.php">Actualizaciones</a>
-        <hr>
-        <a href="Comentarios.php">Comentarios</a>
-        <a href="perfildoctor.html">Doctor encargado</a>
-      </div>
-    </aside>
   <?php endif; ?>
 
   <div class="hero">
@@ -83,11 +84,11 @@ $whyCards = getSiteCards('index', 'why');
       </p>
 
   <?php if ($hasPaciente): ?>
-    <a href="paciente-familiar.php" class="btn-green">
+    <a href="familiar/paciente-familiar.php" class="btn-green">
       Ver paciente
     </a>
   <?php elseif (isset($_SESSION['usuario_id'])): ?>
-    <a href="registro2.php" class="btn-green">
+    <a href="familiar/registro2.php" class="btn-green">
       Ver paciente
     </a>
   <?php elseif (isset($_SESSION['id_doctor'])): ?>
@@ -95,7 +96,7 @@ $whyCards = getSiteCards('index', 'why');
       Panel doctor
     </a>
   <?php else: ?>
-  <a href="doctor-familiar.php" class="btn-green">
+  <a href="familiar/index.php" class="btn-green">
     ¿Eres un familiar o un doctor?
   </a>
   <?php endif; ?>

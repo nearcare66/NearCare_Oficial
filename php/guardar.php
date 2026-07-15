@@ -21,7 +21,7 @@ if (!$stmt) {
 $stmt->bind_param("sss", $nombre, $correo, $codigo);
 
 if ($stmt->execute()) {
-    header("Location: ../loging.php");
+    header("Location: ../familiar/loging.php");
     exit();
 }
 
