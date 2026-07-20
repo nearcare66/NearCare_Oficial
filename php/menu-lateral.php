@@ -24,6 +24,17 @@
     <div class="side-menu-strip"></div>
     <div class="side-menu-content">
 
+      <img class="side-menu-logo" src="img/Designer (16).png" alt="NearCare">
+      <a href="index.php" class="<?php echo $isInicio ? 'active' : ''; ?>">Inicio</a>
+      <a href="doctor-familiar.php" class="<?php echo $isFamiliarDoctor ? 'active' : ''; ?>">Familiar o doctor</a>
+      <a href="#" class="<?php echo $isFamiliar ? 'active' : ''; ?>">Familiar</a>
+      <a href="#">Doctor</a>
+      <hr>
+      <a href="sobre-nosotros.php" class="<?php echo $isSobre ? 'active' : ''; ?>">Sobre nosotros</a>
+      <a href="actualizaciones2.php" class="<?php echo $isActualizaciones ? 'active' : ''; ?>">Actualizaciones</a>
+      <a href="Comentarios.php" class="<?php echo $isComentarios ? 'active' : ''; ?>">Comentarios</a>
+     
+
       <?php if ($isFamilySession): ?>
         <img class="side-menu-logo" src="<?php echo $basePath; ?>img/Designer (16).png" alt="NearCare">
         <a href="<?php echo $patientLink; ?>" class="<?php echo $isPaciente ? 'active' : ''; ?>">Paciente</a>
@@ -44,6 +55,7 @@
         <a href="<?php echo $basePath; ?>actualizaciones2.php" class="<?php echo $isActualizaciones ? 'active' : ''; ?>">Actualizaciones</a>
         <a href="<?php echo $basePath; ?>Comentarios.php" class="<?php echo $isComentarios ? 'active' : ''; ?>">Comentarios</a>
       <?php endif; ?>
+
     </div>
   </aside>
 <?php endif; ?>
