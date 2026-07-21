@@ -118,6 +118,73 @@ body{
     background:#eaf9fe;
 }
 
+.photo-picker{
+    min-height:54px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:7px;
+    border:1px solid #90cfe5;
+    border-radius:10px;
+    background:#f8fdff;
+}
+
+.form-agregar .photo-picker-input{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0, 0, 0, 0);
+    white-space:nowrap;
+    border:0;
+}
+
+.form-field .photo-picker-button{
+    min-height:40px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    flex:0 0 auto;
+    padding:9px 16px;
+    border-radius:8px;
+    background:#1f7fbd;
+    color:#ffffff;
+    font-size:14px;
+    cursor:pointer;
+    box-shadow:0 7px 16px rgba(31, 127, 189, .22);
+    transition:background .18s, transform .18s, box-shadow .18s;
+}
+
+.photo-picker-button svg{
+    width:20px;
+    height:20px;
+    fill:currentColor;
+}
+
+.photo-picker-button:hover{
+    background:#166ea8;
+    transform:translateY(-1px);
+    box-shadow:0 9px 19px rgba(31, 127, 189, .3);
+}
+
+.photo-picker-input:focus + .photo-picker-button{
+    outline:3px solid rgba(33, 151, 200, .28);
+    outline-offset:2px;
+}
+
+.photo-picker-name{
+    min-width:0;
+    overflow:hidden;
+    color:#486b82;
+    font-size:14px;
+    font-weight:600;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
 .form-agregar button{
     grid-column:2;
     justify-self:end;
@@ -458,6 +525,20 @@ body{
   .form-agregar select,
   .form-agregar textarea {
     max-width: 100%;
+  }
+
+  .photo-picker {
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .form-field .photo-picker-button {
+    width:100%;
+  }
+
+  .photo-picker-name {
+    padding:4px 6px;
+    text-align:center;
   }
 
   .circle,

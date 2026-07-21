@@ -308,7 +308,12 @@ if(
     $genero = $_POST['genero'];
     $fecha_ingreso = $_POST['fecha_ingreso'];
     $motivo_ingreso = $_POST['motivo_ingreso'];
-    $condicion_paciente = $_POST['condicion_paciente'];
+    $condiciones_permitidas = ['En observación', 'Grave', 'Estable'];
+    $condicion_paciente = trim($_POST['condicion_paciente'] ?? '');
+
+    if(!in_array($condicion_paciente, $condiciones_permitidas, true)){
+        die("Condición del paciente no válida.");
+    }
     $diagnostico_medico = $_POST['diagnostico_medico'];
 
     $sql = "UPDATE pacientes SET
@@ -431,7 +436,7 @@ function conditionStatusClass($condition) {
         return 'condition-stable';
     }
 
-    if (strpos($normalized, 'observacion') !== false || strpos($normalized, 'delicado') !== false || strpos($normalized, 'regular') !== false) {
+    if (strpos($normalized, 'observacion') !== false || strpos($normalized, 'observación') !== false || strpos($normalized, 'delicado') !== false || strpos($normalized, 'regular') !== false) {
         return 'condition-warning';
     }
 
@@ -508,8 +513,13 @@ $resultNotas = $stmtNotas->get_result();
 
         <aside class="detalle-side-info">
             <div class="editable-field">
-                <label for="condicion_paciente">Condicion del paciente</label>
-                <input id="condicion_paciente" class="condition-status <?php echo conditionStatusClass($paciente['condicion_paciente']); ?>" type="text" name="condicion_paciente" value="<?php echo htmlspecialchars($paciente['condicion_paciente']); ?>" required>
+                <label for="condicion_paciente">Condición del paciente</label>
+                <select id="condicion_paciente" class="condition-status <?php echo conditionStatusClass($paciente['condicion_paciente']); ?>" name="condicion_paciente" required>
+                    <option value="" disabled <?php echo !in_array($paciente['condicion_paciente'], ['En observación', 'Grave', 'Estable'], true) ? 'selected' : ''; ?>>Seleccione una condición</option>
+                    <option value="En observación" <?php echo $paciente['condicion_paciente'] === 'En observación' ? 'selected' : ''; ?>>En observación</option>
+                    <option value="Grave" <?php echo $paciente['condicion_paciente'] === 'Grave' ? 'selected' : ''; ?>>Grave</option>
+                    <option value="Estable" <?php echo $paciente['condicion_paciente'] === 'Estable' ? 'selected' : ''; ?>>Estable</option>
+                </select>
             </div>
 
             <div class="editable-field">
@@ -690,7 +700,7 @@ function conditionStatusClass(condition) {
 }
 
 const condicionPaciente = document.getElementById('condicion_paciente');
-condicionPaciente.addEventListener('input', function () {
+condicionPaciente.addEventListener('change', function () {
     this.classList.remove('condition-stable', 'condition-warning', 'condition-danger');
     const statusClass = conditionStatusClass(this.value);
 

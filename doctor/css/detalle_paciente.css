@@ -210,7 +210,8 @@
     font-weight:800;
 }
 
-.editable-field input{
+.editable-field input,
+.editable-field select{
     width:100%;
     min-height:80px;
     border:1px solid rgba(13, 58, 122, .14);
@@ -225,25 +226,25 @@
     box-shadow:0 16px 34px rgba(13, 58, 122, .10);
 }
 
-.editable-field input.condition-status{
+.editable-field select.condition-status{
     transition:background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
 }
 
-.editable-field input.condition-stable{
+.editable-field select.condition-stable{
     background:linear-gradient(180deg, #ecfff5 0%, #d9f8e8 100%);
     border-color:rgba(45, 184, 110, .24);
     border-left-color:#31c978;
     color:#126b43;
 }
 
-.editable-field input.condition-warning{
+.editable-field select.condition-warning{
     background:linear-gradient(180deg, #f1fbff 0%, #d9f1ff 100%);
     border-color:rgba(80, 168, 220, .28);
     border-left-color:#4fb3e8;
     color:#0d5278;
 }
 
-.editable-field input.condition-danger{
+.editable-field select.condition-danger{
     background:linear-gradient(180deg, #fff0ef 0%, #ffd9d7 100%);
     border-color:rgba(231, 86, 76, .26);
     border-left-color:#e8564c;
@@ -251,6 +252,7 @@
 }
 
 .editable-field input:focus,
+.editable-field select:focus,
 .date-fields input:focus,
 .detalle-reason-card input:focus,
 .detalle-diagnosis-card textarea:focus,

@@ -17,7 +17,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $genero = $_POST['genero'];
     $fecha_ingreso = $_POST['fecha_ingreso'];
     $motivo_ingreso = $_POST['motivo_ingreso'];
-    $condicion_paciente = $_POST['condicion_paciente'];
+    $condiciones_permitidas = ['En observación', 'Grave', 'Estable'];
+    $condicion_paciente = trim($_POST['condicion_paciente'] ?? '');
+
+    if(!in_array($condicion_paciente, $condiciones_permitidas, true)){
+        die("Condición del paciente no válida.");
+    }
     $diagnostico_medico = $_POST['diagnostico_medico'];
 
     $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
@@ -64,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Paciente</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/agregar_paciente.css?v=3">
+    <link rel="stylesheet" href="css/agregar_paciente.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
   <script src="../dark-mode.js" defer></script>
@@ -127,8 +132,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-field field-full">
-            <label>Condicion del paciente<span>*</span></label>
-            <input type="text" name="condicion_paciente" placeholder="Condicion del paciente" required>
+            <label for="condicion_paciente">Condición del paciente<span>*</span></label>
+            <select id="condicion_paciente" name="condicion_paciente" required>
+                <option value="" selected disabled>Seleccione una condición</option>
+                <option value="En observación">En observación</option>
+                <option value="Grave">Grave</option>
+                <option value="Estable">Estable</option>
+            </select>
         </div>
 
         <div class="form-field field-full">
@@ -137,8 +147,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-field field-full">
-            <label>Foto del paciente<span>*</span></label>
-            <input type="file" name="foto" accept="image/*" required>
+            <label for="foto">Foto del paciente<span>*</span></label>
+            <div class="photo-picker">
+                <input id="foto" class="photo-picker-input" type="file" name="foto" accept="image/*" required>
+                <label class="photo-picker-button" for="foto">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 3 7.2 5H4a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3h-3.2L15 3H9Zm3 14.5A5.5 5.5 0 1 1 12 6a5.5 5.5 0 0 1 0 11.5Zm0-2.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                    </svg>
+                    Seleccionar foto
+                </label>
+                <span id="photo-file-name" class="photo-picker-name">Ninguna foto seleccionada</span>
+            </div>
         </div>
 
         <button type="submit">Guardar paciente</button>
@@ -146,6 +165,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </form>
 
 </div>
+
+<script>
+const photoInput = document.getElementById('foto');
+const photoFileName = document.getElementById('photo-file-name');
+
+photoInput.addEventListener('change', function () {
+    photoFileName.textContent = this.files.length
+        ? this.files[0].name
+        : 'Ninguna foto seleccionada';
+});
+</script>
 
 </body>
 </html>
