@@ -87,7 +87,7 @@ function conditionStatusClass($condition) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Informacion del paciente</title>
+  <title>Información del paciente</title>
   <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../Css/session-menu.css">
   <link rel="stylesheet" href="../Css/calendario.css">
@@ -108,7 +108,7 @@ function conditionStatusClass($condition) {
         <img class="brand" src="../img/Designer (16).png" alt="NearCare">
       </div>
 
-      <h1 class="page-title">Informacion del paciente</h1>
+      <h1 class="page-title">Información del paciente</h1>
 
       <div class="profile">
         <div class="user-icon" aria-hidden="true"></div>
@@ -139,7 +139,7 @@ function conditionStatusClass($condition) {
           </div>
 
           <div class="field-group">
-            <div class="field-label">Genero</div>
+            <div class="field-label">Género</div>
             <div class="field-value"><?php echo e($paciente['genero']); ?></div>
           </div>
         </aside>
@@ -163,7 +163,7 @@ function conditionStatusClass($condition) {
         </div>
 
         <article class="diagnosis-card">
-          <div class="section-label">diagnostico:</div>
+          <div class="section-label">diagnóstico:</div>
           <div class="diagnosis-box"><?php echo nl2br(e($paciente['diagnostico_medico'])); ?></div>
         </article>
 
@@ -247,7 +247,7 @@ function conditionStatusClass($condition) {
         </article>
 
         <article class="notas-readonly-card">
-          <h3>Notas Medicas</h3>
+          <h3>Notas Médicas</h3>
           <h4 class="notas-subtitle">Notas y audios</h4>
 
           <div class="historial-notas">
@@ -283,7 +283,7 @@ function conditionStatusClass($condition) {
         <div class="message-card">
           <?php echo e($mensaje); ?>
           <br>
-          <a href="registro2.php">Volver a ingresar el codigo</a>
+          <a href="registro2.php">Volver a ingresar el código</a>
         </div>
       <?php endif; ?>
     </section>

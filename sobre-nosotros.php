@@ -14,6 +14,8 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="Css/styless.css?v=20">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
   <link rel="stylesheet" href="Css/styless.css?v=5">
   <link rel="stylesheet" href="Css/session-menu.css">
 
@@ -25,33 +27,30 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io%20%283%29/favicon-16x16.png">
     <link rel="shortcut icon" href="img/favicon_io%20%283%29/favicon.ico">
     <link rel="manifest" href="img/favicon_io%20%283%29/site.webmanifest">
+
 </head>
 <body class="about-page">
 
   <header class="navbar">
 
     <?php if ($isLoggedIn): ?>
-      <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+      <button class="menu-icon" type="button" aria-label="Abrir menú" aria-controls="sideMenu" aria-expanded="false">
         &#9776;
       </button>
     <?php endif; ?>
 
     <div class="logo">
-
-      <img src="img/Designer (16).png" alt="logo">
-
+      <img src="img/Designer (16).png" alt="Logo de NearCare">
     </div>
 
     <nav>
-
       <a href="index.php">Inicio</a>
       <a href="sobre-nosotros.php" class="active">Sobre nosotros</a>
       <a href="actualizaciones2.php">Actualizaciones</a>
-
     </nav>
 
     <?php if ($isLoggedIn): ?>
-      <a class="logout-btn" href="php/logout.php">Cerrar sesi&oacute;n</a>
+      <a class="logout-btn" href="php/logout.php">Cerrar sesión</a>
     <?php endif; ?>
 
   </header>
@@ -82,7 +81,9 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
       <div class="info-card">
 
-        <div class="icon"> <img src="img/Designer (24).png" alt=""></div>
+        <div class="icon">
+          <img src="img/Designer (24).png" alt="Misión">
+        </div>
 
         <div class="card-content">
 
@@ -100,7 +101,9 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
       <div class="info-card">
 
-        <div class="icon"><img src="img/Designer (25).png" alt=""></div>
+        <div class="icon">
+          <img src="img/Designer (25).png" alt="Visión">
+        </div>
 
         <div class="card-content">
 
@@ -118,7 +121,9 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
       <div class="info-card">
 
-        <div class="icon"><img src="img/Designer (26).png" alt=""></div>
+        <div class="icon">
+          <img src="img/Designer (26).png" alt="Correo">
+        </div>
 
         <div class="card-content">
 
@@ -128,7 +133,9 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
             Contáctanos para soporte, dudas o información.
           </p>
 
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nearcare6@gmail.com">nearcare@gmail.com</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nearcare6@gmail.com">
+            nearcare6@gmail.com
+          </a>
 
         </div>
 
@@ -136,7 +143,9 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
       <div class="info-card">
 
-        <div class="icon"><img src="img/Desugner (27).png" alt=""></div>
+        <div class="icon">
+          <img src="img/Designer (27).png" alt="Instagram">
+        </div>
 
         <div class="card-content">
 
@@ -147,7 +156,9 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
             actualizaciones y contenido sobre NearCare.
           </p>
 
-          <a href="https://www.instagram.com/nearcare_?igsh=MTQyOHA0MTc0anZ0dw==">@NearCare</a>
+          <a href="https://www.instagram.com/nearcare_?igsh=MTQyOHA0MTc0anZ0dw==">
+            @NearCare
+          </a>
 
         </div>
 
@@ -160,13 +171,21 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <footer class="site-footer">
     <div class="footer-brand">
       <img src="img/Designer (16).png" alt="NearCare">
-      <p>NearCare acerca a familias, pacientes y doctores con seguimiento claro y humano.</p>
+      <p>
+        NearCare acerca a familias, pacientes y doctores con
+        seguimiento claro y humano.
+      </p>
     </div>
 
     <div class="footer-contact">
       <h3>Contacto</h3>
       <p>nearcare6@gmail.com</p>
-      <p>Instagram: <a href="https://www.instagram.com/nearcare_?igsh=MTQyOHA0MTc0anZ0dw==">@nearcare</a></p>
+      <p>
+        Instagram:
+        <a href="https://www.instagram.com/nearcare_?igsh=MTQyOHA0MTc0anZ0dw==">
+          @nearcare
+        </a>
+      </p>
     </div>
 
     <div class="footer-bottom">
@@ -177,5 +196,6 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <?php if ($isLoggedIn): ?>
     <script src="menu.js"></script>
   <?php endif; ?>
+
 </body>
 </html>

@@ -54,9 +54,9 @@ $saludo = nearcare_saludo($_SESSION['usuario'] ?? $_SESSION['registro_nombre'] ?
 </div>
 
 <div class="container">
-    <button>Ingrese el c&oacute;digo del paciente</button>
-    <button>Generar c&oacute;digo de acceso</button>
-    <button>Condici&oacute;n del paciente</button>
+    <button>Ingrese el código del paciente</button>
+    <button>Generar código de acceso</button>
+    <button>Condición del paciente</button>
 </div>
 
 <?php if ($isLoggedIn): ?>

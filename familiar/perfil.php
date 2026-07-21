@@ -55,7 +55,7 @@ $codigoVisible = $familiar['codigo'] !== 'Protegido' ? str_repeat('*', max(4, st
       <img class="brand" src="../img/Designer (16).png" alt="NearCare">
     </div>
 
-    <h1 class="page-title">Mi perfil</h1>
+    <h1 class="page-title">Mi perfíl</h1>
     <div class="profile-chip"><?php echo e($saludo); ?></div>
   </nav>
 
@@ -67,7 +67,7 @@ $codigoVisible = $familiar['codigo'] !== 'Protegido' ? str_repeat('*', max(4, st
         <div class="profile-avatar" aria-hidden="true"><?php echo e($initial); ?></div>
         <div>
           <h2><?php echo e($familiar['nombre']); ?></h2>
-          <p>Perfil familiar</p>
+          <p>Perfíl familiar</p>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ $codigoVisible = $familiar['codigo'] !== 'Protegido' ? str_repeat('*', max(4, st
           <strong><?php echo e($familiar['correo']); ?></strong>
         </div>
         <div class="profile-field">
-          <span>Codigo de acceso</span>
+          <span>Código de acceso</span>
           <strong><?php echo e($codigoVisible); ?></strong>
         </div>
         <div class="profile-field">

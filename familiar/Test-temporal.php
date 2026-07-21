@@ -58,7 +58,7 @@ function conditionStatusClass($condition) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Informacion del paciente</title>
+  <title>Información del paciente</title>
   <link rel="stylesheet" href="../Css/session-menu.css">
   <link rel="stylesheet" href="../Css/paciente-familiar.css">
   <link rel="stylesheet" href="../css/calendario.css">
@@ -80,7 +80,7 @@ function conditionStatusClass($condition) {
         <img class="brand" src="../img/Designer (16).png" alt="NearCare">
       </div>
 
-      <h1 class="page-title">Informacion del paciente</h1>
+      <h1 class="page-title">Información del paciente</h1>
 
       <div class="profile">
         <div class="user-icon" aria-hidden="true"></div>
@@ -106,12 +106,12 @@ function conditionStatusClass($condition) {
 
         <aside class="side-info">
           <div class="field-group">
-            <div class="field-label">Condicion del paciente</div>
+            <div class="field-label">Condición del paciente</div>
             <div class="field-value condition-status <?php echo conditionStatusClass($paciente['condicion_paciente']); ?>"><?php echo e($paciente['condicion_paciente']); ?></div>
           </div>
 
           <div class="field-group">
-            <div class="field-label">Genero</div>
+            <div class="field-label">Género</div>
             <div class="field-value"><?php echo e($paciente['genero']); ?></div>
           </div>
         </aside>
@@ -135,7 +135,7 @@ function conditionStatusClass($condition) {
         </div>
 
         <article class="diagnosis-card">
-          <div class="section-label">diagnostico:</div>
+          <div class="section-label">diagnóstico:</div>
           <div class="diagnosis-box"><?php echo nl2br(e($paciente['diagnostico_medico'])); ?></div>
         </article>
 
