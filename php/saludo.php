@@ -34,4 +34,10 @@ function nearcare_saludo($nombre = '', $genero = '') {
 
     return 'Bienvenido';
 }
+
+function nearcare_tratamiento_doctor($nombre = '', $genero = '') {
+    return nearcare_saludo($nombre, $genero) === 'Bienvenida'
+        ? 'Doctora'
+        : 'Doctor';
+}
 ?>

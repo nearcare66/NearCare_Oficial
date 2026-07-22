@@ -1,5 +1,14 @@
 html.dark-mode {
   color-scheme: dark;
+  --nc-dark-bg: #0b1322;
+  --nc-dark-nav: #12233a;
+  --nc-dark-surface: #17263d;
+  --nc-dark-surface-raised: #1c2e49;
+  --nc-dark-border: #2d4363;
+  --nc-dark-text: #f4f8ff;
+  --nc-dark-muted: #a9bad0;
+  --nc-dark-blue: #2f6fec;
+  --nc-dark-green: #24a866;
 }
 
 html.dark-mode body,
@@ -10,14 +19,14 @@ html.dark-mode .doctor-dashboard-page,
 html.dark-mode .doctor-patients-page,
 html.dark-mode .doctor-detail-page,
 html.dark-mode .doctor-family-page {
-  background: #0f172a !important;
-  color: #e5eefb !important;
+  background: var(--nc-dark-bg) !important;
+  color: var(--nc-dark-text) !important;
 }
 
 html.dark-mode .navbar {
-  background: #10243d !important;
-  border-color: rgba(148, 163, 184, 0.22) !important;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28) !important;
+  background: var(--nc-dark-nav) !important;
+  border-color: var(--nc-dark-border) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .24) !important;
 }
 
 html.dark-mode .navbar a,
@@ -112,10 +121,10 @@ html.dark-mode .actualizacion-card,
 html.dark-mode .side-info,
 html.dark-mode .menu-doctor,
 html.dark-mode .profile {
-  background: #17233a !important;
-  color: #e5eefb !important;
-  border-color: rgba(148, 163, 184, 0.22) !important;
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.25) !important;
+  background: var(--nc-dark-surface) !important;
+  color: var(--nc-dark-text) !important;
+  border-color: var(--nc-dark-border) !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .22) !important;
 }
 
 html.dark-mode input,
@@ -125,9 +134,9 @@ html.dark-mode .date-box,
 html.dark-mode .field-value,
 html.dark-mode .diagnosis-box,
 html.dark-mode .reason-value {
-  background: #0f172a !important;
-  color: #e5eefb !important;
-  border-color: rgba(148, 163, 184, 0.28) !important;
+  background: #101d30 !important;
+  color: var(--nc-dark-text) !important;
+  border-color: var(--nc-dark-border) !important;
 }
 
 html.dark-mode input::placeholder,
@@ -147,7 +156,6 @@ html.dark-mode a {
 
 html.dark-mode .btn-green,
 html.dark-mode .action-submit,
-html.dark-mode .logout-btn,
 html.dark-mode button[type="submit"] {
   background: #22c55e !important;
   color: #052e16 !important;
@@ -176,27 +184,25 @@ html.dark-mode .circle-light {
 /* ===== DARK MODE: DASHBOARD DOCTOR ===== */
 
 html.dark-mode .doctor-dashboard-page {
-  background: #0f172a !important;
-  color: #e5eefb !important;
+  background: var(--nc-dark-bg) !important;
+  color: var(--nc-dark-text) !important;
 }
 
 html.dark-mode .doctor-dashboard-page .navbar {
-  background: #10243d !important;
-  border-bottom: 1px solid rgba(148, 163, 184, .22) !important;
-  box-shadow: 0 10px 28px rgba(0,0,0,.30) !important;
+  background: var(--nc-dark-nav) !important;
+  border-bottom: 1px solid var(--nc-dark-border) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .24) !important;
 }
 
 html.dark-mode .doctor-dashboard-page .navbar h1 {
-  background: #94a3b8 !important;
-  color: #0f172a !important;
+  background: var(--nc-dark-surface-raised) !important;
+  color: var(--nc-dark-text) !important;
+  border: 1px solid var(--nc-dark-border) !important;
+  box-shadow: none !important;
 }
 
 html.dark-mode .doctor-dashboard-page .menu-icon {
   color: #e5eefb !important;
-}
-
-html.dark-mode .doctor-dashboard-page .logo img {
-  filter: brightness(1.35) contrast(1.08) !important;
 }
 
 html.dark-mode .doctor-dashboard-page .dashboard-main {
@@ -210,29 +216,38 @@ html.dark-mode .doctor-dashboard-page .welcome-card {
 }
 
 html.dark-mode .doctor-dashboard-page .welcome-card h2 {
-  color: #e5eefb !important;
-  background: rgba(30, 41, 59, .75) !important;
-  padding: 8px 18px !important;
-  border-radius: 0 !important;
+  color: var(--nc-dark-text) !important;
+  background: transparent !important;
+  padding: 0 !important;
 }
 
 html.dark-mode .doctor-dashboard-page .menu-doctor {
-  background: rgba(30, 41, 59, .75) !important;
-  border: 1px solid rgba(148, 163, 184, .18) !important;
-  border-radius: 0 !important;
+  width: 100% !important;
+  background: var(--nc-dark-surface) !important;
+  border: 1px solid var(--nc-dark-border) !important;
+  border-radius: 22px !important;
   padding: 36px 24px !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .22) !important;
 }
 
-html.dark-mode .doctor-dashboard-page .btn-paciente,
-html.dark-mode .doctor-dashboard-page .btn-comentarios {
-  background: #2563eb !important;
+html.dark-mode .doctor-dashboard-page .btn-paciente {
+  background: linear-gradient(135deg, #3478f6, #245bc8) !important;
   color: #ffffff !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,.28) !important;
+  box-shadow: 0 12px 26px rgba(16, 50, 107, .35) !important;
 }
 
-html.dark-mode .doctor-dashboard-page .btn-paciente:hover,
+html.dark-mode .doctor-dashboard-page .btn-comentarios {
+  background: linear-gradient(135deg, #2fbd77, #188950) !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 26px rgba(10, 78, 47, .34) !important;
+}
+
+html.dark-mode .doctor-dashboard-page .btn-paciente:hover {
+  background: linear-gradient(135deg, #4b8aff, #2c68dc) !important;
+}
+
 html.dark-mode .doctor-dashboard-page .btn-comentarios:hover {
-  background: #3b82f6 !important;
+  background: linear-gradient(135deg, #3dcc87, #1d9b5c) !important;
 }
 /* ===== DARK MODE DETALLE PACIENTE ===== */
 
@@ -343,4 +358,188 @@ html.dark-mode .condition-danger {
   background: #3b1212 !important;
   color: #fecaca !important;
   border-left-color: #ef4444 !important;
+}
+
+html.dark-mode .logout-btn,
+html.dark-mode .side-menu .logout-btn {
+  background: #dc3545 !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #ffffff !important;
+}
+
+html.dark-mode .logout-btn:hover,
+html.dark-mode .side-menu .logout-btn:hover {
+  background: #b42332 !important;
+  background-color: #b42332 !important;
+  border-color: #b42332 !important;
+  color: #ffffff !important;
+}
+
+/* Contraste general y navegación lateral en modo oscuro. */
+html.dark-mode .side-menu,
+html.dark-mode .side-menu-content,
+html.dark-mode .menu-doctor {
+  background: var(--nc-dark-nav) !important;
+  color: var(--nc-dark-text) !important;
+  border-color: var(--nc-dark-border) !important;
+}
+
+html.dark-mode .side-menu-strip {
+  background: #0a1729 !important;
+}
+
+html.dark-mode .doctor-dashboard-page .side-menu,
+html.dark-mode .doctor-patients-page .side-menu,
+html.dark-mode .doctor-detail-page .side-menu,
+html.dark-mode .profile-page .side-menu {
+  border-left-color: #1e3a5f !important;
+}
+
+html.dark-mode .doctor-menu-overlay {
+  background: rgba(3, 10, 20, .68) !important;
+}
+
+html.dark-mode .side-menu a,
+html.dark-mode .side-menu p,
+html.dark-mode .side-menu-profile {
+  color: #eaf2ff !important;
+}
+
+html.dark-mode .side-menu a:hover,
+html.dark-mode .side-menu a.active {
+  background: #24579b !important;
+  color: #ffffff !important;
+}
+
+html.dark-mode .side-menu-theme-toggle {
+  background: var(--nc-dark-surface-raised) !important;
+  border-color: #48617f !important;
+  color: #fbbf24 !important;
+  box-shadow: none !important;
+}
+
+/* Variante del logo creada especialmente para fondos oscuros. */
+html.dark-mode .navbar .logo img,
+html.dark-mode .navbar .brand,
+html.dark-mode .navbar img.logo,
+html.dark-mode .navbar .logo-container img,
+html.dark-mode .side-menu-logo,
+html.dark-mode .menu-logo img {
+  content: url("../img/NearCare-logo-dark.png") !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+html.dark-mode .role,
+html.dark-mode .family-pill,
+html.dark-mode .profile-chip,
+html.dark-mode .welcome-box {
+  background: var(--nc-dark-surface-raised) !important;
+  color: var(--nc-dark-text) !important;
+  border-color: var(--nc-dark-border) !important;
+}
+
+html.dark-mode .profile-page,
+html.dark-mode .agregar-container,
+html.dark-mode .form-agregar,
+html.dark-mode .register-card,
+html.dark-mode .login-card,
+html.dark-mode .selection-section,
+html.dark-mode .patient-section,
+html.dark-mode .profile-card,
+html.dark-mode .profile-info,
+html.dark-mode .content-row {
+  background: var(--nc-dark-surface) !important;
+  color: var(--nc-dark-text) !important;
+  border-color: var(--nc-dark-border) !important;
+}
+
+html.dark-mode .profile-header {
+  background: #173b68 !important;
+  color: #ffffff !important;
+}
+
+html.dark-mode .profile-field,
+html.dark-mode .profile-note,
+html.dark-mode .form-field,
+html.dark-mode .photo-picker,
+html.dark-mode .detalle-side-info {
+  background: var(--nc-dark-surface-raised) !important;
+  color: var(--nc-dark-text) !important;
+  border-color: var(--nc-dark-border) !important;
+}
+
+html.dark-mode .profile-field span,
+html.dark-mode .profile-field strong,
+html.dark-mode .profile-note,
+html.dark-mode .doctor-name,
+html.dark-mode .section-label,
+html.dark-mode .field-label,
+html.dark-mode .field-value,
+html.dark-mode .choice-heading h1,
+html.dark-mode .choice-heading p,
+html.dark-mode .card h2 {
+  color: #eaf2ff !important;
+}
+
+html.dark-mode table,
+html.dark-mode th,
+html.dark-mode td,
+html.dark-mode .calendar,
+html.dark-mode .calendar-grid,
+html.dark-mode .notification-panel,
+html.dark-mode .updates-list {
+  background-color: var(--nc-dark-surface) !important;
+  color: var(--nc-dark-text) !important;
+  border-color: var(--nc-dark-border) !important;
+}
+
+html.dark-mode input:focus,
+html.dark-mode textarea:focus,
+html.dark-mode select:focus {
+  background: #15243a !important;
+  color: #ffffff !important;
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, .22) !important;
+}
+
+html.dark-mode .profile-edit-heading h3,
+html.dark-mode .profile-eyebrow,
+html.dark-mode .profile-input-group,
+html.dark-mode .profile-input-group span,
+html.dark-mode .profile-input-group small,
+html.dark-mode .profile-form-actions p,
+html.dark-mode .patient-photo-editor small {
+  color: #dbeafe !important;
+}
+
+html.dark-mode .profile-edit-badge {
+  background: #193558 !important;
+  color: #bfdbfe !important;
+  border-color: #315b8d !important;
+}
+
+html.dark-mode .profile-alert-success {
+  background: #123524 !important;
+  color: #a7f3d0 !important;
+  border-color: #237a50 !important;
+}
+
+html.dark-mode .profile-alert-error {
+  background: #3b1717 !important;
+  color: #fecaca !important;
+  border-color: #8f3838 !important;
+}
+
+html.dark-mode .profile-form-actions {
+  border-color: #334155 !important;
+}
+
+html.dark-mode .patient-photo-button {
+  background: #2563eb !important;
+  color: #ffffff !important;
 }

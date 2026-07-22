@@ -1,0 +1,7 @@
+php_flag display_errors Off
+php_flag display_startup_errors Off
+php_value auto_prepend_file "C:/xampp/htdocs/NearCare2/php/manejador_errores.php"
+
+ErrorDocument 404 /NearCare2/error.php?codigo=404
+ErrorDocument 500 /NearCare2/error.php?codigo=500
+

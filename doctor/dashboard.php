@@ -17,10 +17,10 @@ $saludo = nearcare_saludo($nombre);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Doctor</title>
-    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../Css/dark-mode.css?v=<?php echo time(); ?>">
-  <script src="../dark-mode.js" defer></script>
+  <script src="../dark-mode.js?v=<?php echo time(); ?>" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_io%20%283%29/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io%20%283%29/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io%20%283%29/favicon-16x16.png">
@@ -33,11 +33,11 @@ $saludo = nearcare_saludo($nombre);
 
 <nav class="navbar">
     <div class="left-navbar">
-      <button class="menu-icon" onclick="abrirMenu()">☰</button>
+      <button class="menu-icon" type="button" onclick="abrirMenu()" aria-label="Abrir menú" aria-controls="sideMenu" aria-expanded="false">☰</button>
 
-        <div class="logo">
+        <a class="logo" href="../index.php" aria-label="Volver al inicio de NearCare">
             <img src="../img/Designer (16).png" alt="NearCare">
-        </div>
+        </a>
     </div>
 
     <h1><?php echo htmlspecialchars($nombre); ?></h1>
@@ -63,12 +63,6 @@ $saludo = nearcare_saludo($nombre);
         </a>
     </div>
 </main>
-
-<script>
-function abrirMenu(){
-    document.getElementById("sideMenu").classList.toggle("show");
-}
-</script>
 
 </body>
 </html>

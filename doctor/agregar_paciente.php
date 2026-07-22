@@ -217,8 +217,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/agregar_paciente.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
-  <script src="../dark-mode.js" defer></script>
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=<?php echo time(); ?>">
+  <script src="../dark-mode.js?v=<?php echo time(); ?>" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_io%20%283%29/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io%20%283%29/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io%20%283%29/favicon-16x16.png">

@@ -6,6 +6,9 @@ $isLoggedIn =
     isset($_SESSION['usuario_id']) ||
     isset($_SESSION['id_doctor']) ||
     isset($_SESSION['id_familiar']);
+$isDoctorSession = isset($_SESSION['id_doctor']);
+$isFamilySession = !$isDoctorSession &&
+    (isset($_SESSION['usuario_id']) || isset($_SESSION['id_familiar']));
 
 $hasPaciente = isset($_SESSION['paciente_nc']) && trim((string)$_SESSION['paciente_nc']) !== '';
 $problemCards = getSiteCards('index', 'problems');
@@ -25,8 +28,8 @@ $whyCards = getSiteCards('index', 'why');
   <link rel="stylesheet" href="Css/styless.css?v=15">
   <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="Css/dark-mode.css?v=1">
-  <script src="dark-mode.js" defer></script>
+  <link rel="stylesheet" href="Css/dark-mode.css?v=<?php echo time(); ?>">
+  <script src="dark-mode.js?v=<?php echo time(); ?>" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io%20%283%29/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io%20%283%29/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io%20%283%29/favicon-16x16.png">
@@ -50,16 +53,10 @@ $whyCards = getSiteCards('index', 'why');
     <nav>
       <a href="index.php" class="active">Inicio</a>
       <a href="sobre-nosotros.php">Sobre nosotros</a>
-      <a href="actualizaciones2.php">Actualizaciones</a>
+      <?php if ($isFamilySession): ?>
+        <a href="actualizaciones2.php">Actualizaciones</a>
+      <?php endif; ?>
     </nav>
-
-    <button class="dark-mode-toggle" type="button" data-dark-mode-toggle aria-pressed="false">
-      Modo oscuro
-    </button>
-
-    <?php if ($isLoggedIn): ?>
-      <a class="logout-btn" href="php/logout.php">Cerrar sesi&oacute;n</a>
-    <?php endif; ?>
 
   </header>
 

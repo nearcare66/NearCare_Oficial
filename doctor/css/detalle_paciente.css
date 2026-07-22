@@ -123,14 +123,69 @@
     background:linear-gradient(180deg, #f4fbfd 0%, #dff1f7 100%);
 }
 
-.detalle-patient-card img{
+.patient-photo-editor{
+    width:220px;
+    display:grid;
+    justify-items:center;
+    gap:8px;
+    margin-bottom:12px;
+}
+
+.detalle-patient-card .patient-photo-editor img{
     width:220px;
     height:154px;
     object-fit:cover;
     border-radius:16px;
     border:4px solid #eef9fb;
     box-shadow:0 12px 24px rgba(13, 58, 122, .12);
-    margin-bottom:12px;
+    margin-bottom:0;
+}
+
+.patient-photo-input{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0, 0, 0, 0);
+    white-space:nowrap;
+    border:0;
+}
+
+.patient-photo-button{
+    min-height:38px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:9px;
+    background:#1e6ade;
+    color:#ffffff;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(30, 106, 222, .22);
+}
+
+.patient-photo-button svg{
+    fill:currentColor;
+}
+
+.patient-photo-input:focus + .patient-photo-button{
+    outline:3px solid rgba(30, 106, 222, .25);
+    outline-offset:2px;
+}
+
+.patient-photo-editor small{
+    width:100%;
+    overflow:hidden;
+    color:#607e94;
+    font-size:11px;
+    font-weight:700;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 .patient-name-input{
@@ -160,7 +215,7 @@
     align-items:center;
     justify-content:center;
     min-height:34px;
-    max-width:180px;
+    max-width:270px;
     padding:6px 16px;
     border-radius:999px;
     background:#e3f8eb;
@@ -169,7 +224,7 @@
 }
 
 .nc-pill input{
-    width:90px;
+    width:84px;
     border:0;
     outline:none;
     background:transparent;

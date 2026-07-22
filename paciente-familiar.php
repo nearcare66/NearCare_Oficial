@@ -15,6 +15,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   <link rel="stylesheet" href="css/calendario.css">
   <link rel="stylesheet" href="Css/paciente-familiar.css?v=10">
   <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="Css/dark-mode.css?v=<?php echo time(); ?>">
+  <script src="dark-mode.js?v=<?php echo time(); ?>" defer></script>
 </head>
 <body>
   <main class="page">

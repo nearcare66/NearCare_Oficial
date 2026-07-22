@@ -63,6 +63,120 @@ nav.navbar,
   object-fit: contain !important;
 }
 
+html body a.logout-btn,
+html body .navbar a.logout-btn,
+html body .side-menu a.logout-btn {
+  background: #dc3545 !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #ffffff !important;
+}
+
+html body a.logout-btn:hover,
+html body .navbar a.logout-btn:hover,
+html body .side-menu a.logout-btn:hover {
+  background: #b42332 !important;
+  background-color: #b42332 !important;
+  border-color: #b42332 !important;
+  color: #ffffff !important;
+}
+
+html body .side-menu-theme-toggle {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  align-self: center !important;
+  margin: 8px auto !important;
+  padding: 0 !important;
+  border: 1px solid rgba(255, 255, 255, .42) !important;
+  border-radius: 50% !important;
+  background: rgba(9, 35, 72, .35) !important;
+  color: #ffffff !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  overflow: hidden !important;
+  flex: 0 0 44px !important;
+  cursor: pointer !important;
+  box-shadow: 0 8px 18px rgba(9, 35, 72, .18) !important;
+}
+
+.side-menu-theme-toggle .theme-icon {
+  grid-area: 1 / 1;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.side-menu-theme-toggle .theme-icon-sun,
+.side-menu-theme-toggle.is-dark .theme-icon-moon {
+  display: none;
+}
+
+.side-menu-theme-toggle.is-dark .theme-icon-sun {
+  display: block;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Distintivos profesionales para los perfiles de acceso. */
+.navbar .role,
+.navbar .family-pill {
+  min-width: 170px !important;
+  height: 42px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 0 24px !important;
+  border: 1px solid rgba(13, 58, 122, .2) !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, .78) !important;
+  color: #0d3a7a !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: .45px !important;
+  line-height: 1 !important;
+  box-shadow: 0 8px 18px rgba(13, 58, 122, .12) !important;
+}
+
+.navbar .role {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.navbar .role::before,
+.navbar .family-pill::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+  background: #1e6ade;
+  box-shadow: 0 0 0 4px rgba(30, 106, 222, .13);
+}
+
+.navbar .family-pill::before {
+  background: #25a866;
+  box-shadow: 0 0 0 4px rgba(37, 168, 102, .13);
+}
+
 button:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover,

@@ -13,6 +13,58 @@ function e($value) {
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
 }
 
+$mensajeError = '';
+$mensajeExito = isset($_GET['actualizado']) ? 'Los datos de tu perfil se actualizaron correctamente.' : '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar_perfil'])) {
+    $nombre = trim($_POST['nombre'] ?? '');
+    $correo = trim($_POST['correo'] ?? '');
+    $nuevoCodigo = trim($_POST['nuevo_codigo'] ?? '');
+
+    if ($nombre === '' || $correo === '') {
+        $mensajeError = 'Completa el nombre y el correo electrónico.';
+    } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        $mensajeError = 'Ingresa un correo electrónico válido.';
+    } elseif ($nuevoCodigo !== '' && strlen($nuevoCodigo) < 4) {
+        $mensajeError = 'El nuevo código debe tener al menos 4 caracteres.';
+    } else {
+        $idFamiliar = (int) $_SESSION['usuario_id'];
+        $stmtActualizar = null;
+
+        if ($nuevoCodigo !== '') {
+            $stmtActualizar = $conexion->prepare(
+                'UPDATE usuarios_nuevos SET nombre = ?, correo = ?, codigo = ? WHERE id = ?'
+            );
+            if ($stmtActualizar) {
+                $stmtActualizar->bind_param('sssi', $nombre, $correo, $nuevoCodigo, $idFamiliar);
+            }
+        } else {
+            $stmtActualizar = $conexion->prepare(
+                'UPDATE usuarios_nuevos SET nombre = ?, correo = ? WHERE id = ?'
+            );
+            if ($stmtActualizar) {
+                $stmtActualizar->bind_param('ssi', $nombre, $correo, $idFamiliar);
+            }
+        }
+
+        if (!$stmtActualizar) {
+            $mensajeError = 'No pudimos preparar la actualización del perfil.';
+        } elseif ($stmtActualizar->execute()) {
+            $_SESSION['usuario'] = $nombre;
+            $_SESSION['registro_nombre'] = $nombre;
+            $_SESSION['correo'] = $correo;
+            $stmtActualizar->close();
+            header('Location: perfil.php?actualizado=1');
+            exit();
+        } else {
+            $mensajeError = $stmtActualizar->errno === 1062
+                ? 'Ese correo electrónico ya pertenece a otra cuenta.'
+                : 'No pudimos actualizar el perfil. Inténtalo nuevamente.';
+            $stmtActualizar->close();
+        }
+    }
+}
+
 $familiar = [
     'nombre' => $_SESSION['usuario'] ?? $_SESSION['registro_nombre'] ?? 'Familiar',
     'correo' => $_SESSION['correo'] ?? 'No registrado',
@@ -43,6 +95,8 @@ $codigoVisible = $familiar['codigo'] !== 'Protegido' ? str_repeat('*', max(4, st
   <link rel="stylesheet" href="../Css/session-menu.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../Css/perfil.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=<?php echo time(); ?>">
+  <script src="../dark-mode.js?v=<?php echo time(); ?>" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_io%20%283%29/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io%20%283%29/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io%20%283%29/favicon-16x16.png">
@@ -73,23 +127,44 @@ $codigoVisible = $familiar['codigo'] !== 'Protegido' ? str_repeat('*', max(4, st
       </div>
 
       <div class="profile-info">
-        <div class="profile-field">
-          <span>Nombre</span>
-          <strong><?php echo e($familiar['nombre']); ?></strong>
+        <div class="profile-edit-heading">
+          <div>
+            <span class="profile-eyebrow">Información de la cuenta</span>
+            <h3>Edita tus datos</h3>
+          </div>
+          <span class="profile-edit-badge">Cuenta familiar</span>
         </div>
-        <div class="profile-field">
-          <span>Correo</span>
-          <strong><?php echo e($familiar['correo']); ?></strong>
-        </div>
-        <div class="profile-field">
-          <span>Código de acceso</span>
-          <strong><?php echo e($codigoVisible); ?></strong>
-        </div>
-        <div class="profile-field">
-          <span>Cuenta</span>
-          <strong>Familiar</strong>
-        </div>
-        <p class="profile-note">Desde este perfil puedes revisar los datos principales de tu cuenta familiar.</p>
+
+        <?php if ($mensajeExito !== ''): ?>
+          <div class="profile-alert profile-alert-success" role="status"><?php echo e($mensajeExito); ?></div>
+        <?php endif; ?>
+
+        <?php if ($mensajeError !== ''): ?>
+          <div class="profile-alert profile-alert-error" role="alert"><?php echo e($mensajeError); ?></div>
+        <?php endif; ?>
+
+        <form method="POST" class="profile-edit-form">
+          <label class="profile-input-group">
+            <span>Nombre completo</span>
+            <input type="text" name="nombre" value="<?php echo e($_POST['nombre'] ?? $familiar['nombre']); ?>" autocomplete="name" required>
+          </label>
+
+          <label class="profile-input-group">
+            <span>Correo electrónico</span>
+            <input type="email" name="correo" value="<?php echo e($_POST['correo'] ?? $familiar['correo']); ?>" autocomplete="email" required>
+          </label>
+
+          <label class="profile-input-group profile-input-group-wide">
+            <span>Nuevo código de acceso</span>
+            <input type="password" name="nuevo_codigo" minlength="4" autocomplete="new-password" placeholder="Déjalo vacío para conservar el código actual">
+            <small>Código actual: <?php echo e($codigoVisible); ?></small>
+          </label>
+
+          <div class="profile-form-actions">
+            <p>El nuevo código solo cambiará si escribes uno.</p>
+            <button type="submit" name="guardar_perfil" value="1">Guardar cambios</button>
+          </div>
+        </form>
       </div>
     </section>
   </main>

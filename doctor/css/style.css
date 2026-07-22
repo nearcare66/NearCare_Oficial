@@ -746,6 +746,32 @@ body{
     transition:.3s;
 }
 
+.doctor-menu-overlay{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    background:rgba(7, 25, 44, .46);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .25s ease, visibility .25s ease;
+}
+
+.doctor-menu-overlay.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+body.doctor-menu-open{
+    overflow:hidden;
+}
+
+body.doctor-menu-open .navbar .logo,
+body.doctor-menu-open .navbar .brand{
+    opacity:0;
+}
+
 .side-menu.show{
     left:0;
 }

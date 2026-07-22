@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/php/manejador_errores.php';
+
 $conexion = new mysqli("localhost", "root", "", "familiares");
 
 if ($conexion->connect_error) {

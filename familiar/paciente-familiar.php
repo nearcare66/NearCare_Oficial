@@ -92,8 +92,8 @@ function conditionStatusClass($condition) {
   <link rel="stylesheet" href="../Css/session-menu.css">
   <link rel="stylesheet" href="../Css/calendario.css">
   <link rel="stylesheet" href="../Css/paciente-familiar.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="../Css/dark-mode.css?v=1">
-  <script src="../dark-mode.js" defer></script>
+  <link rel="stylesheet" href="../Css/dark-mode.css?v=<?php echo time(); ?>">
+  <script src="../dark-mode.js?v=<?php echo time(); ?>" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_io%20%283%29/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io%20%283%29/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io%20%283%29/favicon-16x16.png">
@@ -128,8 +128,8 @@ function conditionStatusClass($condition) {
         <article class="patient-card">
           <img src="<?php echo e($fotoPaciente); ?>" alt="Foto del paciente">
           <h2><?php echo e($paciente['nombre_completo']); ?></h2>
-          <p>Nc<?php echo e($paciente['nc']); ?></p>
-          <div class="doctor-name"><?php echo e($paciente['doctor_nombre']); ?></div>
+          <p>NearCare ID: <?php echo e($paciente['nc']); ?></p>
+          <div class="doctor-name"><?php echo e(nearcare_tratamiento_doctor($paciente['doctor_nombre']) . ' ' . $paciente['doctor_nombre']); ?></div>
         </article>
 
         <aside class="side-info">

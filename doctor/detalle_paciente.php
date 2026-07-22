@@ -319,6 +319,61 @@ if(
         );
     }
     $diagnostico_medico = $_POST['diagnostico_medico'];
+    $fotoPaciente = $pacienteAnterior['foto'] ?? '';
+    $rutaFotoNueva = '';
+
+    if (isset($_FILES['foto_paciente']) && $_FILES['foto_paciente']['error'] !== UPLOAD_ERR_NO_FILE) {
+        $archivoFoto = $_FILES['foto_paciente'];
+
+        if ($archivoFoto['error'] !== UPLOAD_ERR_OK) {
+            mostrarPantallaError(
+                'No pudimos recibir la nueva foto del paciente.',
+                'detalle_paciente.php?id=' . $id_paciente,
+                'No se pudo cambiar la foto'
+            );
+        }
+
+        if ((int) $archivoFoto['size'] <= 0 || (int) $archivoFoto['size'] > 5 * 1024 * 1024) {
+            mostrarPantallaError(
+                'La foto debe tener contenido y pesar como máximo 5 MB.',
+                'detalle_paciente.php?id=' . $id_paciente,
+                'Foto no válida'
+            );
+        }
+
+        $finfoFoto = new finfo(FILEINFO_MIME_TYPE);
+        $mimeFoto = $finfoFoto->file($archivoFoto['tmp_name']);
+        $tiposFoto = [
+            'image/jpeg' => 'jpg',
+            'image/png' => 'png',
+            'image/webp' => 'webp'
+        ];
+
+        if (!isset($tiposFoto[$mimeFoto])) {
+            mostrarPantallaError(
+                'Selecciona una imagen JPG, PNG o WEBP.',
+                'detalle_paciente.php?id=' . $id_paciente,
+                'Formato de foto no permitido'
+            );
+        }
+
+        try {
+            $identificadorFoto = bin2hex(random_bytes(8));
+        } catch (Exception $errorFoto) {
+            $identificadorFoto = uniqid('', true);
+        }
+
+        $fotoPaciente = time() . '_' . $identificadorFoto . '.' . $tiposFoto[$mimeFoto];
+        $rutaFotoNueva = __DIR__ . '/../img/' . $fotoPaciente;
+
+        if (!move_uploaded_file($archivoFoto['tmp_name'], $rutaFotoNueva)) {
+            mostrarPantallaError(
+                'No pudimos guardar la nueva foto del paciente.',
+                'detalle_paciente.php?id=' . $id_paciente,
+                'No se pudo cambiar la foto'
+            );
+        }
+    }
 
     $sql = "UPDATE pacientes SET
             nombre_completo = ?,
@@ -328,12 +383,13 @@ if(
             fecha_ingreso = ?,
             motivo_ingreso = ?,
             condicion_paciente = ?,
-            diagnostico_medico = ?
+            diagnostico_medico = ?,
+            foto = ?
             WHERE id_paciente = ? AND id_doctor = ?";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "ssisssssii",
+        "ssissssssii",
         $nombre_completo,
         $nc,
         $edad,
@@ -342,11 +398,32 @@ if(
         $motivo_ingreso,
         $condicion_paciente,
         $diagnostico_medico,
+        $fotoPaciente,
         $id_paciente,
         $id_doctor
     );
 
-    $stmt->execute();
+    if (!$stmt->execute()) {
+        if ($rutaFotoNueva !== '' && is_file($rutaFotoNueva)) {
+            @unlink($rutaFotoNueva);
+        }
+
+        mostrarPantallaError(
+            'No pudimos guardar los cambios del paciente.',
+            'detalle_paciente.php?id=' . $id_paciente,
+            'No se pudo actualizar el paciente',
+            500
+        );
+    }
+
+    if ($rutaFotoNueva !== '') {
+        $fotoAnterior = basename((string)($pacienteAnterior['foto'] ?? ''));
+        $rutaFotoAnterior = __DIR__ . '/../img/' . $fotoAnterior;
+
+        if ($fotoAnterior !== '' && $fotoAnterior !== $fotoPaciente && is_file($rutaFotoAnterior)) {
+            @unlink($rutaFotoAnterior);
+        }
+    }
 
     if($pacienteAnterior){
         $condicionAnterior = trim((string)$pacienteAnterior['condicion_paciente']);
@@ -362,7 +439,8 @@ if(
             'fecha_ingreso' => $fecha_ingreso,
             'motivo_ingreso' => $motivo_ingreso,
             'condicion_paciente' => $condicion_paciente,
-            'diagnostico_medico' => $diagnostico_medico
+            'diagnostico_medico' => $diagnostico_medico,
+            'foto' => $fotoPaciente
         ];
 
         $huboCambios = false;
@@ -470,7 +548,7 @@ $resultNotas = $stmtNotas->get_result();
     <link rel="stylesheet" href="css/detalle_paciente.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../Css/dark-mode.css?v=<?php echo time(); ?>">
-  <script src="../dark-mode.js" defer></script>
+  <script src="../dark-mode.js?v=<?php echo time(); ?>" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_io%20%283%29/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io%20%283%29/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io%20%283%29/favicon-16x16.png">
@@ -499,20 +577,28 @@ $resultNotas = $stmtNotas->get_result();
         </div>
     </nav>
 
-    <form method="POST" id="editar" class="detalle-content">
+    <form method="POST" id="editar" class="detalle-content" enctype="multipart/form-data">
         <article class="detalle-patient-card">
-            <img src="../img/<?php echo htmlspecialchars($paciente['foto']); ?>" alt="Paciente">
+            <div class="patient-photo-editor">
+                <img id="patient-photo-preview" src="../img/<?php echo htmlspecialchars($paciente['foto']); ?>" alt="Paciente">
+                <input id="foto_paciente" class="patient-photo-input" type="file" name="foto_paciente" accept="image/jpeg,image/png,image/webp">
+                <label class="patient-photo-button" for="foto_paciente">
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3 7.2 5H4a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3h-3.2L15 3H9Zm3 14.5A5.5 5.5 0 1 1 12 6a5.5 5.5 0 0 1 0 11.5Zm0-2.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>
+                    Cambiar foto
+                </label>
+                <small id="patient-photo-name">JPG, PNG o WEBP · Máximo 5 MB</small>
+            </div>
 
             <label class="sr-only" for="nombre_completo">Nombre completo</label>
             <textarea id="nombre_completo" name="nombre_completo" class="patient-name-input" rows="2" required><?php echo htmlspecialchars($paciente['nombre_completo']); ?></textarea>
 
-            <label class="sr-only" for="nc">Nc</label>
+            <label class="sr-only" for="nc">NearCare ID</label>
             <div class="nc-pill">
-                <span>Nc</span>
+                <span>NearCare ID</span>
                 <input id="nc" type="text" name="nc" value="<?php echo htmlspecialchars($paciente['nc']); ?>" required>
             </div>
 
-            <div class="doctor-name"><?php echo htmlspecialchars($paciente['doctor_nombre']); ?></div>
+            <div class="doctor-name"><?php echo htmlspecialchars(nearcare_tratamiento_doctor($paciente['doctor_nombre']) . ' ' . $paciente['doctor_nombre']); ?></div>
         </article>
 
         <aside class="detalle-side-info">
@@ -711,6 +797,28 @@ condicionPaciente.addEventListener('change', function () {
     if (statusClass) {
         this.classList.add(statusClass);
     }
+});
+
+const patientPhotoInput = document.getElementById('foto_paciente');
+const patientPhotoPreview = document.getElementById('patient-photo-preview');
+const patientPhotoName = document.getElementById('patient-photo-name');
+let patientPhotoObjectUrl = '';
+
+patientPhotoInput.addEventListener('change', function () {
+    const file = this.files && this.files[0];
+
+    if (!file) {
+        patientPhotoName.textContent = 'JPG, PNG o WEBP · Máximo 5 MB';
+        return;
+    }
+
+    if (patientPhotoObjectUrl) {
+        URL.revokeObjectURL(patientPhotoObjectUrl);
+    }
+
+    patientPhotoObjectUrl = URL.createObjectURL(file);
+    patientPhotoPreview.src = patientPhotoObjectUrl;
+    patientPhotoName.textContent = file.name;
 });
 
 document.getElementById('editar').addEventListener('submit', function () {
