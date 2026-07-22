@@ -31,7 +31,7 @@ $saludo = nearcare_saludo($_SESSION['usuario'] ?? $_SESSION['registro_nombre'] ?
 
     <div class="left">
         <?php if ($isLoggedIn): ?>
-            <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+            <button class="menu-icon" type="button" aria-label="Abrir menú" aria-controls="sideMenu" aria-expanded="false">
                 &#9776;
             </button>
         <?php endif; ?>

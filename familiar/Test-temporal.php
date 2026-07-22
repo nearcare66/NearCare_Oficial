@@ -219,7 +219,7 @@ function conditionStatusClass($condition) {
         <div class="message-card">
           <?php echo e($mensaje); ?>
           <br>
-          <a href="registro2.php">Volver a ingresar el codigo</a>
+          <a href="registro2.php">Volver a ingresar el código</a>
         </div>
       <?php endif; ?>
     </section>

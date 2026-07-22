@@ -20,7 +20,7 @@
 <div class="container">
  
    <form action="doctor.php" method="POST">
-        <input type="password" name="codigo" placeholder="Codigo del doctor">
+        <input type="password" name="codigo" placeholder="Código del doctor">
  
         <button type="submit" class="submit-btn">
             Listo

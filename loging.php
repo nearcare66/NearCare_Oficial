@@ -14,7 +14,7 @@ exit;
   <title>NearCare Acceso</title>
   <link rel="stylesheet" href="Css/loging.css">
   <link rel="stylesheet" href="Css/session-menu.css">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
 </head>
 <body>
   <main class="page">

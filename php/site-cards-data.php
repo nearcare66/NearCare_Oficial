@@ -65,7 +65,7 @@ function siteCardSeedSection(mysqli $conn, string $pageKey, string $sectionKey, 
 siteCardSeedSection($conn, 'index', 'problems', [
     [
         'title' => 'Distancia',
-        'description' => 'La distancia fisica es un obstaculo para el cuidado y la atencion constante de tus familiares.',
+        'description' => 'La distancia física es un obstáculo para el cuidado y la atención constante de tus familiares.',
         'image_src' => 'img/Designer (19).png?v=2',
         'image_alt' => 'Icono de distancia',
     ],
@@ -76,23 +76,23 @@ siteCardSeedSection($conn, 'index', 'problems', [
         'image_alt' => 'Icono de falta de tiempo',
     ],
     [
-        'title' => 'Falta de informacion',
-        'description' => 'La falta de informacion clara puede generar preocupacion e incertidumbre.',
+        'title' => 'Falta de información',
+        'description' => 'La falta de información clara puede generar preocupación e incertidumbre.',
         'image_src' => 'img/Designer (21).png?v=2',
-        'image_alt' => 'Icono de falta de informacion',
+        'image_alt' => 'Ícono de falta de información',
     ],
 ]);
 
 siteCardSeedSection($conn, 'index', 'why', [
     [
         'title' => 'El problema',
-        'description' => 'Existe dificultad para acceder a atencion medica rapida y cercana.',
+        'description' => 'Existe dificultad para acceder a atención médica rápida y cercana.',
         'image_src' => 'img/Designer (22).png?v=2',
         'image_alt' => 'Icono del problema',
     ],
     [
         'title' => 'La solucion',
-        'description' => 'NearCare conecta pacientes y profesionales para mejorar la comunicacion y seguimiento.',
+        'description' => 'NearCare conecta pacientes y profesionales para mejorar la comunicación y el seguimiento.',
         'image_src' => 'img/Designer (23).png?v=2',
         'image_alt' => 'Icono de la solucion',
     ],
@@ -101,19 +101,19 @@ siteCardSeedSection($conn, 'index', 'why', [
 siteCardSeedSection($conn, 'about', 'info', [
     [
         'title' => 'Mision',
-        'description' => 'Brindar una plataforma moderna y accesible que ayude a mejorar la comunicacion medica, facilitando el cuidado y bienestar de las familias.',
+        'description' => 'Brindar una plataforma moderna y accesible que ayude a mejorar la comunicación médica, facilitando el cuidado y bienestar de las familias.',
         'image_src' => 'img/Designer (24).png',
         'image_alt' => 'Icono de mision',
     ],
     [
         'title' => 'Vision',
-        'description' => 'Convertirnos en una plataforma lider en salud digital, ofreciendo soluciones tecnologicas innovadoras que acerquen el cuidado medico a todas las personas.',
+        'description' => 'Convertirnos en una plataforma líder en salud digital, ofreciendo soluciones tecnológicas innovadoras que acerquen el cuidado médico a todas las personas.',
         'image_src' => 'img/Designer (25).png',
         'image_alt' => 'Icono de vision',
     ],
     [
         'title' => 'Correo',
-        'description' => 'Contactanos para soporte, dudas o informacion.',
+        'description' => 'Contáctanos para soporte, dudas o información.',
         'image_src' => 'img/Designer (26).png',
         'image_alt' => 'Icono de correo',
         'link_url' => 'https://mail.google.com/mail/?view=cm&fs=1&to=nearcare6@gmail.com',
@@ -121,7 +121,7 @@ siteCardSeedSection($conn, 'about', 'info', [
     ],
     [
         'title' => 'Instagram',
-        'description' => 'Siguenos para conocer noticias, actualizaciones y contenido sobre NearCare.',
+        'description' => 'Síguenos para conocer noticias, actualizaciones y contenido sobre NearCare.',
         'image_src' => 'img/Desugner (27).png',
         'image_alt' => 'Icono de Instagram',
         'link_url' => 'https://www.instagram.com/nearcare_?igsh=MTQyOHA0MTc0anZ0dw==',

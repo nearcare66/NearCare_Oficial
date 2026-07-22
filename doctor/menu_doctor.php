@@ -19,5 +19,5 @@ $currentDoctorPage = basename($_SERVER['PHP_SELF']);
     <hr>
 
     <a href="agregar_paciente.php" class="<?php echo $currentDoctorPage === 'agregar_paciente.php' ? 'active' : ''; ?>">Agregar paciente</a>
-    <a href="logout.php">Cerrar sesion</a>
+    <a href="logout.php">Cerrar sesión</a>
 </div>

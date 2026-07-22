@@ -96,7 +96,7 @@ if ($idPacienteSesion > 0) {
 
   <header class="navbar">
     <?php if ($isLoggedIn): ?>
-      <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+      <button class="menu-icon" type="button" aria-label="Abrir menú" aria-controls="sideMenu" aria-expanded="false">
         &#9776;
       </button>
     <?php endif; ?>
@@ -124,7 +124,7 @@ if ($idPacienteSesion > 0) {
       <div>
         <span class="section-kicker">Actualizaciones del paciente</span>
         <h1>Notificaciones</h1>
-        <p>Revisa los cambios recientes registrados por el equipo medico y mantente al dia con el seguimiento del paciente.</p>
+        <p>Revisa los cambios recientes registrados por el equipo médico y mantente al día con el seguimiento del paciente.</p>
       </div>
 
       <div class="updates-summary" aria-label="Total de notificaciones">
@@ -139,8 +139,8 @@ if ($idPacienteSesion > 0) {
       <div class="notification-card notification-empty">
         <div class="icon notification-icon">&#128276;</div>
         <div class="notification-text">
-          <h2>INGRESA EL CODIGO DEL PACIENTE</h2>
-          <p>Para ver actualizaciones primero debes entrar con el codigo Nc del paciente.</p>
+          <h2>INGRESA EL CÓDIGO DEL PACIENTE</h2>
+          <p>Para ver actualizaciones primero debes entrar con el código NC del paciente.</p>
         </div>
       </div>
       </div>
@@ -154,7 +154,7 @@ if ($idPacienteSesion > 0) {
 
           <div class="notification-text">
             <h2>
-              ESTADO DE ACTUALIZACION DEL PACIENTE, <?php echo e(mayusculas($actualizacion['paciente_nombre'])); ?>
+              ESTADO DE ACTUALIZACIÓN DEL PACIENTE, <?php echo e(mayusculas($actualizacion['paciente_nombre'])); ?>
             </h2>
 
             <p>

@@ -42,6 +42,7 @@ $initial = strtoupper(substr(trim($doctor['nombre']), 0, 1) ?: 'D');
   <title>Perfil del doctor</title>
   <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../Css/perfil.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../Css/botones-globales.css?v=<?php echo time(); ?>">
     <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_io%20%283%29/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io%20%283%29/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io%20%283%29/favicon-16x16.png">
@@ -53,7 +54,7 @@ $initial = strtoupper(substr(trim($doctor['nombre']), 0, 1) ?: 'D');
 
   <nav class="navbar">
     <div class="nav-left">
-      <button class="menu-icon" type="button" onclick="abrirMenu()" aria-label="Abrir menu">☰</button>
+      <button class="menu-icon" type="button" onclick="abrirMenu()" aria-label="Abrir menú">☰</button>
       <img class="brand" src="../img/Designer (16).png" alt="NearCare">
     </div>
 
@@ -85,7 +86,7 @@ $initial = strtoupper(substr(trim($doctor['nombre']), 0, 1) ?: 'D');
           <strong><?php echo e($doctor['especialidad']); ?></strong>
         </div>
         <div class="profile-field">
-          <span>Telefono</span>
+          <span>Teléfono</span>
           <strong><?php echo e($doctor['telefono']); ?></strong>
         </div>
         <p class="profile-note">Estos son los datos visibles de tu cuenta de doctor.</p>

@@ -24,7 +24,7 @@ $whyCards = getSiteCards('index', 'why');
 
   <link rel="stylesheet" href="Css/styless.css?v=15">
   <link rel="stylesheet" href="Css/session-menu.css">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="Css/dark-mode.css?v=1">
   <script src="dark-mode.js" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io%20%283%29/apple-touch-icon.png">
@@ -38,7 +38,7 @@ $whyCards = getSiteCards('index', 'why');
   <header class="navbar">
 
     <?php if ($isLoggedIn): ?>
-      <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+      <button class="menu-icon" type="button" aria-label="Abrir menú" aria-controls="sideMenu" aria-expanded="false">
         &#9776;
       </button>
     <?php endif; ?>
@@ -152,7 +152,7 @@ $whyCards = getSiteCards('index', 'why');
         <h3>Distancia</h3>
 
         <p>
-          La distancia física es un obstaculo
+          La distancia física es un obstáculo
           para el cuidado y la atención constante
           de tus familiares.
         </p>
@@ -236,7 +236,7 @@ $whyCards = getSiteCards('index', 'why');
 
         <p>
           Existe dificultad para acceder
-          a atención medica rápida y cercana.
+          a atención médica rápida y cercana.
         </p>
 
       </div>

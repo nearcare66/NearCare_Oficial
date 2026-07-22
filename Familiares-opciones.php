@@ -9,7 +9,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
     <title>NearCare</title>
     <link rel="stylesheet" href="Css/styles4.css">
     <link rel="stylesheet" href="Css/session-menu.css">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=1">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -22,7 +22,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
 
     <div class="left">
         <?php if ($isLoggedIn): ?>
-            <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+            <button class="menu-icon" type="button" aria-label="Abrir menú" aria-controls="sideMenu" aria-expanded="false">
                 &#9776;
             </button>
         <?php endif; ?>

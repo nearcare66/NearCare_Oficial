@@ -44,7 +44,7 @@
         <hr>
         <a href="<?php echo $basePath; ?>index.php" class="<?php echo $isInicio ? 'active' : ''; ?>">Inicio</a>
         <a href="<?php echo $basePath; ?>sobre-nosotros.php" class="<?php echo $isSobre ? 'active' : ''; ?>">Sobre nosotros</a>
-        <a href="<?php echo $basePath; ?>php/logout.php">Cerrar sesion</a>
+        <a href="<?php echo $basePath; ?>php/logout.php">Cerrar sesión</a>
       <?php else: ?>
         <img class="side-menu-logo" src="<?php echo $basePath; ?>img/Designer (16).png" alt="NearCare">
         <a href="<?php echo $basePath; ?>index.php" class="<?php echo $isInicio ? 'active' : ''; ?>">Inicio</a>

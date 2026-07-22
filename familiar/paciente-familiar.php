@@ -134,7 +134,7 @@ function conditionStatusClass($condition) {
 
         <aside class="side-info">
           <div class="field-group">
-            <div class="field-label">Condicion del paciente</div>
+            <div class="field-label">Condición del paciente</div>
             <div class="field-value condition-status <?php echo conditionStatusClass($paciente['condicion_paciente']); ?>"><?php echo e($paciente['condicion_paciente']); ?></div>
           </div>
 

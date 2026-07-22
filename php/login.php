@@ -11,7 +11,7 @@ $_SESSION['familiar_login_nombre'] = $nombre;
 $_SESSION['familiar_login_correo'] = $correo;
 
 if ($nombre === '' || $correo === '' || $codigo === '') {
-    $_SESSION['familiar_login_error'] = "Nombre, correo o codigo de familiar incorrectos.";
+    $_SESSION['familiar_login_error'] = "Nombre, correo o código de familiar incorrectos.";
     header("Location: ../loging.php");
     exit();
 }
@@ -19,7 +19,13 @@ if ($nombre === '' || $correo === '' || $codigo === '') {
 $stmt = $conexion->prepare("SELECT id, nombre, correo FROM usuarios_nuevos WHERE nombre = ? AND correo = ? AND codigo = ?");
 
 if (!$stmt) {
-    die("Error en prepare: " . $conexion->error);
+    error_log('Error al preparar acceso familiar: ' . $conexion->error);
+    mostrarPantallaError(
+        'No pudimos procesar el inicio de sesión en este momento.',
+        '../loging.php',
+        'No se pudo iniciar sesión',
+        500
+    );
 }
 
 $stmt->bind_param("sss", $nombre, $correo, $codigo);
@@ -40,7 +46,7 @@ if ($resultado->num_rows > 0) {
     exit();
 }
 
-$_SESSION['familiar_login_error'] = "Nombre, correo o codigo de familiar incorrectos.";
+$_SESSION['familiar_login_error'] = "Nombre, correo o código de familiar incorrectos.";
 header("Location: ../loging.php");
 exit();
 ?>

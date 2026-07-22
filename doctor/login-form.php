@@ -58,7 +58,7 @@ unset($_SESSION['doctor_login_error'], $_SESSION['doctor_login_correo']);
 
     <div class="form-container login-container">
 
-        <h2>INICIAR SESION</h2>
+        <h2>INICIAR SESIÓN</h2>
 
         <div class="content-row">
 
@@ -68,16 +68,16 @@ unset($_SESSION['doctor_login_error'], $_SESSION['doctor_login_correo']);
 
             <form action="login.php" method="POST" class="register-form login-form">
 
-                <input type="email" name="correo" placeholder="Correo electronico" value="<?php echo htmlspecialchars($loginCorreo); ?>" required>
+                <input type="email" name="correo" placeholder="Correo electrónico" value="<?php echo htmlspecialchars($loginCorreo); ?>" required>
 
-                <input type="password" name="password" placeholder="Contrasena" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
 
                 <p>
                     No tienes cuenta?
-                    <a href="register-form.php">Registrate</a>
+                    <a href="register-form.php">Regístrate</a>
                 </p>
 
-                <button type="submit">Iniciar sesion</button>
+                <button type="submit">Iniciar sesión</button>
 
                 <?php if ($loginError !== ''): ?>
                     <div class="form-error" role="alert"><?php echo htmlspecialchars($loginError); ?></div>

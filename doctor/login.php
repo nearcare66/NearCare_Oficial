@@ -18,7 +18,7 @@ $password = $_POST['password'] ?? '';
 $_SESSION['doctor_login_correo'] = $correo;
 
 if ($correo === '' || $password === '') {
-    $_SESSION['doctor_login_error'] = "Correo o contrasena de doctor incorrectos.";
+    $_SESSION['doctor_login_error'] = "Correo o contraseña de doctor incorrectos.";
     header("Location: login-form.php");
     exit();
 }
@@ -26,7 +26,13 @@ if ($correo === '' || $password === '') {
 $stmt = $conn->prepare("SELECT id_doctor, nombre, password FROM doctores WHERE correo = ?");
 
 if (!$stmt) {
-    die("Error en prepare: " . $conn->error);
+    error_log('Error al preparar acceso de doctor: ' . $conn->error);
+    mostrarPantallaError(
+        'No pudimos procesar el inicio de sesión en este momento.',
+        'login-form.php',
+        'No se pudo iniciar sesión',
+        500
+    );
 }
 
 $stmt->bind_param("s", $correo);
@@ -46,7 +52,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-$_SESSION['doctor_login_error'] = "Correo o contrasena de doctor incorrectos.";
+$_SESSION['doctor_login_error'] = "Correo o contraseña de doctor incorrectos.";
 header("Location: login-form.php");
 exit();
 ?>

@@ -123,7 +123,7 @@ if(
             $conn,
             $id_paciente,
             $id_doctor,
-            "Doctor agrego un nuevo audio medico para el paciente."
+            "El doctor agregó un nuevo audio médico para el paciente."
         );
     }
     $stmt->close();

@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
 error_reporting(E_ALL);
 
+require_once __DIR__ . '/pantalla_error.php';
 require_once __DIR__ . '/conexion.php';
 
 if (!isset($_SESSION['id_doctor'])) {
@@ -13,26 +14,25 @@ if (!isset($_SESSION['id_doctor'])) {
 }
 
 if (!isset($conn) || !($conn instanceof mysqli)) {
-    die('Error: la conexión a la base de datos no está disponible. Revisa conexion.php.');
+    mostrarPantallaError(
+        'No pudimos conectarnos al sistema en este momento.',
+        'pacientes.php',
+        'Servicio temporalmente no disponible'
+    );
 }
 
 $id_doctor = (int) $_SESSION['id_doctor'];
 $mensajeError = '';
 
-
-    $nombre_completo = $_POST['nombre_completo'];
-    $nc = $_POST['nc'];
-    $edad = $_POST['edad'];
-    $genero = $_POST['genero'];
-    $fecha_ingreso = $_POST['fecha_ingreso'];
-    $motivo_ingreso = $_POST['motivo_ingreso'];
-    $condiciones_permitidas = ['En observación', 'Grave', 'Estable'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nombre_completo = trim($_POST['nombre_completo'] ?? '');
+    $nc = trim($_POST['nc'] ?? '');
+    $edad = filter_var($_POST['edad'] ?? null, FILTER_VALIDATE_INT);
+    $genero = trim($_POST['genero'] ?? '');
+    $fecha_ingreso = trim($_POST['fecha_ingreso'] ?? '');
+    $motivo_ingreso = trim($_POST['motivo_ingreso'] ?? '');
     $condicion_paciente = trim($_POST['condicion_paciente'] ?? '');
-
-    if(!in_array($condicion_paciente, $condiciones_permitidas, true)){
-        die("Condición del paciente no válida.");
-    }
-    $diagnostico_medico = $_POST['diagnostico_medico'];
+    $diagnostico_medico = trim($_POST['diagnostico_medico'] ?? '');
 
     $generosPermitidos = ['Femenino', 'Masculino'];
     $condicionesPermitidas = ['Grave', 'Estable', 'En observación'];
@@ -158,7 +158,8 @@ $mensajeError = '';
                 unlink($rutaDestino);
             }
 
-            $mensajeError = 'Error al preparar la consulta: ' . $conn->error;
+            error_log('Error al preparar paciente: ' . $conn->error);
+            $mensajeError = 'No pudimos preparar el registro del paciente. Inténtalo nuevamente.';
         } else {
             $stmt->bind_param(
                 'ississssss',
@@ -185,9 +186,18 @@ $mensajeError = '';
                 unlink($rutaDestino);
             }
 
-            $mensajeError = 'Error al agregar el paciente: ' . $stmt->error;
+            error_log('Error al agregar paciente: ' . $stmt->error);
+            $mensajeError = 'No pudimos guardar el paciente. Verifica los datos e inténtalo nuevamente.';
             $stmt->close();
         }
+    }
+
+    if ($mensajeError !== '') {
+        mostrarPantallaError(
+            $mensajeError,
+            'agregar_paciente.php',
+            'No se pudo guardar el paciente'
+        );
     }
 }
 ?>

@@ -15,7 +15,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="Css/styless.css?v=20">
-  <link rel="stylesheet" href="Css/botones-globales.css?v=2">
+  <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="Css/styless.css?v=5">
   <link rel="stylesheet" href="Css/session-menu.css">
 
@@ -144,7 +144,7 @@ $isLoggedIn = isset($_SESSION['usuario_id']);
       <div class="info-card">
 
         <div class="icon">
-          <img src="img/Designer (27).png" alt="Instagram">
+          <img src="img/Desugner (27).png" alt="Instagram">
         </div>
 
         <div class="card-content">

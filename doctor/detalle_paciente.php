@@ -147,7 +147,7 @@ if(
                 $conn,
                 $id_paciente,
                 $id_doctor,
-                "Doctor agrego una nueva nota medica para el paciente."
+                "El doctor agregó una nueva nota médica para el paciente."
             );
         }
         $stmt->close();
@@ -204,7 +204,7 @@ if(
                     $conn,
                     $id_paciente,
                     $id_doctor,
-                    "Doctor elimino un audio medico del paciente."
+                    "El doctor eliminó un audio médico del paciente."
                 );
             }
         }
@@ -237,7 +237,7 @@ if(
                 $conn,
                 $id_paciente,
                 $id_doctor,
-                "Doctor elimino una nota medica del paciente."
+                "El doctor eliminó una nota médica del paciente."
             );
         }
     }
@@ -272,7 +272,7 @@ if(
                 $conn,
                 $id_paciente,
                 $id_doctor,
-                "Doctor actualizo una nota medica del paciente."
+                "El doctor actualizó una nota médica del paciente."
             );
         }
     }
@@ -312,7 +312,11 @@ if(
     $condicion_paciente = trim($_POST['condicion_paciente'] ?? '');
 
     if(!in_array($condicion_paciente, $condiciones_permitidas, true)){
-        die("Condición del paciente no válida.");
+        mostrarPantallaError(
+            'Debe seleccionar una condición válida para el paciente.',
+            'detalle_paciente.php?id=' . $id_paciente,
+            'No se pudieron guardar los cambios'
+        );
     }
     $diagnostico_medico = $_POST['diagnostico_medico'];
 
@@ -371,9 +375,9 @@ if(
 
         if($huboCambios){
             if(strcasecmp($condicionAnterior, $condicionNueva) !== 0){
-                $mensaje = "Doctor " . $doctorNombre . " actualizo a " . $pacienteNombre . " de " . $condicionAnterior . " a " . $condicionNueva . ".";
+                $mensaje = "El doctor " . $doctorNombre . " actualizó a " . $pacienteNombre . " de " . $condicionAnterior . " a " . $condicionNueva . ".";
             }else{
-                $mensaje = "Doctor " . $doctorNombre . " actualizo la informacion de " . $pacienteNombre . ".";
+                $mensaje = "El doctor " . $doctorNombre . " actualizó la información de " . $pacienteNombre . ".";
             }
 
             $sqlInsertNotificacion = "INSERT INTO actualizaciones_pacientes
@@ -523,7 +527,7 @@ $resultNotas = $stmtNotas->get_result();
             </div>
 
             <div class="editable-field">
-                <label for="genero">Genero</label>
+                <label for="genero">Género</label>
                 <input id="genero" type="text" name="genero" value="<?php echo htmlspecialchars($paciente['genero']); ?>" required>
             </div>
 
@@ -534,11 +538,11 @@ $resultNotas = $stmtNotas->get_result();
                 <div class="section-label">Fecha de ingreso:</div>
                 <input type="hidden" name="fecha_ingreso" id="fecha_ingreso" value="<?php echo htmlspecialchars($paciente['fecha_ingreso']); ?>">
                 <div class="date-fields">
-                    <input type="number" id="fecha_dia" value="<?php echo htmlspecialchars($diaIngreso); ?>" min="1" max="31" aria-label="Dia de ingreso" required>
+                    <input type="number" id="fecha_dia" value="<?php echo htmlspecialchars($diaIngreso); ?>" min="1" max="31" aria-label="Día de ingreso" required>
                     <span>/</span>
                     <input type="number" id="fecha_mes" value="<?php echo htmlspecialchars($mesIngreso); ?>" min="1" max="12" aria-label="Mes de ingreso" required>
                     <span>/</span>
-                    <input type="number" id="fecha_anio" value="<?php echo htmlspecialchars($anioIngreso); ?>" min="1900" max="2100" aria-label="Anio de ingreso" required>
+                    <input type="number" id="fecha_anio" value="<?php echo htmlspecialchars($anioIngreso); ?>" min="1900" max="2100" aria-label="Año de ingreso" required>
                 </div>
             </article>
 
@@ -549,18 +553,18 @@ $resultNotas = $stmtNotas->get_result();
         </div>
 
         <article class="detalle-diagnosis-card">
-            <label for="diagnostico_medico" class="section-label">diagnostico:</label>
+            <label for="diagnostico_medico" class="section-label">Diagnóstico:</label>
             <textarea id="diagnostico_medico" name="diagnostico_medico" required><?php echo htmlspecialchars($paciente['diagnostico_medico']); ?></textarea>
         </article>
 
         <article class="detalle-eventos-card">
-            <h3>Agregar Evento</h3>
+            <h3>Agregar evento</h3>
 
-            <input type="text" name="titulo_evento" placeholder="Titulo">
+            <input type="text" name="titulo_evento" placeholder="Título">
             <input type="date" name="fecha_evento">
             <textarea name="descripcion_evento"></textarea>
 
-            <button type="submit" name="crear_evento">Guardar Evento</button>
+            <button type="submit" name="crear_evento">Guardar evento</button>
         </article>
 
         <article class="lista-eventos-doctor">
@@ -576,16 +580,16 @@ $resultNotas = $stmtNotas->get_result();
         </article>
 
         <article class="notas-paciente-card">
-            <h3>Notas Medicas</h3>
+            <h3>Notas médicas</h3>
 
             <h4 class="notas-subtitle">Nota escrita</h4>
-            <textarea name="nota_texto" placeholder="Agregar observacion medica..."></textarea>
+            <textarea name="nota_texto" placeholder="Agregar observación médica..."></textarea>
 
             <button type="submit" name="guardar_nota" class="btn-guardar-audio btn-guardar-nota">
-                Guardar Nota
+                Guardar nota
             </button>
 
-            <h4 class="notas-subtitle">Audio medico</h4>
+            <h4 class="notas-subtitle">Audio médico</h4>
             <div class="audio-controls">
                 <button type="button" id="btnGrabar">Grabar Audio</button>
                 <button type="button" id="btnDetener">Detener</button>
@@ -620,7 +624,7 @@ $resultNotas = $stmtNotas->get_result();
                                 value="<?= (int)$nota['id_nota']; ?>"
                                 class="btn-editar-nota"
                                 formnovalidate>
-                                Guardar edicion
+                                Guardar edición
                             </button>
 
                             <button

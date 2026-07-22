@@ -63,11 +63,11 @@ if (isset($_SESSION['id_doctor'])) {
 
             <form action="register.php" method="POST" class="register-form">
                 <input type="text" name="nombre" placeholder="Nombre completo" required>
-                <input type="email" name="correo" placeholder="Correo electronico" required>
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
                 <input type="text" name="especialidad" placeholder="Especialidad" required>
-                <input type="text" name="telefono" placeholder="Telefono">
-                <input type="password" name="password" placeholder="Contrasena" required>
-                <input type="password" name="confirmar_password" placeholder="Confirmar contrasena" required>
+                <input type="text" name="telefono" placeholder="Teléfono">
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="confirmar_password" placeholder="Confirmar contraseña" required>
 
                 <button type="submit">Registrarme</button>
             </form>

@@ -12,7 +12,7 @@ $mensaje = '';
 $conn->set_charset("utf8mb4");
 
 if ($nc === '') {
-    $mensaje = 'Ingresa el codigo Nc del paciente.';
+    $mensaje = 'Ingresa el código NC del paciente.';
 
 } else {
     $sql = "SELECT p.*, d.nombre AS doctor_nombre
@@ -42,7 +42,7 @@ if ($nc === '') {
     }
 
     if (!$paciente) {
-        $mensaje = 'No se encontro un paciente con ese codigo Nc.';
+        $mensaje = 'No se encontró un paciente con ese código NC.';
         unset($_SESSION['paciente_id'], $_SESSION['paciente_nc'], $_SESSION['paciente_nombre']);
     } else {
         $_SESSION['paciente_id'] = (int)$paciente['id_paciente'];

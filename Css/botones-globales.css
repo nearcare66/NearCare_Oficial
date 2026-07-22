@@ -33,6 +33,36 @@ nav a:hover,
   color: #ffffff !important;
 }
 
+/* Barra de navegación unificada en todas las pantallas de NearCare. */
+.navbar,
+header.navbar,
+nav.navbar,
+.doctor-detail-page .detalle-navbar,
+.family-detail-page .navbar,
+.profile-page .navbar {
+  width: 100% !important;
+  height: 90px !important;
+  min-height: 90px !important;
+  max-height: 90px !important;
+  background: #7fc1da !important;
+  background-color: #7fc1da !important;
+}
+
+.navbar .logo img,
+.navbar img.logo,
+.navbar .brand,
+.navbar .logo-container img,
+.doctor-detail-page .navbar .logo img,
+.family-detail-page .navbar .brand,
+.profile-page .navbar .brand {
+  width: 140px !important;
+  height: auto !important;
+  max-width: 140px !important;
+  max-height: 74px !important;
+  border-radius: 0 !important;
+  object-fit: contain !important;
+}
+
 button:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover,

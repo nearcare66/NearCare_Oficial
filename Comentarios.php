@@ -28,7 +28,7 @@ $saludo = nearcare_saludo($_SESSION['usuario'] ?? $_SESSION['registro_nombre'] ?
   <main>
     <header class="navbar">
       <?php if ($isLoggedIn): ?>
-        <button class="menu-icon" type="button" aria-label="Abrir menu" aria-controls="sideMenu" aria-expanded="false">
+        <button class="menu-icon" type="button" aria-label="Abrir menú" aria-controls="sideMenu" aria-expanded="false">
           &#9776;
         </button>
       <?php endif; ?>
@@ -111,7 +111,7 @@ $saludo = nearcare_saludo($_SESSION['usuario'] ?? $_SESSION['registro_nombre'] ?
           }, 3000);
         })
         .catch((error) => {
-          alert("Error de conexion:\n" + error);
+          alert("Error de conexión:\n" + error);
         });
     });
   </script>
