@@ -25,7 +25,7 @@ $whyCards = getSiteCards('index', 'why');
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Css/styless.css?v=15">
+  <link rel="stylesheet" href="Css/styless.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="Css/session-menu.css">
   <link rel="stylesheet" href="Css/botones-globales.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="Css/dark-mode.css?v=<?php echo time(); ?>">
@@ -112,12 +112,12 @@ $whyCards = getSiteCards('index', 'why');
 
     <div class="video-card">
 
-      <div class="video-image">
+      <a class="video-image" href="https://www.youtube.com/watch?v=UzzyzeAI9uM&amp;t=1s" target="_blank" rel="noopener noreferrer" aria-label="Ver el video de cómo usar NearCare en YouTube">
         <div class="play-btn">&#9654;</div>
-      </div>
+      </a>
 
       <div class="video-info">
-        <h3>Mira como funciona NearCare</h3>
+        <h3>Mira cómo funciona NearCare</h3>
         <p>Video de presentación</p>
         <span>1:35 min</span>
       </div>

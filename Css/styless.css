@@ -164,6 +164,14 @@ nav a:hover{
   display:flex;
   justify-content:center;
   align-items:center;
+  color:#0d3a7a;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.video-image:focus-visible{
+  outline:4px solid #1e6ade;
+  outline-offset:-4px;
 }
 
 .play-btn{
